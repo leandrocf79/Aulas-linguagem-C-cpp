@@ -1,6 +1,5 @@
 #include <stdio.h>
  
-
 int main(int argc, char** argv) {
 int val;
 
@@ -9,9 +8,9 @@ do{
 printf("[1] Amora, [2] Morango, [3] Pessego, [4] Manga, [5] Abacaxi\n\n");
 printf("\nDigite um numero para o sabor e pressione Enter: ");
 scanf("%d", &val);
-	}	while((val<1)||(val>5));	
-	
-	
+}	
+while((val<1)||(val>5));	
+
 switch (val){
 	case 1:
 		printf("\nVoce escolheu: Amora\n");
