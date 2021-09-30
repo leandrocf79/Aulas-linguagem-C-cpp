@@ -8,7 +8,7 @@ char palavra[40];
 int i;
 
 printf("\tCONVERTER TEXTO PARA MAIUSCULO\n\n");
-printf("Digite uma palavra em minusculo: ", palavra);
+printf("Digite uma palavra em minusculo: ");
 gets(palavra);
 
 //converter para maiusculo
@@ -16,8 +16,8 @@ for(i=0; palavra[i]!= ' '; i++)
 palavra[i] = toupper(palavra[i]);
 printf("\n\nPalavra convertida: %s \n\n", palavra);
 
-//system("PAUSE");
+//system("pause");
 getchar();
 
-return 0;
+return EXIT_SUCCESS;
 }
