@@ -15,7 +15,7 @@ float calcularmassa(float a, float b){
 int main(int argc, char** argv) {
 	
 	float a=0, b=0, resultado=0;
-	
+	printf("\tCALCULAR MASSA\n\n");
 	printf("Entre com os 2 valores: ");
 	scanf("%f %f", &a, &b);
 	resultado=calcularmassa(a, b);
