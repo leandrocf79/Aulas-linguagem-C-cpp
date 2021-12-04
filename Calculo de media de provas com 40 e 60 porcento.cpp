@@ -31,15 +31,15 @@ std::cout<<"Pontos extras na nota final: ";
 std::cin>>pExtra;
 std::cout<<std::endl;
 
-/* o calculo da média e resultado tem que valer 40% da nota final de 0 a 10,  
+/* o calculo da mÃ©dia e resultado tem que valer 40% da nota final de 0 a 10,  
 entao foi feita diretamente para o resultado desejado dividindo apenas por 10.
 
-		OBSERVAÇÃO: exemplo, se fossem 5 avaliativas ou os pontos extras colocados na nota avaliativa:
+		OBSERVAÃ‡ÃƒO: exemplo, se fossem 5 avaliativas ou os pontos extras colocados na nota avaliativa:
 notaAva=(n1+n2+n3+n4+n5)/5;
 notaAva=(notaAva*0.4);
 
 
-		A ideia foi abstrair e deixar o processamento mais rápido!!
+		A ideia foi abstrair e deixar o processamento mais rÃ¡pido!!
 */
 mediaAva=(ava1+ava2+ava3+ava4)/10;
 
@@ -58,9 +58,9 @@ std::cout<<"___________________________________________________________"<<std::e
 std::cout<<"\n\nSua nota final desta materia foi: " <<notaFinal<<std::endl;
 }
 
-// Exibir se passou ou não 
+// Exibir se passou ou nÃ£o 
 
-if (notaFinal>5){
+if (notaFinal>=5){
 std::cout<<"\n\n\tParabens! Voce esta aprovado nesta materia.\n\n\n";
 }
 else{
