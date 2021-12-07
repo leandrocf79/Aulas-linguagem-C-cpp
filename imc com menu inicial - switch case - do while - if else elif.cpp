@@ -53,7 +53,7 @@ do{ // Cria o loop para a solicitacao se deseja repetir operacao
 	std::cout<<"___________________________________________";
 } //chave do DO
 
-while (resposta=='s' || resposta=='S' || resposta==2); // Aqui vai fazer looping para o DO
+while (resposta=='s' || resposta=='S' || resposta==1); // Aqui vai fazer looping para o DO
 
 //system("PAUSE");
 
