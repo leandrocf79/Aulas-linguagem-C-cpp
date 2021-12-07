@@ -49,9 +49,7 @@ do{ // Cria o loop para a solicitacao se deseja repetir operacao
 	else
 	std::cout<<"\n\t\tObesidade grau III, tambem chamada de morbida. \n\n\t\t***Altamente indicada ajuda medica.\n\n";
 	
-	// Variavel para fazer o loop se houver calculo anterior
-
-		
+			
 	case 2:
 	break;
 } // chave do switch
