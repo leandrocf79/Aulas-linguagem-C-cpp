@@ -44,16 +44,18 @@ do{ // Cria o loop para a solicitacao se deseja repetir operacao
 	else
 	std::cout<<"\n\t\tObesidade grau III, tambem chamada de morbida. \n\n\t\t***Altamente indicada ajuda medica.\n\n";
 	
-			
+	// Variavel para fazer o loop se houver calculo anterior
+
+		
 	case 2:
 	break;
 } // chave do switch
 	std::cout<<"\n\n\tDeseja voltar ao menu inicial?\n\n\tDigite S para sim ou N para nao: ";
-	std::cin>>resposta; // Variavel para fazer o loop 
+	std::cin>>resposta;
 	std::cout<<"___________________________________________";
 } //chave do DO
 
-while (resposta=='s' || resposta=='S' || resposta=='1'); // Aqui vai fazer looping para o DO
+while (resposta=='s' || resposta=='S' || resposta==2); // Aqui vai fazer looping para o DO
 
 //system("PAUSE");
 
