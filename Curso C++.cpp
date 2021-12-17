@@ -3,10 +3,12 @@
 
                            ********** OBSERVAÇÃO***********
 
-O conteúdo disponibilizado aqui serve para ajudar na hora do trabalho,portanto, 
+	O conteúdo disponibilizado aqui serve para ajudar na hora do estudo, portanto, 
 este não se trata de um arquivo executável.
-Será atualizado constantemente e por isso pode apresentar desorganização temporária.
+	Será atualizado constantemente.
 *************************************************************************************
+CUIDADO ao usar o "using namespace std;" podem haver conflitos com utilização de comandos
+
 
 //ACENTUAÇÃO
 
@@ -22,9 +24,7 @@ int main() {
 
 
 
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
+
 #include <iomanip>
 
 // Comentario de uma linha
@@ -1312,3 +1312,862 @@ int main()
 
 
 
+#include <iostream>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int escolha = 0;
+	do // as instruções abaixo serão executadas pelo menos uma vez!
+	{
+		std::cout << "****Tickets Cinema****" << std::endl;
+		std::cout << "\n1 - Para Meia Entrada\n";
+		std::cout << "\n2 - Para Inteira\n";
+		std::cout << "\n3 - Sair";
+		std::cout << "\nEscolha sua opção: ";
+		std::cin >> escolha;
+
+		switch (escolha)
+		{
+		case 1: std::cout << "\nTicket Meia Entrada Comprada\n";
+				break;
+		case 2: std::cout << "\nTicket Inteira Comprado\n";
+				break;	
+		case 3: std::cout << "\nSaindo Menu Tickets...\n";
+				break;
+		default: std::cout << "\nOpção Inválida!!!\n";
+		}
+
+	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois você está solicitando que fique em loop até que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
+	system("PAUSE");
+	return 0;
+}
+
+
+
+
+***** ATENÇÃO PARA O USO DO FOR
+    SEQUENCIA CORRETA
+for ( 1º ; 2º ; 4º ){
+  3º instruções
+}
+
+for (int n=0; n<10; n++){
+	
+}
+***
+int n=0;  1º
+while(n<10)  2º
+{ instruções   3º
+n++;             4º
+}
+***
+#include <iostream>
+
+int main()
+{
+	int soma = 0;
+	for (int num = 1; num <= 100; num++)
+	{
+		soma = soma + num;
+	}
+	std::cout << "\nA soma dos numeros de 1 a 100: " << soma << "\n";
+	system("PAUSE");
+	return 0;
+}
+
+
+Gerando Números Aleatórios com rand() e for
+Em relação a número aleatórios você pode usar desta forma
+
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+	srand((unsigned)time(0));
+	int randomNumber = rand();
+	cout << randomNumber << endl;
+}
+Você pode fazer o C ++ gerar números aleatórios a partir de um intervalo exclusivo usando o %operador de módulo. Este operador permite definir o valor máximo que pode ser gerado. O exemplo a seguir mostra como você pode retornar um número aleatório entre 1 e 35 :
+
+
+
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+    srand((unsigned)time(0));
+    int randomNumber;
+    for (int index = 0; index < 10; index++) {
+        randomNumber = (rand() % 35) + 1;
+        cout << randomNumber << endl;
+    }
+}
+
+
+*********************
+
+FUNÇÕES
+
+Sempre com parenteses, exemplo:  void número()
+lembrando que números são argumentos e variaveis deles são
+os parâmetros da função, exemplo, o num1 e num2: float soma(num1+num2){
+}
+*********************
+#include <iostream>
+
+// O que a função vai retornar?
+//tipo de retorno da função
+int SomaAUmNumero(int Numero, int NumeroASerSomado)
+{
+	return Numero + NumeroASerSomado;
+}
+int main()
+{
+	int Numero, NumeroASerSomado;
+	std::cout << "Digite um numero: " << "\n";
+	std::cin >> Numero;
+	std::cout << "Digite o numero a ser somado: " << "\n";
+	std::cin >> NumeroASerSomado;
+	std::cout << "A soma deste numero: " << Numero << " Com o Numero: " << NumeroASerSomado << " Sera: " << SomaAUmNumero(Numero, NumeroASerSomado);// para chaamar a função não por int aqui nessa parte
+	std::cout << std::endl;
+	system("PAUSE");
+	return 0;
+}
+
+**************
+
+
+
+
+#include <iostream>
+
+// O que a função vai retornar?
+//tipo de retorno da função
+int SomaAUmNumero(int Numero, int NumeroASerSomado)
+{
+	return Numero + NumeroASerSomado;
+}
+
+void Mensagem()
+{
+	std::cout << "\nMensagem de Marte... Chegamos bem...\n";
+	return; // por causa desse return o próximo comando jamais será executado.
+	std::cout << "\nMensagem de Marte... Chegamos bem 2...\n";
+	return;
+}
+
+
+int main()
+{
+	int Numero, NumeroASerSomado, RetornoDaFuncao;
+	Mensagem();
+	std::cout << "Digite um numero: " << "\n";
+	std::cin >> Numero;
+	std::cout << "Digite o numero a ser somado: " << "\n";
+	std::cin >> NumeroASerSomado;
+	std::cout << "A soma deste numero: " << Numero << " Com o Numero: " << NumeroASerSomado << " Sera: " << SomaAUmNumero(Numero, NumeroASerSomado);
+	std::cout << std::endl;
+	RetornoDaFuncao = SomaAUmNumero(200, -500);
+	std::cout << std::endl;
+	std::cout << SomaAUmNumero(Numero, SomaAUmNumero(150, 1400));
+	std::cout << std::endl;
+	std::cout << "\nSoma de 200 com -500: " << RetornoDaFuncao;
+	std::cout << std::endl;
+	system("PAUSE");
+	return 0;
+}
+
+
+*************************************
+#include <iostream>
+
+//Podemos informar ao compilador que a função existe
+//e que iremos declarar ela posteriormente
+// isso é feito através dos prótipos das funções
+//Coloque apenas o cabeçalho da função terminado com ;
+float soma(float num1, float num2);
+
+//main já é uma função
+//observe o tipo de retorno int
+// o nome é main e ela não recebe parâmetos neste exemplo (podem existir argumentos de linha de comando que serão enviados a dois parâmetros da função main
+
+int main()
+{
+	//a execução do programa é realizada de cima para baixo, desta forma o compilador ainda não sabe da existência da função soma. Antes a declaração da função estava em cima e assim o compilador já sabia onde estava a declação da função
+	//Agora a declaração está embaixo e ocorre erro, pois o compilador não sabe ainda quem é e onde está declarada a função soma.
+	//tudo isso porque é TOP-DOWN
+	std::cout << soma(100, 500) << "\n";
+	system("PAUSE");
+	return 0;
+}
+    ***** se colocar tuda a função abaixo dará erro a menos que coloque a parte inicial la em cima.
+    Sedo assim, se possivel ja deixr tudo acima.
+float soma(float num1, float num2)
+{
+	return (num1 + num2);
+}
+
+******* ---->     Sedo assim, se possivel ja deixar tudo acima do int main();.
+
+#include <iostream>
+
+//função:
+float soma(float num1, float num2)
+{
+	return (num1 + num2);
+}
+
+int main()
+{
+	std::cout << soma(100, 500) << "\n";
+	system("PAUSE");
+	return 0;
+}
+
+
+*************************************************
+
+
+
+#include <iostream>
+/*Crie uma função que indique se um número é par ou impar. Receba número do usuário e exiba na tela o número recebido e se ele é par ou impar.
+*/
+//Protótipó da função
+bool isPar(int num);
+
+int main()
+{
+	int Numero;
+	std::cout << "\nDigite um numero inteiro: ";
+	std::cin >> Numero;
+	//se o retorno da função for true significa que  a condição do if será verdadeira e entra no texto PAR
+	//porém não é necessário esta comparação == true
+	//aqui após executar a função será
+	//if (true) ou if(false) e funciona da mesma forma
+	//Profissionalmente só se utiliza assim
+	if (isPar(Numero))
+	{
+		std::cout << "\nNumero: " << Numero << " PAR\n";
+	}
+	//Senão for PAR já sabemos que é IMPAR
+	//podemos otimizar isso.
+	// if também não precisa pois else já sabemos que é par
+	else 
+	{
+		std::cout << "\nNumero: " << Numero << " IMPAR\n";
+	}
+	system("PAUSE");
+	return 0;
+}
+
+bool isPar(int num)
+{
+	//se o resto da divisão de um numero for zero
+	//numero é par logo retorne true(verdadeiro)
+	//se não retorne false idicando que ele é false
+	if (num % 2 == 0)
+		return true;
+	//Observe que return faz a saida imediata da função
+	//Logo se for par o código abaixo jamais será executado. Assim o else é desnecessario
+	return false;
+}
+
+**********************************************
+
+calculadora automática
+
+/* ENTRADA: dois números reais
+PROCESSAMENTO:funcoes que calculam soma, subtração, multiplicação e divisão
+SAÍDA:  (num1 + num2,  num1 – num2, num1 * num2, num1/num2)
+*/
+#include <iostream>
+//PROTÒTIPOS DAS FUNCOES
+float Soma(float num1, float num2);
+float Subtracao(float num1, float num2);
+float Multiplicacao(float num1, float num2);
+float Divisao(float num1, float num2);
+float media(float num1, float num2);
+
+int main()
+{
+	//aqui declare como float
+	float Num1, Num2;
+
+	std::cout << "\nDigite Primeiro Numero: ";
+	std::cin >> Num1;
+
+	std::cout << "\nDigite Segundo Numero: ";
+	std::cin >> Num2;
+
+	std::cout << "\n*** Resultado das operacoes***\n";
+	std::cout << Num1 << " e " << Num2 << "\n";
+	std::cout << "Soma: " << Soma(Num1, Num2) << "\n";
+	std::cout << "Substracao: " << Subtracao(Num1, Num2) << "\n";
+	std::cout << "Multiplicacao: " << Multiplicacao(Num1, Num2) << "\n";
+	std::cout << "Divisao: " << Divisao(Num1, Num2) << "\n";
+	std::cout<< "\nMédia: "<<media(num001, num002)<<"\n";	   	  
+	system("PAUSE");
+	return 0;
+}
+
+float Soma(float num1, float num2)
+{
+	return num1 + num2;
+}
+
+float Subtracao(float num1, float num2)
+{
+	return num1 - num2;
+}
+
+float Multiplicacao(float num1, float num2)
+{
+	return num1 * num2;
+}
+
+float Divisao(float num1, float num2)
+{
+	return num1 / num2;
+}
+
+float media(float num1, float num2)
+{
+	return (num1 +num2)/2;
+}
+
+
+
+******************************
+calculadora melhoada
+
+Você pode usar o switch case para simplificar o seu código da cálculador usando apenas uma função
+
+Veja:
+
+#include <iostream>
+ 
+double Soma(char Operacao, double Num1, double Num2);
+ 
+int main() 
+{ 
+	double Num1, Num2;
+	char Operacao;
+	std::cout << "Digite o primeiro numero: ";
+	std::cin >> Num1;
+	std::cout << "Digite o segundo numero: ";
+	std::cin >> Num2;
+	std::cout << "\n + Soma \n - Subtracao \n * Multiplicacao \n / Divisao: ";
+	std::cout << "\n\n Digite o simbolo da operacao desejada: ";
+	std::cin >> Operacao;
+	std::cout << "\nO resultado da operacao: " << Soma(Operacao, Num1, Num2);
+	return 0;
+}
+ 
+// Aqui o case vai selecionar a operação e fará o digitado e selecionado pelo usuário
+double Soma(char Operacao, double Num1, double Num2)
+{
+	switch (Operacao)
+	{
+	case '+': return Num1 + Num2;
+	case '-': return Num1 - Num2;
+	case '*': return Num1 * Num2;
+	case '/': return Num1 / Num2;
+	default: std::cout << "Operador Invalido";
+		break;
+	}
+	return 0;
+}
+
+
+************************************
+
+modificar e melhorar esse:
+	
+#include <iostream>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int escolha = 0;
+	do // as instruções abaixo serão executadas pelo menos uma vez!
+	{
+		std::cout << "****Tickets Cinema****" << std::endl;
+		std::cout << "\n1 - Para Meia Entrada\n";
+		std::cout << "\n2 - Para Inteira\n";
+		std::cout << "\n3 - Sair";
+		std::cout << "\nEscolha sua opção: ";
+		std::cin >> escolha;
+
+		switch (escolha)
+		{
+		case 1: std::cout << "\nTicket Meia Entrada Comprada\n";
+				break;
+		case 2: std::cout << "\nTicket Inteira Comprado\n";
+				break;	
+		case 3: std::cout << "\nSaindo Menu Tickets...\n";
+				break;
+		default: std::cout << "\nOpção Inválida!!!\n";
+		}
+
+	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois você está solicitando que fique em loop até que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
+	system("PAUSE");
+	return 0;
+}
+
+********* abaixo o resultado
+
+funçõe menu
+
+/*Atenção Código modificado, veja as instruções dos motivos como recurso anexo a aula
+Agradecimento ao aluno Anderson Cardoso que identificou o erro*/
+#include <iostream>
+#include <locale.h>
+
+//protótipos das funções
+void ExibirMenu();
+int RetornarEscolha();
+void ProcessarEscolha(int TipoEscolha);
+
+
+int main()
+{
+	//Exibe o menu opções chamando a função Exibir Menu
+	ExibirMenu();
+	system("PAUSE");
+	return 0;
+}
+
+//Implementação das funções
+
+//a função não retorna nada, logo o tipo de retorno é vazio(void). Além disso a função não possui nenhuma variável local(Parâmetros). Como não retorna nada não precisamos usar comando return
+void ExibirMenu()
+{
+	setlocale(LC_ALL, "portuguese");
+
+	do // as instruções abaixo serão executadas pelo menos uma vez!
+	{
+		std::cout << "****Tickets Cinema****" << std::endl;
+		std::cout << "\n1 - Para Meia Entrada\n";
+		std::cout << "\n2 - Para Inteira\n";
+		std::cout << "\n3 - Sair";
+		// TO DO Função Retornar EScolha
+
+		//Aqui a função chama outra função e passar como argumento para a função ProcessrEscolha a variável escolha que contém o que foi digitado pelo usuário como opção de escolha de menu
+
+		//aqui a função processar escolha deve receber como parâmetro um inteiro. Colocamos abaixo a chamada da função RetornarEscolha que ao ser executada irá retornar (Return) um inteiro que foi digitado pelo usuário
+		
+	} while (RetornarEscolha() != 3);//enquanto o retorno da função RetornarEscolha for diferente de 3 o menu vai aparecer! pois você está solicitando que fique em loop até que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
+}
+
+int RetornarEscolha()
+{
+	int escolha = 0;
+	std::cout << "\nEscolha sua opção: ";
+	std::cin >> escolha;
+	//Colocar a chamada da função ProcessarEscolha
+	ProcessarEscolha(escolha);
+	return escolha;
+}
+
+//ProcessarEscolha recebe como parâmetro um numero inteiro
+//e armazena este argumento passado no parâmetro TipoEscolha que é uma variável local a esta função. Significa que esta variável somente existe na memória quando a função está sendo executada. Quando a função chegar a seu final esta variável deixa de existir na memória.
+//Portanto funções são fundamentais para otimizar o uso de memória, pois se todas estas variáveis estivessem na função main elas somente seriam destruidas quando o programa fosse fechado.
+void ProcessarEscolha(int TipoEscolha)
+{
+	switch (TipoEscolha)
+	{
+	case 1: std::cout << "\nTicket Meia Entrada Comprada\n";
+		break;
+	case 2: std::cout << "\nTicket Inteira Comprado\n";
+		break;
+	case 3: std::cout << "\nSaindo Menu Tickets...\n";
+		break;
+	default: std::cout << "\nOpção Inválida!!!\n";
+	}
+	
+	
+	********
+	
+	CRIAR ARQUIVO DE CABEÇALHO
+	
+#pragma once
+
+//no ponto .h é o que?
+//o que as funções terão
+//aqui não há implementação
+//somente protótipos das funções
+//aqui indica o que estará disponível para o programador
+//ou programadora utilizar deste arquivo .h
+//lembre da aula que este arquivo.h é chamado de header file
+//até agora você usou header files criados por outroas programadores
+//agora você seu próprio header file.
+//Mas você precisa implementar as funções em algum lugar
+//e ai que entra o .cpp
+//protótipos das funções
+void ExibirMenu();
+int RetornarEscolha();
+int ProcessarEscolha(int TipoEscolha);
+
+
+***
+#include <iostream>
+#include <locale.h>
+#include "FuncoesMenu.h"
+
+//#include <> vai procurar no diretorio padrão include do compilador. Já #include "" procura no diretório corrente, 
+//atual de seu programa
+
+//Aqui é COMO? como as funções do arquivo .h serão implementadas?
+//neste aquivo .cpp você coloca a implemtação de todas as funções do arquivo .h relacionado
+//Implementação das funções
+
+//a função não retorna nada, logo o tipo de retorno é vazio(void). Além disso a função não possui 
+//nenhuma variável local(Parâmetros). Como não retorna nada não precisamos usar comando return
+void ExibirMenu()
+{
+	setlocale(LC_ALL, "portuguese");
+
+	do // as instruções abaixo serão executadas pelo menos uma vez!
+	{
+		std::cout << "****Tickets Cinema****" << std::endl;
+		std::cout << "\n1 - Para Meia Entrada\n";
+		std::cout << "\n2 - Para Inteira\n";
+		std::cout << "\n3 - Sair";
+		// TO DO Função Retornar EScolha
+
+		//Aqui a função chama outra função e passar como argumento para a função ProcessrEscolha 
+		//a variável escolha que contém o que foi digitado pelo usuário como opção de escolha de menu
+
+		//aqui a função processar escolha deve receber como parâmetro um inteiro. Colocamos abaixo 
+		//a chamada da função RetornarEscolha que ao ser executada irá retornar (Return) um inteiro 
+		//que foi digitado pelo usuário
+		
+	} while (ProcessarEscolha(RetornarEscolha()) != 3);//enquanto escolha for diferente de 3 o 
+	//menu vai aparecer! pois você está solicitando que fique em loop até que escolha seja igual a 3 
+	//e resultado seja falso saindo do loop do-while
+}
+
+int RetornarEscolha()
+{
+	int escolha = 0;
+	std::cout << "\nEscolha sua opção: ";
+	std::cin >> escolha;
+	return escolha;
+}
+
+//ProcessarEscolha recebe como parâmetro um numero inteiro
+//e armazena este argumento passado no parâmetro TipoEscolha que é uma variável local a esta função. 
+//Significa que esta variável somente existe na memória quando a função está sendo executada. 
+//Quando a função chegar a seu final esta variável deixa de existir na memória.
+//Portanto funções são fundamentais para otimizar o uso de memória, pois se todas estas variáveis 
+//estivessem na função main elas somente seriam destruidas quando o programa fosse fechado.
+int ProcessarEscolha(int TipoEscolha)
+{
+	switch (TipoEscolha)
+	{
+	case 1: std::cout << "\nTicket Meia Entrada Comprada\n";
+
+		break;
+	case 2: std::cout << "\nTicket Inteira Comprado\n";
+		break;
+	case 3: std::cout << "\nSaindo Menu Tickets...\n";
+		break;
+	default: std::cout << "\nOpção Inválida!!!\n";
+		//aqui não retorna pois ao achar a escolha o break sai do switch
+	}
+	//já aqui depois de processar o switch vai sair dele e chegar no return escolha.
+	return TipoEscolha;
+}
+
+***
+
+#include <iostream>
+#include <locale.h>
+#include "FuncoesMenu.h"
+
+int main()
+{
+	//Exibe o menu opções chamando a função Exibir Menu
+	ExibirMenu();
+	system("PAUSE");
+	return 0;
+}
+
+
+*****************************************
+https://pt.wikipedia.org/wiki/Pragma_once
+
+CRIAR ARQUIVO DE CABEÇALHO
+
+
+**************             **************
+Para fazer essa parte no DEV C++
+1 - Abra o DEV 5.11 ou superior e Clique em New->Project 
+    (é para criar um novo projeto e não apenas um Arquivo de Código Fonte ou Source File)
+
+2 - Escolha Console Application e escreva o nome desejado (Coloquei ProjetoBibliotecas)
+
+3 - Salve o Projeto em uma pasta no computador e 
+    Clique agora com botão direito do mouse no nome que criou, está na coluna na esquerda da tela,
+	e escolha New File
+    
+4 - Após a criação deste novo arquivo clique em salvar e em tipo escolha Header File(.h) 
+    Coloque o nome desejado, Coloquei Biblioteca.h apenas para fins de exemplo
+    
+5 - Escreva este código apenas para testar, depois escreva todo o código com as definições
+    das funções da biblioteca Biblioteca.h
+	int soma(int a, int b);
+
+6 - Salve com o mesmo nome do Header File mas agora com a extensão .cpp pois é nele que você
+    vai colocar a implementação das funções. Neste meu exemplo será Biblioteca.cpp que é o 
+	mesmo nome de Biblioteca.h 
+	
+7 - Implemente a função colocando o seguinte código em Biblioteca.cpp
+	int soma (int a, int b){
+		return a+b;}
+
+8 - Volte ao arquivo principal main.cpp que contém a função main e faça um include do arquivo de cabeçalho .h que você criou.
+
+	#include "Biblioteca.h"
+	
+	Mas use aspas duplas para o compilador procurar o diretório atual de seu programa. Lembre que comentei
+	na aula que se usar < > o compilador procurar a biblioteca no diretório padrão de includes do 
+	próprio compilador. Como você quer incluir um arquivo que você criou e que está no mesmo 
+	diretório de seu programa use aspas duplas " "	
+
+9 - Escreva o código abaixo em main.cpp
+
+
+#include <iostream>
+#include "biblioteka.h"
+int main(int argc, char** argv) {
+int Num1 = 10;
+int Num2 = 20;
+std::cout << soma(Num1,Num2) << "\n";
+system("PAUSE");
+return 0;
+}
+
+int soma (int a, int b){
+		return a+b;}
+
+
+
+
+10 - compilar F11
+
+Funcionou perfeitamente!!
+*******************************************************
+
+#pragma once // Esta diretiva é usada em headers e serve 
+//para fazer com que o ficheiro atual apenas seja incluído 
+//uma vez durante o processo de compilação.
+
+
+/*ENTRADA: dois números inteiros
+PROCESSAMENTO: operações matemáticas
+Soma dos dois números
+Subtração dos dois números
+Multiplicado dos dois números
+Divisão dos dois números
+Potencia dos dois números (primeiro número elevado pelo segundo número)
+Raiz quadrada dos dois números
+SAIDA: Exiba na tela os resultados de todas as operações também utilizando chamada de funções
+- cabeçalho Matematica.h  protótipos das funções 
+-arquivo Matematica.cpp para ser a implementação do arquivo de
+cabeçalho Matematica.h 
+- arquivo ProgramaMatematico.cpp que conteráfunção main( ) e será o
+ponto de partida deste programa.
+*/
+
+#pragma once
+int Soma(int num1, int num2);
+int Subtracao(int num1, int num2);
+int Multiplicacao(int num1, int num2);
+float Divisao(int num1, int num2);
+
+double Potencia(double num1, double num2);
+float RaizQuadrada(int num);
+
+
+***
+
+#include "Matematica.h"
+#include <cmath>
+
+int Soma(int num1, int num2)
+{
+	return num1 + num2;
+}
+
+int Subtracao(int num1, int num2)
+{
+	return num1 - num2;
+}
+
+int Multiplicacao(int num1, int num2)
+{
+	return num1 * num2;
+}
+
+float Divisao(int num1, int num2)
+{
+	//faz uma divisao inteira pois num1 e num2 são inteiros
+	//mas podemos fazer cast
+	//agora estamos indicando que o inteiro deve ser um float
+	return (float)num1 / (float)num2;
+}
+
+double Potencia(double num1, double num2)
+{
+	return pow(num1, num2);
+}
+
+float RaizQuadrada(int num)
+{
+	return sqrt(num);
+}
+
+***
+
+
+#include <iostream>
+#include "Matematica.h"
+
+int main()
+{
+	int Numero1, Numero2;
+	std::cout << "\nDigite Primeiro Numero: ";
+	std::cin >> Numero1;
+	std::cout << "\nDigite Segundo Numero: ";
+	std::cin >> Numero2;
+	std::cout << "\nResultado Operadores Matematicas\n";
+	std::cout << "\nSoma: " << Soma(Numero1, Numero2);
+	std::cout << "\nSubtracao: " << Subtracao(Numero1, Numero2);
+	std::cout << "\nMultiplicacao: " << Multiplicacao(Numero1, Numero2);
+	std::cout << "\nDivisao: " << Divisao(Numero1, Numero2);
+	std::cout << "\nPotencia: " << Potencia(Numero1, Numero2);
+	std::cout << "\nRaizQuadrada Numero1: " << RaizQuadrada(Numero1);
+	std::cout << "\nRaizQuadrada Numero2: " << RaizQuadrada(Numero2) << "\n";
+	system("PAUSE");
+
+	return 0;
+} 
+
+
+
+****************************************
+
+NAMESPACES
+
+
+Em relação a Namespaces confira:
+Vamos imaginar que você tenha um biblioteca de nome Biblioteca01.h que 
+tenha a seguinte função
+#pragma once
+float Soma(int Num1, int Num2)
+{
+ return (Num1 + Num2);
+}
+Vamos imaginar que você crie uma outra biblioteca de nome Biblioteca02.h 
+que tenha a mesma função só
+que com retorno diferente
+#pragma once
+float Soma(int Num1, int Num2)
+{
+ return (Num1 + Num2);
+}
+Agora você crie o seguinte programa abaixo de nome Programa.cpp e que usa(inclui) 
+as duas bibliotecas
+Ao tentar executar o código ocorrerá erro pois a função de nome Soma está
+ presente tanto da Biblioteca01.h
+quanto na Biblioteca02.h e não há como o compilador decidir qual será usada..
+ Isso pode ocorrer no decorrer
+do desenvolvimento e é interessante termos mecanismos para evitar estes 
+conflitos. Poderia pensar em
+mudar o nome da variável Soma em alguma das bibliotecas, mas não seria 
+uma saída elegante e eficiente.
+Veja que ocorre erro
+Veja que acima o visual studio indica que já existe uma função com mesma 
+assinatura e que não foi possível
+resolver esta sobrecarga (overload) de funções.
+Para resolver estes problemas de conflitos de nomes, etc foram criados os 
+espaços de nomes ou Namespaces.
+O Objetivo destas Namespaces é criar uma região que seja identificada de 
+forma que você possa referenciar
+ela correr o risco de conflitos de nomes como no exemplo acima
+Como assim?
+Vamos resolver o problema acima e ficará mais nítida esta utilização
+
+Troque o Código da Biblioteca01.h por este
+
+#pragma once
+namespace mat01
+{
+float Soma(int Num1, int Num2)
+{
+return (Num1 + Num2);
+}
+}
+
+Obs: Eu estou implementando no próprio arquivo.h para simplificar, mas no 
+geral temos o Biblioteca01.h
+apenas com as assinaturas das funções e um Biblioteca01.cpp de mesmo nome
+ com as implementações.
+Você vai aprender a fazer bibliotecas em breve no curso e vai entender
+ esta observação.
+Agora troque Troque o Código da Biblioteca02.h por este código que declara
+ uma Namespace mat02
+
+#pragma once
+namespace mat02
+{
+float Soma(int Num1, int Num2)
+{
+return (Num1 + (Num2 * 2));
+}
+}
+
+Feito isso em seu código Programa.cpp você pode chamar as funções Soma 
+de cada Namespace e não
+haverá conflito
+
+Basta usar NomeDaNameSpace::Soma neste caso ficará assim:
+
+#include <iostream>
+#include "Biblioteca01.h"
+#include "Biblioteca02.h"
+int main()
+{
+std::cout << "A Soma de 10 com 20: " << mat01::Soma(10, 20) << "\n";
+std::cout << "A Soma de 10 com 20*2: " << mat02::Soma(10, 20) << "\n";
+system("PAUSE");
+return 0;
+}
+
+Veja que agora mat01::Soma(10, 20) está chamando a função Soma do 
+namespace mat01 e que está na
+Blibioteca01.h
+Da mesma forma mat02::Soma(10, 20) está chamando a função Soma do 
+namespace mat02 e que está na
+Blibioteca02.h
+Com isso o programa Executa sem problemas e você consegue verificar 
+a importância das namespaces
+portanto std::cout indica que existe uma namaspace dentro da biblioteca
+ iostream e que dentro do
+namespace std existe a função cout. Se tiver outra biblioteca com a 
+função cout basta usar o namaspace
+desta biblioteca e não haverá conflito com a função cout da biblioteca std
+Claro que existem várias outra coisas que podem ser feitas com namespaces
+ como namespaces aninhados etc
+
+	
