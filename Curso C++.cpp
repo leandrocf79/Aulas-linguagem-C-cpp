@@ -1643,7 +1643,21 @@ float media(float num1, float num2)
 	return (num1 +num2)/2;
 }
 
-
+*** olha isso
+	Caso tenha que converter int para float:
+***	Conversão EXPLÍCTA (CAST)
+	
+	
+	float Divisao(int num1 , int num2){
+	
+		return (float)num1/(float)num2;
+	}
+	
+	
+*Se o próprio programa fizer a conversão será chamada de IMPLÍCITA (COERSÃO)
+int a=10;
+float c;
+c=a;
 
 ******************************
 calculadora melhoada
@@ -2170,4 +2184,1224 @@ desta biblioteca e não haverá conflito com a função cout da biblioteca std
 Claro que existem várias outra coisas que podem ser feitas com namespaces
  como namespaces aninhados etc
 
+***********************************
+
+
+Variáveis com escopo global e local
+***
+
+#include <iostream>
+#include "Matematica.h"
+
+int NumeroGlobal = 5;
+
+int main()
+{
+	int Numero1, Numero2;
+	std::cout << "\nDigite Primeiro Numero: ";
+	std::cin >> Numero1;
+	std::cout << "\nDigite Segundo Numero: ";
+	std::cin >> Numero2;
+	std::cout << "\nResultado Operadores Matematicas\n";
+	std::cout << "\nSoma: " << Soma(Numero1, Numero2);
+	std::cout << "\nSubtracao: " << Subtracao(Numero1, NumeroGlobal);
+	std::cout << "\nMultiplicacao: " << Multiplicacao(Numero1, Numero2);
+	std::cout << "\nDivisao: " << Divisao(Numero1, Numero2);
+	std::cout << "\nPotencia: " << Potencia(Numero1, Numero2);
+	std::cout << "\nRaizQuadrada Numero1: " << RaizQuadrada(Numero1);
+	std::cout << "\nRaizQuadrada Numero2: " << RaizQuadrada(Numero2) << "\n";
+	system("PAUSE");
+	   	  
+	return 0;
+}	
+
+***
+
+#include "Matematica.h"
+#include <cmath>
+
+//Variavel Global pois declarada fora de
+//qualquer função. Logo ela será acessivel em qualquer função incluindo a função main()
+//
+int NumeroGlobal = 10;
+
+int Soma(int num1, int num2)
+{
+	//esta variável só é acessível dentro da função Soma
+	int NumeroLocal = 5;
+	return num1 + NumeroGlobal;
+}
+
+int Subtracao(int num1, int num2)
+{
+	if (num1 > num2)
+	{
+		//neste caso qualquer varíável declarada entre as chaves de algo
+		// será acessível somente dentro destas chaves. A isso chamados ESCOPO de variável
+		int NumeroLocalAEsteIf = 20;
+	}
+	//Mesmo NumeroLocalAEsteIf estando dentro da função Subtracao ela somente
+	//estará acessível para o escopo{ } de onde ela foi declarada, ela é uma 
+	//     ------>   variável local a este if!
 	
+	return num1 - NumeroGlobal;
+	//já NumeroGlobal é global! possui escopo global, ou seja, é acessada
+	//em qualquer função do programa, logo, em qualquer parte do programa pois ela é global.
+}
+
+int Multiplicacao(int num1, int num2)
+{
+	
+	return num1 * num2;
+}
+
+float Divisao(int num1, int num2)
+{
+	//faz uma divisao inteira pois num1 e num2 são inteiros
+	//mas podemos fazer cast
+	//agora estamos indicando que o inteiro deve ser um float
+	return (float)num1 / (float)num2;
+}
+
+int Potencia(int num1, int num2)
+{
+	return pow(num1, num2);
+}
+
+float RaizQuadrada(int num)
+{
+	return sqrt(num);
+}
+
+***
+Matematica.h
+
+#pragma once
+
+int Soma(int num1, int num2);
+int Subtracao(int num1, int num2);
+int Multiplicacao(int num1, int num2);
+float Divisao(int num1, int num2);
+int Potencia(int num1, int num2);
+float RaizQuadrada(int num);
+
+***************************************
+
+#include <iostream>
+
+int main()
+{
+	//int i;    aqui i foi declardo fora do escopo, do bloco de código do for
+	
+	for (int i = 0; i < 5; i++)
+	{
+		int j = i + 2;
+		std::cout << i << " " << j << std::endl;
+	} 
+	//std::cout << "\nValor final de i: " << i;
+	//std::cout << "\nValor final de j: " << j;
+	//isso é o escopo de uma variável!
+	//Qual a visibilidade dela? Local, Global. Se local em que bloco? 
+	//Qual o tempo de vida dela?
+	//Relembrando que o parâmetros das funções são variáveis locais a estas funções!
+	//int soma(int x, int y) escopo local!''
+
+	//porém agora j foi declarado dentro do bloco de código do comando for. 
+	//Logo quando este bloco de código chegar ao fim a variável j que é 
+	//local a este bloco, será destruída e não mais estará acessível. 
+	//Ela (j) somente é acessível dentro do comando for 
+	//quando a função atingir aqui a variável i não sairá da memória,
+	// não será destruida pois está fora deste escopo
+	system("PAUSE");
+	return 0;
+}
+
+
+******************************************
+
+A solução pra isso é armazenar o valor antigo de penult na variável temporária temp.
+Então é só fazer:
+temp = penult;
+penult = ult;
+ult = ult + temp;
+
+Pronto, agora a sequência 'andou', e está pronta para exibir o próximo termo.
+Veja como fica nosso código:
+	
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, aux, temp, ult=1, penult=0;
+
+    cout << "Exibir quantos termos: ";
+    cin >> n;
+
+    cout << penult << endl << ult << endl;
+
+    for(aux=3 ; aux<=n ; aux++){
+        cout << (ult+penult) << endl;
+
+        temp = penult;
+        penult = ult;
+        ult = ult + temp;
+    }
+
+    return 0;
+}
+
+
+
+***
+Fibonacci com laço WHILE em C++
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, aux=3, temp, ult=1, penult=0;
+
+    cout << "Exibir quantos termos: ";
+    cin >> n;
+
+    cout << penult << endl << ult << endl;
+
+    while(aux<=n){
+        cout << (ult+penult) << endl;
+
+        temp = penult;
+        penult = ult;
+        ult = ult + temp;
+
+        aux++;
+    }
+
+    return 0;
+}
+
+
+
+
+
+*****************************************
+
+
+
+#include <iostream>
+
+int ContadorChamadas()
+{
+	//Variavel estática: Significa que após a saída da função o valor desta variável não será perdido.
+	//static indica que este valor seja mantido mesmo após a função ser encerrada
+	
+	static int NumChamadasDaFuncao = 0;
+	NumChamadasDaFuncao++;
+	return NumChamadasDaFuncao;
+}
+
+int main()
+{
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << ContadorChamadas() << std::endl;
+	}
+	system("PAUSE");
+	return 0;
+}
+
+************
+Resumão Variáveis Estáticas, globais, Constantes
+Variáveis Estáticas
+
+Uma variável estática pode ser uma variável global ou local. Ambas são 
+criados precedendo a declaração da variável com a palavra-chave static .
+
+Uma variável estática local é uma variável que pode manter seu valor de
+ uma chamada de função para outra e existirá até que o programa termine.
+
+Quando uma variável estática local é criada, deve ser atribuído um valor
+ inicial. Se não for, o valor padrão será 0.
+
+Uma variável estática global é aquela que só pode ser acessada no arquivo
+ onde foi criada. Diz-se que essa variável tem escopo de arquivo .
+
+---------------------------------------------------------------------------------------------------------
+
+Variáveis globais e externas
+
+Uma variável global é uma variável definida fora de todas as funções e 
+disponível para todas as funções.
+
+Essas variáveis não são afetadas por escopos e estão sempre disponíveis,
+ o que significa que existe uma variável global até que o programa termine.
+
+É possível criar uma variável global em um arquivo e acessá-la de outro
+ arquivo. Para fazer isso, a variável deve ser declarada em ambos os arquivos,
+  mas a palavra-chave extern deve preceder a "segunda" declaração.
+
+Se for esta o seu objetivo de criar uma variável global em arquivo e
+ poder acessar ela em outro arquivo use extern
+
+extern int Variavel;
+
+----------------------------------------------------
+
+Variáveis Locais
+
+Uma variável local é aquela que ocorre dentro de um escopo específico. 
+Eles existem apenas na função em que são criados.
+
+Às vezes, são chamadas de variáveis automáticas porque são criadas 
+automaticamente quando a função inicia a execução e desaparecem automaticamente
+ quando a execução da função termina.
+
+----------------------------------------------------
+
+"Variáveis" Constantes
+
+Em C, a diretiva do pré-processador #define foi usada para criar uma variável com um 
+valor constante. Isso ainda funciona em C ++, mas podem surgir problemas.
+
+Quando #define é usado, o pré-processador irá percorrer o código e substituir cada
+ instância da variável #define pelo valor apropriado. Pois bem, como a variável #define
+  existe apenas no arquivo onde foi criada, é possível ter a mesma definição em 
+  outro arquivo com um valor completamente diferente. Isso pode levar a 
+  consequências desastrosas.
+
+Para superar esse problema, o conceito de uma constante nomeada que é
+ exatamente como uma variável foi introduzido no C ++.
+
+Para criar uma variável constante em C ++, preceda a declaração da variável 
+com a palavra-chave const . Isso diz ao compilador que 
+"foi criada uma variável que tem um valor que não pode ser alterado"
+
+Ao criar uma variável constante, ela DEVE receber um valor.
+
+
+****************************************
+
+#include <iostream>
+//PROTÒTIPO
+//você pode colocar valores padrões no protótipo
+//e então quando você chamar a função poderá omitir
+//argumentos pois a função irá utilizar o argumento padrão se você não informar o argumento quando da chamada da função.
+//Para colocar um valor padrão basta colocar =
+void Coordenadas(int x, int y, int z = 1);
+//Você não é obrigado a colocar todos os argumentos padrão. Porém se deixar algum de fora deve seguir a regra que precisa
+//colocar da direita para esquerda
+
+int main()
+{
+	//apesar da função solicitar na chamada a colocação de 3 argumentos que serão enviados aos parâmetros
+	//x, y e z. Esta chamada sem você colocar argumentos irá funcionar, pois eles tem argumentos pa
+	Coordenadas(5,6);
+	system("PAUSE");
+	return 0;
+}
+
+void Coordenadas(int x, int y, int z)
+{
+	//x = x * 10;
+	x *= 10;
+	//y = y * 10;
+	y *= 10;
+	z *= 10;
+	std::cout << "(" << x << " - " << y << " - " << z << ")";
+}
+
+*******************
+
+
+#include <iostream>
+//PROTÒTIPO
+//você pode colocar valores padrões no protótipo
+//e então quando você chamar a função poderá omitir
+//argumentos pois a função irá utilizar o argumento padrão 
+se você não informar o argumento quando da chamada da função.
+//Para colocar um valor padrão basta colocar =
+void Coordenadas(int x, int y, int z = 1);
+//Você não é obrigado a colocar todos os argumentos padrão, porém,
+// se deixar algum de fora deve seguir a regra que precisa
+//colocar da direita para esquerda
+
+int main()
+{
+	//apesar da função solicitar na chamada a colocação de 3 argumentos que 
+	//serão enviados aos parâmetros
+	//x, y e z. Esta chamada sem você colocar argumentos irá funcionar, 
+	//pois eles tem argumentos pa
+	Coordenadas(5,6); // x e y recebem os valores na ordem aí, z já foi 
+	//atribuido um valor padrão anterormente
+	system("PAUSE");
+	return 0;
+}
+
+void Coordenadas(int x, int y, int z)
+{
+	//x = x * 10;   ou
+	x *= 10;
+	//y = y * 10;    ou
+	y *= 10;
+	z *= 10;
+	std::cout << "(" << x << " - " << y << " - " << z << ")";
+}
+
+
+*******************************
+#include <iostream>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int escolha = 0;
+	do // as instruções abaixo serão executadas pelo menos uma vez!
+	{
+		std::cout << "****Tickets Cinema****" << std::endl;
+		std::cout << "\n1 - Para Meia Entrada\n";
+		std::cout << "\n2 - Para Inteira\n";
+		std::cout << "\n3 - Sair";
+		std::cout << "\nEscolha sua opção: ";
+		std::cin >> escolha;
+
+		switch (escolha)
+		{
+		case 1: std::cout << "\nTicket Meia Entrada Comprada\n";
+				break;
+		case 2: std::cout << "\nTicket Inteira Comprado\n";
+				break;	
+		case 3: std::cout << "\nSaindo Menu Tickets...\n";
+				break;
+		default: std::cout << "\nOpção Inválida!!!\n";
+		}
+
+	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois você está solicitando que fique em loop até que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
+	system("PAUSE");
+	return 0;
+}
+
+
+
+******************************
+//Código que foi modificado de uma versão sem uso de funções 
+// e de contribuição do aluno Anderson de Almeida Pinheiro
+ 
+#include <iostream>
+#include <tchar.h>
+#include <iomanip> // para formatar casas decimais
+ 
+void MostrarCarrinho(float Total, float MeiaEntrada, float InteiraEntrada)
+{
+	Total = (MeiaEntrada * 10.50) + (InteiraEntrada * 21.0);
+ 
+	std::cout << "\n***SEU CARRINHO DE COMPRAS***\n";
+	std::cout << std::fixed << std::setprecision(2);
+	std::cout << "[MEIA ENTRADA]:\t\t" << MeiaEntrada << "\t" << "R$ " << MeiaEntrada * 10.50 << "\n";
+	std::cout << "[ENTRADA INTEIRA]:\t" << InteiraEntrada << "\t" << "R$ " << InteiraEntrada * 21.0 << "\n";
+	std::cout << "[TOTAL]:\t\t" << "\t" << "R$ " << Total << "\n\n\n";
+}
+ 
+int main()
+{
+	
+	
+	_tsetlocale(LC_ALL, _T("portuguese"));
+ 
+	float MeiaEntrada = 0.0;
+	float InteiraEntrada = 0.0;
+	float Total = 0.0;
+	char Escolha;
+ 
+	do
+	{
+		std::cout << "\nMENU DE OPÇÕES" << "\n";
+		std::cout << "--------------" << "\n";
+ 
+		std::cout << std::endl;
+ 
+		std::cout << "Selecione [1] para COMPRAR 01\t\tMEIA ENTRADA\t(+R$ 10,50)" << "\n";
+		std::cout << "Selecione [2] para COMPRAR 01\t\tENTRADA INTERA\t(+R$ 21,00)" << "\n";
+		std::cout << "Selecione [3] para RETIRAR 01\t\tMEIA ENTRADA\t(-R$ 10,50)" << "\n";
+		std::cout << "Selecione [4] para RETIRAR 01\t\tENTRADA INTEIRA\t(-R$ 21,00)" << "\n";
+		std::cout << "Selecione [5] para ZERAR o carrinho" << "\n";
+		std::cout << "Selecione [6] para MOSTRAR o carrinho" << "\n";
+		std::cout << "Selecione [7] para SAIR" << "\n";
+ 
+		std::cout << std::endl;
+ 
+		std::cout << std::endl;
+ 
+		std::cout << "Entre com o número para realizar as compras: ";
+		std::cin >> Escolha;
+ 
+		switch (Escolha)
+		{
+ 
+		case '1':
+ 
+			system("CLS");
+			std::cout << "\nMEIA ENTRADA adicionada!" << "\n";
+			MeiaEntrada++;
+			MostrarCarrinho(Total, MeiaEntrada, InteiraEntrada);
+			break;
+ 
+		case '2':
+ 
+			system("CLS");
+			std::cout << "\nENTRADA INTEIRA adicionada!" << "\n";
+			InteiraEntrada++;
+			MostrarCarrinho(Total, MeiaEntrada, InteiraEntrada);
+			break;
+ 
+		case'3':
+ 
+			if (MeiaEntrada == 0)
+			{
+				std::cout << "\n[ERRO]: Impossível retirar entrada (0 compradas)" << "\n";
+				break;
+			}
+ 
+			else
+			{
+				system("CLS");
+				std::cout << "\nMEIA ENTRADA retirada!" << "\n";
+				MeiaEntrada--;
+				MostrarCarrinho(Total, MeiaEntrada, InteiraEntrada);
+				break;
+			}
+ 
+		case'4':
+ 
+			if (InteiraEntrada == 0)
+			{
+				std::cout << "\n[ERRO]: Impossível retirar entrada (0 compradas)" << "\n";
+				break;
+			}
+ 
+			else
+			{
+				system("CLS");
+				std::cout << "\nENTRADA INTEIRA retirada!" << "\n";
+				InteiraEntrada--;
+				MostrarCarrinho(Total, MeiaEntrada, InteiraEntrada);
+				break;
+			}
+ 
+		case'5':
+ 
+			system("CLS");
+			std::cout << "\nCARRINHO ZERADO!" << "\n";
+			MeiaEntrada = 0;
+			InteiraEntrada = 0;
+			MostrarCarrinho(Total, MeiaEntrada, InteiraEntrada);
+			break;
+ 
+		case'6':
+ 
+			system("CLS");
+			MostrarCarrinho(Total, MeiaEntrada, InteiraEntrada);
+			break;
+ 
+		case'7':
+ 
+			std::cout << "\nFechando o carrinho..." << "\n";
+			break;
+ 
+		default:
+ 
+			std::cout << "\n[ERRO]: Opção inválida! Verifique o MENU de opções!" << "\n";
+			break;
+		}
+ 
+	} while (Escolha != '7');
+ 
+	return 0;
+}
+
+
+**************************************
+PONTEIRO
+
+
+#include <iostream>
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	
+	//então para declarar uma variável que seja considerada um ponteiro
+	//basta colocar <tipo a ser apontado> *<nome da variável>
+	int *ptr;
+	//obs: a posição do asterisco neste caso não importa
+	//int* ptr; //dá no mesmo!
+
+
+	int Numero = 101;
+	//Aqui vamos colocar na tela o endereço de memória
+	//da variável Número. Ou seja onde ela está carregada na memória RAM. Lembre-se que o que vai para tela é o primeiro endereço da variável número
+	//pois ela ocupa 4 endereços pois tem 4 bytes de tamanho
+  
+	std::cout << "\nEndereço de Número: " << &Numero;
+	//ALGO IMPORTANTE AQUI: &ptr vai colocar na tela o endereço de memória alocado para variável ponteiro
+	//ou seja qual lugar da RAM ele está alocado?
+	//veja nós ainda não estamos colocando na tela nada que esteja dentro das variáveis.
+	//pois para colocar o que está dentro das variáveis
+	//nós usamos apenas o nome da variável!
+	//exemplo std::cout << Numero
+	//std::cout << ptr
+  
+	std::cout << "\nEndereço de ptr: " << &ptr << "\n";
+  
+	system("PAUSE");
+	return 0;
+}
+
+*******************************************
+
+#include <iostream>
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	
+	//então para declarar uma variável que seja considerada um ponteiro
+	//basta colocar <tipo a ser apontado> *<nome da variável>
+	int *ptr;
+	//obs: a posição do asterisco neste caso não importa
+	//int* ptr; //dá no mesmo!
+
+
+	int Numero = 101;
+	//Aqui vamos colocar na tela o endereço de memória
+	//da variável Número. Ou seja onde ela está carregada na memória RAM. Lembre-se que o que vai para tela é o primeiro endereço da variável número
+	//pois ela ocupa 4 endereços pois tem 4 bytes de tamanho
+  
+	std::cout << "\nEndereço de Número: " << &Numero;
+	//ALGO IMPORTANTE AQUI: &ptr vai colocar na tela o endereço de memória alocado para variável ponteiro
+	//ou seja qual lugar da RAM ele está alocado?
+	//veja nós ainda não estamos colocando na tela nada que esteja dentro das variáveis.
+	//pois para colocar o que está dentro das variáveis
+	//nós usamos apenas o nome da variável!
+	//exemplo std::cout << Numero
+	//std::cout << ptr
+  
+	std::cout << "\nEndereço de ptr: " << &ptr << "\n";
+  
+	system("PAUSE");
+	return 0;
+}
+
+
+****************************************
+
+#include <iostream>
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int Numero{ 4096 };
+	int *ptr;
+	int *ptr2;
+	ptr = &Numero;
+	ptr2 = ptr;
+	std::cout << "\nEndereço contido dentro de ptr: " << ptr << "\n";
+	std::cout << "\nEndereço contido dentro de ptr2: " << ptr2 << "\n";
+	
+	std::cout << "\nEndereço de ptr na memória RAM: " << &ptr << "\n";
+	std::cout << "\nEndereço de ptr2 na memória RAM: " << &ptr2 << "\n";
+	
+	std::cout << "\nValor de Numero antes: " << Numero << "\n";
+		*ptr2 = *ptr + 10;
+	std::cout << "\nValor de Numero agora: " << Numero << "\n";
+	system("PAUSE");
+	return 0;
+}
+
+*************
+
+#include <iostream>
+
+int main()
+{
+	int Numero{ 4890 };
+	char Letra{ 'E' };
+	//declarei ponteiro genérico ou vazio(void)
+	//significa que ele não tem ainda um tipo que possa apontar
+	/*isso é útil quando você por exemplo retornar algo de alguma 
+	função e atribuir a um ponteiro. Neste caso você não sabe de antemão 
+	que tipo de dado você vai retornar e assim depois você pode 
+	especificar qual tipo de dado o ponteiro void* passará a apontar*/
+	void *ptrG;
+	//Agora ptrG passa a apontar para a a variável Letra
+	//Pois ele recebeu o endereço de memória desta variável
+	ptrG = &Letra;
+	//por que deu erro?
+	//Lembre que o endereço de uma variável é apenas o primeiro byte dela. 
+	//O primeiro endereço em que ela esta carregada.
+	//Assim como o compilador vai saber como LER a variável
+	// ex:  a partir do endereço 105 eu devo percorrer quanto bytes?
+	// Ele só saberá isso quando você indicar o tipo do ponteiro ptrG
+	//Por enquanto ele é void!
+	//logo já que Letra é do tipo char voê deve
+	//indicar que o ponteiro ptrG está apontando para um char
+	//isso é feito via cast 
+	
+	
+	std::cout << "Valor de Letra via ptrG = " << *(char*)ptrG << "\n"; // desreferenciamento
+	
+	//primeiro você faz o cast e depois coloca o sinal de desreferenciamento
+	//*(cast para tipo desejado)NomePonteiroGenerico
+	//*(char*)ptrG
+	//agora o compilador sabe que deverá ler 1(byte) para colocar um char na tela!
+	ptrG = &Numero;
+	std::cout << "\nValor de Numerom via ptrG: " << *(int*)ptrG << "\n";
+
+	system("PAUSE");
+	return 0;
+}
+
+
+*************
+
+Utilizando a Tabela acima analise o trecho de código e observe a lacuna ______________:
+
+void* ptr;
+
+char Letra = { 'A' };
+
+int Numero { 1021 };
+
+ptr = &Numero;
+
+std::cout << "O valor de Numero usando ptr sera: " <<  ________________  << "\n";
+
+O código que preenche corretamente a lacuna acima será: *(int*)ptr    // desreferenciamento
+
+
+********************************
+
+Crie uma variável de nome Numero do Tipo inteiro e valor inicial igual a 234;
+Crie um ponteiro de nome Ponteiro capaz de apontar para um variável do tipo inteiro.
+Troque o valor de Numero para 1456 usando Ponteiro
+Coloque o valor de Numero na tela usando Ponteiro
+Mostre o endereço da memória RAM em que estão carregados, alocados as variáveis Ponteiro e Numero
+Crie um outro ponteiro de nome OutroPtr
+Faça OutroPtr apontar para a mesma variável que ptr aponta. 
+Usando Ponteiro some 200 ao valor contido em Numero
+Usando OutroPtr coloque na tela o valor de Numero
+
+#include <iostream>
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int Numero{ 234 };
+	int* Ponteiro = &Numero;
+	*Ponteiro = 1456;
+	int* OutroPtr = Ponteiro;
+
+	std::cout << "\nValor de Numero: " << *Ponteiro << "\n";
+	std::cout << "\nEndereço de Numero " << &Numero << " Endereço de Ponteiro: " << &Ponteiro << "\n";
+	std::cout << "\nValor contido em DENTRO de Ponteiro: " << Ponteiro << "\n";
+	*Ponteiro += 200;
+	std::cout << "\nValor de Número: " << *OutroPtr << "\n" ;
+	system("PAUSE");
+	return 0;
+}
+
+*****************************************************
+
+REFERÊNCIAS
+
+É um rótuo, é como dar outro nome a uma variável já existente.
+int numero=34;
+int &RefNum= numero;
+*****************************************************
+
+#include <iostream>
+
+int main()
+{
+	int Numero{ 1024 };
+	char Letra{ 'A' };
+	//Declara uma referência//Significa que foi criado um apelido, um rotulo, um alias para a variável Numero
+	//Neste caso não é criada uma região de memória que vai conter algo dentro e que seria chamada Ref. Ref não tem endereço na RAM.
+	//Não é uma variável que podemos colocar algo dentro!
+	//É apenas um atalho para Numero.
+
+	int &Ref = Numero;
+	//Para colocar na tela o valor que a referencia referencia basta colocar o nome da referencia. Não precisa desreferenciar como
+  //nos ponteiros. *ptr
+	std::cout << "\nValor de Numero usando Ref: " << Ref << "\n";
+	std::cout << "\nValor Endereco de Numero: " << &Numero << "\n";
+  
+	//Observe que &Ref irá retornar o endereço de Número pois uma referencia nasce e fica como novo rótulo da variável que ela 
+  //referencia estando portanto no mesmo endereço de Numero, neste caso.
+	std::cout << "\nValor Endereco de Ref: " << &Ref << "\n";
+  
+	//Já aqui será criada uma variável, um espaço na memória RAM e dentro deste espaço de nome ptr será colocado o endereço de 
+  //memória de Numero. É bem diferente da referência pois esta não contem um espaço alocado, ela apenas é mais um nome, um rótulo, 
+  //um apelido para referenciar a variável.
+	int* ptr = &Numero;
+	std::cout << "\nValor Endereco de ptr na RAM: " << &ptr << "\n";
+	std::cout << "\nValor de Numero usando ptr: " << *ptr << "\n";
+	std::cout << "\nValor Endereco contido dentro de ptr: " << ptr << "\n";
+  
+	system("Pause");
+	return 0;
+}
+
+
+********************
+
+#include <iostream>
+
+int main()
+{
+	int Numero{ 1024 };
+	int Numero2{ 2024 };
+	//Observe que a referência não pode ficar sem ser atribuida logo
+	//na sua criação!
+	int &RefNum{ Numero2 }; // forma padronizada de inicializar
+	//o mesmo que int &RefNum = Numero2;
+	//Agora está ok pois Ref passar ser uma referencia de Numero2
+	RefNum = 5644;
+	//Podemos alterar o valor do referenciado apenas com o nome da referência sem precisar de *
+	//&RefNum = Numero;
+	//Aqui não será permitido pois referência só pode ser atribuida uma única vez!
+	int* ptr;
+	//um ponteiro pode ser declarado sem ser inicializado!
+	//Até mesmo assim é permitido!
+	//depois você pode iniciar
+	ptr = &Numero;
+	
+	*ptr = 4048;
+	std::cout << "\nValor de Numero: " << *ptr << "\n";
+	//No ciclo de vida de um ponteiro podemos reatribuir, colocar um novo endereço, fazer ele apontar para outra variável
+	//isso é permitido!
+	ptr = &Numero2;
+	*ptr = Numero + 2000;
+	std::cout << "\nValor de Numero2: " << *ptr << "\n";
+	return 0;
+}
+
+**********
+
+Considere o seguinte trecho de código abaixo:
+
+float Temperatura { 40.0 } ;
+float VelocidadeDoVento { 23.6 };
+float &RefTemp = Temperatura;
+RefTemp = 34.7;
+std::cout << RefTemp;
+
+O código acima colocará na tela o valor?34.7
+
+***********
+
+Considere o seguinte código abaixo:
+
+#include <iostream>
+int main()
+{
+	float Temperatura{ 40.0 };
+	float VelocidadeDoVento{ 23.6 };
+	float& RefTemp = Temperatura;
+	RefTemp = 34.7;  // deu um novo valor para a variavel temperatura
+	std::cout << RefTemp << "\n";
+	RefTemp = VelocidadeDoVento;
+	std::cout << RefTemp << "\n"; // e esse? o que retornrá?
+}
+
+***********
+   
+    3 casos:
+	
+     	*************   1º caso
+     	
+
+#include <iostream>
+
+void TrocaNumeros(int Num1, int Num2);
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int Num1, Num2;
+	std::cout << "\nDigite o primeiro Número: ";
+	std::cin >> Num1;
+	std::cout << "\nDigite o Segundo Número: ";
+	std::cin >> Num2;
+	std::cout << "\nValores antes da troca\n";
+	std::cout << "\nNumero1 = " << Num1;
+	std::cout << "\nNumero2 = " << Num2;
+	std::cout << "\nValores depois da troca\n";
+	//Esta chamada de função apenas COPIA o Valor de Numero1 e Numero2
+	//E Coloca estes valores em Num1 e Num2 respectivamente da função
+	//Troca Numeros...
+	//Não há relação alguma com estas variáveis..
+	//Numero1 e Numero2 são variáveis locais a função main
+	TrocaNumeros(Num1, Num2);
+	//Mesmo sendo mesmo nome, são variáveis diferente e com endereços de memória diferentes
+	//A ISSO CHAMAMOS DE PASSAGEM DE PARÂMETROS POR VALOR!
+	//APENAS UMA COPIA DO VALOR É ENVIADO A FUNÇÃO
+	std::cout << "\nNum1 = " << &Num1;
+	std::cout << "\nNum2 = " << &Num2;
+
+	std::cout << "\nNum1 = " << Num1;
+	std::cout << "\nNum2 = " << Num2 << "\n";
+
+	system("PAUSE");
+	return 0;
+}
+//e Num1 e Num2 são variáveis locais a função TrocaNumeros
+void TrocaNumeros(int Num1, int Num2)
+{
+	//Como fazer a troca de valores de dois números?
+	//precisamos de um local temporário para armazenar o valor de Num1 antes dele receber novo valor!
+	//Variável temporária que guarda valor de Num1
+	//Ex: se for digitado 10 Temp = 10 e se for digitado Num2 = 20 temos
+	std::cout << "\nNum1 Função = " << &Num1;
+	std::cout << "\nNum2 Função = " << &Num2;
+
+	int Temp{ Num1 };
+	//Num1 passa a ser 20
+	Num1 = Num2;
+	//Num2 passa a ser 10. Logo foi trocado
+	//Porém....
+	Num2 = Temp;
+	//Então aqui a troca ocorre apenas nas variáveis locais
+	//Numero1 e Numero2 ficam intactos sem alteração!
+}
+
+************
+
+   outro caso 
+   
+     	*************  2º caso
+
+#include <iostream>
+
+//Agora estamos indicando que a função terá dois parâmetros que serão
+//referências dos argumentos passados para esta função
+//Ou seja o que for enviado para esta função passará a ser referenciado por Num1 e Num2 respectivamente.
+void TrocaNumeros(int& Num1, int& Num2);
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int Numero1, Numero2;
+	std::cout << "\nDigite o primeiro Número: ";
+	std::cin >> Numero1;
+	std::cout << "\nDigite o Segundo Número: ";
+	std::cin >> Numero2;
+	std::cout << "\nValores antes da troca";
+	std::cout << "\nNumero1 = " << Numero1;
+	std::cout << "\nNumero2 = " << Numero2;
+
+	TrocaNumeros(Numero1, Numero2);
+
+	std::cout << "\nValores depois da troca";
+	std::cout << "\nNumero1 = " << Numero1;
+	std::cout << "\nNumero2 = " << Numero2 << "\n";
+	
+	std::cout << "\nEndereço de memória de Numero1 = " << &Numero1;
+	std::cout << "\nEndereço de memória de Numero2 = " << &Numero2 << "\n";
+	
+	system("PAUSE");
+	return 0;
+}
+
+//Agora Num1 e Num2 não recebem simplesmente uma cópia do valor de Numero1 e Numero2. Eles passam a ser Referências de Numero1 e Numero2 respectivamente. Assim se eles alterarem o valor isso irá afetar as variáveis, pois agora eles são referências!
+void TrocaNumeros(int& Num1, int& Num2)
+{
+	std::cout << "\nEndereço de memória de Num1 da função  = " << &Num1;
+	std::cout << "\nEndereço de memória de Num2 da função  = " << &Num2;
+	int Temp{ Num1 };
+	//Num1 passa a ser 20
+	//aqui está copiando em Numero1 o valor de Numero2 pois são referências é como se fosse Numero1 = Numero2
+	//Lembre que referências são alias para suas variáveis
+	//Isso aqui (int& Num1, int& Num2) é o mesmo que
+	//int& Num1 = Numero1 e int& Num1 = Numero2;
+	//só que isso ocorre na chamada da função.
+	//ISSO DAMOS O NOME DE PASSAGEM DE ARGUMENTOS PARA A FUNÇÃO POR REFERÊNCIA!
+	Num1 = Num2;
+	//Num2 passa a ser 10. Logo foi trocado
+	//Porém....
+	Num2 = Temp;
+	
+}
+
+
+************
+
+   outro caso, por ponteiros
+   
+     	*************  3º caso
+
+#include <iostream>
+
+//Agora vamos fazer o mesmo. A passagem de argumentos para a função por
+//Referência. Só que agora utilizando ponteiros
+//Lembre-se ponteiros são variáveis que possuem dentro delas um endereço de outra variável
+//Além disso eles precisam ser desreferenciados para chegar ao valor apontado ou alterá-lo
+
+//Aqui foi indicado que a função deve receber endereços de memória
+//Pois trata-se de dois ponteiros..
+//Então quando enviar para função você deve enviar o endereço de memória das variáveis. E estes endereços serão colocados nestas variáveis
+void TrocaNumeros(int* Num1, int* Num2);
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int Numero1, Numero2;
+	std::cout << "\nDigite o primeiro Número: ";
+	std::cin >> Numero1;
+	std::cout << "\nDigite o Segundo Número: ";
+	std::cin >> Numero2;
+	std::cout << "\nValores antes da troca";
+	std::cout << "\nNumero1 = " << Numero1;
+	std::cout << "\nNumero2 = " << Numero2;
+
+	//Esta dando erro pois a função não espera receber dois números inteiros.. E sim espera receber dois endereços de memória para ponteiros do tipo int.
+	//Logo devemos enviar o endereço de memória das variaveis
+
+	TrocaNumeros(&Numero1, &Numero2);
+
+	std::cout << "\nValores depois da troca";
+	std::cout << "\nNumero1 = " << Numero1;
+	std::cout << "\nNumero2 = " << Numero2 << "\n";
+	
+	std::cout << "\nEndereço de memória de Numero1 = " << &Numero1;
+	std::cout << "\nEndereço de memória de Numero2 = " << &Numero2 << "\n";
+	
+	system("PAUSE");
+	return 0;
+}
+
+void TrocaNumeros(int* Num1, int* Num2)
+{
+	
+	//Deu diferente pois ponteiro é uma variável e portanto possui endereço alocado na memória. Ele possui dentro dele o endereço de memória da variável apontada
+	std::cout << "\nEndereço de memória de Num1 da função  = " << &Num1;
+	std::cout << "\nEndereço de memória de Num2 da função  = " << &Num2;
+	std::cout << "\nEndereço de memória contido dentro de Num1  = " << Num1;
+	std::cout << "\nEndereço de memória contido dentro de Num2  = " << Num2;
+	//Se Num1 agora é um ponteiro logo Terá dentro dele um endereço de memória. Está dando erro pois estamos tentando colocar um endereço de memória dentro de uma variável inteira Temp
+	//Lembre o nome de uma variável devolve o que está dentro dela!
+	//Neste caso queremos o valor que Num1 aponta e que neste caso será Numero1. Por isso diferentemente das referências os ponteiros precisam ser desreferenciados
+	int Temp{ *Num1 };
+	//Agora temp recebe o valor apontado por Num1
+
+	//Aqui o valor apontado por Num1(que será Numero1) receberá o valor apontado por Num2
+	*Num1 = *Num2;
+	
+	//Num2 passa a ser 10. Logo foi trocado
+	//Porém....
+	//o valor apontado por Num2 receberáo valor de Temp
+	*Num2 = Temp;
+	//Temp é uma variável int normal logo não pode nem precisa ser desreferenciada
+	
+
+	//também chamamos isso de PASSAGEM DE ARGUMENTOS PARA A FUNÇÃO POR REFERÊNCIA! SÓ QUE AQUI USANDO PONTEIROS!
+
+}
+
+
+
+
+
+
+
+*************************************
+
+#include <iostream>
+#include <math.h>
+ 
+void AlteraNumero(double Numero)
+{
+	Numero += 2;
+}
+ 
+int QuadradoDoValor(double Numero)
+{
+	return pow(Numero, 2);
+}
+ 
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	double Num{ 8 };
+	AlteraNumero(Num);
+	std::cout << "Quadrado do Numero " << Num << " é: " << QuadradoDoValor(Num) << std::endl;
+	system("PAUSE");
+	return 0;
+} 
+
+*****************
+Considere o código a seguir, ONDE ESTÁ O ERRO?
+Precisa retornar apenas o resultado 64:
+
+#include <iostream>
+#include <math.h>
+ 
+void QuadradoDoValor(double Numero)
+{
+	Numero =  pow(Numero, 2);
+}
+ 
+int main()
+{
+	double Num{ 8 };
+        QuadradoDoValor(Num);
+	std::cout << Num << std::endl;
+	system("PAUSE");
+	return 0;
+}  
+
+
+
+//      RESPOSTA: Falta o e comercial em void QuadradoDoValor(double& Numero)  para referenciar 
+**********************************
+
+
+Considere o código a seguir:
+
+#include <iostream>
+#include <math.h>
+ 
+void QuadradoDoValor(double* Numero) // Recebe o endereço de memória do argumento que será enviado
+{
+	*Numero = pow(*Numero, 2); // Aqui o parâmetro Numero está manipulando o valor de Num pois 
+	//está com
+//o endereço de memória de Num
+}
+ 
+int main()
+{
+	double Num{ 8 };
+   	QuadradoDoValor(&Num); // envia o endereço & da variável Num e não o valor dela
+	std::cout << Num << std::endl;
+	system("PAUSE");
+	return 0;
+}                                                                                         
+Ao executar o código acima irá aparecer na tela o valor 64 pois está sendo usado
+// o conceito de passagem de argumentos para função por referência. E neste caso 
+//específico utilizando ponteiros*
+
+============================Passagem de argumentos para uma função por valor===============
+
+Então, Na Passagem de argumentos para uma função por valor haverá uma simples 
+cópia do valor do(s) argumento(s) para o(s) parâmetro(s) da função chamada.
+
+No caso do código acima uma chamada de argumentos por valor seria assim:
+
+#include <iostream>
+#include <math.h>
+ 
+//Numero é o parâmetro da função QuadradoDoValor e vai receber apenas o VALOR passado para a 
+//função via argumento
+void QuadradoDoValor(double Numero) //observe a ausência de ponteiros* ou de referências&
+{
+	Numero = pow(Numero, 2);
+}
+ 
+int main()
+{
+	double Num{ 8 };
+   	//Num é o argumento enviado para a função QuadradoDoValor e que está sendo chamada abaixo
+        QuadradoDoValor(Num); 
+/*chamada da função POR VALOR, ou seja apenas será copiado o valor contido 
+no argumento Num. Que é o valor atual da variável Num  que é 8
+este valor 8 será copiado ao parâmetro Numero da função QuadroDoValor e assim esta 
+função não poderá modificar o valor da variável Num pois, recebeu apenas a cópia do 
+valor desta variável.*/
+	
+std::cout << Num << std::endl;
+	system("PAUSE");
+	return 0;
+}     
+
+
+=============================Passagem de argumentos para uma função por Referência===============
+
+Atenção: O termo referência neste caso é conceitual e este termo é conhecido não somente 
+em linguagem C++ mas em todas as linguagens de programação que suportam esta funcionalidade. 
+O fato é que na linguagem C++ temos também um recurso que tem o mesmo nome deste conceito:
+ referência e isso pode confundir as coisas. Entenda Passagem de argumentos para função por 
+ Referência como uma funcionalidade que dá poderes a uma função de modificar o valor do 
+ argumento passado para ela de dentro da função. Em linguagem C++ isso pode ser feito 
+ com os recursos de ponteiros* ou de Referências&.
+
+Daí a confusão pois podemos ter em C++:
+
+- Passagem de argumentos para uma função por valor
+
+- Passagem de argumentos para uma função por Referência usando ponteiros*
+
+  - Passagem de argumentos para uma função por Referência usando Referências&
+
+Portanto na  Passagem de argumentos para uma função por Referência estamos indicando 
+que os argumentos enviados serão enviados por referência, o que indica que os parâmetros 
+da função que irão receber estes argumentos, poderão alterar o valor destes argumentos de 
+dentro da função. E em C++ este conceito e funcionalidade da Passagem de argumentos para 
+uma função por Referência pode ser realizada utilizando Ponteiros* ou Referências&. 
+O truque na realidade é você enviar o endereço variável ou criar uma referência que 
+tenha este endereço permitindo que o parâmetro da função altere o conteúdo do argumento 
+enviado por referência na chamada desta função.
+
+
+*******************************************
+
+
+Considere o código a seguir e leia o texto abaixo ( está longo mas vale a pena ler :) )
+
+#include <iostream>
+#include <math.h>
+ 
+void QuadradoDoValor(double* Numero)
+{
+	*Numero = pow(*Numero, 2);
+}
+ 
+int main()
+{
+	double Num{ 8 };
+   	QuadradoDoValor(&Num);
+	std::cout << Num << std::endl;
+	system("PAUSE");
+	return 0;
+}                                                                                         
+Na assinatura da função void QuadradoDoValor(double* Numero) este asterisco* 
+indica que a função espera receber um endereço de memória que será enviado como 
+argumento e que será armazenado no parâmetro Numero.
+
+Logo a chamada da função QuadradoDoValor(&Num); esta enviando endereço de Num 
+para o parâmetro Numero. E por isso Numero poderá trocar o valor de Num pois 
+contém o endereço de memória dele.
+
+Como é um ponteiro esta alteração precisa ser realizada via operador de 
+desreferenciamento*. Desta forma, no caso do código acima é preciso ficar
+ atento ou atenta ao desreferenciamento do ponteiro via *Numero = pow(*Numero, 2); 
+
+Isso está informando o seguinte.
+
+O Apontado por Numero RECEBE o Valor retornado pela função Potencia(pow)
+ de (Valor Apontado por Numero elevado a 2). 
+
+Como Numero está com o endereço de Num ele está apontando para Num
+
+Logo na prática e como  Num = Num elevado a 2  logo Num = 64
+
+Por isso, na tela irá aparecer 64 pois Num foi modificado via referência 
+pelo ponteiro Numero que contém seu endereço de memória.
+
+********************************
+
+
+
+
+
+
+  
