@@ -1,21 +1,22 @@
 // PRATICANDO C e C++ com as aulas distribuidas no https://github.com/professormarcosp/AprendaCParaGamesUE4
+								
+								PROGRAMA√á√ÉO ESTRUTURADA (segunda parte ser√° orientada a objetos)
 
+                           ********** OBSERVA√á√ÉO***********
 
-                           ********** OBSERVA«√O***********
-
-	O conte˙do disponibilizado aqui serve para ajudar na hora do estudo, portanto, 
-este n„o se trata de um arquivo execut·vel.
-	Ser· atualizado constantemente.
+	O conte√∫do disponibilizado aqui serve para ajudar na hora do estudo, portanto, 
+este n√£o se trata de um arquivo execut√°vel.
+	Ser√° atualizado constantemente.
 *************************************************************************************
-CUIDADO ao usar o "using namespace std;" podem haver conflitos com utilizaÁ„o de comandos
+CUIDADO ao usar o "using namespace std;" podem haver conflitos com utiliza√ß√£o de comandos
 
 
-//ACENTUA«√O
+//ACENTUA√á√ÉO
 
-#include <locale.h>  // acentuaÁ„o.
+#include <locale.h>  // acentua√ß√£o.
 
 int main() {
-	setlocale(LC_ALL, "portuguese");  //Define idioma de acentuaÁ„o.   #include <locale.h> 
+	setlocale(LC_ALL, "portuguese");  //Define idioma de acentua√ß√£o.   #include <locale.h> 
 	std:: ...
 }
 
@@ -81,12 +82,12 @@ int Num;
  		system("PAUSE");
 
 /* Enquanto tiver -->      int Num;
-RESPOSTA È 65, pois N˙mero È um inteiro e neste caso vai receber o 
-valor contido na vari·vel Caractere. Como a vari·vel caractere contÈm 
-dentro dela a letra A ser· coletado o valor inteiro de A na tabela ASCII que È 65
+RESPOSTA √© 65, pois N√∫mero √© um inteiro e neste caso vai receber o 
+valor contido na vari√°vel Caractere. Como a vari√°vel caractere cont√©m 
+dentro dela a letra A ser√° coletado o valor inteiro de A na tabela ASCII que √© 65
 
 *** Se colocar -->     char Num;
-a RESPOSTA ser· a letra A
+a RESPOSTA ser√° a letra A
 */
 
 //***************************************
@@ -124,12 +125,12 @@ double numero3 = 34.34536657567567456754453453452635756;
 //#include <iomanip>
 std::cout<<"\n_______________________\n";
 std::cout<<"Para double, neste caso, foi incluido iomanip"<<std::endl;
-std::cout<<"\ndouble com include iomanip e setprecision (10)";
+std::cout<<"\ndouble com include iomanip e setprecision (10)";   // coloca 2 digitos ap√≥s a v√≠rgula   < ----- std::scientifc<<   coloca em anota√ß√£o cient√≠fica
 
 
 
 // incluso o     std::setprecision (10) 
-	std::cout<<"\n\n\n\tValor do numero3: "<< std::setprecision (10)<<numero3<<std::endl;
+	std::cout<<"\n\n\n\tValor do numero3: "<< std::setprecision (10)<<numero3<<std::endl;     // coloca 2 digitos ap√≥s a v√≠rgula   < ----- std::fixed<<std::setprecision
 	std::cout<<"\tTamanho na memoria da variavel numero 3:  "<<sizeof(numero3)<<" Bytes"<<std::endl;
 	std::cout<<"\tEndereco carregado na memoria: "<< &numero3<<"\n\n";
 	std::cout<<"\n************************************************\n\n";
@@ -158,14 +159,14 @@ int main()
 	return 0;
 }
 
-/*CÛdigo alterado devido a excelente contribuiÁ„o do Aluno Thiago Castro de meu curso na UDEMUY que indicou que a saÌda estava incorreta para os modificadores unsigned
-Fiz a alteraÁ„o e agora est· OK*/
+/*C√≥digo alterado devido a excelente contribui√ß√£o do Aluno Thiago Castro de meu curso na UDEMUY que indicou que a sa√≠da estava incorreta para os modificadores unsigned
+Fiz a altera√ß√£o e agora est√° OK*/
 #include <limits>
 #include <iostream>
 
 int main()
 {
-	// \t insere uma tabulaÁ„o 
+	// \t insere uma tabula√ß√£o 
 	std::cout << "Tipo\t\t Minimo\t\t Maximo\n\n";
 
 	std::cout << "bool\t\t"
@@ -214,7 +215,7 @@ int main()
 #include <iostream>
 //Para usar #define precisa colocar aqui abaixo dos includes
 //#define NUM_VIDAS 10
-//Observe que n„o tem ; no final!!!
+//Observe que n√£o tem ; no final!!!
 
 int main()
 {
@@ -223,15 +224,15 @@ int main()
 	TotalDeVidas = NUM_VIDAS - 1;
 	std::cout << "Total de Vidas: " << TotalDeVidas << "\n";
 	std::cout << "Valor Constante NUM_VIDAS: " << NUM_VIDAS << "\n";
-	std::cout << "EndereÁo de MemÛria de NUM_VIDAS: " << &NUM_VIDAS << "\n";
+	std::cout << "Endere√ßo de Mem√≥ria de NUM_VIDAS: " << &NUM_VIDAS << "\n";
 	system("PAUSE");
 
 }
 
 
-Para ajustar de forma simples vocÍ pode usar espaÁos via string - std::string(30, ' ')
-Neste caso vocÍ est· colocando 30 caracteres espaÁo ' ' na tela
-veja o cÛdigo e saÌda dele e lembre de colocar #include <string>
+Para ajustar de forma simples voc√™ pode usar espa√ßos via string - std::string(30, ' ')
+Neste caso voc√™ est√° colocando 30 caracteres espa√ßo ' ' na tela
+veja o c√≥digo e sa√≠da dele e lembre de colocar #include <string>
 #include <iostream>
 #include <string>
 
@@ -249,11 +250,11 @@ std::cin >> Numero02;
 std::cout << std::string(30, ' ') << "Numero02 = " << Numero02 << std::endl << std::string(30, ' ');
 system("PAUSE");
 }
-Existem claro outras opÁıes mais elaboradas
-Existe uma funÁ„o de nome std::setw(n ). A funÁ„o setw recebe como par‚metro o tamanho do campo de texto que vocÍ deseja colocar na tela e justifica este texto ‡ direita. Portanto na funÁ„o setw(n) este n
-indica o tamanho de caracteres que o campo de saÌda do fluxo cout vai possuir, ou seja, define a largura do campo a ser usada nas operaÁıes de saÌda.
+Existem claro outras op√ß√µes mais elaboradas
+Existe uma fun√ß√£o de nome std::setw(n ). A fun√ß√£o setw recebe como par√¢metro o tamanho do campo de texto que voc√™ deseja colocar na tela e justifica este texto √† direita. Portanto na fun√ß√£o setw(n) este n
+indica o tamanho de caracteres que o campo de sa√≠da do fluxo cout vai possuir, ou seja, define a largura do campo a ser usada nas opera√ß√µes de sa√≠da.
 Como assim?
-Considere e execute o cÛdigo abaixo
+Considere e execute o c√≥digo abaixo
 include <string>
 #include <iomanip>
 #include <iostream>
@@ -263,13 +264,13 @@ int main()
 cout << setw(10) << "ABCDEFGHJ" << "\n";
 system("PAUSE");
 }
-Observe que no cÛdigo acima queremos colocar na tela as letras ABCDEFGHIJ que possui 10 caracteres . Ocorre que se fizermos setw(10) n„o desloca nada, pois vocÍ definiu que o campo deve ter a largura de 10
-caracteres, ou seja que o campo de saÌda do fluxo de cout deve ter tamanho 10. Mas ABCDEFGHIJ j· tem 10 de largura/tamanho. Logo a saÌda n„o desloca nada pois o texto vai se encaixar nesta largura de
-tamanho 10 e n„o sobra nada.
-Agora tente colocar setw(11) e veja o que acontece. Neste caso o tamanho, a largura que especificou em setw È 11. Como o texto tem 10 caracteres o comando setw justifica ‡ direita este texto e o desloca uma
+Observe que no c√≥digo acima queremos colocar na tela as letras ABCDEFGHIJ que possui 10 caracteres . Ocorre que se fizermos setw(10) n√£o desloca nada, pois voc√™ definiu que o campo deve ter a largura de 10
+caracteres, ou seja que o campo de sa√≠da do fluxo de cout deve ter tamanho 10. Mas ABCDEFGHIJ j√° tem 10 de largura/tamanho. Logo a sa√≠da n√£o desloca nada pois o texto vai se encaixar nesta largura de
+tamanho 10 e n√£o sobra nada.
+Agora tente colocar setw(11) e veja o que acontece. Neste caso o tamanho, a largura que especificou em setw √© 11. Como o texto tem 10 caracteres o comando setw justifica √† direita este texto e o desloca uma
 unidade
-E se vocÍ colocar setw(20)? Veja que agora a largura do fluxo ser· 20 e ai o texto ser· deslocado 10 e ocupar· as 10 posiÁıes restantes ‡ direita totalizando a largura de 20 especificada por setw(20)
-VocÍ pode usar o cÛdigo abaixo para por exemplo centralizar seu texto atravÈs da funÁ„o std::setw
+E se voc√™ colocar setw(20)? Veja que agora a largura do fluxo ser√° 20 e ai o texto ser√° deslocado 10 e ocupar√° as 10 posi√ß√µes restantes √† direita totalizando a largura de 20 especificada por setw(20)
+Voc√™ pode usar o c√≥digo abaixo para por exemplo centralizar seu texto atrav√©s da fun√ß√£o std::setw
 #include <string>
 #include <iomanip>
 #include <iostream>
@@ -283,15 +284,15 @@ int main()
  //ou seja o mesmo que 120/2 = 60 ou setw(60);
  system("PAUSE");
 }
-Observe que setw((console_width / 2) + (len / 2)) pega o tamanho(largura) da tela que È 120 e dividi por dois. Logo ser· 120/2 = 60. PorÈm ainda temos que considerar o tamanho do texto que tem 18 contando
-com o caractere espaÁo. Ent„o para o texto ficar centralizado vai ficar metade na esquerda do centro e metade na direita do centro da tela. Assim temos que somar ao setw o tamamho da tela/2 mais o
+Observe que setw((console_width / 2) + (len / 2)) pega o tamanho(largura) da tela que √© 120 e dividi por dois. Logo ser√° 120/2 = 60. Por√©m ainda temos que considerar o tamanho do texto que tem 18 contando
+com o caractere espa√ßo. Ent√£o para o texto ficar centralizado vai ficar metade na esquerda do centro e metade na direita do centro da tela. Assim temos que somar ao setw o tamamho da tela/2 mais o
 tamamhodo texto/2.
-Neste caso o texto ser· centralizado, mas estamos usando o que chamados de NUMERO M¡GICO para a largura do console e isso n„o È recomendado. Mesmo porque a largura de cada console pode variar, no
-geral È 40 mais no meu coloquei 120. Para funcionar vocÍ precisa configurar o tamanho do console como 120.
-Para ver ou alterar a largura do console clique com bot„o direito do mouse sobre a barra branca e escolha propriedades
-V· atÈ a aba layout e verifique que podemos ver ou alterar a largura e atÈ altura do terminal. A largura ser· usada no c·lculo para definir a posiÁ„o do texto centralizado na tela
-Execute o cÛdigo e veja a saÌda
-Mas e se vocÍ quiser ao executar o programa j· modificar automaticamente o tamanho do console windows (CMD) ou prompt de comandos ? VocÍ pode modificar as linhas e colunas da tela com o comando
+Neste caso o texto ser√° centralizado, mas estamos usando o que chamados de NUMERO M√ÅGICO para a largura do console e isso n√£o √© recomendado. Mesmo porque a largura de cada console pode variar, no
+geral √© 40 mais no meu coloquei 120. Para funcionar voc√™ precisa configurar o tamanho do console como 120.
+Para ver ou alterar a largura do console clique com bot√£o direito do mouse sobre a barra branca e escolha propriedades
+V√° at√© a aba layout e verifique que podemos ver ou alterar a largura e at√© altura do terminal. A largura ser√° usada no c√°lculo para definir a posi√ß√£o do texto centralizado na tela
+Execute o c√≥digo e veja a sa√≠da
+Mas e se voc√™ quiser ao executar o programa j√° modificar automaticamente o tamanho do console windows (CMD) ou prompt de comandos ? Voc√™ pode modificar as linhas e colunas da tela com o comando
 system assim:
 system("MODE CON: COLS=80 LINES=40");
 #include <iostream>
@@ -300,28 +301,28 @@ system("MODE CON: COLS=80 LINES=40");
 using namespace std;
 int main()
 {
- system("MODE CON: COLS=80 LINES=40"); // J· coloca a janela com 80 de largura e 40 altura
+ system("MODE CON: COLS=80 LINES=40"); // J√° coloca a janela com 80 de largura e 40 altura
  string str = "Texto Centralizado";
  int console_width = 80;// Largura do seu console.
  int len = str.length();// Tamanho da String
  cout << setw((console_width / 2) + len / 2) << str << endl;
  system("PAUSE");
 }
-Execute o cÛdigo acima e veja o resultado
-Obs: Caso vocÍ receba a informaÁ„o de aviso(Warning) do compilador
-faÁa o seguinte:
-isso È apenas um aviso que indica que os valores limites das vari·veis podem ser ultrapassados pois s„o do tipo inteiro simples. VocÍ pode seguir com o programa.
-Mas se quiser que o erro desapareÁa vocÍ pode fazer um CAST para que os valores sejam de um tipo mais robusto com precis„o maior de valores
-faÁa o seguinte coloque desta forma a linha do c·lculo e compile
+Execute o c√≥digo acima e veja o resultado
+Obs: Caso voc√™ receba a informa√ß√£o de aviso(Warning) do compilador
+fa√ßa o seguinte:
+isso √© apenas um aviso que indica que os valores limites das vari√°veis podem ser ultrapassados pois s√£o do tipo inteiro simples. Voc√™ pode seguir com o programa.
+Mas se quiser que o erro desapare√ßa voc√™ pode fazer um CAST para que os valores sejam de um tipo mais robusto com precis√£o maior de valores
+fa√ßa o seguinte coloque desta forma a linha do c√°lculo e compile
 cout << setw(((unsigned __int64)console_width / 2) + (unsigned __int64)(len / 2)) << str << endl;
-Veja que agora o aviso n„o aparece mais
-Veja o que informa a Microsoft sobre o tipo __int64, basicamente È um tipo para valores altÌssimos de vari·veis
+Veja que agora o aviso n√£o aparece mais
+Veja o que informa a Microsoft sobre o tipo __int64, basicamente √© um tipo para valores alt√≠ssimos de vari√°veis
 Link para o artigo: https://docs.microsoft.com/pt-br/cpp/cpp/int8-int16-int32-int64?view=msvc-160
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Como podemos obter automaticamente o tamanho da tela do console?
-VocÍ pode usar a API do windows.h
-obs: API(Interface de ProgramaÁ„o de Aplicativos) È um conjunto de funÁıes e padrıes de programaÁ„o disponibilizadas por uma plataforma de software(neste caso a plataforma windows). Ou seja, os
-programadores e programadoras do sistema operacional windows nos fornecem diversas funÁıes, tipos de dados, etc que podemos usar para usar recursos do sistema operacional windows.
+Voc√™ pode usar a API do windows.h
+obs: API(Interface de Programa√ß√£o de Aplicativos) √© um conjunto de fun√ß√µes e padr√µes de programa√ß√£o disponibilizadas por uma plataforma de software(neste caso a plataforma windows). Ou seja, os
+programadores e programadoras do sistema operacional windows nos fornecem diversas fun√ß√µes, tipos de dados, etc que podemos usar para usar recursos do sistema operacional windows.
 Veja
 #include <iostream>
 #include <string>
@@ -330,10 +331,10 @@ Veja
 using namespace std;
 int main()
 {
- HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE); // Aqui vocÍ obtem a janela de Console e coloca em screen um endereÁo para manipular(HANDLE) esta janela
+ HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE); // Aqui voc√™ obtem a janela de Console e coloca em screen um endere√ßo para manipular(HANDLE) esta janela
  COORD max_size = GetLargestConsoleWindowSize(screen);
- //max_size ter· as coordenadas X (Largura) e Y (Altura)
- //Ent„o max_size.X ser· a Largura e max_size.Y ser· a altura
+ //max_size ter√° as coordenadas X (Largura) e Y (Altura)
+ //Ent√£o max_size.X ser√° a Largura e max_size.Y ser√° a altura
  //Precisamos apenas da Largura
  string str = "Texto Centralizado";
  int LarguraConsole = max_size.X;// Largura do seu console obtida automaticamente.
@@ -342,8 +343,8 @@ int main()
  cout << setw((LarguraConsole / 2) + Tam / 2) << right << str << endl;
  system("PAUSE");
 }
-H· ainda o que vocÍ deseja que È colocar o texto em local especÌfico da tela
-Na linguagem C existe um funÁ„o de nome gotoxy mas em C++ podemos criar a prÛpria funÁ„o usando a API do windows.h
+H√° ainda o que voc√™ deseja que √© colocar o texto em local espec√≠fico da tela
+Na linguagem C existe um fun√ß√£o de nome gotoxy mas em C++ podemos criar a pr√≥pria fun√ß√£o usando a API do windows.h
 #include <iostream>
 #include <windows.h>
 COORD GotoXY(int x, int y)
@@ -365,17 +366,17 @@ int main()
  system("PAUSE");
  return 0;
 }
-Veja a saÌda
-VocÍ ainda pode usar bibliotecas feitas por terceiros e que simplificam o uso de gotoxy
-v· atÈ o site
+Veja a sa√≠da
+Voc√™ ainda pode usar bibliotecas feitas por terceiros e que simplificam o uso de gotoxy
+v√° at√© o site
 https://tapiov.net/rlutil/
 Clique em .zip para fazer o download de um arquivo zipado
 Descompacte e copie o arquivo rlutils.h para dentro da pasta de seu projeto
-Agora dentro do visual studio clique com bot„o direito do mouse em header files e escolha ADD->Existing item
-Escolha o arquivo que vocÍ copiou e clique no bot„o ADD
+Agora dentro do visual studio clique com bot√£o direito do mouse em header files e escolha ADD->Existing item
+Escolha o arquivo que voc√™ copiou e clique no bot√£o ADD
 Veja que aparece agora
-Ent„o no cÛdigo basta incluir entre aspas duplas este arquivo "rlutils.h". Em aspas duplas pois est· no mesmo diretÛrio
-Veja o cÛdigo bem mais simplicado
+Ent√£o no c√≥digo basta incluir entre aspas duplas este arquivo "rlutils.h". Em aspas duplas pois est√° no mesmo diret√≥rio
+Veja o c√≥digo bem mais simplicado
 #include <iostream>
 #include "rlutil.h"
 int main()
@@ -406,9 +407,9 @@ int main()
 
 
 
-Para receber m˙ltiplas entradas com std::cin basta colocar as entradas separadas com >>
+Para receber m√∫ltiplas entradas com std::cin basta colocar as entradas separadas com >>
 
-Veja exemplo a seguir que consegue receber quatro n˙meros em uma ˙nica linha de std::cin
+Veja exemplo a seguir que consegue receber quatro n√∫meros em uma √∫nica linha de std::cin
 
 std::cin >> Num1 >> Num2 >> Num3 >> Num4;
 
@@ -427,9 +428,9 @@ int main()
 }
 
 
-Para receber m˙ltiplas entradas com std::cin basta colocar as entradas separadas com >>
+Para receber m√∫ltiplas entradas com std::cin basta colocar as entradas separadas com >>
 
-Veja exemplo a seguir que consegue receber quatro n˙meros em uma ˙nica linha de std::cin
+Veja exemplo a seguir que consegue receber quatro n√∫meros em uma √∫nica linha de std::cin
 
 std::cin >> Num1 >> Num2 >> Num3 >> Num4;
 
@@ -466,12 +467,12 @@ int main()
 	std::cout << "\nDigite sua opcao: ";
 	std::cin >> Operacao;
 
-	//O Usuario vai digitar um caracter. Como um caracter È mapeado como inteiro da tabela ascii o switch este tipo de express„o.
+	//O Usuario vai digitar um caracter. Como um caracter √© mapeado como inteiro da tabela ascii o switch este tipo de express√£o.
 	//Logo Operacao pode ser + - * /
 	
 	switch (Operacao)
 	{
-	//Caso seja + esta linha ser· executada
+	//Caso seja + esta linha ser√° executada
 	case '+': 
 		std::cout << "\nSoma de Num1 + Num2 = " << Num1 + Num2;
 		break;
@@ -484,9 +485,9 @@ int main()
 	case '/':
 		std::cout << "\nDivisao de Num1 / Num2 = " << Num1 / Num2;
 		break;
-	//Caso Operador n„o tenha um valor de nenhum destas casos + - * ou /
-	//vocÍ pode colocar de forma opcional um valor que padr„o(default)
-	//que ser· executado se nenhum dos casos sejam v·lidos
+	//Caso Operador n√£o tenha um valor de nenhum destas casos + - * ou /
+	//voc√™ pode colocar de forma opcional um valor que padr√£o(default)
+	//que ser√° executado se nenhum dos casos sejam v√°lidos
 	default:
 		std::cout << "\nVoce nao digitou um operador valido! ";
 		break;
@@ -503,20 +504,20 @@ int main()
 
 
 
-Embora isso seja possÌvel e interessante para quem estar testando um programa, recomendo que na vers„o final vocÍ utilize cada entrada recebida separadamente para deixar o cÛdigo mais legÌvel....
+Embora isso seja poss√≠vel e interessante para quem estar testando um programa, recomendo que na vers√£o final voc√™ utilize cada entrada recebida separadamente para deixar o c√≥digo mais leg√≠vel....
 
-AbraÁo
+Abra√ßo
 
-Como vocÍ faria para n„o encerrar o programa depois do resultado?
+Como voc√™ faria para n√£o encerrar o programa depois do resultado?
 
-Neste caso  seria com loop. Vai aparecer uma mensagem para o usu·rio e ai vocÍ indica S para Continuar no programa Ou  N para Sair
+Neste caso  seria com loop. Vai aparecer uma mensagem para o usu√°rio e ai voc√™ indica S para Continuar no programa Ou  N para Sair
 
 Ou seja um loop usando o do-while
 
-veja o cÛdigo
+veja o c√≥digo
 
 #include <iostream>
-#include <iomanip> // necess·rio para uso do set precision
+#include <iomanip> // necess√°rio para uso do set precision
  
 int main()
 {
@@ -524,23 +525,23 @@ int main()
 	float Num1, Num2, Num3;
 	float Media = 0.0;
 	char Resposta;
-	do // Cria loop atÈ que Resposta seja S e ai sai do loop
+	do // Cria loop at√© que Resposta seja S e ai sai do loop
 	{
-		std::cout << "Digite o Primeiro N˙mero: ";
+		std::cout << "Digite o Primeiro N√∫mero: ";
 		std::cin >> Num1;
-		std::cout << "Digite o Primeiro N˙mero: ";
+		std::cout << "Digite o Primeiro N√∫mero: ";
 		std::cin >> Num2;
-		std::cout << "Digite o Primeiro N˙mero: ";
+		std::cout << "Digite o Primeiro N√∫mero: ";
 		std::cin >> Num3;
  
 		Media = (Num1 + Num2 + Num3) / 3;
  
-		std::cout << "N˙meros Digitados: " << Num1 << " " << Num2 << " " << Num3 << "\n";
-		std::cout << "MÈdia dos N˙meros: " << std::fixed << std::setprecision(2) << Media << "\n";
-		std::cout << "\nDeseja calcular outra MÈdia ArtmÈtica? (Responda S para Sim e N para n„o:) ";
+		std::cout << "N√∫meros Digitados: " << Num1 << " " << Num2 << " " << Num3 << "\n";
+		std::cout << "M√©dia dos N√∫meros: " << std::fixed << std::setprecision(2) << Media << "\n";  // coloca 2 digitos ap√≥s a v√≠rgula   < -----
+		std::cout << "\nDeseja calcular outra M√©dia Artm√©tica? (Responda S para Sim e N para n√£o:) ";
 		std::cin >> Resposta;
 	} while (Resposta == 'S' || Resposta == 's'); // Sai do loop apenas de o OU for falso ou seja se
-//Se resposta for diferente de S e diferente de s. Lembre que o OU || sÛ ser· falso de todas as sentenÁas forem //falsas. Assim se o usu·rio digitar N ou qualquer outra coisa o programa sair· mas se digitar S ou s o programa volta e pede novamente os n˙meros.
+//Se resposta for diferente de S e diferente de s. Lembre que o OU || s√≥ ser√° falso de todas as senten√ßas forem //falsas. Assim se o usu√°rio digitar N ou qualquer outra coisa o programa sair√° mas se digitar S ou s o programa volta e pede novamente os n√∫meros.
  
 	std::cout << "\nSaindo do programa...";
 	system("Pause");
@@ -567,8 +568,8 @@ int main()
         std::cout << "Digite o segundo Numero: ";
 	std::cin >> Numero02;
 	std::cout << "Numero02 = " << Numero02 << std::endl;	
-	// = È comando de atribuiÁ„o
-	//== È operador de igualdade. Para verificar se o operando È igual a outro operando
+	// = √© comando de atribui√ß√£o
+	//== √© operador de igualdade. Para verificar se o operando √© igual a outro operando
 	Comparacao = (Numero01 == Numero02);
 	std::cout << "Numero01 igual a Numero02?:  " << Comparacao << "\n";
 	Comparacao = (Numero01 != Numero02);
@@ -600,13 +601,13 @@ int main()
 	std::cout << "Digite um Numero: ";
 	std::cin >> Numero;
 	std::cout << "True = 1 e False = 0" << "\n";
-	//A vari·vel booleana MaiorQue100 ir· receber
-	//o valor lÛgico da comparaÁ„o (Numero > 100)
-	// Numero È maior que cem? 
+	//A vari√°vel booleana MaiorQue100 ir√° receber
+	//o valor l√≥gico da compara√ß√£o (Numero > 100)
+	// Numero √© maior que cem? 
 	ResultadoLogico = ((Numero > 100) && (Numero != 0)) ;
-	std::cout << "O Resultado LÛgico da Express„o ((Numero > 100) && (Numero != 0)) È: " << ResultadoLogico <<  std::endl;
+	std::cout << "O Resultado L√≥gico da Express√£o ((Numero > 100) && (Numero != 0)) √©: " << ResultadoLogico <<  std::endl;
 	ResultadoLogico2 = ((Numero == 100) || (Numero > 200)) && (Numero < 1000);
-	std::cout << "O Resultado LÛgico da Express„o ((Numero == 100) || (Numero > 200)) && (Numero < 1000); È: " << ResultadoLogico2 << std::endl;
+	std::cout << "O Resultado L√≥gico da Express√£o ((Numero == 100) || (Numero > 200)) && (Numero < 1000); √©: " << ResultadoLogico2 << std::endl;
 	system("PAUSE");
 }
 
@@ -621,25 +622,25 @@ int main()
 int main()
 {
 	_tsetlocale(LC_ALL, _T("portuguese"));
-	//VocÍ pode usar ( ) para iniciar vari·veis com valores literais
-	//{  } È inicializaÁ„o uniforme, permite tanto iniciar tanto valores literais (int, float, caractere, quanto valores escalares, vetores, enums etc.
+	//Voc√™ pode usar ( ) para iniciar vari√°veis com valores literais
+	//{  } √© inicializa√ß√£o uniforme, permite tanto iniciar tanto valores literais (int, float, caractere, quanto valores escalares, vetores, enums etc.
 	int NumeroInteiro{ 12 };
 	float NumeroReal{ 34.56 };
 	char Caractere{ 'c' };
-	//String È um cadeia de caracteres, È um texto e deve estar entre aspas duplas "texto da string"
+	//String √© um cadeia de caracteres, √© um texto e deve estar entre aspas duplas "texto da string"
 	//Para declarar uma string usamos std::string
-	std::string Texto{ "Vou Aprender C++ e descobrir o lado sombrio da forÁa!" };
-	//%d indica que vocÍ quer que seja colocado na string:
-	//"Valor N˙mero Inteiro = %d " o valor da vari·vel NumeroInteiro
+	std::string Texto{ "Vou Aprender C++ e descobrir o lado sombrio da for√ßa!" };
+	//%d indica que voc√™ quer que seja colocado na string:
+	//"Valor N√∫mero Inteiro = %d " o valor da vari√°vel NumeroInteiro
 	std::printf("Valor Inteiro: %d - Real: %.2f - Caractere: %c - Texto: %s \n", NumeroInteiro, NumeroReal, Caractere, Texto.c_str());
 	std::cout << "Texto da String: " << Texto << "\n";
 
-	std::printf("O Valor do Caractere Digitado: %c na Tabela ASCII È: %d \n", Caractere, Caractere);
-	/*%d N˙mero decimal inteiro (int).
-	%f	 N˙mero decimal de ponto flutuante. serve tanto para float como para double.
+	std::printf("O Valor do Caractere Digitado: %c na Tabela ASCII √©: %d \n", Caractere, Caractere);
+	/*%d N√∫mero decimal inteiro (int).
+	%f	 N√∫mero decimal de ponto flutuante. serve tanto para float como para double.
 	%lf  Serve para double. (l-long , f-float - lf)
-	%c	 Caractere: imprime o caractere que tem o cÛdigo ASCII correspondente ao valor dado.
-	%s	 SequÍncia de caracteres (string, em inglÍs).
+	%c	 Caractere: imprime o caractere que tem o c√≥digo ASCII correspondente ao valor dado.
+	%s	 Sequ√™ncia de caracteres (string, em ingl√™s).
 	*/
 
 	system("PAUSE");
@@ -649,7 +650,7 @@ int main()
 
 
 
-//use este cÛdigo se estiver usando DEVC++
+//use este c√≥digo se estiver usando DEVC++
 #include <iostream>
 #include <string>
 /*exclua tchar.h*/
@@ -663,27 +664,27 @@ int main()
 	/*Coloque desta forma para acentuar*/
 	
 	setlocale(LC_ALL, ("portuguese"));
-	//VocÍ pode usar ( ) para iniciar vari·veis com valores literais
-	//{  } È inicializaÁ„o uniforme, permite tanto iniciar tanto valores literais (int, float, caractere, quanto valores escalares, vetores, enums etc.
+	//Voc√™ pode usar ( ) para iniciar vari√°veis com valores literais
+	//{  } √© inicializa√ß√£o uniforme, permite tanto iniciar tanto valores literais (int, float, caractere, quanto valores escalares, vetores, enums etc.
 	//Coloque o igual antes das chaves
 	int NumeroInteiro = { 12 };
 	float NumeroReal = { 34.56 };
 	char Caractere = {'c'};
-	//String È um cadeia de caracteres, È um texto e deve estar entre aspas duplas "texto da string"
+	//String √© um cadeia de caracteres, √© um texto e deve estar entre aspas duplas "texto da string"
 	//Para declarar uma string usamos std::string
-	//Aqui coloque parÍnteses ao invÈs de chaves
-	std::string Texto = ("Vou Aprender C++ e descobrir o lado sombrio da forÁa!");
-	//%d indica que vocÍ quer que seja colocado na string:
-	//"Valor N˙mero Inteiro = %d " o valor da vari·vel NumeroInteiro
+	//Aqui coloque par√™nteses ao inv√©s de chaves
+	std::string Texto = ("Vou Aprender C++ e descobrir o lado sombrio da for√ßa!");
+	//%d indica que voc√™ quer que seja colocado na string:
+	//"Valor N√∫mero Inteiro = %d " o valor da vari√°vel NumeroInteiro
 	std::printf("Valor Inteiro: %d - Real: %.2f - Caractere: %c - Texto: %s \n", NumeroInteiro, NumeroReal, Caractere, Texto.c_str());
 	std::cout << "\nTexto da String: " << Texto << "\n";
 
-	std::printf("O Valor do Caractere Digitado: %c na Tabela ASCII È: %d \n", Caractere, Caractere);
-	/*%d N˙mero decimal inteiro (int).
-	%f	 N˙mero decimal de ponto flutuante. serve tanto para float como para double.
+	std::printf("O Valor do Caractere Digitado: %c na Tabela ASCII √©: %d \n", Caractere, Caractere);
+	/*%d N√∫mero decimal inteiro (int).
+	%f	 N√∫mero decimal de ponto flutuante. serve tanto para float como para double.
 	%lf  Serve para double. (l-long , f-float - lf)
-	%c	 Caractere: imprime o caractere que tem o cÛdigo ASCII correspondente ao valor dado.
-	%s	 SequÍncia de caracteres (string, em inglÍs).
+	%c	 Caractere: imprime o caractere que tem o c√≥digo ASCII correspondente ao valor dado.
+	%s	 Sequ√™ncia de caracteres (string, em ingl√™s).
 	*/
 
 	system("PAUSE");
@@ -691,91 +692,91 @@ int main()
 }
 
 
-Exemplo de um cÛdigo onde n„o importa se È prÈ ou pÛs-fixado
+Exemplo de um c√≥digo onde n√£o importa se √© pr√© ou p√≥s-fixado
 
-//pÛs fixado
+//p√≥s fixado
 int num1 = 20;
 num1++;
 std::cout << num1;
  
-prÈ-fixado
+pr√©-fixado
 int num1 = 20;
 ++num1;
 std::cout << num1;
 
 
-Veja que em ambos os cÛdigos acima n„o importa se È prÈ ou pÛs fixado pois, isso n„o ir· impactar no resultado!
+Veja que em ambos os c√≥digos acima n√£o importa se √© pr√© ou p√≥s fixado pois, isso n√£o ir√° impactar no resultado!
 
-Em ambos os casos num1++ ou ++num1 ser· o mesmo que num1 =  num + 1;
+Em ambos os casos num1++ ou ++num1 ser√° o mesmo que num1 =  num + 1;
 
-como aparece sozinho o compilador ir· passar esta linha de execuÁ„o de cÛdigo e colocar·  na tela o valor de num1 adicionado de 1
+como aparece sozinho o compilador ir√° passar esta linha de execu√ß√£o de c√≥digo e colocar√°  na tela o valor de num1 adicionado de 1
 
 
 ********
 
-Contudo  existem casos que o compilador precisar· saber se È para incrementar antes ou depois a vari·vel.
+Contudo  existem casos que o compilador precisar√° saber se √© para incrementar antes ou depois a vari√°vel.
 
 Observe este dois exemplos
 
-//pÛs fixado
+//p√≥s fixado
 int num1 = 20;
 std::cout << num1++;
  
-prÈ-fixado
+pr√©-fixado
 int num1 = 20;
 std::cout << ++num1;
-Agora as expressıes num1++ e ++num1 aparecem como saÌda da funÁ„o cout. Sendo assim o compilador precisar· analisar como estas expressıes prÈ e pÛs ser„o avaliadas
+Agora as express√µes num1++ e ++num1 aparecem como sa√≠da da fun√ß√£o cout. Sendo assim o compilador precisar√° analisar como estas express√µes pr√© e p√≥s ser√£o avaliadas
 
-No caso da pÛs-fixada a saÌda ser· 20 e depois o num1 ser· incrementado na memÛria passando a ser 21
+No caso da p√≥s-fixada a sa√≠da ser√° 20 e depois o num1 ser√° incrementado na mem√≥ria passando a ser 21
 
-ent„o pÛs fixado È o mesmo que dizer: use o valor atual da vari·vel num1 e sÛ depois incremente o valor dela na memÛria
+ent√£o p√≥s fixado √© o mesmo que dizer: use o valor atual da vari√°vel num1 e s√≥ depois incremente o valor dela na mem√≥ria
 
-È como se tivÈssemos simplificado o seguinte cÛdigo
+√© como se tiv√©ssemos simplificado o seguinte c√≥digo
 
 std::cout << num1;
 num1 = num1 + 1;
-È exatamente assim que È o comportamento do operador de incremento pÛs-fixado. Ser· usado primeiro o valor atual da vari·vel e sÛ depois esta vari·vel ser· incrementada
+√© exatamente assim que √© o comportamento do operador de incremento p√≥s-fixado. Ser√° usado primeiro o valor atual da vari√°vel e s√≥ depois esta vari√°vel ser√° incrementada
 
-Logo 20 ir· para tela e depois num1 ser· 20+1 que È 21 e este valor ser· colocado na memÛria em num1
+Logo 20 ir√° para tela e depois num1 ser√° 20+1 que √© 21 e este valor ser√° colocado na mem√≥ria em num1
 
-Ou seja, no incremento pÛs-fixado o compilador vai logo na memÛria e verifica o valor atual de num1 e usa este valor em cout. Somente depois disso o valor de num1 È incrementado e passa a ser 21.
+Ou seja, no incremento p√≥s-fixado o compilador vai logo na mem√≥ria e verifica o valor atual de num1 e usa este valor em cout. Somente depois disso o valor de num1 √© incrementado e passa a ser 21.
 
 ***************
 
 
 
 
-J· na outra abordagem prÈ-fixada temos
+J√° na outra abordagem pr√©-fixada temos
 
 std::cout << ++num1;
 
-Neste caso, temos o operador de incremento prÈ-fixado
+Neste caso, temos o operador de incremento pr√©-fixado
 
-isso quer dizer que primeiro ser· feito o incremento da vari·vel para somente depois usar o valor desta vari·vel
+isso quer dizer que primeiro ser√° feito o incremento da vari√°vel para somente depois usar o valor desta vari√°vel
 
-È como se esta instruÁ„o de cÛdigo std::cout << ++num1; fosse uma simplificaÁ„o de
+√© como se esta instru√ß√£o de c√≥digo std::cout << ++num1; fosse uma simplifica√ß√£o de
 
 num1 = num1 + 1;
 std::cout << num1
-Logo primeiro num1 que È 20 ser· incrementado e fica com o valor 21 na memÛria
+Logo primeiro num1 que √© 20 ser√° incrementado e fica com o valor 21 na mem√≥ria
 
-e depois isso È mostrado este valor 21  de num1 na tela
+e depois isso √© mostrado este valor 21  de num1 na tela
 
-Ou seja, no incremento prÈ-fixado o compilador primeiro faz logo a operaÁ„o de incremento e muda o valor da vari·vel na memÛria para somente depois usar o valor desta vari·vel na memÛria que neste caso colocar· 21 na tela
+Ou seja, no incremento pr√©-fixado o compilador primeiro faz logo a opera√ß√£o de incremento e muda o valor da vari√°vel na mem√≥ria para somente depois usar o valor desta vari√°vel na mem√≥ria que neste caso colocar√° 21 na tela
 
-IMPORTANTE: Em programaÁ„o existem comandos que efetivamente mudam os valores das vari·veis na memÛria e existem outros comandos que apenas usam este valor da vari·vel sem mudar nada na memÛria.
+IMPORTANTE: Em programa√ß√£o existem comandos que efetivamente mudam os valores das vari√°veis na mem√≥ria e existem outros comandos que apenas usam este valor da vari√°vel sem mudar nada na mem√≥ria.
 
 Como assim?
 
 Vamos a um exemplo:
 
-Eu comentei e j· ensinei que os Ìndice de um array ou vetor comeÁam com zero, mas para o usu·rio eles comeÁam em 1
+Eu comentei e j√° ensinei que os √≠ndice de um array ou vetor come√ßam com zero, mas para o usu√°rio eles come√ßam em 1
 
-PorÈm n„o È natural pedirmos ao usu·rio que digite o n˙mero 0(zero):
+Por√©m n√£o √© natural pedirmos ao usu√°rio que digite o n√∫mero 0(zero):
 
-Assim podemos recorrer a uma instruÁ„o que pegue o  valor do Ìndice somado a 1 e mostre na tela adequadamente para o o usu·rio desta forma: Digite o Numero 1, 2, 3, 4 etc
+Assim podemos recorrer a uma instru√ß√£o que pegue o  valor do √≠ndice somado a 1 e mostre na tela adequadamente para o o usu√°rio desta forma: Digite o Numero 1, 2, 3, 4 etc
 
-SÛ que precisamos usar os Ìndices no cÛdigo comeÁando em zero e ai fazemos isso a seguir
+S√≥ que precisamos usar os √≠ndices no c√≥digo come√ßando em zero e ai fazemos isso a seguir
 
 int Numeros[5];
 for (int i=0; i < 5; i++) 
@@ -783,113 +784,113 @@ for (int i=0; i < 5; i++)
  std::cout << "Digite o Numero" << i+1;
  std::cin >> Numero[i]; 
 } 
-no caso acima temos a express„o i+1
+no caso acima temos a express√£o i+1
 
-i+1 apenas est· utilizando o valor de i somado a 1
+i+1 apenas est√° utilizando o valor de i somado a 1
 
-n„o existe atribuiÁ„o a alguma lugar na memÛria, logo o valor de i n„o ser· alterado!
+n√£o existe atribui√ß√£o a alguma lugar na mem√≥ria, logo o valor de i n√£o ser√° alterado!
 
-O valor de i seria alterado somente se tivÈssemos
+O valor de i seria alterado somente se tiv√©ssemos
 
-i = i + 1; ou i++ pois i++ ou ++i È o mesmo que i = i +1
+i = i + 1; ou i++ pois i++ ou ++i √© o mesmo que i = i +1
 
-Veja que neste caso i = i + 1 ou i++ ou ainda ++i vocÍ est· indicando que se pegue o valor de i somente com 1 e coloque o resultado na vari·vel i. Existe efetivamente a atribuiÁ„o de uma valor a uma regi„o da memÛria
+Veja que neste caso i = i + 1 ou i++ ou ainda ++i voc√™ est√° indicando que se pegue o valor de i somente com 1 e coloque o resultado na vari√°vel i. Existe efetivamente a atribui√ß√£o de uma valor a uma regi√£o da mem√≥ria
 
 i receba i + 1
 
-Ent„o desta forma vai mudar o valor de i na memÛria pois existe uma atribuiÁ„o
+Ent√£o desta forma vai mudar o valor de i na mem√≥ria pois existe uma atribui√ß√£o
 
-PorÈm apenas i+1 solto n„o muda nada na memÛria e assim podemos usar apenas o valor de i sem modificar seu valor
+Por√©m apenas i+1 solto n√£o muda nada na mem√≥ria e assim podemos usar apenas o valor de i sem modificar seu valor
 
-Quando o loop for vai para i++ ai sim o valor de i ser· modificado pois i++ È o mesmo que i = i +1 e neste caso o compilador vai modificar o valor de i a cada passada(iteraÁ„o) do loop for
+Quando o loop for vai para i++ ai sim o valor de i ser√° modificado pois i++ √© o mesmo que i = i +1 e neste caso o compilador vai modificar o valor de i a cada passada(itera√ß√£o) do loop for
 
-Ent„o ser· assim a cada passada do loop for
+Ent√£o ser√° assim a cada passada do loop for
 
 para i = 0
 
-std::cout << "Digite o Numero" << 0+1 que È 1;
+std::cout << "Digite o Numero" << 0+1 que √© 1;
 
 std::cin >> Numero[0];
 
 Na tela Digite o Numero1
 
-mas lembre que i+1 n„o altera o valor de i
+mas lembre que i+1 n√£o altera o valor de i
 
-E ent„o o loop for volta e encontra i++
+E ent√£o o loop for volta e encontra i++
 
-ai sim o i passa a ser i = i +1 ou i = 0 + 1 que È 1
+ai sim o i passa a ser i = i +1 ou i = 0 + 1 que √© 1
 
 
 
 para i= 1
 
-std::cout << "Digite o Numero" << 1+1 que È 2;
+std::cout << "Digite o Numero" << 1+1 que √© 2;
 
 std::cin >> Numero[1];
 
 Na tela Digite o Numero2
 
-mas lembre que i+1 n„o altera o valor de i
+mas lembre que i+1 n√£o altera o valor de i
 
-E ent„o o loop for volta e encontra i++
+E ent√£o o loop for volta e encontra i++
 
-ai sim o i passa a ser i = i +1 ou i = 1 + 1 que È 2
+ai sim o i passa a ser i = i +1 ou i = 1 + 1 que √© 2
 
 
 
 para i= 2
 
-std::cout << "Digite o Numero" << 2+1 que È 3;
+std::cout << "Digite o Numero" << 2+1 que √© 3;
 
 std::cin >> Numero[2];
 
 Na tela Digite o Numero3
 
-mas lembre que i+1 n„o altera o valor de i
+mas lembre que i+1 n√£o altera o valor de i
 
-E ent„o o loop for volta e encontra i++
+E ent√£o o loop for volta e encontra i++
 
-ai sim o i passa a ser i = i +1 ou i = 2 + 1 que È 3
+ai sim o i passa a ser i = i +1 ou i = 2 + 1 que √© 3
 
 
 
 para i= 3
 
-std::cout << "Digite o Numero" << 3+1 que È 4;
+std::cout << "Digite o Numero" << 3+1 que √© 4;
 
 std::cin >> Numero[3];
 
 Na tela Digite o Numero4
 
-mas lembre que i+1 n„o altera o valor de i
+mas lembre que i+1 n√£o altera o valor de i
 
-E ent„o o loop for volta e encontra i++
+E ent√£o o loop for volta e encontra i++
 
-ai sim o i passa a ser i = i +1 ou i = 3 + 1 que È 4
+ai sim o i passa a ser i = i +1 ou i = 3 + 1 que √© 4
 
 
 
 para i= 4
 
-std::cout << "Digite o Numero" << 4+1 que È 5;
+std::cout << "Digite o Numero" << 4+1 que √© 5;
 
 std::cin >> Numero[4];
 
 Na tela Digite o Numero4
 
-mas lembre que i+1 n„o altera o valor de i
+mas lembre que i+1 n√£o altera o valor de i
 
-E ent„o o loop for volta e encontra i++
+E ent√£o o loop for volta e encontra i++
 
-ai sim o i passa a ser i = i +1 ou i = 4 + 1 que È 5
-
-
-
-para i =5 para o for pois i < 5 ou 5 < 5 È falso e o for loop È encerrado
+ai sim o i passa a ser i = i +1 ou i = 4 + 1 que √© 5
 
 
 
-Vamos imaginar agora este mesmo cÛdigo apenas modificando i+1 por i++
+para i =5 para o for pois i < 5 ou 5 < 5 √© falso e o for loop √© encerrado
+
+
+
+Vamos imaginar agora este mesmo c√≥digo apenas modificando i+1 por i++
 
 
 
@@ -905,13 +906,13 @@ Neste caso  std::cout << "Digite o Numero: " << i++; seria o mesmo que
 
 std::cout << "Digite o Numero: " << i = i + 1;
 
-agora vocÍ est· modificando o valor de i na memÛria
+agora voc√™ est√° modificando o valor de i na mem√≥ria
 
 
 
 para i = 0
 
-std::cout << "Digite o Numero" << 0+1 que È 1;
+std::cout << "Digite o Numero" << 0+1 que √© 1;
 
 std::cin >> Numero[0];
 
@@ -919,15 +920,15 @@ Na tela Digite o Numero1
 
 mas lembre que i++ altera o valor de i que vai ser i = 0 +1 que passa a ser 1
 
-E ent„o o loop for volta e encontra i++
+E ent√£o o loop for volta e encontra i++
 
-ai o i passa a ser i = 1 +1 ou i = 1 + 1 que È 2 logo i passa a ser 2
+ai o i passa a ser i = 1 +1 ou i = 1 + 1 que √© 2 logo i passa a ser 2
 
 
 
 para i = 2
 
-std::cout << "Digite o Numero" << 2+1 que È 3;
+std::cout << "Digite o Numero" << 2+1 que √© 3;
 
 std::cin >> Numero[2];
 
@@ -935,17 +936,17 @@ Na tela Digite o Numero3
 
 mas lembre que i++ altera o valor de i que vai ser i = 2 +1 que passa a ser 3
 
-E ent„o o loop for volta e encontra i++
+E ent√£o o loop for volta e encontra i++
 
 ai o i passa a ser i = 3 +1 ou i = 4  logo i passa a ser 4
 
-e por ai vai e por isso , i = 0,2,4 pois o operador de incremento e decremento MODIFICA o valor da vari·vel incrementada ou decrementada da memÛria, e apenas vai ser decidido quando isso ocorre(prÈ e pÛs-fixado)
+e por ai vai e por isso , i = 0,2,4 pois o operador de incremento e decremento MODIFICA o valor da vari√°vel incrementada ou decrementada da mem√≥ria, e apenas vai ser decidido quando isso ocorre(pr√© e p√≥s-fixado)
 
-claro que usar desta forma È incorreto para este caso pois ir· "bagunÁar" o Ìndice i que controla o loop for
+claro que usar desta forma √© incorreto para este caso pois ir√° "bagun√ßar" o √≠ndice i que controla o loop for
 
 
 
-Vamos agora a  um exemplo de operadores de incremento com dois n˙meros
+Vamos agora a  um exemplo de operadores de incremento com dois n√∫meros
 
 
 
@@ -954,24 +955,24 @@ int num2{20}
  
 num1 = num2++;
 std::cout << num1 << "-" << num2;
-A saÌda acima ser· 20 e 21
+A sa√≠da acima ser√° 20 e 21
 
 Vamos analisar
 
 num1 = num2++;
 
-acima temos um caso de incremento pÛs-fixado logo como disse mais acima primeiro usa-se o valor da vari·vel e somente depois incrementa o valor desta vari·vel
+acima temos um caso de incremento p√≥s-fixado logo como disse mais acima primeiro usa-se o valor da vari√°vel e somente depois incrementa o valor desta vari√°vel
 
-logo a express„o num1 = num2++;
+logo a express√£o num1 = num2++;
 
-È o mesmo que
+√© o mesmo que
 
 num1 = num2;
 num2 =  num2 + 1;
 std::cout << num1 << "-" << num2;
-Veja que num1 recebe primeiro o valor contido na memÛria de num2 e somente depois num2 ser· incrementado.
+Veja que num1 recebe primeiro o valor contido na mem√≥ria de num2 e somente depois num2 ser√° incrementado.
 
-Isso segue a instruÁ„o de incremento pÛs-fixado
+Isso segue a instru√ß√£o de incremento p√≥s-fixado
 
 e se fosse assim?
 
@@ -980,18 +981,18 @@ int num2{20}
  
 num1 = ++num2;
 std::cout << num1 << "-" << num2;
-A saÌda acima ser· 21 e 21
+A sa√≠da acima ser√° 21 e 21
 
-Agora temos o incremento prÈ-fixado e com isso primeiro a vari·vel deve ser incrementada na memÛria para somente depois ser usado seu valor na memÛria j· incrementado
+Agora temos o incremento pr√©-fixado e com isso primeiro a vari√°vel deve ser incrementada na mem√≥ria para somente depois ser usado seu valor na mem√≥ria j√° incrementado
 
-È como se fosse assim:
+√© como se fosse assim:
 
 num2 = num2 + 1;
 num1 = num2;
 std::cout << num1 << "-" << num2;
-pois agora È prÈ-fixado
+pois agora √© pr√©-fixado
 
-Obs: Apesar de parecer uma simples simplificaÁ„o estes comandos s„o importante e bem utilizados em estrutura de dados, aritmÈtica de ponteiros e v·rios outros momentos de implementaÁ„o de cÛdigo C++
+Obs: Apesar de parecer uma simples simplifica√ß√£o estes comandos s√£o importante e bem utilizados em estrutura de dados, aritm√©tica de ponteiros e v√°rios outros momentos de implementa√ß√£o de c√≥digo C++
 
 
 
@@ -1011,21 +1012,21 @@ int main()
 	std::cout << "Digite a senha de acesso: ";
 	std::cin >> SenhaDigitada;
 
-	/*Se a senha digitada pelo usu·rio e armazenada na vari·vel SenhaDigitada for igual a senha de acesso as instruÁıes apÛs o if ser„o executadas pois a condiÁ„o foi verdadeira true 1 */
+	/*Se a senha digitada pelo usu√°rio e armazenada na vari√°vel SenhaDigitada for igual a senha de acesso as instru√ß√µes ap√≥s o if ser√£o executadas pois a condi√ß√£o foi verdadeira true 1 */
 	if (SenhaDigitada == SenhaDeAcesso)
 	{
 		std::cout << "\nAcesso Permitido!" << "\n";
 		//aqui aproveitamos para indicar que o acesso foi concedido
-		//atravÈs de outra vari·vel booleana bAcesso
+		//atrav√©s de outra vari√°vel booleana bAcesso
 		bAcesso = true;
 		system("PAUSE");
 	}
-	/*Se a condiÁ„o for falsa ent„o as isntruÁıes do else ser„o executadas*/
+	/*Se a condi√ß√£o for falsa ent√£o as isntru√ß√µes do else ser√£o executadas*/
 	else
 	{
 		std::cout << "\n Acesso Negado!!!" << "\n";
 		system("PAUSE");
-		exit(0); //sai do programa, forÁa o fechamento da aplicaÁ„o
+		exit(0); //sai do programa, for√ßa o fechamento da aplica√ß√£o
 	}
 
 	return 0;
@@ -1049,27 +1050,27 @@ int main()
 	std::cout << "Digite a senha de acesso: ";
 	std::cin >> SenhaDigitada;
 
-	/*Se a senha digitada pelo usu·rio e armazenada na vari·vel SenhaDigitada for igual a senha de acesso as instruÁıes apÛs o if ser„o executadas pois a condiÁ„o foi verdadeira true 1 */
+	/*Se a senha digitada pelo usu√°rio e armazenada na vari√°vel SenhaDigitada for igual a senha de acesso as instru√ß√µes ap√≥s o if ser√£o executadas pois a condi√ß√£o foi verdadeira true 1 */
 	if (SenhaDigitada == SenhaDeAcesso)
 	{
 		std::cout << "\nAcesso Permitido!" << "\n";
 		//aqui aproveitamos para indicar que o acesso foi concedido
-		//atravÈs de outra vari·vel booleana bAcesso
+		//atrav√©s de outra vari√°vel booleana bAcesso
 		bAcesso = true;
 		//system("PAUSE");
 	}
-	/*Se a condiÁ„o for falsa ent„o as isntruÁıes do else ser„o executadas*/
+	/*Se a condi√ß√£o for falsa ent√£o as isntru√ß√µes do else ser√£o executadas*/
 	else
 	{
 		std::cout << "\n Acesso Negado!!!" << "\n";
 		system("PAUSE");
-		exit(0); //sai do programa, forÁa o fechamento da aplicaÁ„o
+		exit(0); //sai do programa, for√ßa o fechamento da aplica√ß√£o
 	}
 	bFezSol = false; 
 	bCarroPronto = false; 
 	bSalarioDepositado = false;
-	//Aqui podemos deixar apenas a vari·vel
-	//N„o È necess·rio == pois ser· buscado o valor de bAcesso e ficar· assim:
+	//Aqui podemos deixar apenas a vari√°vel
+	//N√£o √© necess√°rio == pois ser√° buscado o valor de bAcesso e ficar√° assim:
 	//if (true) ou if(false)
 	if (bAcesso)
 	{
@@ -1077,15 +1078,15 @@ int main()
 		{
 			std::cout << "\nVai dar Praia!!!" << std::endl;
 		}
-		//Aqui ser· executado se a condiÁ„o do if falhar e se
+		//Aqui ser√° executado se a condi√ß√£o do if falhar e se
 		//bSalarioDepositado for false
 		//Da mesma forma aqui
-		//Como bSalarioDeposito È falso !(n„o) Falso dar· True e ai entra no else if
+		//Como bSalarioDeposito √© falso !(n√£o) Falso dar√° True e ai entra no else if
 		else if (!bSalarioDepositado)
 		{
-			//corrigi o texto pois !bSalarioDepositado significa que agora ao invÈs de false ser· true
-			//logo o bSalarioDepositado vir· verdadeiro e desta forma o sal·rio foi depositado
-			std::cout << "N„o vai d· Praia, mas sal·rio tambÈm foi Depositado" << "\n";
+			//corrigi o texto pois !bSalarioDepositado significa que agora ao inv√©s de false ser√° true
+			//logo o bSalarioDepositado vir√° verdadeiro e desta forma o sal√°rio foi depositado
+			std::cout << "N√£o vai d√° Praia, mas sal√°rio tamb√©m foi Depositado" << "\n";
 		}
 	}
 
@@ -1096,7 +1097,7 @@ int main()
 
 
 *********************************
-//operador ternario interrogaÁ„o  ?   e dois pontos :
+//operador ternario interroga√ß√£o  ?   e dois pontos :
 #include <iostream>
 
 int main()
@@ -1108,12 +1109,12 @@ int main()
 	std::cout << "\nDigite Segundo Numero: ";
 	std::cin >> Numero02;
 
-	//Neste caso o operador ternario ? est· sendo utilizado para
-	//Atribuir um valor a uma vari·vel
-	//Se Numero01 for maior que Numero02 Maior numero recebe Valor de Numero01. Caso contr·rio(Sen„o) MaiorNumero Recebe Numero02
+	//Neste caso o operador ternario ? est√° sendo utilizado para
+	//Atribuir um valor a uma vari√°vel
+	//Se Numero01 for maior que Numero02 Maior numero recebe Valor de Numero01. Caso contr√°rio(Sen√£o) MaiorNumero Recebe Numero02
 	MaiorNumero = (Numero01 > Numero02) ? Numero01 : Numero02;
 	std::cout << "\nMaior Numero Digitado: " << MaiorNumero << "\n";
-	//Aqui o operador ? esta sendo utilizado para decidir que comando ser· executado. Se for True o primeiro std:: vai para tela
+	//Aqui o operador ? esta sendo utilizado para decidir que comando ser√° executado. Se for True o primeiro std:: vai para tela
 	//Se for Falso o segundo std vai para a tela
 	(Numero01 > Numero02) ? std::cout << "\nNumero01 Maior que Numero02\n" : std::cout << "Numero02 Maior que Numero01\n";
 
@@ -1131,17 +1132,17 @@ int main()
 {
 	_tsetlocale(LC_ALL, _T("portuguese"));
 	int num; 
-	std::cout << "Digite um N˙mero: ";
+	std::cout << "Digite um N√∫mero: ";
 	std::cin >> num;
 	switch (num)
 	{
-	case 1:  std::cout << "\nEscolhido N˙mero 1\n";
+	case 1:  std::cout << "\nEscolhido N√∫mero 1\n";
 		break;
-	case 2:  std::cout << "\nEscolhido N˙mero 2\n";
+	case 2:  std::cout << "\nEscolhido N√∫mero 2\n";
 		break;
-	case 3:  std::cout << "\nEscolhido N˙mero 3\n";
+	case 3:  std::cout << "\nEscolhido N√∫mero 3\n";
 		break;
-	default: std::cout << "\n1,2,3 n„o foram escolhidos\n";
+	default: std::cout << "\n1,2,3 n√£o foram escolhidos\n";
 		break;
 	}
 	system("PAUSE");
@@ -1156,10 +1157,10 @@ int main()
 int main()
 {
 	_tsetlocale(LC_ALL, _T("portuguese"));
-	char letra; // char È tratado como inteiro tabela ASCII 
+	char letra; // char √© tratado como inteiro tabela ASCII 
 	std::cout << "Entre com Letra: ";
 	std::cin >> letra;
-	switch (letra) // letra na realidade È um inteiro da tabela ASCII
+	switch (letra) // letra na realidade √© um inteiro da tabela ASCII
 	{
 	case 'a': std::cout << "\nEscolhido a";
 		break;
@@ -1167,7 +1168,7 @@ int main()
 		break;
 	case 'c': std::cout << "\nEscolhido c";
 		break;
-	default: std::cout << "\n1,2,3 n„o foram escolhidos";
+	default: std::cout << "\n1,2,3 n√£o foram escolhidos";
 		break;
 	}
 	system("PAUSE");
@@ -1200,9 +1201,9 @@ int main()
 	int Numero;
 	Numero = 0;
 	//loop infitivo!
-	/* neste caso Numero nunca deixar· de ser 0 e a
-	condiÁ„o Numero <= 50 ser· sempre verdadeira!
-	Logo ficar· sempre no While!!!*/
+	/* neste caso Numero nunca deixar√° de ser 0 e a
+	condi√ß√£o Numero <= 50 ser√° sempre verdadeira!
+	Logo ficar√° sempre no While!!!*/
 	while (Numero <= 50)
 	{
 		if (Numero % 2 != 0)
@@ -1210,8 +1211,8 @@ int main()
 			std::cout << Numero << " ";
 
 		}
-		//De alguma forma vocÍ precisa incrementar a vari·vel Numero para que ela chegue atÈ 50
-		//Qual condiÁ„o de Parada do loop?
+		//De alguma forma voc√™ precisa incrementar a vari√°vel Numero para que ela chegue at√© 50
+		//Qual condi√ß√£o de Parada do loop?
 		Numero++;
 
 	}
@@ -1227,9 +1228,9 @@ int main()
 	int Numero;
 	Numero = 0;
 	//loop infitivo!
-	/* neste caso Numero nunca deixar· de ser 0 e a
-	condiÁ„o Numero <= 50 ser· sempre verdadeira!
-	Logo ficar· sempre no While!!!*/
+	/* neste caso Numero nunca deixar√° de ser 0 e a
+	condi√ß√£o Numero <= 50 ser√° sempre verdadeira!
+	Logo ficar√° sempre no While!!!*/
 	while (Numero <= 50)
 	{
 		if (Numero % 2 == 0)
@@ -1237,8 +1238,8 @@ int main()
 			std::cout << Numero << " ";
 
 		}
-		//De alguma forma vocÍ precisa incrementar a vari·vel Numero para que ela chegue atÈ 50
-		//Qual condiÁ„o de Parada do loop?
+		//De alguma forma voc√™ precisa incrementar a vari√°vel Numero para que ela chegue at√© 50
+		//Qual condi√ß√£o de Parada do loop?
 		Numero++;
 
 	}
@@ -1253,15 +1254,15 @@ int main()
 	int Numero;
 	Numero = 0;
 	//loop infitivo!
-	/* neste caso Numero nunca deixar· de ser 0 e a
-	condiÁ„o Numero <= 50 ser· sempre verdadeira!
-	Logo ficar· sempre no While!!!*/
+	/* neste caso Numero nunca deixar√° de ser 0 e a
+	condi√ß√£o Numero <= 50 ser√° sempre verdadeira!
+	Logo ficar√° sempre no While!!!*/
 	while (Numero <= 50)
 	{
 		
 		std::cout << Numero << " ";
-		//De alguma forma vocÍ precisa incrementar a vari·vel Numero para que ela chegue atÈ 50
-		//Qual condiÁ„o de Parada do loop?
+		//De alguma forma voc√™ precisa incrementar a vari√°vel Numero para que ela chegue at√© 50
+		//Qual condi√ß√£o de Parada do loop?
 		Numero++;
 	}
 	system("PAUSE");
@@ -1272,17 +1273,17 @@ int main()
 
 
 
-Potencia de um n˙mero inteiro positivo usando apenas while sem math ou cmath
-Como elevar um n˙mero a uma potÍncia sem utilizar funÁıes predefinidas como pow ( )
+Potencia de um n√∫mero inteiro positivo usando apenas while sem math ou cmath
+Como elevar um n√∫mero a uma pot√™ncia sem utilizar fun√ß√µes predefinidas como pow ( )
 
-Veja o cÛdigo comentado abaixo sem usar biblioteca C++ <cmath> ou Biblioteca C <math.h>
+Veja o c√≥digo comentado abaixo sem usar biblioteca C++ <cmath> ou Biblioteca C <math.h>
 
 
-No entanto, a tÈcnica acima funciona apenas se o expoente for um n˙mero inteiro positivo.
- Se precisar encontrar a potÍncia de um n˙mero com qualquer n˙mero real como expoente,
-  vocÍ pode usar a funÁ„o  pow().
+No entanto, a t√©cnica acima funciona apenas se o expoente for um n√∫mero inteiro positivo.
+ Se precisar encontrar a pot√™ncia de um n√∫mero com qualquer n√∫mero real como expoente,
+  voc√™ pode usar a fun√ß√£o  pow().
   
-/*Neste programa, calculamos a potÍncia de um n˙mero usando um while*/
+/*Neste programa, calculamos a pot√™ncia de um n√∫mero usando um while*/
 #include <iostream>
  
 int main()
@@ -1297,7 +1298,7 @@ int main()
  
     std::cout << base << "^" << expoente << " = ";
  
-    /*Como sabemos, a potÍncia de um n˙mero È o n˙mero multiplicado por si mesmo repetidamente*/
+    /*Como sabemos, a pot√™ncia de um n√∫mero √© o n√∫mero multiplicado por si mesmo repetidamente*/
     while (expoente != 0)
     {
         resultado *= base;
@@ -1319,13 +1320,13 @@ int main()
 {
 	setlocale(LC_ALL, "portuguese");
 	int escolha = 0;
-	do // as instruÁıes abaixo ser„o executadas pelo menos uma vez!
+	do // as instru√ß√µes abaixo ser√£o executadas pelo menos uma vez!
 	{
 		std::cout << "****Tickets Cinema****" << std::endl;
 		std::cout << "\n1 - Para Meia Entrada\n";
 		std::cout << "\n2 - Para Inteira\n";
 		std::cout << "\n3 - Sair";
-		std::cout << "\nEscolha sua opÁ„o: ";
+		std::cout << "\nEscolha sua op√ß√£o: ";
 		std::cin >> escolha;
 
 		switch (escolha)
@@ -1336,10 +1337,10 @@ int main()
 				break;	
 		case 3: std::cout << "\nSaindo Menu Tickets...\n";
 				break;
-		default: std::cout << "\nOpÁ„o Inv·lida!!!\n";
+		default: std::cout << "\nOp√ß√£o Inv√°lida!!!\n";
 		}
 
-	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois vocÍ est· solicitando que fique em loop atÈ que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
+	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois voc√™ est√° solicitando que fique em loop at√© que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
 	system("PAUSE");
 	return 0;
 }
@@ -1347,20 +1348,20 @@ int main()
 
 
 
-***** ATEN«√O PARA O USO DO FOR
+***** ATEN√á√ÉO PARA O USO DO FOR
     SEQUENCIA CORRETA
-for ( 1∫ ; 2∫ ; 4∫ ){
-  3∫ instruÁıes
+for ( 1¬∫ ; 2¬∫ ; 4¬∫ ){
+  3¬∫ instru√ß√µes
 }
 
 for (int n=0; n<10; n++){
 	
 }
 ***
-int n=0;  1∫
-while(n<10)  2∫
-{ instruÁıes   3∫
-n++;             4∫
+int n=0;  1¬∫
+while(n<10)  2¬∫
+{ instru√ß√µes   3¬∫
+n++;             4¬∫
 }
 ***
 #include <iostream>
@@ -1378,8 +1379,8 @@ int main()
 }
 
 
-Gerando N˙meros AleatÛrios com rand() e for
-Em relaÁ„o a n˙mero aleatÛrios vocÍ pode usar desta forma
+Gerando N√∫meros Aleat√≥rios com rand() e for
+Em rela√ß√£o a n√∫mero aleat√≥rios voc√™ pode usar desta forma
 
 #include <cstdlib>
 #include <ctime>
@@ -1392,7 +1393,7 @@ int main() {
 	int randomNumber = rand();
 	cout << randomNumber << endl;
 }
-VocÍ pode fazer o C ++ gerar n˙meros aleatÛrios a partir de um intervalo exclusivo usando o %operador de mÛdulo. Este operador permite definir o valor m·ximo que pode ser gerado. O exemplo a seguir mostra como vocÍ pode retornar um n˙mero aleatÛrio entre 1 e 35 :
+Voc√™ pode fazer o C ++ gerar n√∫meros aleat√≥rios a partir de um intervalo exclusivo usando o %operador de m√≥dulo. Este operador permite definir o valor m√°ximo que pode ser gerado. O exemplo a seguir mostra como voc√™ pode retornar um n√∫mero aleat√≥rio entre 1 e 35 :
 
 
 
@@ -1414,17 +1415,17 @@ int main() {
 
 *********************
 
-FUN«’ES
+FUN√á√ïES
 
-Sempre com parenteses, exemplo:  void n˙mero()
-lembrando que n˙meros s„o argumentos e variaveis deles s„o
-os par‚metros da funÁ„o, exemplo, o num1 e num2: float soma(num1+num2){
+Sempre com parenteses, exemplo:  void n√∫mero()
+lembrando que n√∫meros s√£o argumentos e variaveis deles s√£o
+os par√¢metros da fun√ß√£o, exemplo, o num1 e num2: float soma(num1+num2){
 }
 *********************
 #include <iostream>
 
-// O que a funÁ„o vai retornar?
-//tipo de retorno da funÁ„o
+// O que a fun√ß√£o vai retornar?
+//tipo de retorno da fun√ß√£o
 int SomaAUmNumero(int Numero, int NumeroASerSomado)
 {
 	return Numero + NumeroASerSomado;
@@ -1436,7 +1437,7 @@ int main()
 	std::cin >> Numero;
 	std::cout << "Digite o numero a ser somado: " << "\n";
 	std::cin >> NumeroASerSomado;
-	std::cout << "A soma deste numero: " << Numero << " Com o Numero: " << NumeroASerSomado << " Sera: " << SomaAUmNumero(Numero, NumeroASerSomado);// para chaamar a funÁ„o n„o por int aqui nessa parte
+	std::cout << "A soma deste numero: " << Numero << " Com o Numero: " << NumeroASerSomado << " Sera: " << SomaAUmNumero(Numero, NumeroASerSomado);// para chaamar a fun√ß√£o n√£o por int aqui nessa parte
 	std::cout << std::endl;
 	system("PAUSE");
 	return 0;
@@ -1449,8 +1450,8 @@ int main()
 
 #include <iostream>
 
-// O que a funÁ„o vai retornar?
-//tipo de retorno da funÁ„o
+// O que a fun√ß√£o vai retornar?
+//tipo de retorno da fun√ß√£o
 int SomaAUmNumero(int Numero, int NumeroASerSomado)
 {
 	return Numero + NumeroASerSomado;
@@ -1459,7 +1460,7 @@ int SomaAUmNumero(int Numero, int NumeroASerSomado)
 void Mensagem()
 {
 	std::cout << "\nMensagem de Marte... Chegamos bem...\n";
-	return; // por causa desse return o prÛximo comando jamais ser· executado.
+	return; // por causa desse return o pr√≥ximo comando jamais ser√° executado.
 	std::cout << "\nMensagem de Marte... Chegamos bem 2...\n";
 	return;
 }
@@ -1489,26 +1490,26 @@ int main()
 *************************************
 #include <iostream>
 
-//Podemos informar ao compilador que a funÁ„o existe
+//Podemos informar ao compilador que a fun√ß√£o existe
 //e que iremos declarar ela posteriormente
-// isso È feito atravÈs dos prÛtipos das funÁıes
-//Coloque apenas o cabeÁalho da funÁ„o terminado com ;
+// isso √© feito atrav√©s dos pr√≥tipos das fun√ß√µes
+//Coloque apenas o cabe√ßalho da fun√ß√£o terminado com ;
 float soma(float num1, float num2);
 
-//main j· È uma funÁ„o
+//main j√° √© uma fun√ß√£o
 //observe o tipo de retorno int
-// o nome È main e ela n„o recebe par‚metos neste exemplo (podem existir argumentos de linha de comando que ser„o enviados a dois par‚metros da funÁ„o main
+// o nome √© main e ela n√£o recebe par√¢metos neste exemplo (podem existir argumentos de linha de comando que ser√£o enviados a dois par√¢metros da fun√ß√£o main
 
 int main()
 {
-	//a execuÁ„o do programa È realizada de cima para baixo, desta forma o compilador ainda n„o sabe da existÍncia da funÁ„o soma. Antes a declaraÁ„o da funÁ„o estava em cima e assim o compilador j· sabia onde estava a declaÁ„o da funÁ„o
-	//Agora a declaraÁ„o est· embaixo e ocorre erro, pois o compilador n„o sabe ainda quem È e onde est· declarada a funÁ„o soma.
-	//tudo isso porque È TOP-DOWN
+	//a execu√ß√£o do programa √© realizada de cima para baixo, desta forma o compilador ainda n√£o sabe da exist√™ncia da fun√ß√£o soma. Antes a declara√ß√£o da fun√ß√£o estava em cima e assim o compilador j√° sabia onde estava a decla√ß√£o da fun√ß√£o
+	//Agora a declara√ß√£o est√° embaixo e ocorre erro, pois o compilador n√£o sabe ainda quem √© e onde est√° declarada a fun√ß√£o soma.
+	//tudo isso porque √© TOP-DOWN
 	std::cout << soma(100, 500) << "\n";
 	system("PAUSE");
 	return 0;
 }
-    ***** se colocar tuda a funÁ„o abaixo dar· erro a menos que coloque a parte inicial la em cima.
+    ***** se colocar tuda a fun√ß√£o abaixo dar√° erro a menos que coloque a parte inicial la em cima.
     Sedo assim, se possivel ja deixr tudo acima.
 float soma(float num1, float num2)
 {
@@ -1519,7 +1520,7 @@ float soma(float num1, float num2)
 
 #include <iostream>
 
-//funÁ„o:
+//fun√ß√£o:
 float soma(float num1, float num2)
 {
 	return (num1 + num2);
@@ -1538,9 +1539,9 @@ int main()
 
 
 #include <iostream>
-/*Crie uma funÁ„o que indique se um n˙mero È par ou impar. Receba n˙mero do usu·rio e exiba na tela o n˙mero recebido e se ele È par ou impar.
+/*Crie uma fun√ß√£o que indique se um n√∫mero √© par ou impar. Receba n√∫mero do usu√°rio e exiba na tela o n√∫mero recebido e se ele √© par ou impar.
 */
-//ProtÛtipÛ da funÁ„o
+//Prot√≥tip√≥ da fun√ß√£o
 bool isPar(int num);
 
 int main()
@@ -1548,18 +1549,18 @@ int main()
 	int Numero;
 	std::cout << "\nDigite um numero inteiro: ";
 	std::cin >> Numero;
-	//se o retorno da funÁ„o for true significa que  a condiÁ„o do if ser· verdadeira e entra no texto PAR
-	//porÈm n„o È necess·rio esta comparaÁ„o == true
-	//aqui apÛs executar a funÁ„o ser·
+	//se o retorno da fun√ß√£o for true significa que  a condi√ß√£o do if ser√° verdadeira e entra no texto PAR
+	//por√©m n√£o √© necess√°rio esta compara√ß√£o == true
+	//aqui ap√≥s executar a fun√ß√£o ser√°
 	//if (true) ou if(false) e funciona da mesma forma
-	//Profissionalmente sÛ se utiliza assim
+	//Profissionalmente s√≥ se utiliza assim
 	if (isPar(Numero))
 	{
 		std::cout << "\nNumero: " << Numero << " PAR\n";
 	}
-	//Sen„o for PAR j· sabemos que È IMPAR
+	//Sen√£o for PAR j√° sabemos que √© IMPAR
 	//podemos otimizar isso.
-	// if tambÈm n„o precisa pois else j· sabemos que È par
+	// if tamb√©m n√£o precisa pois else j√° sabemos que √© par
 	else 
 	{
 		std::cout << "\nNumero: " << Numero << " IMPAR\n";
@@ -1570,26 +1571,26 @@ int main()
 
 bool isPar(int num)
 {
-	//se o resto da divis„o de um numero for zero
-	//numero È par logo retorne true(verdadeiro)
-	//se n„o retorne false idicando que ele È false
+	//se o resto da divis√£o de um numero for zero
+	//numero √© par logo retorne true(verdadeiro)
+	//se n√£o retorne false idicando que ele √© false
 	if (num % 2 == 0)
 		return true;
-	//Observe que return faz a saida imediata da funÁ„o
-	//Logo se for par o cÛdigo abaixo jamais ser· executado. Assim o else È desnecessario
+	//Observe que return faz a saida imediata da fun√ß√£o
+	//Logo se for par o c√≥digo abaixo jamais ser√° executado. Assim o else √© desnecessario
 	return false;
 }
 
 **********************************************
 
-calculadora autom·tica
+calculadora autom√°tica
 
-/* ENTRADA: dois n˙meros reais
-PROCESSAMENTO:funcoes que calculam soma, subtraÁ„o, multiplicaÁ„o e divis„o
-SAÕDA:  (num1 + num2,  num1 ñ num2, num1 * num2, num1/num2)
+/* ENTRADA: dois n√∫meros reais
+PROCESSAMENTO:funcoes que calculam soma, subtra√ß√£o, multiplica√ß√£o e divis√£o
+SA√çDA:  (num1 + num2,  num1 ‚Äì num2, num1 * num2, num1/num2)
 */
 #include <iostream>
-//PROT“TIPOS DAS FUNCOES
+//PROT√íTIPOS DAS FUNCOES
 float Soma(float num1, float num2);
 float Subtracao(float num1, float num2);
 float Multiplicacao(float num1, float num2);
@@ -1613,7 +1614,7 @@ int main()
 	std::cout << "Substracao: " << Subtracao(Num1, Num2) << "\n";
 	std::cout << "Multiplicacao: " << Multiplicacao(Num1, Num2) << "\n";
 	std::cout << "Divisao: " << Divisao(Num1, Num2) << "\n";
-	std::cout<< "\nMÈdia: "<<media(num001, num002)<<"\n";	   	  
+	std::cout<< "\nM√©dia: "<<media(num001, num002)<<"\n";	   	  
 	system("PAUSE");
 	return 0;
 }
@@ -1645,7 +1646,7 @@ float media(float num1, float num2)
 
 *** olha isso
 	Caso tenha que converter int para float:
-***	Convers„o EXPLÕCTA (CAST)
+***	Convers√£o EXPL√çCTA (CAST)
 	
 	
 	float Divisao(int num1 , int num2){
@@ -1654,7 +1655,7 @@ float media(float num1, float num2)
 	}
 	
 	
-*Se o prÛprio programa fizer a convers„o ser· chamada de IMPLÕCITA (COERS√O)
+*Se o pr√≥prio programa fizer a convers√£o ser√° chamada de IMPL√çCITA (COERS√ÉO)
 int a=10;
 float c;
 c=a;
@@ -1662,7 +1663,7 @@ c=a;
 ******************************
 calculadora melhoada
 
-VocÍ pode usar o switch case para simplificar o seu cÛdigo da c·lculador usando apenas uma funÁ„o
+Voc√™ pode usar o switch case para simplificar o seu c√≥digo da c√°lculador usando apenas uma fun√ß√£o
 
 Veja:
 
@@ -1685,7 +1686,7 @@ int main()
 	return 0;
 }
  
-// Aqui o case vai selecionar a operaÁ„o e far· o digitado e selecionado pelo usu·rio
+// Aqui o case vai selecionar a opera√ß√£o e far√° o digitado e selecionado pelo usu√°rio
 double Soma(char Operacao, double Num1, double Num2)
 {
 	switch (Operacao)
@@ -1712,13 +1713,13 @@ int main()
 {
 	setlocale(LC_ALL, "portuguese");
 	int escolha = 0;
-	do // as instruÁıes abaixo ser„o executadas pelo menos uma vez!
+	do // as instru√ß√µes abaixo ser√£o executadas pelo menos uma vez!
 	{
 		std::cout << "****Tickets Cinema****" << std::endl;
 		std::cout << "\n1 - Para Meia Entrada\n";
 		std::cout << "\n2 - Para Inteira\n";
 		std::cout << "\n3 - Sair";
-		std::cout << "\nEscolha sua opÁ„o: ";
+		std::cout << "\nEscolha sua op√ß√£o: ";
 		std::cin >> escolha;
 
 		switch (escolha)
@@ -1729,24 +1730,24 @@ int main()
 				break;	
 		case 3: std::cout << "\nSaindo Menu Tickets...\n";
 				break;
-		default: std::cout << "\nOpÁ„o Inv·lida!!!\n";
+		default: std::cout << "\nOp√ß√£o Inv√°lida!!!\n";
 		}
 
-	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois vocÍ est· solicitando que fique em loop atÈ que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
+	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois voc√™ est√° solicitando que fique em loop at√© que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
 	system("PAUSE");
 	return 0;
 }
 
 ********* abaixo o resultado
 
-funÁıe menu
+fun√ß√µe menu
 
-/*AtenÁ„o CÛdigo modificado, veja as instruÁıes dos motivos como recurso anexo a aula
+/*Aten√ß√£o C√≥digo modificado, veja as instru√ß√µes dos motivos como recurso anexo a aula
 Agradecimento ao aluno Anderson Cardoso que identificou o erro*/
 #include <iostream>
 #include <locale.h>
 
-//protÛtipos das funÁıes
+//prot√≥tipos das fun√ß√µes
 void ExibirMenu();
 int RetornarEscolha();
 void ProcessarEscolha(int TipoEscolha);
@@ -1754,47 +1755,47 @@ void ProcessarEscolha(int TipoEscolha);
 
 int main()
 {
-	//Exibe o menu opÁıes chamando a funÁ„o Exibir Menu
+	//Exibe o menu op√ß√µes chamando a fun√ß√£o Exibir Menu
 	ExibirMenu();
 	system("PAUSE");
 	return 0;
 }
 
-//ImplementaÁ„o das funÁıes
+//Implementa√ß√£o das fun√ß√µes
 
-//a funÁ„o n„o retorna nada, logo o tipo de retorno È vazio(void). AlÈm disso a funÁ„o n„o possui nenhuma vari·vel local(Par‚metros). Como n„o retorna nada n„o precisamos usar comando return
+//a fun√ß√£o n√£o retorna nada, logo o tipo de retorno √© vazio(void). Al√©m disso a fun√ß√£o n√£o possui nenhuma vari√°vel local(Par√¢metros). Como n√£o retorna nada n√£o precisamos usar comando return
 void ExibirMenu()
 {
 	setlocale(LC_ALL, "portuguese");
 
-	do // as instruÁıes abaixo ser„o executadas pelo menos uma vez!
+	do // as instru√ß√µes abaixo ser√£o executadas pelo menos uma vez!
 	{
 		std::cout << "****Tickets Cinema****" << std::endl;
 		std::cout << "\n1 - Para Meia Entrada\n";
 		std::cout << "\n2 - Para Inteira\n";
 		std::cout << "\n3 - Sair";
-		// TO DO FunÁ„o Retornar EScolha
+		// TO DO Fun√ß√£o Retornar EScolha
 
-		//Aqui a funÁ„o chama outra funÁ„o e passar como argumento para a funÁ„o ProcessrEscolha a vari·vel escolha que contÈm o que foi digitado pelo usu·rio como opÁ„o de escolha de menu
+		//Aqui a fun√ß√£o chama outra fun√ß√£o e passar como argumento para a fun√ß√£o ProcessrEscolha a vari√°vel escolha que cont√©m o que foi digitado pelo usu√°rio como op√ß√£o de escolha de menu
 
-		//aqui a funÁ„o processar escolha deve receber como par‚metro um inteiro. Colocamos abaixo a chamada da funÁ„o RetornarEscolha que ao ser executada ir· retornar (Return) um inteiro que foi digitado pelo usu·rio
+		//aqui a fun√ß√£o processar escolha deve receber como par√¢metro um inteiro. Colocamos abaixo a chamada da fun√ß√£o RetornarEscolha que ao ser executada ir√° retornar (Return) um inteiro que foi digitado pelo usu√°rio
 		
-	} while (RetornarEscolha() != 3);//enquanto o retorno da funÁ„o RetornarEscolha for diferente de 3 o menu vai aparecer! pois vocÍ est· solicitando que fique em loop atÈ que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
+	} while (RetornarEscolha() != 3);//enquanto o retorno da fun√ß√£o RetornarEscolha for diferente de 3 o menu vai aparecer! pois voc√™ est√° solicitando que fique em loop at√© que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
 }
 
 int RetornarEscolha()
 {
 	int escolha = 0;
-	std::cout << "\nEscolha sua opÁ„o: ";
+	std::cout << "\nEscolha sua op√ß√£o: ";
 	std::cin >> escolha;
-	//Colocar a chamada da funÁ„o ProcessarEscolha
+	//Colocar a chamada da fun√ß√£o ProcessarEscolha
 	ProcessarEscolha(escolha);
 	return escolha;
 }
 
-//ProcessarEscolha recebe como par‚metro um numero inteiro
-//e armazena este argumento passado no par‚metro TipoEscolha que È uma vari·vel local a esta funÁ„o. Significa que esta vari·vel somente existe na memÛria quando a funÁ„o est· sendo executada. Quando a funÁ„o chegar a seu final esta vari·vel deixa de existir na memÛria.
-//Portanto funÁıes s„o fundamentais para otimizar o uso de memÛria, pois se todas estas vari·veis estivessem na funÁ„o main elas somente seriam destruidas quando o programa fosse fechado.
+//ProcessarEscolha recebe como par√¢metro um numero inteiro
+//e armazena este argumento passado no par√¢metro TipoEscolha que √© uma vari√°vel local a esta fun√ß√£o. Significa que esta vari√°vel somente existe na mem√≥ria quando a fun√ß√£o est√° sendo executada. Quando a fun√ß√£o chegar a seu final esta vari√°vel deixa de existir na mem√≥ria.
+//Portanto fun√ß√µes s√£o fundamentais para otimizar o uso de mem√≥ria, pois se todas estas vari√°veis estivessem na fun√ß√£o main elas somente seriam destruidas quando o programa fosse fechado.
 void ProcessarEscolha(int TipoEscolha)
 {
 	switch (TipoEscolha)
@@ -1805,28 +1806,28 @@ void ProcessarEscolha(int TipoEscolha)
 		break;
 	case 3: std::cout << "\nSaindo Menu Tickets...\n";
 		break;
-	default: std::cout << "\nOpÁ„o Inv·lida!!!\n";
+	default: std::cout << "\nOp√ß√£o Inv√°lida!!!\n";
 	}
 	
 	
 	********
 	
-	CRIAR ARQUIVO DE CABE«ALHO
+	CRIAR ARQUIVO DE CABE√áALHO
 	
 #pragma once
 
-//no ponto .h È o que?
-//o que as funÁıes ter„o
-//aqui n„o h· implementaÁ„o
-//somente protÛtipos das funÁıes
-//aqui indica o que estar· disponÌvel para o programador
+//no ponto .h √© o que?
+//o que as fun√ß√µes ter√£o
+//aqui n√£o h√° implementa√ß√£o
+//somente prot√≥tipos das fun√ß√µes
+//aqui indica o que estar√° dispon√≠vel para o programador
 //ou programadora utilizar deste arquivo .h
-//lembre da aula que este arquivo.h È chamado de header file
-//atÈ agora vocÍ usou header files criados por outroas programadores
-//agora vocÍ seu prÛprio header file.
-//Mas vocÍ precisa implementar as funÁıes em algum lugar
+//lembre da aula que este arquivo.h √© chamado de header file
+//at√© agora voc√™ usou header files criados por outroas programadores
+//agora voc√™ seu pr√≥prio header file.
+//Mas voc√™ precisa implementar as fun√ß√µes em algum lugar
 //e ai que entra o .cpp
-//protÛtipos das funÁıes
+//prot√≥tipos das fun√ß√µes
 void ExibirMenu();
 int RetornarEscolha();
 int ProcessarEscolha(int TipoEscolha);
@@ -1837,53 +1838,53 @@ int ProcessarEscolha(int TipoEscolha);
 #include <locale.h>
 #include "FuncoesMenu.h"
 
-//#include <> vai procurar no diretorio padr„o include do compilador. J· #include "" procura no diretÛrio corrente, 
+//#include <> vai procurar no diretorio padr√£o include do compilador. J√° #include "" procura no diret√≥rio corrente, 
 //atual de seu programa
 
-//Aqui È COMO? como as funÁıes do arquivo .h ser„o implementadas?
-//neste aquivo .cpp vocÍ coloca a implemtaÁ„o de todas as funÁıes do arquivo .h relacionado
-//ImplementaÁ„o das funÁıes
+//Aqui √© COMO? como as fun√ß√µes do arquivo .h ser√£o implementadas?
+//neste aquivo .cpp voc√™ coloca a implemta√ß√£o de todas as fun√ß√µes do arquivo .h relacionado
+//Implementa√ß√£o das fun√ß√µes
 
-//a funÁ„o n„o retorna nada, logo o tipo de retorno È vazio(void). AlÈm disso a funÁ„o n„o possui 
-//nenhuma vari·vel local(Par‚metros). Como n„o retorna nada n„o precisamos usar comando return
+//a fun√ß√£o n√£o retorna nada, logo o tipo de retorno √© vazio(void). Al√©m disso a fun√ß√£o n√£o possui 
+//nenhuma vari√°vel local(Par√¢metros). Como n√£o retorna nada n√£o precisamos usar comando return
 void ExibirMenu()
 {
 	setlocale(LC_ALL, "portuguese");
 
-	do // as instruÁıes abaixo ser„o executadas pelo menos uma vez!
+	do // as instru√ß√µes abaixo ser√£o executadas pelo menos uma vez!
 	{
 		std::cout << "****Tickets Cinema****" << std::endl;
 		std::cout << "\n1 - Para Meia Entrada\n";
 		std::cout << "\n2 - Para Inteira\n";
 		std::cout << "\n3 - Sair";
-		// TO DO FunÁ„o Retornar EScolha
+		// TO DO Fun√ß√£o Retornar EScolha
 
-		//Aqui a funÁ„o chama outra funÁ„o e passar como argumento para a funÁ„o ProcessrEscolha 
-		//a vari·vel escolha que contÈm o que foi digitado pelo usu·rio como opÁ„o de escolha de menu
+		//Aqui a fun√ß√£o chama outra fun√ß√£o e passar como argumento para a fun√ß√£o ProcessrEscolha 
+		//a vari√°vel escolha que cont√©m o que foi digitado pelo usu√°rio como op√ß√£o de escolha de menu
 
-		//aqui a funÁ„o processar escolha deve receber como par‚metro um inteiro. Colocamos abaixo 
-		//a chamada da funÁ„o RetornarEscolha que ao ser executada ir· retornar (Return) um inteiro 
-		//que foi digitado pelo usu·rio
+		//aqui a fun√ß√£o processar escolha deve receber como par√¢metro um inteiro. Colocamos abaixo 
+		//a chamada da fun√ß√£o RetornarEscolha que ao ser executada ir√° retornar (Return) um inteiro 
+		//que foi digitado pelo usu√°rio
 		
 	} while (ProcessarEscolha(RetornarEscolha()) != 3);//enquanto escolha for diferente de 3 o 
-	//menu vai aparecer! pois vocÍ est· solicitando que fique em loop atÈ que escolha seja igual a 3 
+	//menu vai aparecer! pois voc√™ est√° solicitando que fique em loop at√© que escolha seja igual a 3 
 	//e resultado seja falso saindo do loop do-while
 }
 
 int RetornarEscolha()
 {
 	int escolha = 0;
-	std::cout << "\nEscolha sua opÁ„o: ";
+	std::cout << "\nEscolha sua op√ß√£o: ";
 	std::cin >> escolha;
 	return escolha;
 }
 
-//ProcessarEscolha recebe como par‚metro um numero inteiro
-//e armazena este argumento passado no par‚metro TipoEscolha que È uma vari·vel local a esta funÁ„o. 
-//Significa que esta vari·vel somente existe na memÛria quando a funÁ„o est· sendo executada. 
-//Quando a funÁ„o chegar a seu final esta vari·vel deixa de existir na memÛria.
-//Portanto funÁıes s„o fundamentais para otimizar o uso de memÛria, pois se todas estas vari·veis 
-//estivessem na funÁ„o main elas somente seriam destruidas quando o programa fosse fechado.
+//ProcessarEscolha recebe como par√¢metro um numero inteiro
+//e armazena este argumento passado no par√¢metro TipoEscolha que √© uma vari√°vel local a esta fun√ß√£o. 
+//Significa que esta vari√°vel somente existe na mem√≥ria quando a fun√ß√£o est√° sendo executada. 
+//Quando a fun√ß√£o chegar a seu final esta vari√°vel deixa de existir na mem√≥ria.
+//Portanto fun√ß√µes s√£o fundamentais para otimizar o uso de mem√≥ria, pois se todas estas vari√°veis 
+//estivessem na fun√ß√£o main elas somente seriam destruidas quando o programa fosse fechado.
 int ProcessarEscolha(int TipoEscolha)
 {
 	switch (TipoEscolha)
@@ -1895,10 +1896,10 @@ int ProcessarEscolha(int TipoEscolha)
 		break;
 	case 3: std::cout << "\nSaindo Menu Tickets...\n";
 		break;
-	default: std::cout << "\nOpÁ„o Inv·lida!!!\n";
-		//aqui n„o retorna pois ao achar a escolha o break sai do switch
+	default: std::cout << "\nOp√ß√£o Inv√°lida!!!\n";
+		//aqui n√£o retorna pois ao achar a escolha o break sai do switch
 	}
-	//j· aqui depois de processar o switch vai sair dele e chegar no return escolha.
+	//j√° aqui depois de processar o switch vai sair dele e chegar no return escolha.
 	return TipoEscolha;
 }
 
@@ -1910,7 +1911,7 @@ int ProcessarEscolha(int TipoEscolha)
 
 int main()
 {
-	//Exibe o menu opÁıes chamando a funÁ„o Exibir Menu
+	//Exibe o menu op√ß√µes chamando a fun√ß√£o Exibir Menu
 	ExibirMenu();
 	system("PAUSE");
 	return 0;
@@ -1920,45 +1921,45 @@ int main()
 *****************************************
 https://pt.wikipedia.org/wiki/Pragma_once
 
-CRIAR ARQUIVO DE CABE«ALHO
+CRIAR ARQUIVO DE CABE√áALHO
 
 
 **************             **************
 Para fazer essa parte no DEV C++
 1 - Abra o DEV 5.11 ou superior e Clique em New->Project 
-    (È para criar um novo projeto e n„o apenas um Arquivo de CÛdigo Fonte ou Source File)
+    (√© para criar um novo projeto e n√£o apenas um Arquivo de C√≥digo Fonte ou Source File)
 
 2 - Escolha Console Application e escreva o nome desejado (Coloquei ProjetoBibliotecas)
 
 3 - Salve o Projeto em uma pasta no computador e 
-    Clique agora com bot„o direito do mouse no nome que criou, est· na coluna na esquerda da tela,
+    Clique agora com bot√£o direito do mouse no nome que criou, est√° na coluna na esquerda da tela,
 	e escolha New File
     
-4 - ApÛs a criaÁ„o deste novo arquivo clique em salvar e em tipo escolha Header File(.h) 
+4 - Ap√≥s a cria√ß√£o deste novo arquivo clique em salvar e em tipo escolha Header File(.h) 
     Coloque o nome desejado, Coloquei Biblioteca.h apenas para fins de exemplo
     
-5 - Escreva este cÛdigo apenas para testar, depois escreva todo o cÛdigo com as definiÁıes
-    das funÁıes da biblioteca Biblioteca.h
+5 - Escreva este c√≥digo apenas para testar, depois escreva todo o c√≥digo com as defini√ß√µes
+    das fun√ß√µes da biblioteca Biblioteca.h
 	int soma(int a, int b);
 
-6 - Salve com o mesmo nome do Header File mas agora com a extens„o .cpp pois È nele que vocÍ
-    vai colocar a implementaÁ„o das funÁıes. Neste meu exemplo ser· Biblioteca.cpp que È o 
+6 - Salve com o mesmo nome do Header File mas agora com a extens√£o .cpp pois √© nele que voc√™
+    vai colocar a implementa√ß√£o das fun√ß√µes. Neste meu exemplo ser√° Biblioteca.cpp que √© o 
 	mesmo nome de Biblioteca.h 
 	
-7 - Implemente a funÁ„o colocando o seguinte cÛdigo em Biblioteca.cpp
+7 - Implemente a fun√ß√£o colocando o seguinte c√≥digo em Biblioteca.cpp
 	int soma (int a, int b){
 		return a+b;}
 
-8 - Volte ao arquivo principal main.cpp que contÈm a funÁ„o main e faÁa um include do arquivo de cabeÁalho .h que vocÍ criou.
+8 - Volte ao arquivo principal main.cpp que cont√©m a fun√ß√£o main e fa√ßa um include do arquivo de cabe√ßalho .h que voc√™ criou.
 
 	#include "Biblioteca.h"
 	
-	Mas use aspas duplas para o compilador procurar o diretÛrio atual de seu programa. Lembre que comentei
-	na aula que se usar < > o compilador procurar a biblioteca no diretÛrio padr„o de includes do 
-	prÛprio compilador. Como vocÍ quer incluir um arquivo que vocÍ criou e que est· no mesmo 
-	diretÛrio de seu programa use aspas duplas " "	
+	Mas use aspas duplas para o compilador procurar o diret√≥rio atual de seu programa. Lembre que comentei
+	na aula que se usar < > o compilador procurar a biblioteca no diret√≥rio padr√£o de includes do 
+	pr√≥prio compilador. Como voc√™ quer incluir um arquivo que voc√™ criou e que est√° no mesmo 
+	diret√≥rio de seu programa use aspas duplas " "	
 
-9 - Escreva o cÛdigo abaixo em main.cpp
+9 - Escreva o c√≥digo abaixo em main.cpp
 
 
 #include <iostream>
@@ -1982,24 +1983,24 @@ int soma (int a, int b){
 Funcionou perfeitamente!!
 *******************************************************
 
-#pragma once // Esta diretiva È usada em headers e serve 
-//para fazer com que o ficheiro atual apenas seja incluÌdo 
-//uma vez durante o processo de compilaÁ„o.
+#pragma once // Esta diretiva √© usada em headers e serve 
+//para fazer com que o ficheiro atual apenas seja inclu√≠do 
+//uma vez durante o processo de compila√ß√£o.
 
 
-/*ENTRADA: dois n˙meros inteiros
-PROCESSAMENTO: operaÁıes matem·ticas
-Soma dos dois n˙meros
-SubtraÁ„o dos dois n˙meros
-Multiplicado dos dois n˙meros
-Divis„o dos dois n˙meros
-Potencia dos dois n˙meros (primeiro n˙mero elevado pelo segundo n˙mero)
-Raiz quadrada dos dois n˙meros
-SAIDA: Exiba na tela os resultados de todas as operaÁıes tambÈm utilizando chamada de funÁıes
-- cabeÁalho Matematica.h  protÛtipos das funÁıes 
--arquivo Matematica.cpp para ser a implementaÁ„o do arquivo de
-cabeÁalho Matematica.h 
-- arquivo ProgramaMatematico.cpp que conter·funÁ„o main( ) e ser· o
+/*ENTRADA: dois n√∫meros inteiros
+PROCESSAMENTO: opera√ß√µes matem√°ticas
+Soma dos dois n√∫meros
+Subtra√ß√£o dos dois n√∫meros
+Multiplicado dos dois n√∫meros
+Divis√£o dos dois n√∫meros
+Potencia dos dois n√∫meros (primeiro n√∫mero elevado pelo segundo n√∫mero)
+Raiz quadrada dos dois n√∫meros
+SAIDA: Exiba na tela os resultados de todas as opera√ß√µes tamb√©m utilizando chamada de fun√ß√µes
+- cabe√ßalho Matematica.h  prot√≥tipos das fun√ß√µes 
+-arquivo Matematica.cpp para ser a implementa√ß√£o do arquivo de
+cabe√ßalho Matematica.h 
+- arquivo ProgramaMatematico.cpp que conter√°fun√ß√£o main( ) e ser√° o
 ponto de partida deste programa.
 */
 
@@ -2035,7 +2036,7 @@ int Multiplicacao(int num1, int num2)
 
 float Divisao(int num1, int num2)
 {
-	//faz uma divisao inteira pois num1 e num2 s„o inteiros
+	//faz uma divisao inteira pois num1 e num2 s√£o inteiros
 	//mas podemos fazer cast
 	//agora estamos indicando que o inteiro deve ser um float
 	return (float)num1 / (float)num2;
@@ -2084,45 +2085,45 @@ int main()
 NAMESPACES
 
 
-Em relaÁ„o a Namespaces confira:
-Vamos imaginar que vocÍ tenha um biblioteca de nome Biblioteca01.h que 
-tenha a seguinte funÁ„o
+Em rela√ß√£o a Namespaces confira:
+Vamos imaginar que voc√™ tenha um biblioteca de nome Biblioteca01.h que 
+tenha a seguinte fun√ß√£o
 #pragma once
 float Soma(int Num1, int Num2)
 {
  return (Num1 + Num2);
 }
-Vamos imaginar que vocÍ crie uma outra biblioteca de nome Biblioteca02.h 
-que tenha a mesma funÁ„o sÛ
+Vamos imaginar que voc√™ crie uma outra biblioteca de nome Biblioteca02.h 
+que tenha a mesma fun√ß√£o s√≥
 que com retorno diferente
 #pragma once
 float Soma(int Num1, int Num2)
 {
  return (Num1 + Num2);
 }
-Agora vocÍ crie o seguinte programa abaixo de nome Programa.cpp e que usa(inclui) 
+Agora voc√™ crie o seguinte programa abaixo de nome Programa.cpp e que usa(inclui) 
 as duas bibliotecas
-Ao tentar executar o cÛdigo ocorrer· erro pois a funÁ„o de nome Soma est·
+Ao tentar executar o c√≥digo ocorrer√° erro pois a fun√ß√£o de nome Soma est√°
  presente tanto da Biblioteca01.h
-quanto na Biblioteca02.h e n„o h· como o compilador decidir qual ser· usada..
+quanto na Biblioteca02.h e n√£o h√° como o compilador decidir qual ser√° usada..
  Isso pode ocorrer no decorrer
-do desenvolvimento e È interessante termos mecanismos para evitar estes 
+do desenvolvimento e √© interessante termos mecanismos para evitar estes 
 conflitos. Poderia pensar em
-mudar o nome da vari·vel Soma em alguma das bibliotecas, mas n„o seria 
-uma saÌda elegante e eficiente.
+mudar o nome da vari√°vel Soma em alguma das bibliotecas, mas n√£o seria 
+uma sa√≠da elegante e eficiente.
 Veja que ocorre erro
-Veja que acima o visual studio indica que j· existe uma funÁ„o com mesma 
-assinatura e que n„o foi possÌvel
-resolver esta sobrecarga (overload) de funÁıes.
+Veja que acima o visual studio indica que j√° existe uma fun√ß√£o com mesma 
+assinatura e que n√£o foi poss√≠vel
+resolver esta sobrecarga (overload) de fun√ß√µes.
 Para resolver estes problemas de conflitos de nomes, etc foram criados os 
-espaÁos de nomes ou Namespaces.
-O Objetivo destas Namespaces È criar uma regi„o que seja identificada de 
-forma que vocÍ possa referenciar
+espa√ßos de nomes ou Namespaces.
+O Objetivo destas Namespaces √© criar uma regi√£o que seja identificada de 
+forma que voc√™ possa referenciar
 ela correr o risco de conflitos de nomes como no exemplo acima
 Como assim?
-Vamos resolver o problema acima e ficar· mais nÌtida esta utilizaÁ„o
+Vamos resolver o problema acima e ficar√° mais n√≠tida esta utiliza√ß√£o
 
-Troque o CÛdigo da Biblioteca01.h por este
+Troque o C√≥digo da Biblioteca01.h por este
 
 #pragma once
 namespace mat01
@@ -2133,13 +2134,13 @@ return (Num1 + Num2);
 }
 }
 
-Obs: Eu estou implementando no prÛprio arquivo.h para simplificar, mas no 
+Obs: Eu estou implementando no pr√≥prio arquivo.h para simplificar, mas no 
 geral temos o Biblioteca01.h
-apenas com as assinaturas das funÁıes e um Biblioteca01.cpp de mesmo nome
- com as implementaÁıes.
-VocÍ vai aprender a fazer bibliotecas em breve no curso e vai entender
- esta observaÁ„o.
-Agora troque Troque o CÛdigo da Biblioteca02.h por este cÛdigo que declara
+apenas com as assinaturas das fun√ß√µes e um Biblioteca01.cpp de mesmo nome
+ com as implementa√ß√µes.
+Voc√™ vai aprender a fazer bibliotecas em breve no curso e vai entender
+ esta observa√ß√£o.
+Agora troque Troque o C√≥digo da Biblioteca02.h por este c√≥digo que declara
  uma Namespace mat02
 
 #pragma once
@@ -2151,11 +2152,11 @@ return (Num1 + (Num2 * 2));
 }
 }
 
-Feito isso em seu cÛdigo Programa.cpp vocÍ pode chamar as funÁıes Soma 
-de cada Namespace e n„o
-haver· conflito
+Feito isso em seu c√≥digo Programa.cpp voc√™ pode chamar as fun√ß√µes Soma 
+de cada Namespace e n√£o
+haver√° conflito
 
-Basta usar NomeDaNameSpace::Soma neste caso ficar· assim:
+Basta usar NomeDaNameSpace::Soma neste caso ficar√° assim:
 
 #include <iostream>
 #include "Biblioteca01.h"
@@ -2168,26 +2169,26 @@ system("PAUSE");
 return 0;
 }
 
-Veja que agora mat01::Soma(10, 20) est· chamando a funÁ„o Soma do 
-namespace mat01 e que est· na
+Veja que agora mat01::Soma(10, 20) est√° chamando a fun√ß√£o Soma do 
+namespace mat01 e que est√° na
 Blibioteca01.h
-Da mesma forma mat02::Soma(10, 20) est· chamando a funÁ„o Soma do 
-namespace mat02 e que est· na
+Da mesma forma mat02::Soma(10, 20) est√° chamando a fun√ß√£o Soma do 
+namespace mat02 e que est√° na
 Blibioteca02.h
-Com isso o programa Executa sem problemas e vocÍ consegue verificar 
-a import‚ncia das namespaces
+Com isso o programa Executa sem problemas e voc√™ consegue verificar 
+a import√¢ncia das namespaces
 portanto std::cout indica que existe uma namaspace dentro da biblioteca
  iostream e que dentro do
-namespace std existe a funÁ„o cout. Se tiver outra biblioteca com a 
-funÁ„o cout basta usar o namaspace
-desta biblioteca e n„o haver· conflito com a funÁ„o cout da biblioteca std
-Claro que existem v·rias outra coisas que podem ser feitas com namespaces
+namespace std existe a fun√ß√£o cout. Se tiver outra biblioteca com a 
+fun√ß√£o cout basta usar o namaspace
+desta biblioteca e n√£o haver√° conflito com a fun√ß√£o cout da biblioteca std
+Claro que existem v√°rias outra coisas que podem ser feitas com namespaces
  como namespaces aninhados etc
 
 ***********************************
 
 
-Vari·veis com escopo global e local
+Vari√°veis com escopo global e local
 ***
 
 #include <iostream>
@@ -2221,13 +2222,13 @@ int main()
 #include <cmath>
 
 //Variavel Global pois declarada fora de
-//qualquer funÁ„o. Logo ela ser· acessivel em qualquer funÁ„o incluindo a funÁ„o main()
+//qualquer fun√ß√£o. Logo ela ser√° acessivel em qualquer fun√ß√£o incluindo a fun√ß√£o main()
 //
 int NumeroGlobal = 10;
 
 int Soma(int num1, int num2)
 {
-	//esta vari·vel sÛ È acessÌvel dentro da funÁ„o Soma
+	//esta vari√°vel s√≥ √© acess√≠vel dentro da fun√ß√£o Soma
 	int NumeroLocal = 5;
 	return num1 + NumeroGlobal;
 }
@@ -2236,17 +2237,17 @@ int Subtracao(int num1, int num2)
 {
 	if (num1 > num2)
 	{
-		//neste caso qualquer varÌ·vel declarada entre as chaves de algo
-		// ser· acessÌvel somente dentro destas chaves. A isso chamados ESCOPO de vari·vel
+		//neste caso qualquer var√≠√°vel declarada entre as chaves de algo
+		// ser√° acess√≠vel somente dentro destas chaves. A isso chamados ESCOPO de vari√°vel
 		int NumeroLocalAEsteIf = 20;
 	}
-	//Mesmo NumeroLocalAEsteIf estando dentro da funÁ„o Subtracao ela somente
-	//estar· acessÌvel para o escopo{ } de onde ela foi declarada, ela È uma 
-	//     ------>   vari·vel local a este if!
+	//Mesmo NumeroLocalAEsteIf estando dentro da fun√ß√£o Subtracao ela somente
+	//estar√° acess√≠vel para o escopo{ } de onde ela foi declarada, ela √© uma 
+	//     ------>   vari√°vel local a este if!
 	
 	return num1 - NumeroGlobal;
-	//j· NumeroGlobal È global! possui escopo global, ou seja, È acessada
-	//em qualquer funÁ„o do programa, logo, em qualquer parte do programa pois ela È global.
+	//j√° NumeroGlobal √© global! possui escopo global, ou seja, √© acessada
+	//em qualquer fun√ß√£o do programa, logo, em qualquer parte do programa pois ela √© global.
 }
 
 int Multiplicacao(int num1, int num2)
@@ -2257,7 +2258,7 @@ int Multiplicacao(int num1, int num2)
 
 float Divisao(int num1, int num2)
 {
-	//faz uma divisao inteira pois num1 e num2 s„o inteiros
+	//faz uma divisao inteira pois num1 e num2 s√£o inteiros
 	//mas podemos fazer cast
 	//agora estamos indicando que o inteiro deve ser um float
 	return (float)num1 / (float)num2;
@@ -2291,7 +2292,7 @@ float RaizQuadrada(int num);
 
 int main()
 {
-	//int i;    aqui i foi declardo fora do escopo, do bloco de cÛdigo do for
+	//int i;    aqui i foi declardo fora do escopo, do bloco de c√≥digo do for
 	
 	for (int i = 0; i < 5; i++)
 	{
@@ -2300,18 +2301,18 @@ int main()
 	} 
 	//std::cout << "\nValor final de i: " << i;
 	//std::cout << "\nValor final de j: " << j;
-	//isso È o escopo de uma vari·vel!
+	//isso √© o escopo de uma vari√°vel!
 	//Qual a visibilidade dela? Local, Global. Se local em que bloco? 
 	//Qual o tempo de vida dela?
-	//Relembrando que o par‚metros das funÁıes s„o vari·veis locais a estas funÁıes!
+	//Relembrando que o par√¢metros das fun√ß√µes s√£o vari√°veis locais a estas fun√ß√µes!
 	//int soma(int x, int y) escopo local!''
 
-	//porÈm agora j foi declarado dentro do bloco de cÛdigo do comando for. 
-	//Logo quando este bloco de cÛdigo chegar ao fim a vari·vel j que È 
-	//local a este bloco, ser· destruÌda e n„o mais estar· acessÌvel. 
-	//Ela (j) somente È acessÌvel dentro do comando for 
-	//quando a funÁ„o atingir aqui a vari·vel i n„o sair· da memÛria,
-	// n„o ser· destruida pois est· fora deste escopo
+	//por√©m agora j foi declarado dentro do bloco de c√≥digo do comando for. 
+	//Logo quando este bloco de c√≥digo chegar ao fim a vari√°vel j que √© 
+	//local a este bloco, ser√° destru√≠da e n√£o mais estar√° acess√≠vel. 
+	//Ela (j) somente √© acess√≠vel dentro do comando for 
+	//quando a fun√ß√£o atingir aqui a vari√°vel i n√£o sair√° da mem√≥ria,
+	// n√£o ser√° destruida pois est√° fora deste escopo
 	system("PAUSE");
 	return 0;
 }
@@ -2319,14 +2320,14 @@ int main()
 
 ******************************************
 
-A soluÁ„o pra isso È armazenar o valor antigo de penult na vari·vel tempor·ria temp.
-Ent„o È sÛ fazer:
+A solu√ß√£o pra isso √© armazenar o valor antigo de penult na vari√°vel tempor√°ria temp.
+Ent√£o √© s√≥ fazer:
 temp = penult;
 penult = ult;
 ult = ult + temp;
 
-Pronto, agora a sequÍncia 'andou', e est· pronta para exibir o prÛximo termo.
-Veja como fica nosso cÛdigo:
+Pronto, agora a sequ√™ncia 'andou', e est√° pronta para exibir o pr√≥ximo termo.
+Veja como fica nosso c√≥digo:
 	
 #include <iostream>
 using namespace std;
@@ -2354,7 +2355,7 @@ int main()
 
 
 ***
-Fibonacci com laÁo WHILE em C++
+Fibonacci com la√ßo WHILE em C++
 
 #include <iostream>
 using namespace std;
@@ -2393,8 +2394,8 @@ int main()
 
 int ContadorChamadas()
 {
-	//Variavel est·tica: Significa que apÛs a saÌda da funÁ„o o valor desta vari·vel n„o ser· perdido.
-	//static indica que este valor seja mantido mesmo apÛs a funÁ„o ser encerrada
+	//Variavel est√°tica: Significa que ap√≥s a sa√≠da da fun√ß√£o o valor desta vari√°vel n√£o ser√° perdido.
+	//static indica que este valor seja mantido mesmo ap√≥s a fun√ß√£o ser encerrada
 	
 	static int NumChamadasDaFuncao = 0;
 	NumChamadasDaFuncao++;
@@ -2412,90 +2413,90 @@ int main()
 }
 
 ************
-Resum„o Vari·veis Est·ticas, globais, Constantes
-Vari·veis Est·ticas
+Resum√£o Vari√°veis Est√°ticas, globais, Constantes
+Vari√°veis Est√°ticas
 
-Uma vari·vel est·tica pode ser uma vari·vel global ou local. Ambas s„o 
-criados precedendo a declaraÁ„o da vari·vel com a palavra-chave static .
+Uma vari√°vel est√°tica pode ser uma vari√°vel global ou local. Ambas s√£o 
+criados precedendo a declara√ß√£o da vari√°vel com a palavra-chave static .
 
-Uma vari·vel est·tica local È uma vari·vel que pode manter seu valor de
- uma chamada de funÁ„o para outra e existir· atÈ que o programa termine.
+Uma vari√°vel est√°tica local √© uma vari√°vel que pode manter seu valor de
+ uma chamada de fun√ß√£o para outra e existir√° at√© que o programa termine.
 
-Quando uma vari·vel est·tica local È criada, deve ser atribuÌdo um valor
- inicial. Se n„o for, o valor padr„o ser· 0.
+Quando uma vari√°vel est√°tica local √© criada, deve ser atribu√≠do um valor
+ inicial. Se n√£o for, o valor padr√£o ser√° 0.
 
-Uma vari·vel est·tica global È aquela que sÛ pode ser acessada no arquivo
- onde foi criada. Diz-se que essa vari·vel tem escopo de arquivo .
+Uma vari√°vel est√°tica global √© aquela que s√≥ pode ser acessada no arquivo
+ onde foi criada. Diz-se que essa vari√°vel tem escopo de arquivo .
 
 ---------------------------------------------------------------------------------------------------------
 
-Vari·veis globais e externas
+Vari√°veis globais e externas
 
-Uma vari·vel global È uma vari·vel definida fora de todas as funÁıes e 
-disponÌvel para todas as funÁıes.
+Uma vari√°vel global √© uma vari√°vel definida fora de todas as fun√ß√µes e 
+dispon√≠vel para todas as fun√ß√µes.
 
-Essas vari·veis n„o s„o afetadas por escopos e est„o sempre disponÌveis,
- o que significa que existe uma vari·vel global atÈ que o programa termine.
+Essas vari√°veis n√£o s√£o afetadas por escopos e est√£o sempre dispon√≠veis,
+ o que significa que existe uma vari√°vel global at√© que o programa termine.
 
-… possÌvel criar uma vari·vel global em um arquivo e acess·-la de outro
- arquivo. Para fazer isso, a vari·vel deve ser declarada em ambos os arquivos,
-  mas a palavra-chave extern deve preceder a "segunda" declaraÁ„o.
+√â poss√≠vel criar uma vari√°vel global em um arquivo e acess√°-la de outro
+ arquivo. Para fazer isso, a vari√°vel deve ser declarada em ambos os arquivos,
+  mas a palavra-chave extern deve preceder a "segunda" declara√ß√£o.
 
-Se for esta o seu objetivo de criar uma vari·vel global em arquivo e
+Se for esta o seu objetivo de criar uma vari√°vel global em arquivo e
  poder acessar ela em outro arquivo use extern
 
 extern int Variavel;
 
 ----------------------------------------------------
 
-Vari·veis Locais
+Vari√°veis Locais
 
-Uma vari·vel local È aquela que ocorre dentro de um escopo especÌfico. 
-Eles existem apenas na funÁ„o em que s„o criados.
+Uma vari√°vel local √© aquela que ocorre dentro de um escopo espec√≠fico. 
+Eles existem apenas na fun√ß√£o em que s√£o criados.
 
-¿s vezes, s„o chamadas de vari·veis autom·ticas porque s„o criadas 
-automaticamente quando a funÁ„o inicia a execuÁ„o e desaparecem automaticamente
- quando a execuÁ„o da funÁ„o termina.
+√Äs vezes, s√£o chamadas de vari√°veis autom√°ticas porque s√£o criadas 
+automaticamente quando a fun√ß√£o inicia a execu√ß√£o e desaparecem automaticamente
+ quando a execu√ß√£o da fun√ß√£o termina.
 
 ----------------------------------------------------
 
-"Vari·veis" Constantes
+"Vari√°veis" Constantes
 
-Em C, a diretiva do prÈ-processador #define foi usada para criar uma vari·vel com um 
+Em C, a diretiva do pr√©-processador #define foi usada para criar uma vari√°vel com um 
 valor constante. Isso ainda funciona em C ++, mas podem surgir problemas.
 
-Quando #define È usado, o prÈ-processador ir· percorrer o cÛdigo e substituir cada
- inst‚ncia da vari·vel #define pelo valor apropriado. Pois bem, como a vari·vel #define
-  existe apenas no arquivo onde foi criada, È possÌvel ter a mesma definiÁ„o em 
+Quando #define √© usado, o pr√©-processador ir√° percorrer o c√≥digo e substituir cada
+ inst√¢ncia da vari√°vel #define pelo valor apropriado. Pois bem, como a vari√°vel #define
+  existe apenas no arquivo onde foi criada, √© poss√≠vel ter a mesma defini√ß√£o em 
   outro arquivo com um valor completamente diferente. Isso pode levar a 
-  consequÍncias desastrosas.
+  consequ√™ncias desastrosas.
 
-Para superar esse problema, o conceito de uma constante nomeada que È
- exatamente como uma vari·vel foi introduzido no C ++.
+Para superar esse problema, o conceito de uma constante nomeada que √©
+ exatamente como uma vari√°vel foi introduzido no C ++.
 
-Para criar uma vari·vel constante em C ++, preceda a declaraÁ„o da vari·vel 
+Para criar uma vari√°vel constante em C ++, preceda a declara√ß√£o da vari√°vel 
 com a palavra-chave const . Isso diz ao compilador que 
-"foi criada uma vari·vel que tem um valor que n„o pode ser alterado"
+"foi criada uma vari√°vel que tem um valor que n√£o pode ser alterado"
 
-Ao criar uma vari·vel constante, ela DEVE receber um valor.
+Ao criar uma vari√°vel constante, ela DEVE receber um valor.
 
 
 ****************************************
 
 #include <iostream>
-//PROT“TIPO
-//vocÍ pode colocar valores padrıes no protÛtipo
-//e ent„o quando vocÍ chamar a funÁ„o poder· omitir
-//argumentos pois a funÁ„o ir· utilizar o argumento padr„o se vocÍ n„o informar o argumento quando da chamada da funÁ„o.
-//Para colocar um valor padr„o basta colocar =
+//PROT√íTIPO
+//voc√™ pode colocar valores padr√µes no prot√≥tipo
+//e ent√£o quando voc√™ chamar a fun√ß√£o poder√° omitir
+//argumentos pois a fun√ß√£o ir√° utilizar o argumento padr√£o se voc√™ n√£o informar o argumento quando da chamada da fun√ß√£o.
+//Para colocar um valor padr√£o basta colocar =
 void Coordenadas(int x, int y, int z = 1);
-//VocÍ n„o È obrigado a colocar todos os argumentos padr„o. PorÈm se deixar algum de fora deve seguir a regra que precisa
+//Voc√™ n√£o √© obrigado a colocar todos os argumentos padr√£o. Por√©m se deixar algum de fora deve seguir a regra que precisa
 //colocar da direita para esquerda
 
 int main()
 {
-	//apesar da funÁ„o solicitar na chamada a colocaÁ„o de 3 argumentos que ser„o enviados aos par‚metros
-	//x, y e z. Esta chamada sem vocÍ colocar argumentos ir· funcionar, pois eles tem argumentos pa
+	//apesar da fun√ß√£o solicitar na chamada a coloca√ß√£o de 3 argumentos que ser√£o enviados aos par√¢metros
+	//x, y e z. Esta chamada sem voc√™ colocar argumentos ir√° funcionar, pois eles tem argumentos pa
 	Coordenadas(5,6);
 	system("PAUSE");
 	return 0;
@@ -2515,25 +2516,25 @@ void Coordenadas(int x, int y, int z)
 
 
 #include <iostream>
-//PROT“TIPO
-//vocÍ pode colocar valores padrıes no protÛtipo
-//e ent„o quando vocÍ chamar a funÁ„o poder· omitir
-//argumentos pois a funÁ„o ir· utilizar o argumento padr„o 
-se vocÍ n„o informar o argumento quando da chamada da funÁ„o.
-//Para colocar um valor padr„o basta colocar =
+//PROT√íTIPO
+//voc√™ pode colocar valores padr√µes no prot√≥tipo
+//e ent√£o quando voc√™ chamar a fun√ß√£o poder√° omitir
+//argumentos pois a fun√ß√£o ir√° utilizar o argumento padr√£o 
+se voc√™ n√£o informar o argumento quando da chamada da fun√ß√£o.
+//Para colocar um valor padr√£o basta colocar =
 void Coordenadas(int x, int y, int z = 1);
-//VocÍ n„o È obrigado a colocar todos os argumentos padr„o, porÈm,
+//Voc√™ n√£o √© obrigado a colocar todos os argumentos padr√£o, por√©m,
 // se deixar algum de fora deve seguir a regra que precisa
 //colocar da direita para esquerda
 
 int main()
 {
-	//apesar da funÁ„o solicitar na chamada a colocaÁ„o de 3 argumentos que 
-	//ser„o enviados aos par‚metros
-	//x, y e z. Esta chamada sem vocÍ colocar argumentos ir· funcionar, 
+	//apesar da fun√ß√£o solicitar na chamada a coloca√ß√£o de 3 argumentos que 
+	//ser√£o enviados aos par√¢metros
+	//x, y e z. Esta chamada sem voc√™ colocar argumentos ir√° funcionar, 
 	//pois eles tem argumentos pa
-	Coordenadas(5,6); // x e y recebem os valores na ordem aÌ, z j· foi 
-	//atribuido um valor padr„o anterormente
+	Coordenadas(5,6); // x e y recebem os valores na ordem a√≠, z j√° foi 
+	//atribuido um valor padr√£o anterormente
 	system("PAUSE");
 	return 0;
 }
@@ -2557,13 +2558,13 @@ int main()
 {
 	setlocale(LC_ALL, "portuguese");
 	int escolha = 0;
-	do // as instruÁıes abaixo ser„o executadas pelo menos uma vez!
+	do // as instru√ß√µes abaixo ser√£o executadas pelo menos uma vez!
 	{
 		std::cout << "****Tickets Cinema****" << std::endl;
 		std::cout << "\n1 - Para Meia Entrada\n";
 		std::cout << "\n2 - Para Inteira\n";
 		std::cout << "\n3 - Sair";
-		std::cout << "\nEscolha sua opÁ„o: ";
+		std::cout << "\nEscolha sua op√ß√£o: ";
 		std::cin >> escolha;
 
 		switch (escolha)
@@ -2574,10 +2575,10 @@ int main()
 				break;	
 		case 3: std::cout << "\nSaindo Menu Tickets...\n";
 				break;
-		default: std::cout << "\nOpÁ„o Inv·lida!!!\n";
+		default: std::cout << "\nOp√ß√£o Inv√°lida!!!\n";
 		}
 
-	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois vocÍ est· solicitando que fique em loop atÈ que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
+	} while (escolha != 3);//enquanto escolha for diferente de 3 o menu vai aparecer! pois voc√™ est√° solicitando que fique em loop at√© que escolha seja igual a 3 e resultado seja falso saindo do loop do-while
 	system("PAUSE");
 	return 0;
 }
@@ -2585,8 +2586,8 @@ int main()
 
 
 ******************************
-//CÛdigo que foi modificado de uma vers„o sem uso de funÁıes 
-// e de contribuiÁ„o do aluno Anderson de Almeida Pinheiro
+//C√≥digo que foi modificado de uma vers√£o sem uso de fun√ß√µes 
+// e de contribui√ß√£o do aluno Anderson de Almeida Pinheiro
  
 #include <iostream>
 #include <tchar.h>
@@ -2597,7 +2598,7 @@ void MostrarCarrinho(float Total, float MeiaEntrada, float InteiraEntrada)
 	Total = (MeiaEntrada * 10.50) + (InteiraEntrada * 21.0);
  
 	std::cout << "\n***SEU CARRINHO DE COMPRAS***\n";
-	std::cout << std::fixed << std::setprecision(2);
+	std::cout << std::fixed << std::setprecision(2);     // coloca 2 digitos ap√≥s a v√≠rgula   < -----
 	std::cout << "[MEIA ENTRADA]:\t\t" << MeiaEntrada << "\t" << "R$ " << MeiaEntrada * 10.50 << "\n";
 	std::cout << "[ENTRADA INTEIRA]:\t" << InteiraEntrada << "\t" << "R$ " << InteiraEntrada * 21.0 << "\n";
 	std::cout << "[TOTAL]:\t\t" << "\t" << "R$ " << Total << "\n\n\n";
@@ -2616,7 +2617,7 @@ int main()
  
 	do
 	{
-		std::cout << "\nMENU DE OP«’ES" << "\n";
+		std::cout << "\nMENU DE OP√á√ïES" << "\n";
 		std::cout << "--------------" << "\n";
  
 		std::cout << std::endl;
@@ -2633,7 +2634,7 @@ int main()
  
 		std::cout << std::endl;
  
-		std::cout << "Entre com o n˙mero para realizar as compras: ";
+		std::cout << "Entre com o n√∫mero para realizar as compras: ";
 		std::cin >> Escolha;
  
 		switch (Escolha)
@@ -2659,7 +2660,7 @@ int main()
  
 			if (MeiaEntrada == 0)
 			{
-				std::cout << "\n[ERRO]: ImpossÌvel retirar entrada (0 compradas)" << "\n";
+				std::cout << "\n[ERRO]: Imposs√≠vel retirar entrada (0 compradas)" << "\n";
 				break;
 			}
  
@@ -2676,7 +2677,7 @@ int main()
  
 			if (InteiraEntrada == 0)
 			{
-				std::cout << "\n[ERRO]: ImpossÌvel retirar entrada (0 compradas)" << "\n";
+				std::cout << "\n[ERRO]: Imposs√≠vel retirar entrada (0 compradas)" << "\n";
 				break;
 			}
  
@@ -2711,7 +2712,7 @@ int main()
  
 		default:
  
-			std::cout << "\n[ERRO]: OpÁ„o inv·lida! Verifique o MENU de opÁıes!" << "\n";
+			std::cout << "\n[ERRO]: Op√ß√£o inv√°lida! Verifique o MENU de op√ß√µes!" << "\n";
 			break;
 		}
  
@@ -2731,28 +2732,28 @@ int main()
 {
 	setlocale(LC_ALL, "portuguese");
 	
-	//ent„o para declarar uma vari·vel que seja considerada um ponteiro
-	//basta colocar <tipo a ser apontado> *<nome da vari·vel>
+	//ent√£o para declarar uma vari√°vel que seja considerada um ponteiro
+	//basta colocar <tipo a ser apontado> *<nome da vari√°vel>
 	int *ptr;
-	//obs: a posiÁ„o do asterisco neste caso n„o importa
-	//int* ptr; //d· no mesmo!
+	//obs: a posi√ß√£o do asterisco neste caso n√£o importa
+	//int* ptr; //d√° no mesmo!
 
 
 	int Numero = 101;
-	//Aqui vamos colocar na tela o endereÁo de memÛria
-	//da vari·vel N˙mero. Ou seja onde ela est· carregada na memÛria RAM. Lembre-se que o que vai para tela È o primeiro endereÁo da vari·vel n˙mero
-	//pois ela ocupa 4 endereÁos pois tem 4 bytes de tamanho
+	//Aqui vamos colocar na tela o endere√ßo de mem√≥ria
+	//da vari√°vel N√∫mero. Ou seja onde ela est√° carregada na mem√≥ria RAM. Lembre-se que o que vai para tela √© o primeiro endere√ßo da vari√°vel n√∫mero
+	//pois ela ocupa 4 endere√ßos pois tem 4 bytes de tamanho
   
-	std::cout << "\nEndereÁo de N˙mero: " << &Numero;
-	//ALGO IMPORTANTE AQUI: &ptr vai colocar na tela o endereÁo de memÛria alocado para vari·vel ponteiro
-	//ou seja qual lugar da RAM ele est· alocado?
-	//veja nÛs ainda n„o estamos colocando na tela nada que esteja dentro das vari·veis.
-	//pois para colocar o que est· dentro das vari·veis
-	//nÛs usamos apenas o nome da vari·vel!
+	std::cout << "\nEndere√ßo de N√∫mero: " << &Numero;
+	//ALGO IMPORTANTE AQUI: &ptr vai colocar na tela o endere√ßo de mem√≥ria alocado para vari√°vel ponteiro
+	//ou seja qual lugar da RAM ele est√° alocado?
+	//veja n√≥s ainda n√£o estamos colocando na tela nada que esteja dentro das vari√°veis.
+	//pois para colocar o que est√° dentro das vari√°veis
+	//n√≥s usamos apenas o nome da vari√°vel!
 	//exemplo std::cout << Numero
 	//std::cout << ptr
   
-	std::cout << "\nEndereÁo de ptr: " << &ptr << "\n";
+	std::cout << "\nEndere√ßo de ptr: " << &ptr << "\n";
   
 	system("PAUSE");
 	return 0;
@@ -2766,28 +2767,28 @@ int main()
 {
 	setlocale(LC_ALL, "portuguese");
 	
-	//ent„o para declarar uma vari·vel que seja considerada um ponteiro
-	//basta colocar <tipo a ser apontado> *<nome da vari·vel>
+	//ent√£o para declarar uma vari√°vel que seja considerada um ponteiro
+	//basta colocar <tipo a ser apontado> *<nome da vari√°vel>
 	int *ptr;
-	//obs: a posiÁ„o do asterisco neste caso n„o importa
-	//int* ptr; //d· no mesmo!
+	//obs: a posi√ß√£o do asterisco neste caso n√£o importa
+	//int* ptr; //d√° no mesmo!
 
 
 	int Numero = 101;
-	//Aqui vamos colocar na tela o endereÁo de memÛria
-	//da vari·vel N˙mero. Ou seja onde ela est· carregada na memÛria RAM. Lembre-se que o que vai para tela È o primeiro endereÁo da vari·vel n˙mero
-	//pois ela ocupa 4 endereÁos pois tem 4 bytes de tamanho
+	//Aqui vamos colocar na tela o endere√ßo de mem√≥ria
+	//da vari√°vel N√∫mero. Ou seja onde ela est√° carregada na mem√≥ria RAM. Lembre-se que o que vai para tela √© o primeiro endere√ßo da vari√°vel n√∫mero
+	//pois ela ocupa 4 endere√ßos pois tem 4 bytes de tamanho
   
-	std::cout << "\nEndereÁo de N˙mero: " << &Numero;
-	//ALGO IMPORTANTE AQUI: &ptr vai colocar na tela o endereÁo de memÛria alocado para vari·vel ponteiro
-	//ou seja qual lugar da RAM ele est· alocado?
-	//veja nÛs ainda n„o estamos colocando na tela nada que esteja dentro das vari·veis.
-	//pois para colocar o que est· dentro das vari·veis
-	//nÛs usamos apenas o nome da vari·vel!
+	std::cout << "\nEndere√ßo de N√∫mero: " << &Numero;
+	//ALGO IMPORTANTE AQUI: &ptr vai colocar na tela o endere√ßo de mem√≥ria alocado para vari√°vel ponteiro
+	//ou seja qual lugar da RAM ele est√° alocado?
+	//veja n√≥s ainda n√£o estamos colocando na tela nada que esteja dentro das vari√°veis.
+	//pois para colocar o que est√° dentro das vari√°veis
+	//n√≥s usamos apenas o nome da vari√°vel!
 	//exemplo std::cout << Numero
 	//std::cout << ptr
   
-	std::cout << "\nEndereÁo de ptr: " << &ptr << "\n";
+	std::cout << "\nEndere√ßo de ptr: " << &ptr << "\n";
   
 	system("PAUSE");
 	return 0;
@@ -2806,11 +2807,11 @@ int main()
 	int *ptr2;
 	ptr = &Numero;
 	ptr2 = ptr;
-	std::cout << "\nEndereÁo contido dentro de ptr: " << ptr << "\n";
-	std::cout << "\nEndereÁo contido dentro de ptr2: " << ptr2 << "\n";
+	std::cout << "\nEndere√ßo contido dentro de ptr: " << ptr << "\n";
+	std::cout << "\nEndere√ßo contido dentro de ptr2: " << ptr2 << "\n";
 	
-	std::cout << "\nEndereÁo de ptr na memÛria RAM: " << &ptr << "\n";
-	std::cout << "\nEndereÁo de ptr2 na memÛria RAM: " << &ptr2 << "\n";
+	std::cout << "\nEndere√ßo de ptr na mem√≥ria RAM: " << &ptr << "\n";
+	std::cout << "\nEndere√ßo de ptr2 na mem√≥ria RAM: " << &ptr2 << "\n";
 	
 	std::cout << "\nValor de Numero antes: " << Numero << "\n";
 		*ptr2 = *ptr + 10;
@@ -2827,34 +2828,34 @@ int main()
 {
 	int Numero{ 4890 };
 	char Letra{ 'E' };
-	//declarei ponteiro genÈrico ou vazio(void)
-	//significa que ele n„o tem ainda um tipo que possa apontar
-	/*isso È ˙til quando vocÍ por exemplo retornar algo de alguma 
-	funÁ„o e atribuir a um ponteiro. Neste caso vocÍ n„o sabe de antem„o 
-	que tipo de dado vocÍ vai retornar e assim depois vocÍ pode 
-	especificar qual tipo de dado o ponteiro void* passar· a apontar*/
+	//declarei ponteiro gen√©rico ou vazio(void)
+	//significa que ele n√£o tem ainda um tipo que possa apontar
+	/*isso √© √∫til quando voc√™ por exemplo retornar algo de alguma 
+	fun√ß√£o e atribuir a um ponteiro. Neste caso voc√™ n√£o sabe de antem√£o 
+	que tipo de dado voc√™ vai retornar e assim depois voc√™ pode 
+	especificar qual tipo de dado o ponteiro void* passar√° a apontar*/
 	void *ptrG;
-	//Agora ptrG passa a apontar para a a vari·vel Letra
-	//Pois ele recebeu o endereÁo de memÛria desta vari·vel
+	//Agora ptrG passa a apontar para a a vari√°vel Letra
+	//Pois ele recebeu o endere√ßo de mem√≥ria desta vari√°vel
 	ptrG = &Letra;
 	//por que deu erro?
-	//Lembre que o endereÁo de uma vari·vel È apenas o primeiro byte dela. 
-	//O primeiro endereÁo em que ela esta carregada.
-	//Assim como o compilador vai saber como LER a vari·vel
-	// ex:  a partir do endereÁo 105 eu devo percorrer quanto bytes?
-	// Ele sÛ saber· isso quando vocÍ indicar o tipo do ponteiro ptrG
-	//Por enquanto ele È void!
-	//logo j· que Letra È do tipo char voÍ deve
-	//indicar que o ponteiro ptrG est· apontando para um char
-	//isso È feito via cast 
+	//Lembre que o endere√ßo de uma vari√°vel √© apenas o primeiro byte dela. 
+	//O primeiro endere√ßo em que ela esta carregada.
+	//Assim como o compilador vai saber como LER a vari√°vel
+	// ex:  a partir do endere√ßo 105 eu devo percorrer quanto bytes?
+	// Ele s√≥ saber√° isso quando voc√™ indicar o tipo do ponteiro ptrG
+	//Por enquanto ele √© void!
+	//logo j√° que Letra √© do tipo char vo√™ deve
+	//indicar que o ponteiro ptrG est√° apontando para um char
+	//isso √© feito via cast 
 	
 	
 	std::cout << "Valor de Letra via ptrG = " << *(char*)ptrG << "\n"; // desreferenciamento
 	
-	//primeiro vocÍ faz o cast e depois coloca o sinal de desreferenciamento
+	//primeiro voc√™ faz o cast e depois coloca o sinal de desreferenciamento
 	//*(cast para tipo desejado)NomePonteiroGenerico
 	//*(char*)ptrG
-	//agora o compilador sabe que dever· ler 1(byte) para colocar um char na tela!
+	//agora o compilador sabe que dever√° ler 1(byte) para colocar um char na tela!
 	ptrG = &Numero;
 	std::cout << "\nValor de Numerom via ptrG: " << *(int*)ptrG << "\n";
 
@@ -2865,7 +2866,7 @@ int main()
 
 *************
 
-Utilizando a Tabela acima analise o trecho de cÛdigo e observe a lacuna ______________:
+Utilizando a Tabela acima analise o trecho de c√≥digo e observe a lacuna ______________:
 
 void* ptr;
 
@@ -2877,18 +2878,18 @@ ptr = &Numero;
 
 std::cout << "O valor de Numero usando ptr sera: " <<  ________________  << "\n";
 
-O cÛdigo que preenche corretamente a lacuna acima ser·: *(int*)ptr    // desreferenciamento
+O c√≥digo que preenche corretamente a lacuna acima ser√°: *(int*)ptr    // desreferenciamento
 
 
 ********************************
 
-Crie uma vari·vel de nome Numero do Tipo inteiro e valor inicial igual a 234;
-Crie um ponteiro de nome Ponteiro capaz de apontar para um vari·vel do tipo inteiro.
+Crie uma vari√°vel de nome Numero do Tipo inteiro e valor inicial igual a 234;
+Crie um ponteiro de nome Ponteiro capaz de apontar para um vari√°vel do tipo inteiro.
 Troque o valor de Numero para 1456 usando Ponteiro
 Coloque o valor de Numero na tela usando Ponteiro
-Mostre o endereÁo da memÛria RAM em que est„o carregados, alocados as vari·veis Ponteiro e Numero
+Mostre o endere√ßo da mem√≥ria RAM em que est√£o carregados, alocados as vari√°veis Ponteiro e Numero
 Crie um outro ponteiro de nome OutroPtr
-FaÁa OutroPtr apontar para a mesma vari·vel que ptr aponta. 
+Fa√ßa OutroPtr apontar para a mesma vari√°vel que ptr aponta. 
 Usando Ponteiro some 200 ao valor contido em Numero
 Usando OutroPtr coloque na tela o valor de Numero
 
@@ -2902,19 +2903,19 @@ int main()
 	int* OutroPtr = Ponteiro;
 
 	std::cout << "\nValor de Numero: " << *Ponteiro << "\n";
-	std::cout << "\nEndereÁo de Numero " << &Numero << " EndereÁo de Ponteiro: " << &Ponteiro << "\n";
+	std::cout << "\nEndere√ßo de Numero " << &Numero << " Endere√ßo de Ponteiro: " << &Ponteiro << "\n";
 	std::cout << "\nValor contido em DENTRO de Ponteiro: " << Ponteiro << "\n";
 	*Ponteiro += 200;
-	std::cout << "\nValor de N˙mero: " << *OutroPtr << "\n" ;
+	std::cout << "\nValor de N√∫mero: " << *OutroPtr << "\n" ;
 	system("PAUSE");
 	return 0;
 }
 
 *****************************************************
 
-REFER NCIAS
+REFER√äNCIAS
 
-… um rÛtuo, È como dar outro nome a uma vari·vel j· existente.
+√â um r√≥tuo, √© como dar outro nome a uma vari√°vel j√° existente.
 int numero=34;
 int &RefNum= numero;
 *****************************************************
@@ -2925,24 +2926,24 @@ int main()
 {
 	int Numero{ 1024 };
 	char Letra{ 'A' };
-	//Declara uma referÍncia//Significa que foi criado um apelido, um rotulo, um alias para a vari·vel Numero
-	//Neste caso n„o È criada uma regi„o de memÛria que vai conter algo dentro e que seria chamada Ref. Ref n„o tem endereÁo na RAM.
-	//N„o È uma vari·vel que podemos colocar algo dentro!
-	//… apenas um atalho para Numero.
+	//Declara uma refer√™ncia//Significa que foi criado um apelido, um rotulo, um alias para a vari√°vel Numero
+	//Neste caso n√£o √© criada uma regi√£o de mem√≥ria que vai conter algo dentro e que seria chamada Ref. Ref n√£o tem endere√ßo na RAM.
+	//N√£o √© uma vari√°vel que podemos colocar algo dentro!
+	//√â apenas um atalho para Numero.
 
 	int &Ref = Numero;
-	//Para colocar na tela o valor que a referencia referencia basta colocar o nome da referencia. N„o precisa desreferenciar como
+	//Para colocar na tela o valor que a referencia referencia basta colocar o nome da referencia. N√£o precisa desreferenciar como
   //nos ponteiros. *ptr
 	std::cout << "\nValor de Numero usando Ref: " << Ref << "\n";
 	std::cout << "\nValor Endereco de Numero: " << &Numero << "\n";
   
-	//Observe que &Ref ir· retornar o endereÁo de N˙mero pois uma referencia nasce e fica como novo rÛtulo da vari·vel que ela 
-  //referencia estando portanto no mesmo endereÁo de Numero, neste caso.
+	//Observe que &Ref ir√° retornar o endere√ßo de N√∫mero pois uma referencia nasce e fica como novo r√≥tulo da vari√°vel que ela 
+  //referencia estando portanto no mesmo endere√ßo de Numero, neste caso.
 	std::cout << "\nValor Endereco de Ref: " << &Ref << "\n";
   
-	//J· aqui ser· criada uma vari·vel, um espaÁo na memÛria RAM e dentro deste espaÁo de nome ptr ser· colocado o endereÁo de 
-  //memÛria de Numero. … bem diferente da referÍncia pois esta n„o contem um espaÁo alocado, ela apenas È mais um nome, um rÛtulo, 
-  //um apelido para referenciar a vari·vel.
+	//J√° aqui ser√° criada uma vari√°vel, um espa√ßo na mem√≥ria RAM e dentro deste espa√ßo de nome ptr ser√° colocado o endere√ßo de 
+  //mem√≥ria de Numero. √â bem diferente da refer√™ncia pois esta n√£o contem um espa√ßo alocado, ela apenas √© mais um nome, um r√≥tulo, 
+  //um apelido para referenciar a vari√°vel.
 	int* ptr = &Numero;
 	std::cout << "\nValor Endereco de ptr na RAM: " << &ptr << "\n";
 	std::cout << "\nValor de Numero usando ptr: " << *ptr << "\n";
@@ -2961,25 +2962,25 @@ int main()
 {
 	int Numero{ 1024 };
 	int Numero2{ 2024 };
-	//Observe que a referÍncia n„o pode ficar sem ser atribuida logo
-	//na sua criaÁ„o!
+	//Observe que a refer√™ncia n√£o pode ficar sem ser atribuida logo
+	//na sua cria√ß√£o!
 	int &RefNum{ Numero2 }; // forma padronizada de inicializar
 	//o mesmo que int &RefNum = Numero2;
-	//Agora est· ok pois Ref passar ser uma referencia de Numero2
+	//Agora est√° ok pois Ref passar ser uma referencia de Numero2
 	RefNum = 5644;
-	//Podemos alterar o valor do referenciado apenas com o nome da referÍncia sem precisar de *
+	//Podemos alterar o valor do referenciado apenas com o nome da refer√™ncia sem precisar de *
 	//&RefNum = Numero;
-	//Aqui n„o ser· permitido pois referÍncia sÛ pode ser atribuida uma ˙nica vez!
+	//Aqui n√£o ser√° permitido pois refer√™ncia s√≥ pode ser atribuida uma √∫nica vez!
 	int* ptr;
 	//um ponteiro pode ser declarado sem ser inicializado!
-	//AtÈ mesmo assim È permitido!
-	//depois vocÍ pode iniciar
+	//At√© mesmo assim √© permitido!
+	//depois voc√™ pode iniciar
 	ptr = &Numero;
 	
 	*ptr = 4048;
 	std::cout << "\nValor de Numero: " << *ptr << "\n";
-	//No ciclo de vida de um ponteiro podemos reatribuir, colocar um novo endereÁo, fazer ele apontar para outra vari·vel
-	//isso È permitido!
+	//No ciclo de vida de um ponteiro podemos reatribuir, colocar um novo endere√ßo, fazer ele apontar para outra vari√°vel
+	//isso √© permitido!
 	ptr = &Numero2;
 	*ptr = Numero + 2000;
 	std::cout << "\nValor de Numero2: " << *ptr << "\n";
@@ -2988,7 +2989,7 @@ int main()
 
 **********
 
-Considere o seguinte trecho de cÛdigo abaixo:
+Considere o seguinte trecho de c√≥digo abaixo:
 
 float Temperatura { 40.0 } ;
 float VelocidadeDoVento { 23.6 };
@@ -2996,11 +2997,11 @@ float &RefTemp = Temperatura;
 RefTemp = 34.7;
 std::cout << RefTemp;
 
-O cÛdigo acima colocar· na tela o valor?34.7
+O c√≥digo acima colocar√° na tela o valor?34.7
 
 ***********
 
-Considere o seguinte cÛdigo abaixo:
+Considere o seguinte c√≥digo abaixo:
 
 #include <iostream>
 int main()
@@ -3011,14 +3012,14 @@ int main()
 	RefTemp = 34.7;  // deu um novo valor para a variavel temperatura
 	std::cout << RefTemp << "\n";
 	RefTemp = VelocidadeDoVento;
-	std::cout << RefTemp << "\n"; // e esse? o que retornr·?
+	std::cout << RefTemp << "\n"; // e esse? o que retornr√°?
 }
 
 ***********
    
-    3 casos:
+    3 casos:    Sendo o segundo caso melhor!!!
 	
-     	*************   1∫ caso
+     	*************   1¬∫ caso
      	
 
 #include <iostream>
@@ -3029,23 +3030,23 @@ int main()
 {
 	setlocale(LC_ALL, "portuguese");
 	int Num1, Num2;
-	std::cout << "\nDigite o primeiro N˙mero: ";
+	std::cout << "\nDigite o primeiro N√∫mero: ";
 	std::cin >> Num1;
-	std::cout << "\nDigite o Segundo N˙mero: ";
+	std::cout << "\nDigite o Segundo N√∫mero: ";
 	std::cin >> Num2;
 	std::cout << "\nValores antes da troca\n";
 	std::cout << "\nNumero1 = " << Num1;
 	std::cout << "\nNumero2 = " << Num2;
 	std::cout << "\nValores depois da troca\n";
-	//Esta chamada de funÁ„o apenas COPIA o Valor de Numero1 e Numero2
-	//E Coloca estes valores em Num1 e Num2 respectivamente da funÁ„o
+	//Esta chamada de fun√ß√£o apenas COPIA o Valor de Numero1 e Numero2
+	//E Coloca estes valores em Num1 e Num2 respectivamente da fun√ß√£o
 	//Troca Numeros...
-	//N„o h· relaÁ„o alguma com estas vari·veis..
-	//Numero1 e Numero2 s„o vari·veis locais a funÁ„o main
+	//N√£o h√° rela√ß√£o alguma com estas vari√°veis..
+	//Numero1 e Numero2 s√£o vari√°veis locais a fun√ß√£o main
 	TrocaNumeros(Num1, Num2);
-	//Mesmo sendo mesmo nome, s„o vari·veis diferente e com endereÁos de memÛria diferentes
-	//A ISSO CHAMAMOS DE PASSAGEM DE PAR¬METROS POR VALOR!
-	//APENAS UMA COPIA DO VALOR … ENVIADO A FUN«√O
+	//Mesmo sendo mesmo nome, s√£o vari√°veis diferente e com endere√ßos de mem√≥ria diferentes
+	//A ISSO CHAMAMOS DE PASSAGEM DE PAR√ÇMETROS POR VALOR!
+	//APENAS UMA COPIA DO VALOR √â ENVIADO A FUN√á√ÉO
 	std::cout << "\nNum1 = " << &Num1;
 	std::cout << "\nNum2 = " << &Num2;
 
@@ -3055,46 +3056,46 @@ int main()
 	system("PAUSE");
 	return 0;
 }
-//e Num1 e Num2 s„o vari·veis locais a funÁ„o TrocaNumeros
+//e Num1 e Num2 s√£o vari√°veis locais a fun√ß√£o TrocaNumeros
 void TrocaNumeros(int Num1, int Num2)
 {
-	//Como fazer a troca de valores de dois n˙meros?
-	//precisamos de um local tempor·rio para armazenar o valor de Num1 antes dele receber novo valor!
-	//Vari·vel tempor·ria que guarda valor de Num1
+	//Como fazer a troca de valores de dois n√∫meros?
+	//precisamos de um local tempor√°rio para armazenar o valor de Num1 antes dele receber novo valor!
+	//Vari√°vel tempor√°ria que guarda valor de Num1
 	//Ex: se for digitado 10 Temp = 10 e se for digitado Num2 = 20 temos
-	std::cout << "\nNum1 FunÁ„o = " << &Num1;
-	std::cout << "\nNum2 FunÁ„o = " << &Num2;
+	std::cout << "\nNum1 Fun√ß√£o = " << &Num1;
+	std::cout << "\nNum2 Fun√ß√£o = " << &Num2;
 
 	int Temp{ Num1 };
 	//Num1 passa a ser 20
 	Num1 = Num2;
 	//Num2 passa a ser 10. Logo foi trocado
-	//PorÈm....
+	//Por√©m....
 	Num2 = Temp;
-	//Ent„o aqui a troca ocorre apenas nas vari·veis locais
-	//Numero1 e Numero2 ficam intactos sem alteraÁ„o!
+	//Ent√£o aqui a troca ocorre apenas nas vari√°veis locais
+	//Numero1 e Numero2 ficam intactos sem altera√ß√£o!
 }
 
 ************
 
    outro caso 
    
-     	*************  2∫ caso
+     	*************  2¬∫ caso
 
 #include <iostream>
 
-//Agora estamos indicando que a funÁ„o ter· dois par‚metros que ser„o
-//referÍncias dos argumentos passados para esta funÁ„o
-//Ou seja o que for enviado para esta funÁ„o passar· a ser referenciado por Num1 e Num2 respectivamente.
+//Agora estamos indicando que a fun√ß√£o ter√° dois par√¢metros que ser√£o
+//refer√™ncias dos argumentos passados para esta fun√ß√£o
+//Ou seja o que for enviado para esta fun√ß√£o passar√° a ser referenciado por Num1 e Num2 respectivamente.
 void TrocaNumeros(int& Num1, int& Num2);
 
 int main()
 {
 	setlocale(LC_ALL, "portuguese");
 	int Numero1, Numero2;
-	std::cout << "\nDigite o primeiro N˙mero: ";
+	std::cout << "\nDigite o primeiro N√∫mero: ";
 	std::cin >> Numero1;
-	std::cout << "\nDigite o Segundo N˙mero: ";
+	std::cout << "\nDigite o Segundo N√∫mero: ";
 	std::cin >> Numero2;
 	std::cout << "\nValores antes da troca";
 	std::cout << "\nNumero1 = " << Numero1;
@@ -3106,29 +3107,29 @@ int main()
 	std::cout << "\nNumero1 = " << Numero1;
 	std::cout << "\nNumero2 = " << Numero2 << "\n";
 	
-	std::cout << "\nEndereÁo de memÛria de Numero1 = " << &Numero1;
-	std::cout << "\nEndereÁo de memÛria de Numero2 = " << &Numero2 << "\n";
+	std::cout << "\nEndere√ßo de mem√≥ria de Numero1 = " << &Numero1;
+	std::cout << "\nEndere√ßo de mem√≥ria de Numero2 = " << &Numero2 << "\n";
 	
 	system("PAUSE");
 	return 0;
 }
 
-//Agora Num1 e Num2 n„o recebem simplesmente uma cÛpia do valor de Numero1 e Numero2. Eles passam a ser ReferÍncias de Numero1 e Numero2 respectivamente. Assim se eles alterarem o valor isso ir· afetar as vari·veis, pois agora eles s„o referÍncias!
+//Agora Num1 e Num2 n√£o recebem simplesmente uma c√≥pia do valor de Numero1 e Numero2. Eles passam a ser Refer√™ncias de Numero1 e Numero2 respectivamente. Assim se eles alterarem o valor isso ir√° afetar as vari√°veis, pois agora eles s√£o refer√™ncias!
 void TrocaNumeros(int& Num1, int& Num2)
 {
-	std::cout << "\nEndereÁo de memÛria de Num1 da funÁ„o  = " << &Num1;
-	std::cout << "\nEndereÁo de memÛria de Num2 da funÁ„o  = " << &Num2;
+	std::cout << "\nEndere√ßo de mem√≥ria de Num1 da fun√ß√£o  = " << &Num1;
+	std::cout << "\nEndere√ßo de mem√≥ria de Num2 da fun√ß√£o  = " << &Num2;
 	int Temp{ Num1 };
 	//Num1 passa a ser 20
-	//aqui est· copiando em Numero1 o valor de Numero2 pois s„o referÍncias È como se fosse Numero1 = Numero2
-	//Lembre que referÍncias s„o alias para suas vari·veis
-	//Isso aqui (int& Num1, int& Num2) È o mesmo que
+	//aqui est√° copiando em Numero1 o valor de Numero2 pois s√£o refer√™ncias √© como se fosse Numero1 = Numero2
+	//Lembre que refer√™ncias s√£o alias para suas vari√°veis
+	//Isso aqui (int& Num1, int& Num2) √© o mesmo que
 	//int& Num1 = Numero1 e int& Num1 = Numero2;
-	//sÛ que isso ocorre na chamada da funÁ„o.
-	//ISSO DAMOS O NOME DE PASSAGEM DE ARGUMENTOS PARA A FUN«√O POR REFER NCIA!
+	//s√≥ que isso ocorre na chamada da fun√ß√£o.
+	//ISSO DAMOS O NOME DE PASSAGEM DE ARGUMENTOS PARA A FUN√á√ÉO POR REFER√äNCIA!
 	Num1 = Num2;
 	//Num2 passa a ser 10. Logo foi trocado
-	//PorÈm....
+	//Por√©m....
 	Num2 = Temp;
 	
 }
@@ -3138,34 +3139,34 @@ void TrocaNumeros(int& Num1, int& Num2)
 
    outro caso, por ponteiros
    
-     	*************  3∫ caso
+     	*************  3¬∫ caso
 
 #include <iostream>
 
-//Agora vamos fazer o mesmo. A passagem de argumentos para a funÁ„o por
-//ReferÍncia. SÛ que agora utilizando ponteiros
-//Lembre-se ponteiros s„o vari·veis que possuem dentro delas um endereÁo de outra vari·vel
-//AlÈm disso eles precisam ser desreferenciados para chegar ao valor apontado ou alter·-lo
+//Agora vamos fazer o mesmo. A passagem de argumentos para a fun√ß√£o por
+//Refer√™ncia. S√≥ que agora utilizando ponteiros
+//Lembre-se ponteiros s√£o vari√°veis que possuem dentro delas um endere√ßo de outra vari√°vel
+//Al√©m disso eles precisam ser desreferenciados para chegar ao valor apontado ou alter√°-lo
 
-//Aqui foi indicado que a funÁ„o deve receber endereÁos de memÛria
+//Aqui foi indicado que a fun√ß√£o deve receber endere√ßos de mem√≥ria
 //Pois trata-se de dois ponteiros..
-//Ent„o quando enviar para funÁ„o vocÍ deve enviar o endereÁo de memÛria das vari·veis. E estes endereÁos ser„o colocados nestas vari·veis
+//Ent√£o quando enviar para fun√ß√£o voc√™ deve enviar o endere√ßo de mem√≥ria das vari√°veis. E estes endere√ßos ser√£o colocados nestas vari√°veis
 void TrocaNumeros(int* Num1, int* Num2);
 
 int main()
 {
 	setlocale(LC_ALL, "portuguese");
 	int Numero1, Numero2;
-	std::cout << "\nDigite o primeiro N˙mero: ";
+	std::cout << "\nDigite o primeiro N√∫mero: ";
 	std::cin >> Numero1;
-	std::cout << "\nDigite o Segundo N˙mero: ";
+	std::cout << "\nDigite o Segundo N√∫mero: ";
 	std::cin >> Numero2;
 	std::cout << "\nValores antes da troca";
 	std::cout << "\nNumero1 = " << Numero1;
 	std::cout << "\nNumero2 = " << Numero2;
 
-	//Esta dando erro pois a funÁ„o n„o espera receber dois n˙meros inteiros.. E sim espera receber dois endereÁos de memÛria para ponteiros do tipo int.
-	//Logo devemos enviar o endereÁo de memÛria das variaveis
+	//Esta dando erro pois a fun√ß√£o n√£o espera receber dois n√∫meros inteiros.. E sim espera receber dois endere√ßos de mem√≥ria para ponteiros do tipo int.
+	//Logo devemos enviar o endere√ßo de mem√≥ria das variaveis
 
 	TrocaNumeros(&Numero1, &Numero2);
 
@@ -3173,8 +3174,8 @@ int main()
 	std::cout << "\nNumero1 = " << Numero1;
 	std::cout << "\nNumero2 = " << Numero2 << "\n";
 	
-	std::cout << "\nEndereÁo de memÛria de Numero1 = " << &Numero1;
-	std::cout << "\nEndereÁo de memÛria de Numero2 = " << &Numero2 << "\n";
+	std::cout << "\nEndere√ßo de mem√≥ria de Numero1 = " << &Numero1;
+	std::cout << "\nEndere√ßo de mem√≥ria de Numero2 = " << &Numero2 << "\n";
 	
 	system("PAUSE");
 	return 0;
@@ -3183,33 +3184,36 @@ int main()
 void TrocaNumeros(int* Num1, int* Num2)
 {
 	
-	//Deu diferente pois ponteiro È uma vari·vel e portanto possui endereÁo alocado na memÛria. Ele possui dentro dele o endereÁo de memÛria da vari·vel apontada
-	std::cout << "\nEndereÁo de memÛria de Num1 da funÁ„o  = " << &Num1;
-	std::cout << "\nEndereÁo de memÛria de Num2 da funÁ„o  = " << &Num2;
-	std::cout << "\nEndereÁo de memÛria contido dentro de Num1  = " << Num1;
-	std::cout << "\nEndereÁo de memÛria contido dentro de Num2  = " << Num2;
-	//Se Num1 agora È um ponteiro logo Ter· dentro dele um endereÁo de memÛria. Est· dando erro pois estamos tentando colocar um endereÁo de memÛria dentro de uma vari·vel inteira Temp
-	//Lembre o nome de uma vari·vel devolve o que est· dentro dela!
-	//Neste caso queremos o valor que Num1 aponta e que neste caso ser· Numero1. Por isso diferentemente das referÍncias os ponteiros precisam ser desreferenciados
+	//Deu diferente pois ponteiro √© uma vari√°vel e portanto possui endere√ßo alocado na mem√≥ria. Ele possui dentro dele o endere√ßo de mem√≥ria da vari√°vel apontada
+	std::cout << "\nEndere√ßo de mem√≥ria de Num1 da fun√ß√£o  = " << &Num1;
+	std::cout << "\nEndere√ßo de mem√≥ria de Num2 da fun√ß√£o  = " << &Num2;
+	std::cout << "\nEndere√ßo de mem√≥ria contido dentro de Num1  = " << Num1;
+	std::cout << "\nEndere√ßo de mem√≥ria contido dentro de Num2  = " << Num2;
+	//Se Num1 agora √© um ponteiro logo Ter√° dentro dele um endere√ßo de mem√≥ria. Est√° dando erro pois estamos tentando colocar um endere√ßo de mem√≥ria dentro de uma vari√°vel inteira Temp
+	//Lembre o nome de uma vari√°vel devolve o que est√° dentro dela!
+	//Neste caso queremos o valor que Num1 aponta e que neste caso ser√° Numero1. Por isso diferentemente das refer√™ncias os ponteiros precisam ser desreferenciados
 	int Temp{ *Num1 };
 	//Agora temp recebe o valor apontado por Num1
 
-	//Aqui o valor apontado por Num1(que ser· Numero1) receber· o valor apontado por Num2
+	//Aqui o valor apontado por Num1(que ser√° Numero1) receber√° o valor apontado por Num2
 	*Num1 = *Num2;
 	
 	//Num2 passa a ser 10. Logo foi trocado
-	//PorÈm....
-	//o valor apontado por Num2 receber·o valor de Temp
+	//Por√©m....
+	//o valor apontado por Num2 receber√°o valor de Temp
 	*Num2 = Temp;
-	//Temp È uma vari·vel int normal logo n„o pode nem precisa ser desreferenciada
+	//Temp √© uma vari√°vel int normal logo n√£o pode nem precisa ser desreferenciada
 	
 
-	//tambÈm chamamos isso de PASSAGEM DE ARGUMENTOS PARA A FUN«√O POR REFER NCIA! S” QUE AQUI USANDO PONTEIROS!
+	//tamb√©m chamamos isso de PASSAGEM DE ARGUMENTOS PARA A FUN√á√ÉO POR REFER√äNCIA! S√ì QUE AQUI USANDO PONTEIROS!
 
 }
 
 
 
+int Temp{ *Num1 };
+*Num1 = *Num2;
+*Num2 = Temp;
 
 
 
@@ -3234,13 +3238,13 @@ int main()
 	setlocale(LC_ALL, "portuguese");
 	double Num{ 8 };
 	AlteraNumero(Num);
-	std::cout << "Quadrado do Numero " << Num << " È: " << QuadradoDoValor(Num) << std::endl;
+	std::cout << "Quadrado do Numero " << Num << " √©: " << QuadradoDoValor(Num) << std::endl;
 	system("PAUSE");
 	return 0;
 } 
 
 *****************
-Considere o cÛdigo a seguir, ONDE EST¡ O ERRO?
+Considere o c√≥digo a seguir, ONDE EST√Å O ERRO?
 Precisa retornar apenas o resultado 64:
 
 #include <iostream>
@@ -3266,43 +3270,43 @@ int main()
 **********************************
 
 
-Considere o cÛdigo a seguir:
+Considere o c√≥digo a seguir:
 
 #include <iostream>
 #include <math.h>
  
-void QuadradoDoValor(double* Numero) // Recebe o endereÁo de memÛria do argumento que ser· enviado
+void QuadradoDoValor(double* Numero) // Recebe o endere√ßo de mem√≥ria do argumento que ser√° enviado
 {
-	*Numero = pow(*Numero, 2); // Aqui o par‚metro Numero est· manipulando o valor de Num pois 
-	//est· com
-//o endereÁo de memÛria de Num
+	*Numero = pow(*Numero, 2); // Aqui o par√¢metro Numero est√° manipulando o valor de Num pois 
+	//est√° com
+//o endere√ßo de mem√≥ria de Num
 }
  
 int main()
 {
 	double Num{ 8 };
-   	QuadradoDoValor(&Num); // envia o endereÁo & da vari·vel Num e n„o o valor dela
+   	QuadradoDoValor(&Num); // envia o endere√ßo & da vari√°vel Num e n√£o o valor dela
 	std::cout << Num << std::endl;
 	system("PAUSE");
 	return 0;
 }                                                                                         
-Ao executar o cÛdigo acima ir· aparecer na tela o valor 64 pois est· sendo usado
-// o conceito de passagem de argumentos para funÁ„o por referÍncia. E neste caso 
-//especÌfico utilizando ponteiros*
+Ao executar o c√≥digo acima ir√° aparecer na tela o valor 64 pois est√° sendo usado
+// o conceito de passagem de argumentos para fun√ß√£o por refer√™ncia. E neste caso 
+//espec√≠fico utilizando ponteiros*
 
-============================Passagem de argumentos para uma funÁ„o por valor===============
+============================Passagem de argumentos para uma fun√ß√£o por valor===============
 
-Ent„o, Na Passagem de argumentos para uma funÁ„o por valor haver· uma simples 
-cÛpia do valor do(s) argumento(s) para o(s) par‚metro(s) da funÁ„o chamada.
+Ent√£o, Na Passagem de argumentos para uma fun√ß√£o por valor haver√° uma simples 
+c√≥pia do valor do(s) argumento(s) para o(s) par√¢metro(s) da fun√ß√£o chamada.
 
-No caso do cÛdigo acima uma chamada de argumentos por valor seria assim:
+No caso do c√≥digo acima uma chamada de argumentos por valor seria assim:
 
 #include <iostream>
 #include <math.h>
  
-//Numero È o par‚metro da funÁ„o QuadradoDoValor e vai receber apenas o VALOR passado para a 
-//funÁ„o via argumento
-void QuadradoDoValor(double Numero) //observe a ausÍncia de ponteiros* ou de referÍncias&
+//Numero √© o par√¢metro da fun√ß√£o QuadradoDoValor e vai receber apenas o VALOR passado para a 
+//fun√ß√£o via argumento
+void QuadradoDoValor(double Numero) //observe a aus√™ncia de ponteiros* ou de refer√™ncias&
 {
 	Numero = pow(Numero, 2);
 }
@@ -3310,13 +3314,13 @@ void QuadradoDoValor(double Numero) //observe a ausÍncia de ponteiros* ou de ref
 int main()
 {
 	double Num{ 8 };
-   	//Num È o argumento enviado para a funÁ„o QuadradoDoValor e que est· sendo chamada abaixo
+   	//Num √© o argumento enviado para a fun√ß√£o QuadradoDoValor e que est√° sendo chamada abaixo
         QuadradoDoValor(Num); 
-/*chamada da funÁ„o POR VALOR, ou seja apenas ser· copiado o valor contido 
-no argumento Num. Que È o valor atual da vari·vel Num  que È 8
-este valor 8 ser· copiado ao par‚metro Numero da funÁ„o QuadroDoValor e assim esta 
-funÁ„o n„o poder· modificar o valor da vari·vel Num pois, recebeu apenas a cÛpia do 
-valor desta vari·vel.*/
+/*chamada da fun√ß√£o POR VALOR, ou seja apenas ser√° copiado o valor contido 
+no argumento Num. Que √© o valor atual da vari√°vel Num  que √© 8
+este valor 8 ser√° copiado ao par√¢metro Numero da fun√ß√£o QuadroDoValor e assim esta 
+fun√ß√£o n√£o poder√° modificar o valor da vari√°vel Num pois, recebeu apenas a c√≥pia do 
+valor desta vari√°vel.*/
 	
 std::cout << Num << std::endl;
 	system("PAUSE");
@@ -3324,38 +3328,38 @@ std::cout << Num << std::endl;
 }     
 
 
-=============================Passagem de argumentos para uma funÁ„o por ReferÍncia===============
+=============================Passagem de argumentos para uma fun√ß√£o por Refer√™ncia===============
 
-AtenÁ„o: O termo referÍncia neste caso È conceitual e este termo È conhecido n„o somente 
-em linguagem C++ mas em todas as linguagens de programaÁ„o que suportam esta funcionalidade. 
-O fato È que na linguagem C++ temos tambÈm um recurso que tem o mesmo nome deste conceito:
- referÍncia e isso pode confundir as coisas. Entenda Passagem de argumentos para funÁ„o por 
- ReferÍncia como uma funcionalidade que d· poderes a uma funÁ„o de modificar o valor do 
- argumento passado para ela de dentro da funÁ„o. Em linguagem C++ isso pode ser feito 
- com os recursos de ponteiros* ou de ReferÍncias&.
+Aten√ß√£o: O termo refer√™ncia neste caso √© conceitual e este termo √© conhecido n√£o somente 
+em linguagem C++ mas em todas as linguagens de programa√ß√£o que suportam esta funcionalidade. 
+O fato √© que na linguagem C++ temos tamb√©m um recurso que tem o mesmo nome deste conceito:
+ refer√™ncia e isso pode confundir as coisas. Entenda Passagem de argumentos para fun√ß√£o por 
+ Refer√™ncia como uma funcionalidade que d√° poderes a uma fun√ß√£o de modificar o valor do 
+ argumento passado para ela de dentro da fun√ß√£o. Em linguagem C++ isso pode ser feito 
+ com os recursos de ponteiros* ou de Refer√™ncias&.
 
-DaÌ a confus„o pois podemos ter em C++:
+Da√≠ a confus√£o pois podemos ter em C++:
 
-- Passagem de argumentos para uma funÁ„o por valor
+- Passagem de argumentos para uma fun√ß√£o por valor
 
-- Passagem de argumentos para uma funÁ„o por ReferÍncia usando ponteiros*
+- Passagem de argumentos para uma fun√ß√£o por Refer√™ncia usando ponteiros*
 
-  - Passagem de argumentos para uma funÁ„o por ReferÍncia usando ReferÍncias&
+  - Passagem de argumentos para uma fun√ß√£o por Refer√™ncia usando Refer√™ncias&
 
-Portanto na  Passagem de argumentos para uma funÁ„o por ReferÍncia estamos indicando 
-que os argumentos enviados ser„o enviados por referÍncia, o que indica que os par‚metros 
-da funÁ„o que ir„o receber estes argumentos, poder„o alterar o valor destes argumentos de 
-dentro da funÁ„o. E em C++ este conceito e funcionalidade da Passagem de argumentos para 
-uma funÁ„o por ReferÍncia pode ser realizada utilizando Ponteiros* ou ReferÍncias&. 
-O truque na realidade È vocÍ enviar o endereÁo vari·vel ou criar uma referÍncia que 
-tenha este endereÁo permitindo que o par‚metro da funÁ„o altere o conte˙do do argumento 
-enviado por referÍncia na chamada desta funÁ„o.
+Portanto na  Passagem de argumentos para uma fun√ß√£o por Refer√™ncia estamos indicando 
+que os argumentos enviados ser√£o enviados por refer√™ncia, o que indica que os par√¢metros 
+da fun√ß√£o que ir√£o receber estes argumentos, poder√£o alterar o valor destes argumentos de 
+dentro da fun√ß√£o. E em C++ este conceito e funcionalidade da Passagem de argumentos para 
+uma fun√ß√£o por Refer√™ncia pode ser realizada utilizando Ponteiros* ou Refer√™ncias&. 
+O truque na realidade √© voc√™ enviar o endere√ßo vari√°vel ou criar uma refer√™ncia que 
+tenha este endere√ßo permitindo que o par√¢metro da fun√ß√£o altere o conte√∫do do argumento 
+enviado por refer√™ncia na chamada desta fun√ß√£o.
 
 
 *******************************************
 
 
-Considere o cÛdigo a seguir e leia o texto abaixo ( est· longo mas vale a pena ler :) )
+Considere o c√≥digo a seguir e leia o texto abaixo ( est√° longo mas vale a pena ler :) )
 
 #include <iostream>
 #include <math.h>
@@ -3373,35 +3377,1139 @@ int main()
 	system("PAUSE");
 	return 0;
 }                                                                                         
-Na assinatura da funÁ„o void QuadradoDoValor(double* Numero) este asterisco* 
-indica que a funÁ„o espera receber um endereÁo de memÛria que ser· enviado como 
-argumento e que ser· armazenado no par‚metro Numero.
+Na assinatura da fun√ß√£o void QuadradoDoValor(double* Numero) este asterisco* 
+indica que a fun√ß√£o espera receber um endere√ßo de mem√≥ria que ser√° enviado como 
+argumento e que ser√° armazenado no par√¢metro Numero.
 
-Logo a chamada da funÁ„o QuadradoDoValor(&Num); esta enviando endereÁo de Num 
-para o par‚metro Numero. E por isso Numero poder· trocar o valor de Num pois 
-contÈm o endereÁo de memÛria dele.
+Logo a chamada da fun√ß√£o QuadradoDoValor(&Num); esta enviando endere√ßo de Num 
+para o par√¢metro Numero. E por isso Numero poder√° trocar o valor de Num pois 
+cont√©m o endere√ßo de mem√≥ria dele.
 
-Como È um ponteiro esta alteraÁ„o precisa ser realizada via operador de 
-desreferenciamento*. Desta forma, no caso do cÛdigo acima È preciso ficar
+Como √© um ponteiro esta altera√ß√£o precisa ser realizada via operador de 
+desreferenciamento*. Desta forma, no caso do c√≥digo acima √© preciso ficar
  atento ou atenta ao desreferenciamento do ponteiro via *Numero = pow(*Numero, 2); 
 
-Isso est· informando o seguinte.
+Isso est√° informando o seguinte.
 
-O Apontado por Numero RECEBE o Valor retornado pela funÁ„o Potencia(pow)
+O Apontado por Numero RECEBE o Valor retornado pela fun√ß√£o Potencia(pow)
  de (Valor Apontado por Numero elevado a 2). 
 
-Como Numero est· com o endereÁo de Num ele est· apontando para Num
+Como Numero est√° com o endere√ßo de Num ele est√° apontando para Num
 
-Logo na pr·tica e como  Num = Num elevado a 2  logo Num = 64
+Logo na pr√°tica e como  Num = Num elevado a 2  logo Num = 64
 
-Por isso, na tela ir· aparecer 64 pois Num foi modificado via referÍncia 
-pelo ponteiro Numero que contÈm seu endereÁo de memÛria.
-
-********************************
+Por isso, na tela ir√° aparecer 64 pois Num foi modificado via refer√™ncia 
+pelo ponteiro Numero que cont√©m seu endere√ßo de mem√≥ria.
 
 
+*************************** PONTEIRO PARA PONTEIRO
+
+Um ponteiro pode guardar o endere√ßo de outro ponteiro?
+
+Pode sim! E isso √© muito utilizado em estrutura de dados, chama-se ponteiro de ponteiro
+
+Mas para criar um ponteiro para ponteiro  voc√™ precisa aumentar o n√∫mero de asteriscos na declara√ß√£o.
+
+seria assim int **Ponteiro2 = &Ponteiro1;
+
+Para acessar o valor desejado apontado por um ponteiro para ponteiro, o operador asterisco deve ser aplicado duas vezes **
+
+Ou seja o valor contido no apontado pelo Ponteiro1 atrav√©s  do Ponteiro2 ser√° obtido com **Ponteiro2
+
+Vamos ver  um exemplo comentado e explicado s√≥ que agora usando estas novas nota√ß√µes **
+
+#include <iostream>
+ 
+int main() // Esse c√≥digo apresentou falhas, foi copiado exatamente como est√° 
+ 
+{
+	int Numero{ 110 };
+	//Ponteiro1 passa apontar para vari√°vel Numero. Ou seja Ponteiro1 tem dentro dele o endere√ßo da vari√°vel Numero
+	int* Ponteiro1 = &Numero;
+	std::cout << "\nEndereco de Numero = " << &Numero;
+	std::cout << "\nValor Contido dentro de Ponteiro1 = " << Ponteiro1;
+	std::cout << "\nEndereco em que a variavel Ponteiro1 esta carregado na memoria: " << &Ponteiro1;
+	//Agora Ponteiro2 √© um ponteiro para ponteiro e ter√° dentro dele o endere√ßo de Ponteiro1
+	int** Ponteiro2 = &Ponteiro1; 
+	std::cout << "\nValor contido dentro de Ponteiro2: " << Ponteiro2;
+	//Para colocar na tela o valor de Numero utilizando o Ponteiro2 usamos os dois asteriscos
+	std::cout << "\nValor de Numero via Ponteiro2: " << **Ponteiro2;
+	return 0;
+ 
+}
 
 
 
 
+
+**********************************************************
+
+            ARRAY
+
+Evita cria√ß√£o de muitas vari√°veis e torna mais rapido o processamento
+**********************************************************
+
+
+
+****  Sem FOR
+
+#include <iostream>
+#include <string>
+/*Crie um programa que receba o nome do aluno, suas 5 notas e depois mostre a m√©dia destas notas*/
+
+int main()
+{
+	//Seria interessante uma vari√°vel que voc√™ pudesse declarar e ela tivesse compartimentos que armazenariam valores!
+
+	//Agora foi criada uma vari√°vel de nome Notas com 5 compartimentos
+	//indexados a partir do zero [0] [1] [2] [3] [4]
+	//acess√≠veis por um √∫nico nome Notas[√≠ndice]
+	//Devem ter todos os compartimentos o mesmo tipo de dados e por isso ela √© considerada uma vari√°vel composta (v√°rios locais de armazenamento) e homog√™nea por aceitas apenas um tipo de dado dentro de cada comportimento.
+	//Voc√™ j√° pode iniciar os valores j√° na declara√ß√£o
+	//Este √© o estilo herdado da linguagem C
+	//Agora C++
+	//Por que este f?
+	float Notas[5] { 1.0, 2.0, 3.0, 4.0, 5.0 };  // ou pode deixar vazio float Notas[] 
+	float Media;
+	std::string NomeAluno;
+
+	std::cout << "\nDigite o nome do Aluno: ";
+	std::cin >> NomeAluno;
+
+	std::cout << "\nDigite A primeira nota: ";
+	//lembre-se a primeira posi√ß√£o come√ßa no √≠ndice zero!
+	std::cin >> Notas[0];
+
+	std::cout << "\nDigite A segunda nota: ";
+	std::cin >> Notas[1];
+
+	std::cout << "\nDigite A terceira nota: ";
+	std::cin >> Notas[2];
+
+	std::cout << "\nDigite A quarta nota: ";
+	std::cin >> Notas[3];
+
+	std::cout << "\nDigite A quinta nota: ";
+	std::cin >> Notas[4];
+
+	//soma das notas dividido pelo n√∫mero de notas!
+	Media = (Notas[0] + Notas[1] + Notas[2] + Notas[3] + Notas[4]) / 5;
+
+	std::cout << "\nA Media das notas do aluno foi: " << Media << "\n";
+	//E se fossem 10 notas?
+
+	system("PAUSE");
+	return 0;
+}
+
+
+*** Com FOR
+
+#include <iostream>
+#include <string>
+/*Crie um programa que receba o nome do aluno, suas 5 notas e depois mostre a m√©dia destas notas*/
+
+int main()
+{
+	//Seria interessante uma vari√°vel que voc√™ pudesse declarar e ela tivesse compartimentos que armazenariam valores!
+
+	//Agora foi criada uma vari√°vel de nome Notas com 5 compartimentos
+	//indexados a partir do zero [0] [1] [2] [3] [4]
+	//acess√≠veis por um √∫nico nome Notas[√≠ndice]
+	//Devem ter todos os compartimentos o mesmo tipo de dados e por isso ela √© considerada uma vari√°vel composta (v√°rios locais de armazenamento) e homog√™nea por aceitas apenas um tipo de dado dentro de cada comportimento.
+	//Voc√™ j√° pode iniciar os valores j√° na declara√ß√£o
+	//Este √© o estilo herdado da linguagem C
+	//Agora C++
+	//Por que este f?
+	//PAra indicar que os n√∫meros s√£o float
+	//pois n√∫mero sem este f s√£o considerados double e neste caso voc√™ estaria colocando double dentro do float
+	//mas lembre que float √© menor que double e com isso poderia ocorrer perda de dados
+	float Notas[5] { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f };
+	//importante inicializar vari√°veis contadoras e acumuladoras
+	//muitos erros ocorrem!
+	float Media, Soma{ 0.0 };
+	std::string NomeAluno;
+
+	std::cout << "\nDigite o nome do Aluno: ";
+	std::cin >> NomeAluno;
+
+	//esta parte aqui est√° muito repetitiva, n√£o pode ser melhorada?
+	//E se [indice] puder ser colocado como vari√°vel
+	//ex: [i]
+	//esta vari√°vel come√ßaria com 0 e iria at√© 4
+	//que comando podemos usar?
+	//for!!!
+
+	//Neste for o i vai de zero at√© 4. Percorre exatamente os √≠ndices do vetor Notas
+	for (int i = 0; i <= 4; i++)
+	{
+		std::cout << "\nDigite a nota" << (i+1)<< ": ";
+		std::cin >> Notas[i];
+		//precisamos de uma vari√°vel que acumule a soma das notas!
+		Soma = Soma + Notas[i];
+		system("CLS");
+	}
+
+	//soma das notas dividido pelo n√∫mero de notas!
+	Media = Soma/5;
+
+	std::cout << "\nA Media das notas do aluno foi: " << Media << "\n";
+	//E se fossem 10 notas?
+
+	system("PAUSE");
+	return 0;
+}
+
+
+**************  FOR
+sem os comentarios
+
+***
+
+#include <iostream>
+#include <string>
+
+int main()
+{
+	float Notas[5] { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f };
+
+	float Media, Soma{ 0.0 };
+	std::string NomeAluno;
+
+	std::cout << "\nDigite o nome do Aluno: ";
+	std::cin >> NomeAluno;
+
+	for (int i = 0; i <= 4; i++)
+	{
+		std::cout << "\nDigite a nota" << (i+1)<< ": ";
+		std::cin >> Notas[i];
+		Soma = Soma + Notas[i];
+		system("CLS");
+	}
+
+	Media = Soma/5;
+
+	std::cout << "\nA Media das notas do aluno foi: " << Media << "\n";
+
+	system("PAUSE");
+	return 0;
+}
+
+**************** ou
+
+
+#include <iostream>
+#include <string>
+
+int main()
+{
+	
+	//Voc√™ pode suprimir o n√∫mero nos colchetes.
+	float Notas[]{ 0.0f, 1.0f, 2.0f, 3.0f, 4.0f }; // se quiser iniciar todos com zero pode ser assim com √∫nico zero 0.0
+	float Media, Soma{ 0.0 };
+	std::string NomeAluno;
+
+	std::cout << "\nDigite o nome do Aluno: ";
+	std::cin >> NomeAluno;
+	
+	for (int i = 0; i <= 4; i++)
+	{
+		std::cout << "\nDigite a nota" << (i+1)<< ": ";
+		std::cin >> Notas[i];
+		Soma += Notas[i];
+		system("CLS");
+	}
+	
+	Media = Soma/5;
+	
+	std::cout << "\nA Media das notas do "<< NomeAluno<<" foi: " << Media << "\n";
+	
+	system("PAUSE");
+	return 0;
+}
+
+
+*************************
+
+#include <iostream>
+#include <locale>
+/*Exerc√≠cio Soma De 10 N√∫meros */
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+
+	double Numeros[10];
+	double Soma{ 0.0 };
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << "Digite O N√∫mero" << (i+1) << ": ";
+		//i++ √© o mesmo que i = i + 1; e neste caso a regi√£o
+		//de mem√≥ria de nome i est√° sendo afetada e incrementada
+		//mas se usarmos somente (i+1) nada na mem√≥ria ser√° afetado
+		//pois n√£o tem atribui√ß√£o n√£o tem: i = (i + 1). Somente  (i + 1)
+		//e assim s√≥ usamos o valor de i e n√£o alteramos
+
+		std::cin >> Numeros[i];
+		Soma += Numeros[i];
+		//Limpa a tela Clear Screen
+		//Clear no Linux OU CLS Windows
+		system("Clear || CLS");
+	}
+	std::cout << "\n A Soma dos N√∫meros √©: " << Soma << "\n";
+	system("PAUSE");
+	return 0;
+}
+
+
+**************************
+
+#include <iostream>
+#include <locale.h>
+
+/*ENTRADA: Receba n√∫mero elementos desejados (m√°ximo de 20)
+PROCESSAMENTO: 
+ - Armazena estes dados em um array. 
+ - Encontrar maior e o menor elemento desse array
+SA√åDA: mostre na tela o maior e o menor elemento desse array
+*/
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int NumElementos;
+	int Min, Max;
+	int Array[20];  /* nesse caso ele vai fazer a compara√ß√£o de APENAS 20 elementos,
+	                 se passar desse valor vai dar erro no resultado*/ 
+
+	std::cout << "Digite O n√∫mero de elementos desejado: ";
+	std::cin >> NumElementos;
+
+	//Se o usu√°rio digitar 14
+	//o vetor vai de √≠ndice 0 at√© 13
+	//logo i precisa ser menor que 14 ou seja 
+	//i < NumElementos
+	for (int i = 0; i < NumElementos; i++)
+	{
+		//primeiro vamos receber o vetor, a entrada de dados
+		std::cout << "Digite o Elemento" << (i + 1) << ": ";
+		std::cin >> Array[i];
+		system("CLS");
+	}
+	//Depois de receber  todo Array vamos ao PROCESSAMENTO
+	//Voc√™ deve varrer novamente este Array e efetuar a l√≥gica de 
+	//achar o valor Min e Max
+	Min = Array[0];
+	Max = Array[0];
+	//No inicio tanto min quanto max s√£o o primeiro elemento vetor
+
+	//Precisamos varrer o vetor e analisar max e min
+	//Aqui Processamento
+	for (int i = 0; i < NumElementos; i++)
+	{
+		if (Array[i] > Max)
+			Max = Array[i];
+		else if (Array[i] < Min)
+			Min = Array[i];
+	}
+
+	//Agora a SAIDA:
+	std::cout << "\n O Menor Valor digitado foi: " << Min << "\n";
+	std::cout << "\n O Maior Valor digitado foi: " << Max << "\n";
+	// ou   std::cout<<"\nO menor valor √© [ "<<Min<<" ] e o maior valor √© [ "<<Max<<" ].\n\n";
+	system("PAUSE");
+	return 0;
+}
+
+******************
+
+Usando vetores, varias formas de fazer
+
+******************
+
+#include <iostream>
+
+void MostrarVetor(int Array[], int TamVetor);
+
+int main()
+{
+	int Vetor[] = { 1, 2, 3, 4, 5, 6, 7 ,8, 9, 10 };
+	//Para enviar um vetor para uma fun√ß√£o basta enviar o nome do vetor
+	MostrarVetor(Vetor, 10);
+	//Por√©m e o tamanho?
+	//D√° para calcular este tamanho sem ter que enviar?
+
+	system("PAUSE");
+	return 0;
+}
+
+//Para receber um vetor basta colocar o tipo nome do vetor e [ ]
+//ou j√° com tamanho int Array[10]
+void MostrarVetor(int Array[], int TamVetor)
+{
+	for (int i = 0; i < TamVetor; i++)
+	{
+		std::cout << "- " << Array[i] << " -";
+	}
+}
+
+
+************* Com sizeof
+
+#include <iostream>
+
+void MostrarVetor(int Array[], int TamVetor);
+
+int main()
+{
+	int Vetor[] = { 1, 2, 3, 4, 5, 6, 7 ,8, 9, 10 };
+	//Para enviar um vetor para uma fun√ß√£o basta enviar o nome do vetor
+	
+	//sizeof devolve o n√∫mero em Bytes do tamanho de uma vari√°vel ou tipo
+	//logo sizeof(Vetor) vai devolver o numero de elementos do vetor multiplicado pelo tamanho de seu tipo
+	//pois s√£o gastos 4bytes por int neste vetor e como s√£o 10 elementos
+	//o vetor ter√° tamanho 40bytes
+	//Mas precisamos saber o tamanho!
+	//Basta dividir pelo tipo do vetor
+	int TamanhoVetor = sizeof(Vetor)/sizeof(int);
+	//Agora ser√£o 40 bytes / 4 bytes = 10 e teremos o tamanho do vetor!
+	
+	std::cout << "\nTamanho Vetor: " << TamanhoVetor;
+	/*std::cout << "\nTamanho de um float " << sizeof(float);
+	std::cout << "\nTamanho de um int " << sizeof(int);*/
+
+	MostrarVetor(Vetor, TamanhoVetor);
+	//Por√©m √© o tamanho?
+	//D√° para calcular este tamanho sem ter que enviar?
+	
+	system("PAUSE");
+	return 0;
+}
+
+//Para receber um vetor basta colocar o tipo nome do vetor e [ ]
+//ou j√° com tamanho int Array[10]
+void MostrarVetor(int Array[], int TamVetor)
+{
+	
+	for (int i = 0; i < TamVetor; i++)
+	{
+		std::cout << "- " << Array[i] << " -";
+	}
+}
+
+
+**************** A partir da Vers√£o C++ 17 ou C++ 2017 voc√™ pode usar std::size
+
+#include <iostream>
+#include <array>
+
+void MostrarVetor(int Array[], int TamVetor);
+
+int main()
+{
+	int Vetor[] = { 1, 2, 3, 4, 5, 6, 7 ,8, 9, 10 };
+	//Para enviar um vetor para uma fun√ß√£o basta enviar o nome do vetor
+	
+	//sizeof devolve o n√∫mero em Bytes do tamanho de uma vari√°vel ou tipo
+	//logo sizeof(Vetor) vai devolver o numero de elementos do vetor multiplicado pelo tamanho de seu tipo
+	//pois s√£o gastos 4bytes por int neste vetor e como s√£o 10 elementos
+	//o vetor ter√° tamanho 40bytes
+	//Mas precisamos saber o tamanho!
+	//Basta dividir pelo tipo do vetor
+	int TamanhoVetor = std::size(Vetor);
+	//A partir da Vers√£o C++ 17 ou C++ 2017 voc√™ pode usar std::size
+	
+	std::cout << "\nTamanho Vetor: " << TamanhoVetor;
+	/*std::cout << "\nTamanho de um float " << sizeof(float);
+	std::cout << "\nTamanho de um int " << sizeof(int);*/
+
+	MostrarVetor(Vetor, TamanhoVetor);
+	//Por√©m √© o tamanho?
+	//D√° para calcular este tamanho sem ter que enviar?
+	
+	system("PAUSE");
+	return 0;
+}
+
+//Para receber um vetor basta colocar o tipo nome do vetor e [ ]
+//ou j√° com tamanho int Array[10]
+void MostrarVetor(int Array[], int TamVetor)
+{
+	
+	for (int i = 0; i < TamVetor; i++)
+	{
+		std::cout << "- " << Array[i] << " -";
+	}
+}
+
+
+
+*****************
+
+   invertendo
+
+*****************
   
+#include<iostream>
+
+//prot√≥tipos
+/*Recebe um array por refer√™ncia atrav√©s de um ponteiro
+Ou seja a vari√°vel *Array ir√° receber um endere√ßo de mem√≥ria de um vetor que ser√° enviado para esta fun√ß√£o
+Duplica Vetor*/
+void DuplicaVetor(int *Array, int Tam);
+
+/*Esta fun√ß√£o tamb√©m recebe um Array via Ponteiro mas tamb√©m retorna um ponteiro que neste caso deve ser um ponteiro para int. Logo ser√° capaz de devolver um ponteiro
+para int ou seja um array. NA realidade vai retornar o endere√ßo do primeiro elemento do array*/
+int *InverteVetor(int *Array, int Tam);
+
+//Mostra o vetor recebido via ponteiro
+void MostraVetor(int *Array, int Tam);
+
+int main()
+{
+	int Numeros[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int Tam = sizeof(Numeros) / sizeof(int);
+	//chama a fun√ß√£o e passa o vetor N√∫meros para ela
+	//O endere√ßo do primeiro elemento do vetor ser√° enviado para Array
+	MostraVetor(Numeros, Tam);
+	DuplicaVetor(Numeros, Tam);
+	MostraVetor(Numeros, Tam);
+	//Aqui Mostrar vetor recebe o retorno da fun√ß√£o Inverte Vetor
+	//E este retorno ser√° o endere√ßo do primeiro elemento do array inventido
+	MostraVetor(InverteVetor(Numeros, Tam), Tam);
+	system("PAUSE");
+	return 0;
+}
+
+void DuplicaVetor(int * Array, int Tam)
+{
+	//fun√ß√£o percorre o vetor e duplica os valores
+	//do vetor
+	for (int i = 0; i < Tam; i++)
+	{
+		Array[i] = 2 * Array[i];
+	}
+}
+
+
+//Esta fun√ß√£o recebe um array(na realidade recebe o endere√ßo do primeiro elemento do array)
+//E devolve um array invertido
+int * InverteVetor(int * Array, int Tam)
+{
+	//para inverter o vetor iremos usar um vetor auxiliar
+	//ele precisa ser est√°tico pois sen√£o ao sair da fun√ß√£o ele iria desaparecer da mem√≥ria, e n√£o conseguiria ser enviado como retorno da fun√ß√£o
+	int j = 0;
+	static int ArrayInvertido[10];
+	//Para conseguir um vetor com valores invertidos faremos
+	//Come√ßa do indice Tam -1 ou seja 10 -1 = 9 e vai at√© 0 i>=0
+	for (int i = Tam - 1; i >= 0; i--)
+	{
+		//J vai  de zero at√© 9
+		//enquanto i vai de 9 at√© 0
+		/*assim teremos dentro do for todas estas execu√ß√µes
+		ArrayInvertido[0] = Array[9];
+		ArrayInvertido[1] = Array[8];
+		ArrayInvertido[2] = Array[7];
+		ArrayInvertido[3] = Array[6];
+		ArrayInvertido[4] = Array[5];
+		ArrayInvertido[5] = Array[4];
+		ArrayInvertido[6] = Array[3];
+		ArrayInvertido[7] = Array[2];
+		ArrayInvertido[8] = Array[1];
+		ArrayInvertido[9] = Array[0];
+		*/
+		ArrayInvertido[j] = Array[i];
+		j++;
+	}
+	//Aqui a fun√ß√£o est√° retornando o mesmo que o endere√ßo de mem√≥ria
+	//do primeiro elememento do ArrayInvertido
+	return ArrayInvertido;
+}
+
+//aqui recebe um vetor via ponteiro e mostra na tela
+void MostraVetor(int *Array, int Tam)
+{
+	//coloca colchete antes do for
+	std::cout << "[ ";
+	//Coloca os elementos e finaliza o loop
+	for (int i = 0; i < Tam; i++)
+	{
+		std::cout << Array[i] << "  ";
+	}
+	//e depois coloca ] para fechar o vetor
+	std::cout << "] \n\n";
+}
+
+
+****************
+
+MATRIZ
+
+****************
+
+#include <iostream>
+
+int main()
+{
+	/*Declarei uma vari√°vel do tipo Matriz com 5 linhas
+	e 5 colunas
+	como o C++ o indice come√ßa com zero as linhas e colunas v√£o de 0 a 4*/
+	int Matriz[5][5];
+
+	//Percorremos a Matriz pelas suas linhas e colunas
+	//i vai de 0 at√© 4 pois quando atingir 5 5< 5 (f) e ai sai do loop
+	for (int i = 0; i < 5; i++)
+	{
+		//For aninhado ou seja, i = 0 j vai de 0 at√© 4
+		for (int j = 0; j < 5; j++)
+		{
+			//i < j cai no caso do 1
+			if (i < j)
+			{
+				std::cout << " 1 ";
+			}
+			//i == j cai no caso da diagonal 0,0 1,1 2,2 3,3 e 4,4
+			else if (i == j)
+			{
+				std::cout << " 0 ";
+			}
+			//i > j cai no caso do -1
+			else if (i > j)
+			{
+
+				std::cout << "-1 ";
+			}
+		} //fim for j
+		std::cout << "\n";
+	} //fim for i
+	system("PAUSE");
+	return 0;
+}
+*********************************************************
+
+
+USO DO FOR range loop
+
+tem umas varia√ß√µes de possibilidades de escrita
+******************
+
+#include <iostream>
+/*Array 1998, 2011, 2014, 2017, 2020. 
+Percorra(Itere) por este array utilizando o conceito de for each e coloque os valores na tela.
+*/
+int main()
+{
+	//Ano √© a vari√°vel que vai receber a cada passada
+	//do for cada valor contido em Anos
+	//primeiro Ano recebe o primeiro indice de Anos que √© 1998
+	// depois recebe 2011, 2014, 2017 e 2020
+	//√© como um for normal mas ele percorre sem √≠ndice e de forma automatica
+  
+  //vers√£o colocando diretamente os valores do array dentro do corpo do loop for each
+	for (auto Ano : { 1998, 2011, 2014, 2017, 2020 })
+	{
+		std::cout << Ano << "\n";
+	}
+	
+	system("PAUSE");
+	return 0;
+}
+
+******
+
+#include <iostream>
+/*Array 1998, 2011, 2014, 2017, 2020. 
+Percorra(Itere) por este array utilizando o conceito de for each e coloque os valores na tela.
+*/
+int main()
+{
+	int Anos[]{ 1998,2011,2014,2017,2020 };
+	//Ano √© a vari√°vel que vai receber a cada passada
+	//do for cada valor contido em Anos
+	//primeiro Ano recebe o primeiro indice de Anos que √© 1998
+	// depois recebe 2011, 2014, 2017 e 2020
+	//√© como um for normal mas ele percorre sem √≠ndice e de forma automatica
+	for (auto Ano : Anos)
+	{
+		std::cout << Ano << "\n";
+	}
+	
+	system("PAUSE");
+	return 0;
+}
+
+********
+
+#include <iostream>
+
+int main()
+{
+	int Numeros[ ] { 10,20,30,40,50 };
+	for (auto Num : Numeros)
+	{
+		std::cout << Num << std::endl;
+	}
+	system("PAUSE");
+	return 0;
+
+}
+
+****
+
+M√©dia = divis√£o autom√°tica pela quantidade de itens     << ----------------
+
+
+                 for each loop
+
+for each ou for ranged loop
+****
+
+#include <iostream>
+#include <iomanip>
+/*ENTRADA: 70.9, 89.5, 65.6, 102.5, 123.6, 63.4, 74.5, 99.5, 68.7 
+PROCESSAMENTO: for each C++ e palavra reservada auto 
+SAIDA: valor m√©dio da velocidade de um estrada
+*/
+int main()
+{
+	float Velocidades[]{ 70.9, 89.5, 65.6, 102.5, 123.6, 63.4, 74.5, 99.5, 68.7 };
+	float SomaVelocidades{ 0.0 };
+	int TamArray{ 0 };
+	/*mais um for each ou for ranged loop C++
+	Cada passada a vari√°vel Velocidade receber√° um valor do array Velocidades*/
+	for (auto Velocidade : Velocidades)
+	{
+		/*a variavel acumuladora SomaVelocidades vai acumular a soma de todas
+		as velocidades contidas no array
+		*/
+		SomaVelocidades += Velocidade;
+		//SomaVelocidades += Velocidade o mesmo que 
+		//SomaVelocidades = SomaVelocidades + Velocidade
+		/*No inicio SomaVelocidades √© zero
+		SomaVelocidades = 0.0 + 70.9 -> primeira passada
+		SomaVelocidades = SomaVelocidades + Velocidade
+		SomaVelocidades = 70.9 + 89.5 -> Segunda Passada
+		Acumula a soma de todas as velocidades*/
+		TamArray++;
+		//Tamanho ser√° o tamanho do array no final de todas as passadas do loop(iteracoes)
+	}
+
+	//A media ser√° a soma de todas as velocidades divido pelo numero de velocidades
+	std::cout << "Media Velocidade Rodovia: " << std::setprecision(4) << SomaVelocidades / TamArray << "km/h \n";  // coloca 2 digitos ap√≥s a v√≠rgula   < -----
+	
+	system("PAUSE");
+	return 0;
+}
+
+
+*****
+
+/*ENTRADA: 4.9, 9.5, 5.6, 2.5, 9.6, 6.4, 7.5, 9.8, 8.7 e 10.0 
+PROCESSAMENTO: for each, auto, tamanho vetor sizeof
+media simples (soma das notas) / Numero de Notas
+SAIDA: Media de Notas
+*/
+#include <iostream>
+#include <iomanip>
+
+int main()
+{
+	
+	double Notas[]{ 4.9, 9.5, 5.6, 2.5, 9.6, 6.4, 7.5, 9.8, 8.7, 10.0 };
+	double SomaDasNotas{ 0.0 };
+	int TamArray;
+	//Relembrado tamanho do array Notas em Bytes divido pelo tamanho do tipo de dados em bytes
+	TamArray = sizeof(Notas) / sizeof(double);
+	std::cout << "\n Tamanho Vetor Notas: " << sizeof(Notas) << "Bytes \n";
+	std::cout << "\n Tamanho Tipo Double: " << sizeof(double) << "Bytes \n";
+
+	for (auto Nota : Notas)
+	{
+		SomaDasNotas += Nota;
+	}
+	std::cout << "Media de Notas do Aluno: " << std::fixed << std::setprecision(2) << SomaDasNotas / TamArray << std::endl;
+	system("PAUSE");
+	return 0;
+}
+
+
+***************************
+
+
+USANDO VETORES DIN√ÇMICOS
+
+Neste caso voc√™ pode usar Vector da STL (std::vector)
+
+std::vector √© um cont√™iner de sequ√™ncia que encapsula arrays de tamanho din√¢mico.
+
+std :: vector gerencia um array que pode mudar seu tamanho.
+
+√â necess√°rio incluir um cabe√ßalho para usar a classe Vector  #include <vector>
+
+√© necess√°rio incluir um cabe√ßalho para usar vetores.
+
+Para criar um array din√¢mico vazio declare:
+
+std::vector<tipo_da_variavel> nome_da_variavel;
+
+Se quiser j√° alocar um n√∫mero de elementos no array pode ser da seguinte forma
+
+std::vector<tipo_da_variavel> nome_da_variavel= {Numero_de_elementos};
+
+No caso acima cada elemento nesse vetor ser√° inicializado com o valor padr√£o do tipo da vari√°vel.
+
+Voc√™ tamb√©m pode j√° colocar certo n√∫mero de elementos dentro do vetor
+
+ex: std :: vector < int > v =  {  7 , 5 , 16 , 8  } ;
+
+
+
+#include <iostream> 
+#include <vector>
+ 
+int main()
+{
+    // Cria um vetor contendo inteiros 
+    std::vector < int > v = { 7 , 5 , 16 , 8 };
+ 
+    // Adiciona mais dois inteiros ao vetor 
+    v.push_back(25);
+    v.push_back(13);
+ 
+    // Imprime o vetor 
+    std::cout << "v = { ";
+    for (int n : v) 
+    {
+       
+        std::cout << n << ", ";
+    }
+    std::cout << "}; \n ";
+    return 0;
+}
+
+**********************************************************
+
+
+
+
+
+**********************************************************
+#include <iostream>
+#include <array>
+
+void MostrarVetor(int Array[], int TamVetor);
+
+int main()
+{
+	int Vetor[] = { 1, 2, 3, 4, 5, 6, 7 ,8, 9, 10 };
+	//Para enviar um vetor para uma fun√ß√£o basta enviar o nome do vetor
+	
+	//sizeof devolve o n√∫mero em Bytes do tamanho de uma vari√°vel ou tipo
+	//logo sizeof(Vetor) vai devolver o numero de elementos do vetor multiplicado pelo tamanho de seu tipo
+	//pois s√£o gastos 4bytes por int neste vetor e como s√£o 10 elementos
+	//o vetor ter√° tamanho 40bytes
+	//Mas precisamos saber o tamanho!
+	//Basta dividir pelo tipo do vetor
+	int TamanhoVetor = std::size(Vetor);
+	//A partir da Vers√£o C++ 17 ou C++ 2017 voc√™ pode usar std::size
+	
+	std::cout << "\nTamanho Vetor: " << TamanhoVetor;
+	/*std::cout << "\nTamanho de um float " << sizeof(float);
+	std::cout << "\nTamanho de um int " << sizeof(int);*/
+
+	MostrarVetor(Vetor, TamanhoVetor);
+	//Por√©m √© o tamanho?
+	//D√° para calcular este tamanho sem ter que enviar?
+	
+	system("PAUSE");
+	return 0;
+}
+
+//Para receber um vetor basta colocar o tipo nome do vetor e [ ]
+//ou j√° com tamanho int Array[10]
+void MostrarVetor(int Array[], int TamVetor)
+{
+	
+	for (int i = 0; i < TamVetor; i++)
+	{
+		std::cout << "- " << Array[i] << " -";
+	}
+}
+
+
+*************
+
+
+#include <iostream>
+#include <array>
+
+void MostrarVetor(int Array[], int TamVetor);
+void AlterarVetor(int Array[], int TamVetor);
+
+int main()
+{
+	int Vetor[] = { 1, 2, 3, 4, 5, 6, 7 ,8, 9, 10 };
+	int TamanhoVetor = std::size(Vetor);
+	
+	std::cout << "\nTamanho Vetor: " << TamanhoVetor;
+	
+	std::cout << "\nVetor ORIGINAL";
+	//Ent√£o aqui seria o mesmo que colocar
+	MostrarVetor(&Vetor[0], TamanhoVetor);
+	AlterarVetor(&Vetor[0], TamanhoVetor);
+	std::cout << "\nVetor ALTERADO?";
+	MostrarVetor(&Vetor[0], TamanhoVetor);
+	//O NOME DE UM VETOR EM C E C++ √â O MESMO QUE &Vetor[0]
+	//o vetor foi alterado o que indica que os vetores s√£o enviados para as fun√ß√µes, por refer√™ncia!
+	//Mas como funciona?
+
+	//O NOME DE UM VETOR EM C E C++ √â O MESMO QUE &Vetor[0]
+	//Ou seja, Ao isncrever o nome de um vetor sem os colchetes
+	//Na realidade √© o mesmo que o endere√ßo de mem√≥ria do primeiro elemento do vetor!
+	
+	
+	system("PAUSE");
+	return 0;
+}
+
+//ent√£o int Array[] indica que isso na realidade √© um ponteiro
+//podemos inclusive substituir por
+void MostrarVetor(int *Ptr_Array, int TamVetor)
+{
+	for (int i = 0; i < TamVetor; i++)
+	{
+		std::cout << "- " << Ptr_Array[i] << " -";
+	}
+	std::cout << "\n\n";
+}
+
+void AlterarVetor(int *Ptr_Array, int TamVetor)
+{
+	for (int i = 0; i < TamVetor; i++)
+	{
+		Ptr_Array[i] = Ptr_Array[i] * 2;
+	}
+
+	//Ptr_Array[i] √©  mesmo que *(Ptr_Array + i)
+	//Mas para entender isso √© preciso estudar o assunto da pr√≥xima aula
+	//Aritm√©tica de ponteiros!
+
+	//Aqui n√£o colocamos nada na tela
+	//a fun√ß√£o recebeu um array Vetor que foi recebido por Array[]
+	//A pergunta √© Array recebeu uma c√≥pia de todo o vetor ou Recebeu uma refer√™ncia de Vetor?
+	//Se reecebeu uma c√≥pia estre trecho de c√≥digo Array[i] = Array[2] * 2;
+	/*N√£o ir√° mudar o Vetor original int Vetor[] = { 1, 2, 3, 4, 5, 6, 7 ,8, 9, 10 };
+	Assim Vetor continuaria sendo 1,2,3,4,5,6,7,8,9,10
+	Mas se o Vetor estiver sendo enviado por refer√™ncia o valor ser√° mudado
+	pois Array ter√° o endere√ßo de Vetor e conseguir√° mudar seus valores
+	*/
+}
+
+
+*************
+
+usar ou alterar valor do ponteiro??
+ CUIDADO!!!!!!!!!
+ 
+ ************
+ 
+ #include <iostream>
+ int main(){
+ 
+ int vetor[]={ 23, 25, 34, 36, 37, 43, 52, 66};
+ int *ptr; // ponteiro
+ ptr=vetor;
+ std::cout<<"[ ";
+ for (int i = 0; i<5; i++){
+ 	// SEM ALTERAR mem√≥ria
+ 	//std::cout<<  *(ptr + 1) <<", "; // vai trazer o valor do VETOR atrav√©z do PONTEIRO e n√£o alterar. 
+	//std::cout<<  ptr[i] <<", ";   // √© igual ao comando acima, por√©m aqui deu resultado diferente do mostrado em aula.
+
+
+
+
+
+/* Assim VAI MUDAR NA MEM√ìRIA:   
+	std::cout<<  *ptr <<", "; // Se colocar entre parenteses est√° apenas usando, sem alterar.
+	ptr++;    */
+	
+	// Esse acima √© o mesmo que:
+	std::cout<<  *(vetor+i) <<", "; // Se colocar entre parenteses est√° apenas usando, sem alterar. Se tirar vai alterar
+	ptr++;
+ 
+ //Para isso seria: ptr = ptr + 2 por exemplo... ou atrav√©s de ++ ou --
+	//Ex: ptr++ agora sim iria mudar pois ptr++ √© o  mesmo que ptr = ptr + 1;
+ 
+ }
+std::cout<<"  ]\n\n";
+
+system ("PAUSE");
+return 0;
+}
+
+*********************
+
+
+********************* Vai refificar se altera ou n√£o:
+
+#include <iostream>
+#include <locale.h>
+
+int main()
+{
+setlocale(LC_ALL, "portuguese");
+	
+	int Vetor[] = { 1, 23, -78, 900, 234, 55, 77  };
+	int *ptr;
+	//Neste momento ptr passa a apontar para o endere√ßo do Vetor. Lembre-se que o endere√ßo de uma vari√°vel √© o primeiro endere√ßo da mesma
+	//Logo isso √© o mesmo que ptr = &Vetor[0];
+	//ptr = Vetor;
+	ptr = Vetor;
+	//O nome de um vetor √© o mesmo que &Vetor[0]
+	std::cout << "Vetor[ << i << ] Endere√ßo:  << &Vetor[i] <<  Valor:  << Vetor[i] << \n";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Vetor[" << i << "] Endere√ßo: " << &Vetor[i] << " Valor: " << Vetor[i] << "\n";
+		
+	}
+	std::cout << "\n\n\n*** Endere√ßo Com Aritm√©tica de Ponteiros***\n";
+	std::cout << "Valor Contido em ptr: " << ptr << "\n";
+	std::cout << "(ptr + 0) Endere√ßo: " << (ptr + 0) << " Valor: " << *(ptr + 0) << "\n";
+	//(ptr + 0 ) pega o endere√ßo de ptr e adiciona zero logo √© o endere√ßo do primeiro elemento do vetor, j√° que ptr aponta para o primeiro elemento ptr = Vetor ou ptr = &Vetor[0]
+
+	std::cout << "(ptr + 1) Endere√ßo: " << (ptr + 1) << " Valor: " << *(ptr + 1) << "\n";
+	//(ptr + 1) pega o endere√ßo de ptr e desloca uma unidade de tamanho do tipo do ponteiro
+	//como ptr √© do tipo int, ou seja aponta para vari√°veis do tipo int, nesta arquitetura ele vai somar 4 bytes ao endere√ßo de ptr
+
+	std::cout << "(ptr + 2) Endere√ßo: " << (ptr + 2) << " Valor: " << *(ptr + 2) << "\n";
+	//(ptr + 2) pega o endere√ßo de ptr e desloca duas unidades de tamanho do tipo do ponteiro como ptr √© do tipo int, ou seja aponta para vari√°veis do tipo int, nesta arquitetura ele vai somar 8 bytes ao endere√ßo de ptr
+
+	//*(ptr + 2) faz o desreferenciamento do ponteiro. Ou seja primeiro ele faz a artim√©tica do ponteiro e vai somar 8 bytes a ptr e com isso vai chegar at√© o elemento de √≠ndice 2
+
+	std::cout << "(ptr + 3) Endere√ßo: " << (ptr + 3) << " Valor: " << *(ptr + 3) << "\n";
+	//idem para os demais comandos!
+	std::cout << "(ptr + 4) Endere√ßo: " << (ptr + 4) << " Valor: " << *(ptr + 4) << "\n";
+	std::cout << "(ptr + 5) Endere√ßo: " << (ptr + 5) << " Valor: " << *(ptr + 5) << "\n";
+	std::cout << "(ptr + 6) Endere√ßo: " << (ptr + 6) << " Valor: " << *(ptr + 6) << "\n";
+
+	//MAs observe que o valor de ptr n√£o mudou.. O que est√° dentro de ptr n√£o ir√° mudar!
+	//pois o comando apenas usa o valor de ptr! O comando n√£o est√° indicando para que seja mudado nada na mem√≥ria
+	//Para isso seria: ptr = ptr + 2 por exemplo... ou atrav√©s de ++ ou --
+	//Ex: ptr++ agora sim iria mudar pois ptr++ √© o  mesmo que ptr = ptr + 1;
+	std::cout << "\n\nValor Contido em ptr: " << ptr << "\n";
+	//obs: (ptr + 0) √© o mesmo que ptr 
+	ptr++;
+	std::cout << "Valor Contido em ptr depois de ptr++: " << ptr << "\n";
+	//agora mudou pois ptr++ √© o mesmo que ptr + 1 que na aritm√©tica de ponteiros √© pegar
+	//o valor de ptr e somar o tamanho do tipo de dados que ele aponta que no caso √© de 4 bytes!
+
+	ptr = &Vetor[3]; //ptr passa a apontar para 900
+	ptr--; //decrementa e aponta para -78; ou Vetor[2];
+	std::cout << "\n\nValor do Apontado por ptr depois de ptr--: " << *ptr << "\n\n\n";
+	
+	
+	std::cout << "\nfor (int i = 0; i < 5; i++)\n";
+	std::cout << "Vetor[ << i << ] =  << *(ptr + i) << \n";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Vetor[" << i << "] = " << *(ptr + i) << "\n";
+		
+	}
+	std::cout << "\n\n";
+	//Tamb√©m pode agora colocar o vetor desta forma usando ponteiros
+	//*(ptr + i) far√° o mesmo trabalho contido em: *(ptr + 1, +2, +3 +4)
+
+	//Por√©m ficar digitando toda vez desta forma pode ser trabalhoso
+	//Logo podemos substituir *(ptr + i) simplesmente por ptr[i]
+	//Ou seja ptr[i] √© o mesmo que *(ptr + i)
+	std::cout << "\nfor (int i = 0; i < 5; i++)\n";
+	std::cout << "Vetor[ << i << ] =  << ptr[i] << \n";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Vetor[" << i << "] = " << ptr[i] << "\n";
+		
+	}
+
+	//Isso nos leva a seguinte conclus√£o:
+	//Vetor[i] tamb√©m √© o mesmo que *(Vetor + i)
+	//Como o nome do vetor √© o mesmo que &Vetor[0]
+	//*(Vetor + i) √© o mesmo que *(&Vetor[0] + i);
+	//*(&Vetor[0] + 2) √© o mesmo que Vetor[2];
+	std::cout << "\n\n*(Vetor + 2) =  << *(Vetor + 2)  <<   Mesmo que Vetor[2] =  << Vetor[2] << \n";
+	std::cout << "\n*(Vetor + 2) = " << *(Vetor + 2)  << "  Mesmo que Vetor[2] = " << Vetor[2] << "\n";
+	
+	
+	std::cout << "\n\n\n for (int i = 0; i < 5; i++)\n";
+	std::cout << " << Vetor [i] <<\n ";
+	std::cout << "[ ";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << Vetor [i] << " ";
+	}std::cout << " ]\n\n";
+		
+		
+	std::cout << "\nfor (int i = 0; i < 5; i++)\n";	
+	std::cout << "<< *(Vetor + i) << \n ";
+	std::cout << "[ ";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << *(Vetor + i) << " ";
+	}std::cout << " ]\n\n";
+	
+	
+	std::cout << "\nfor (int i = 0; i < 5; i++)\n";
+	std::cout << "<< *Vetor + i <<  sem parenteses \n ";
+	std::cout << "[ ";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << *Vetor + i << " ";
+	}std::cout << " ]\n\n";
+	
+	
+	std::cout << "\nfor (int i = 0; i < 5; i++)\n";
+	std::cout << "<< Vetor + i << sem parenteses  e sem *\n ";
+	std::cout << "[ ";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << Vetor + i << " ";
+	}std::cout << " ]\n\n";
+	
+	
+	
+	system("PAUSE");
+	return 0;
+}
+ 
+ *****************************************
+ 
+ *******************************************************
+ ************************************************************************
+ *******************************************************
+ 
+ *****************************************
+ 
+ 
+
+
+
+
+
+				PROGRAMA√á√ÉO ORIENTADA A OBJETOS
+
+
+Classes:	Especifica√ß√£o que serve de base para criar coisas concretas (objetos), √© a estrutura, o molde. 
+			A classe √© como a estrutura de um im√≥vel.
+
+Instancia√ß√£o:	√â o processo de transformar a Classe, estrutura, em um Objeto j√° pronto, estruturado,  a casa. 
+
+Objeto:		O objeto √© uma inst√¢ncia da classe, j√° √© a casa estruturada. 
+	
+Outro exemplo:  Receita de um bolo. Classe.
+				Preparo, criar. Inst√¢ncia.
+				Bolo. Objeto.
+**********************************************************************
+
+
+
+
+
