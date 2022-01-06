@@ -1,8 +1,8 @@
 // PRATICANDO C e C++ com as aulas distribuidas no https://github.com/professormarcosp/AprendaCParaGamesUE4
 								
-								PROGRAMAÇÃO ESTRUTURADA (segunda parte será orientada a objetos)
-
-                           ********** OBSERVAÇÃO***********
+					PROGRAMAÇÃO ESTRUTURADA (segunda parte será orientada a objetos) TOP DOWN (DE CIMA PARA BAIXO)
+								
+			                          ********** OBSERVAÇÃO***********
 
 	O conteúdo disponibilizado aqui serve para ajudar na hora do estudo, portanto, 
 este não se trata de um arquivo executável.
@@ -22,8 +22,6 @@ int main() {
 
 						   
 ***************************
-
-
 
 
 #include <iomanip>
@@ -4497,7 +4495,7 @@ setlocale(LC_ALL, "portuguese");
 				PROGRAMAÇÃO ORIENTADA A OBJETOS
 
 
-Classes:	Especificação que serve de base para criar coisas concretas (objetos), é a estrutura, o molde. 
+Classes:	É a abstração. Especificação que serve de base para criar coisas concretas (objetos), é a estrutura, o molde. 
 			A classe é como a estrutura de um imóvel.
 
 Instanciação:	É o processo de transformar a Classe, estrutura, em um Objeto já pronto, estruturado,  a casa. 
@@ -4508,6 +4506,1624 @@ Outro exemplo:  Receita de um bolo. Classe.
 				Preparo, criar. Instância.
 				Bolo. Objeto.
 **********************************************************************
+ objetos, atributos e métodos considere as afirmações abaixo:
+I - Um objeto é um espaço de memória criado com base na sua respectiva classe
+II - As características do objeto são chamadas de Atributos
+III - Os comportamentos do objeto são chamados de métodos
+
+ATRIBUTOS, propriedades, caracteristicas do objeto. São as variáveis e seus tipos.
+Funções, Operações, Métodos.
+***************************
+Lembrar de por ; no final da classe:
+	class NomeDaClasse{
+		variaveis(atributos);
+		funções
+	};                           <-----------
+***************************	
+	
+	
+Um paradigma é uma forma, modelo, padrão, 
+uma abordagem para se resolver problemas. 
+Em relação ao paradigma da programação orientada 
+à objetos(POO) pode-se afirmar que a programação 
+orientada à objetos(POO) é baseada na análise
+BOTTOM-UP(De Baixo para Cima).
+
+
+***************************
+
+
+#include <iostream>
+
+class Casa
+{
+	//Estes são os atributos, as propriedades da classe e são representados por variáveis.
+	//Estes atributos serão as características de cada objeto criado a partir desta classe
+	//Quando o programa estiver sendo executado e queremos saber qual é a situação do objeto em relação 
+	//ao valor de seus atributos dizemos que queremos saber o ESTADO do objeto
+	int NumQuartos;
+	float Tamanho;
+	//No geral você coloca b na frente de uma variável bool para indicar que ela é do tipo booleana(bool)
+	bool bTemSuite;
+
+public:
+	//Estas são as operações da classe, ou métodos ou as funções que o objeto poderá executar quando 
+	//for criado(instanciado) a partir desta classe.
+	void MostrarTamanho();
+	int ObtenhaNumeroDeQuartos();
+	bool TemSuite();
+};
+
+int main()
+{
+	Casa CasaDePraia;
+	return 0;
+}
+
+//O operador escopo neste caso indica que o método(a função) MostrarTamanho() pertence a classe Casa
+void Casa::MostrarTamanho()
+{
+	std::cout << "\nTamanho: " << Tamanho;
+}
+
+int Casa::ObtenhaNumeroDeQuartos()
+{
+	return NumQuartos;
+}
+
+bool Casa::TemSuite()
+{
+	return bTemSuite;
+}
+
+*****
+
+#include <iostream>
+
+class Casa
+{
+	//Estes são os atributos, as propriedades da classe e são representados por variáveis.
+	//Estes atributos serão as características de cada objeto criado a partir desta classe
+	//Quando o programa estiver sendo executado e queremos saber qual é a situação do objeto em relação ao valor de seus atributos dizemos que queremos saber o ESTADO do objeto
+	
+	//Por padrão em uma classe a visibilidade é do tipo private
+	//logo se não for indicado nenhuma visibilidade o padrão é ser private(privado)
+public:
+	//private: esta indicando que estes atributos só poderão ser acessados diretamente no código da classe Casa
+	//Agora se colocar public estes atributos estarão acessíveis fora do código da classe
+	int NumQuartos{ 4 };
+	float Tamanho{ 90.0f };
+	//No geral você coloca b na frente de uma variável bool para indicar que ela é do tipo booleana(bool)
+	bool bTemSuite{ true };
+
+//public significa que estará acesível fora do código da classe
+public:
+	//Estas são as operações da classe, ou métodos ou as funções que o objeto poderá executar quando for criado(instanciado) a partir desta classe.
+	void MostrarTamanho();
+	int ObtenhaNumeroDeQuartos();
+	bool TemSuite();
+	void SetNumQuartos(int Num);
+	//Melhor é criar um método para que seja alterado o número de quartos
+	//seguindo a regra que você vai estabelecer na regra de negócios do sistema
+	//por exemplo se o max de quartos for 6(seis)
+
+}; // este é o código da classe... E você pode indicar que tipo de visibilidade terá partes deste código
+
+int main()
+{
+	Casa CasaDePraia;
+	//como a função main está fora do código da classe, dentro dela não será possível acessar membros privados da classe Casa!
+	//Contudo poderá ser acessado os membros public(públicos)
+	CasaDePraia.MostrarTamanho();
+	CasaDePraia.SetNumQuartos(6);
+	std::cout << "\n Num Quartos: " << CasaDePraia.ObtenhaNumeroDeQuartos();
+	std::cout << "\n Tem Suite: " << CasaDePraia.TemSuite() ? std::cout << "Sim": std::cout << "Não" << "\n";
+	//Para acessar os membros da classe Casa usamos neste caso a notação ponto.
+	//NomedoObjeto.NomeDoAtributo ou NomeDoObjeto.NomeDoMetodo ou função
+	
+	std::cout << "\n";
+	//Observer que acessar diretamente este atributo é complicado
+	//outra classe ou método(função) pode alterar o valor para algo errado!
+	//o ideal é manter os atributos da classe escondidos, privados e acessíveis apenas dentro da classe
+	system("PAUSE");
+	return 0;
+}
+
+//O operador escopo neste caso indica que o método(a função) MostrarTamanho() pertence a classe Casa
+//Estes códigos pertencem a classe casa e portanto podem acessar diretamente os seus atributos privados
+void Casa::MostrarTamanho()
+{
+	std::cout << "\nTamanho: " << Tamanho;
+}
+
+int Casa::ObtenhaNumeroDeQuartos()
+{
+	return NumQuartos;
+}
+
+bool Casa::TemSuite()
+{
+	//
+	return bTemSuite;
+}
+
+void Casa::SetNumQuartos(int Num)
+{
+	if ((Num <= 6) && (Num >= 0))
+	{
+		NumQuartos = Num;
+	} 
+	else
+	{
+		std::cout << "\nNumero de Quartos Invalidos\n";
+	}
+
+}
+
+******
+estático:
+	
+	
+	
+#include <iostream>
+
+class Casa
+{
+	//Estes são os atributos, as propriedades da classe e são representados por variáveis.
+	//Estes atributos serão as características de cada objeto criado a partir desta classe
+	//Quando o programa estiver sendo executado e queremos saber qual é a situação do objeto em relação ao valor de seus atributos dizemos que queremos saber o ESTADO do objeto
+	
+	//Por padrão em uma classe a visibilidade é do tipo private
+	//logo se não for indicado nenhuma visibilidade o padrão é ser private(privado)
+public:
+	//private: esta indicando que estes atributos só poderão ser acessados diretamente no código da classe Casa
+	//Agora se colocar public estes atributos estarão acessíveis fora do código da classe
+	int NumQuartos{ 4 };
+	float Tamanho{ 90.0f };
+	//No geral você coloca b na frente de uma variável bool para indicar que ela é do tipo booleana(bool)
+	bool bTemSuite{ true };
+
+//public significa que estará acesível fora do código da classe
+public:
+	//Estas são as operações da classe, ou métodos ou as funções que o objeto poderá executar quando for criado(instanciado) a partir desta classe.
+	void MostrarTamanho();
+	int ObtenhaNumeroDeQuartos();
+	bool TemSuite();
+	void SetNumQuartos(int Num);
+	//Melhor é criar um método para que seja alterado o número de quartos
+	//seguindo a regra que você vai estabelecer na regra de negócios do sistema
+	//por exemplo se o max de quartos for 6(seis)
+
+}; // este é o código da classe... E você pode indicar que tipo de visibilidade terá partes deste código
+
+int main()
+{
+	Casa CasaDePraia;
+	//como a função main está fora do código da classe, dentro dela não será possível acessar membros privados da classe Casa!
+	//Contudo poderá ser acessado os membros public(públicos)
+	CasaDePraia.MostrarTamanho();
+	CasaDePraia.SetNumQuartos(6);
+	std::cout << "\n Num Quartos: " << CasaDePraia.ObtenhaNumeroDeQuartos();
+  /*ESTA PARTE FOI CORRIGIDA COLOCANDO O COMANDO ? NA LINHA ABAIXO DO std::cout */
+	std::cout << "\n Tem Suite: ";  
+	CasaDePraia.TemSuite() ? (std::cout << "Sim") : (std::cout << "Nao") << "\n";
+	//Para acessar os membros da classe Casa usamos neste caso a notação ponto.
+	//NomedoObjeto.NomeDoAtributo ou NomeDoObjeto.NomeDoMetodo ou função
+	
+	std::cout << "\n";
+	//Observer que acessar diretamente este atributo é complicado
+	//outra classe ou método(função) pode alterar o valor para algo errado!
+	//o ideal é manter os atributos da classe escondidos, privados e acessíveis apenas dentro da classe
+	system("PAUSE");
+	return 0;
+}
+
+//O operador escopo neste caso indica que o método(a função) MostrarTamanho() pertence a classe Casa
+//Estes códigos pertencem a classe casa e portanto podem acessar diretamente os seus atributos privados
+void Casa::MostrarTamanho()
+{
+	std::cout << "\nTamanho: " << Tamanho;
+}
+
+int Casa::ObtenhaNumeroDeQuartos()
+{
+	return NumQuartos;
+}
+
+bool Casa::TemSuite()
+{
+	//
+	return bTemSuite;
+}
+
+void Casa::SetNumQuartos(int Num)
+{
+	if ((Num <= 6) && (Num >= 0))
+	{
+		NumQuartos = Num;
+	} 
+	else
+	{
+		std::cout << "\nNumero de Quartos Invalidos\n";
+	}
+
+}
+
+
+******
+
+
+#include <iostream>
+
+class Casa
+{
+	
+private:
+	int NumQuartos{ 4 };
+	float Tamanho{ 90.0f };
+	bool bTemSuite{ true };
+
+public:
+	void MostrarTamanho();
+	int ObtenhaNumeroDeQuartos();
+	bool TemSuite();
+	void SetNumQuartos(int Num);
+	
+}; 
+
+int main()
+{
+	Casa CasaDePraia;
+	CasaDePraia.MostrarTamanho();
+	CasaDePraia.SetNumQuartos(6);
+	std::cout << "\n Num Quartos: " << CasaDePraia.ObtenhaNumeroDeQuartos();
+	std::cout << "\n Tem Suite: " << CasaDePraia.TemSuite() ? std::cout << "Sim": std::cout << "Não" << "\n";
+	std::cout << "\n";
+	system("PAUSE");
+	return 0;
+}
+
+void Casa::MostrarTamanho()
+{
+	std::cout << "\nTamanho: " << Tamanho;
+}
+
+int Casa::ObtenhaNumeroDeQuartos()
+{
+	return NumQuartos;
+}
+
+bool Casa::TemSuite()
+{
+	return bTemSuite;
+}
+
+void Casa::SetNumQuartos(int Num)
+{
+	if ((Num <= 6) && (Num >= 0))
+	{
+		NumQuartos = Num;
+	} 
+	else
+	{
+		std::cout << "\nNumero de Quartos Invalidos\n";
+	}
+
+}
+
+
+********** FLECHA
+
+(*). Trocou-se 4 caracteres por apenas 2 ->
+	//Mas é importante que você saiba que tudo é notação ponto.
+	//Logo quando você digitar: 
+	CasaDePraia->SetNumQuartos(5);
+	//é o mesmo que:
+	(*CasaDePraia).SetNumQuartos(5);
+
+**********
+dinâmico:
+flecha:     ---------------->>>>>>>>>>>>>>> é o desreferenciamento do ponteiro	
+	
+#include <iostream>
+
+class Casa
+{
+
+private:
+	int NumQuartos{ 4 };
+	float Tamanho{ 90.0f };
+	bool bTemSuite{ true };
+
+public:
+	void MostrarTamanho();
+	int ObtenhaNumeroDeQuartos();
+	bool TemSuite();
+	void SetNumQuartos(int Num);
+
+};
+
+int main()
+{
+	/*   Casa CasaDePraia;
+	CasaDePraia.MostrarTamanho();
+	CasaDePraia.SetNumQuartos(6);*/
+	Casa *CasaDePraia = new Casa();
+	//Agora você está criando, instanciando um objeto via alocação dinâmica de memória, utilizando ponteiros*. Basicamente é o mesmo que Declarar da forma que você declarou na aula passada. Ou seja será criado um objeto baseado na classe Casa e o endereço de memória deste objeto será colocado em CasaDePraia.
+
+	//Contudo trata-se de um ponteiro. Lembre... Como acessar o apontado pelo ponteiro? Isso mesmo com desrefenciamento*
+	//Logo CasaDePraia.ObtenhaNumeroDeQuartos() devemos usar
+	//*ptr mas neste caso o ponteiro é CasaDePraia 
+	//Logo para desreferenciar ele você faz *CasaDePraia
+	//Mas agora você está diante de uma nova estrutura de variável
+	//Ele contém diversos atributos e métodos(funções)
+	//Que são acessíveis via ponto.
+	//Mas se fizer isso apenas estaria errado
+	//O correto é assim
+	//(Endereçoqueponteiroaponta).Atributo;
+	//(Endereçoquefuncaoaponta).funcao();
+	//(*CasaDePraia).MostrarTamanho();
+	//(*CasaDePraia).ObtenhaNumeroDeQuartos();
+	//Mas ficar digitando toda hora dois parênteses, um asterisco e um ponto ficou cansativo!!!
+	//Os criadores da linguagem criaram então um atalho para esta notação
+	//(*CasaDePraia). é o mesmo que CasaDePraia->
+	//É a chamada notação flecha    ---------------->>>>>>>>>>>>>>> é o desreferenciamento do ponteiro	
+	
+	//(*). Trocou-se 4 caracteres por apenas 2 ->
+	//Mas é importante que você saiba que tudo é notação ponto.
+	//Logo quando você digitar: 
+	//CasaDePraia->SetNumQuartos(5);
+	//é o mesmo que:
+	//(*CasaDePraia).SetNumQuartos(5);
+
+
+	std::cout << "\n Num Quartos: " << CasaDePraia->ObtenhaNumeroDeQuartos();
+	std::cout << "\n Tem Suite: ";  
+	CasaDePraia->TemSuite() ? std::cout << "Sim" : std::cout << "Não" << "\n";
+	std::cout << "\n";
+	system("PAUSE");
+	return 0;
+}
+
+void Casa::MostrarTamanho()
+{
+	std::cout << "\nTamanho: " << Tamanho;
+}
+
+int Casa::ObtenhaNumeroDeQuartos()
+{
+	return NumQuartos;
+}
+
+bool Casa::TemSuite()
+{
+	return bTemSuite;
+}
+
+void Casa::SetNumQuartos(int Num)
+{
+	if ((Num <= 6) && (Num >= 0))
+	{
+		NumQuartos = Num;
+	}
+	else
+	{
+		std::cout << "\nNumero de Quartos Invalidos\n";
+	}
+
+}
+
+
+*******************************************************************
+static/global, stack e  heap
+Stack (pilha)
+
+*******************************************************************
+
+Isso não estoura a pilha, mas por que não estoura?
+
+#include <stdio.h>
+
+int main(){
+   int *p;
+   while(1){
+      p = new int;
+   }
+}
+
+/*"A stack ou pilha é uma área bem menor e a heap ou monte é uma área de memória bem maior.
+A stack tem no windows um tamanho padrão de apenas 1MB(um megabyte)!" (https://pt.stackoverflow.com/questions/221448/por-que-n%C3%A3o-estoura-a-pilha/)*/
+*****
+
+int main()
+{
+    int vetor[3300000]; 
+ //TENTANDO ALOCAR 3 MILHOES E 300 MIL INTEIROS
+    printf("Esta linha não será exibida pois ocorrerá antes STACKOVERFLOW");
+
+    return 0;
+}
+/* "Bem, se considerarmos no windows que um inteiro ocupa 4B(quatro Bytes) 
+temos então a tentativa de alocar 3.300.000 x 4B = 13.200.000 Bytes 1MB(um megabyte)
+ equivale a 1.048.576 Bytes
+
+13.200.000B /1.048.576B EQUIVALE A 12,58MB(doze virgula cinquenta e oito megabytes) 
+Muito maior que 1MB de espaço na pilha(stack) Logo, VAI ESTOURAR!"  (https://pt.stackoverflow.com/questions/221448/por-que-n%C3%A3o-estoura-a-pilha/)*/
+****
+#include <stdio.h>
+
+int main(){
+   int *p; // aloca uma variável ponteiro na stack(pilha)
+   while(1){ //loop infinito
+      p = new int; // a variável p contida na pilha recebe o endereço de memória alocado para um inteiro através de new
+   }
+}
+/*(https://pt.stackoverflow.com/questions/221448/por-que-n%C3%A3o-estoura-a-pilha/)*/
+
+***********************
+
+
+#include <iostream>
+
+void Funcao01();
+/*
+void Funcao02();            ****FORAM RECORTADAS DAQUI e coladas ao
+void Funcao03();                     final de cada função para 
+void Funcao04();                   formar a pilha, LIFO, observe nas funções abaixo
+*/
+
+int VarGlobal{ 10 };/* Variavel global será armazenada na RAM na região destinada 
+às variáveis globais e variáveis estáticas*/
+
+int main()
+{/* Como  main() é uma função a variável VarMain é local à função main(),
+ portanto, esta variável sera armazenada na memória destinada às variáveis
+ locais e chamadas de funções STACK (pilha), serão apagadas quando a função terminar*/
+ 
+	int VarMain{ 00 };
+	Funcao01();
+	system("PAUSE");
+	return 0;
+}
+
+void Funcao01()
+{/*esta variável sera armazenada na memória destinada às variáveis
+ locais e chamadas de funções STACK (pilha), serão apagadas quando a função terminar*/
+	int Var01{ 01 };
+	static int VarEstatica{ 20 };
+	std::cout << "\n Chamando Funcao01\n";
+	std::cout << "\n Endereco Var01: " << 
+	&Var01 << "\n";
+	VarEstatica++;
+	std::cout << "\nValor VarEstatica: " 
+	<< VarEstatica << std::endl;
+	Funcao02();
+}
+
+void Funcao02()
+{/*esta variável sera armazenada na memória destinada às variáveis
+ locais e chamadas de funções STACK (pilha), serão apagadas quando a função terminar*/
+	int Var02{ 02 };
+	std::cout << "\n Chamando Funcao02\n";
+	std::cout << "\n Endereco Var02: "
+	<< &Var02 << "\n";
+	Funcao03();
+}
+
+void Funcao03()
+{/*esta variável sera armazenada na memória destinada às variáveis
+ locais e chamadas de funções STACK (pilha), serão apagadas quando a função terminar*/
+	int Var03{ 03 };
+	std::cout << "\n Chamando Funcao03\n";
+	std::cout << "\n Endereco Var03: " 
+	<< &Var03 << "\n";
+	Funcao04();
+}
+
+void Funcao04()
+{/*esta variável sera armazenada na memória destinada às variáveis
+ locais e chamadas de funções STACK (pilha), serão apagadas quando a função terminar*/
+	int Var04{ 04 };
+	std::cout << "\n Chamando Funcao04\n";
+	std::cout << "\n Endereco Var04: "
+	<< &Var04 << "\n";
+}
+
+
+*******************************************
+
+
+A divisão de memória para um processo de uma aplicação é mais complexa. Estamos usando stack e heap para simplificar.
+
+O sistema operacional ao carregar um programa(.exe) na memória disponibiliza ao programa um espaço de endereçamento. Esse espaço é a memória disponível para aquele programa.Existe no geral a seguinte divisão deste espaço de endereçamento de um programa(ou seus processos)
+
+
+1. Segmento de código (Code Segment) - TEXT
+
+O segmento de código, também conhecido como segmento de texto, é a área da memória que contém o código executável(binário) de seu programa. Ou seja, é onde está armazenado as instruções de seu programa. O segmento de código geralmente é somente leitura para evitar o riscos de ataques como buffer overflow, sobreposição de memória etc. O segmento de código não contém variáveis ​​de programa como variável local, variáveis ​​globais etc. Contém apenas  no geral o código executável do programa que está sendo executado.
+
+Depois temos outra região de memória chamada de Segmento de dados: onde são armazenados as variáveis ​​globais e variáveis ​​estáticas de dados. Não é uma memória somente leitura e é dividida em .bss(Segmento de dados não inicializado) e .data(Segmento de dados inicializado)
+
+
+
+2. Segmento de dados não inicializados(bss ou Block Started by Symbol ou bloco iniciado pelo símbolo)
+
+Este segmento também é conhecido como bss .Esta é a parte da memória que contém:Variáveis ​​globais não inicializadas(incluindo variáveis ​​de ponteiro), Variáveis ​​globais constantes não inicializadas .Variáveis ​​estáticas locais não inicializadas. Qualquer variável local global ou estática que não seja inicializada será armazenada no segmento de dados não inicializado(bss). Por exemplo: variável global int VarGlobal;ou variável local estática static int VarLocalStatic;será armazenada no segmento de dados não inicializado. Se você declarar uma variável global e a inicializar como 0ou NULLainda assim, ela será direcionada para o segmento de dados não inicializado ou bss.
+
+Ou seja, quaisquer variáveis não-​​inicializadas e que não são definidas dentro de uma função (e, portanto, podem ser acessadas de qualquer lugar) ou que são definidas em uma função, mas são definidas como estáticas,(static) para que mantenham seu endereço nas chamadas subsequentes estarão armazenadas aqui na região de .bss
+
+
+
+3. Segmento de dados inicializados(.data)
+
+Este segmento armazena:Variáveis ​​globais inicializadas(incluindo variáveis ​​de ponteiro), Variáveis ​​globais constantes  inicializadas .Variáveis ​​estáticas locais inicializadas . Por exemplo: variável global int VarGlobalVar = 1;ou variável local estática static int VarLocalStatic = 1;será armazenada no segmento de dados inicializado. O tamanho desse segmento é determinado pelo tamanho dos valores no código-fonte do programa e não é alterado no tempo de execução.
+
+Ou seja, quaisquer variáveis ​​inicializadas e que não são definidas em uma função (e, portanto, podem ser acessadas de qualquer lugar) ou que são definidas em uma função, mas são definidas como estáticas, para que mantenham seu endereço nas chamadas subsequentes estãrão armazenadas aqui na região de .data segmente.
+
+
+
+4. Segmento de pilha(stack)
+
+O segmento de pilha é usado para armazenar variáveis ​​criadas dentro de funções (a função pode ser a principal ou definida pelo usuário ), variáveis ​​como Variáveis ​​locais da função (incluindo variáveis ​​de ponteiro), Argumentos passados ​​para a função, As variáveis ​​armazenadas na pilha serão removidas assim que a execução da função terminar.  Cada função terá uma região de memória para ela dentro da STACK denominada de STACK FRAME
+
+
+
+5. Segmento de heap
+
+Este segmento é para oferecer suporte à alocação dinâmica de memória. Uma variável ponteiro estará na pilha(STACK) ou no segmento de dados(.BSS ou .Data), dependendo da maneira como é declarada usada. O heap é o segmento de memória que não está definido para um tamanho constante antes da compilação e pode ser controlado dinamicamente pelo programador. Usamos a memória do heap quando não sabemos quanto espaço uma estrutura de dados ocupará em nosso programa, quando precisamos alocar mais memória do que a disponível na pilha ou quando precisamos criar variáveis ​​que durem no tempo de duração da nossa aplicação.
+
+Então veja que acima temos 3(três) possibilidades para variáveis ponteiros serem armazenadas nas regiões de memória...
+
+Se for uma variável ponteiro global não inicializada será alocada na .bss
+
+Se for uma variável ponteiro global inicializada será alocada na data segment
+
+Se for uma variável ponteiro local a uma função será alocada na stack, precisamente na stack frame da função que a variável ponteiro foi declarada
+
+Para simplificar consideramos apenas stack e heap e neste caso a stack conterá bss e data segment, pois isso as variáveis ponteiros estarão sempre na stack. Porém as variáveis que o ponteiro aponta estarão ou na stack ou quando forem alocadas dinamicamente estão na Heap
+
+O que ocorre quando o programa chamar/executar uma função?
+
+Quando você executa uma função em seu código é criado dentro da região stack  chamado STACK FRAME ou Quadro/Bloco de Pilha. É uma região que guarda as informações da função, incluindo variáveis para os parâmetros passados para a função, o endereço de retorno (para onde a instrução return aponta).  variáveis criadas dentro da função (variáveis locais). E é importante lembrar que se uma ponteiro é criado dentro de uma função ele irá pertencer a esta região de stack dentro da stack frame de sua função...
+
+Nossa agora ficou confuso de vez professor!
+
+Ok, vamos ver um exemplo de código para facilitar Leia os comentários do código....
+
+#include <iostream>
+ 
+/*Relembrando, uma variável é global quando ela for declarada FORA de qualquer função do código*/
+int VarGlobalNaoInicializada;//<----Alocada no .bss Segmento de dados não inicializados
+int VarGlobalInicializada = 10;//<----Alocada no Segmento de dados inicializados(.data) 
+static int VarGlobalStaticNaoIncializada;//<----Alocada no.bss Segmento de dados não inicializados
+static int VarGlobalStaticInicializada = 5;//<----Alocada no Segmento de dados inicializados(.data) 
+int* PonteiroGlobalNaoInicializado;//<----Alocada no .bss Segmento de dados não inicializados
+int* PonteiroGlobalInciizado = &VarGlobalInicializada;//<----Alocada no Segmento de dados inicializados(.data) 
+/*Observe que este acima são ponteiros globais e por isso estarão em .bss ou .data segment*/
+ 
+class Casa
+{
+public:
+	int NumnQuartos;
+	float Tamanho;
+	bool bTemSuite;
+	float MostrarTamanho();
+	int ObtenhaNumeroDeQuartos();
+	bool TemSuite();
+};
+ 
+/*Agora temos uma função que é a função principal main. O que for declarada dentro dela será uma variável local a esta função main. Mais atenção! new Casa() está criando dinâmicamente um objeto e por isso este objeto vai ficar na região de memória onde residem os recursos alocados dinâmicamente que é a HEAP*/
+int main()
+{
+	int VarLocal = 20;//<---Estará na stack dentro da STACK FRAME da função main
+	int* PonteiroLocal = &VarLocal;//<---Estará na stack dentro da STACK FRAME da função main
+	/*Aqui criamos um objeto na Stack e um ponteiro do tipo Casa de nome CaseDePraiaStack. Então CaseDePraiaStack irá apontar para um objeto criado na STACK que teve como molde a classe Casa. É muito comum achar que CasaDePraiaStack seja o objeto. Não é! ele apenas é um  ponteiro para um objeto do tipo da classe Casa que será alocado neste caso na STACK*/
+	Casa CaseDePraiaStack;
+ 
+	/*Aqui  CasaDePraia é um ponteiro local a função main e portanto estará aramazenado na stack dentro da stack frama da função main(). Este ponteiro CasaDePraia irá apontar para um objeto criado dinâmicamente (new Casa()) e que portanto este objeto estará na Heap*/
+	Casa* CasaDePraia = new Casa();
+	
+	CaseDePraiaStack.Tamanho = 100;
+	CasaDePraia->MostrarTamanho();
+ 
+	CasaDePraia->Tamanho = 50;
+	CasaDePraia->MostrarTamanho();
+ 
+	system("PAUSE");
+	return 0;
+}
+ 
+float Casa::MostrarTamanho()
+{
+	static int QtdeVezesMostrouTamanho = 0; // Aqui apenas desta variável estar dentro de uma função
+	//ela estará armazenada na região de memória data segment(Segmento de dados inicializados(.data))
+	QtdeVezesMostrouTamanho++;
+	system("CLS");
+	std::cout << "\nQtde Vezes mostrou tamanho: " << QtdeVezesMostrouTamanho << "\n";
+	return Tamanho;
+}
+ 
+int Casa::ObtenhaNumeroDeQuartos()
+{
+	return NumnQuartos;
+}
+ 
+bool Casa::TemSuite()
+{
+	return bTemSuite;
+}
+Veja abaixo como ficaria dividido  a região de memória deste programa com o código acima
+
+
+Na figura acima eu simplifiquei e não coloquei o STACK FRAME das outras funções, só coloquei o da função  main()
+
+Se tivéssemos por exemplo o seguinte:  float *Ptr=&Num;
+
+Onde Ptr e Num estariam alocados?
+
+Neste caso se isso estiver dentro da função main ou outra função tanto a variável Ptr quanto Num estariam na STACK dentro de um STACK FRAME da função em que estas variáveis residem.
+
+Caso contrário se forem globais/estáticas estarão na .bss ou data segment a depender se foram inicializadas ou não...
+
+É bom lembrar que esta divisão que coloquei acima na primeira figura não é de toda a memória RAM
+
+o que é dividido desta forma é o espaço de endereçamento fornecido ao seu programa quando ele executa., As vezes um programa é dividido em vários processos e então cada processo executado terá este espaço de endereçamento.
+
+
+
+**********************************************************
+
+Ponteiros this
+construtores e destrutores
+
+**********************************************************
+serão 3 etapas. Serão criados arquivos .cpp e .h
+
+parte 1:
+	
+	
+	
+#pragma once
+#include <iostream>
+#include <string>
+
+//este é o arquivo .h é onde existem apenas as declarações dos atributos e métodos da classe. 
+Aqui não existem as definições, implementações das funções, pois isso será feito no arquivo .cpp. 
+É a separação do O QUÊ (.h) do COMO (.cpp)
+
+class Conta
+{
+//indica que o acesso a estes membros abaixo de private:
+//só será permitido de dentro do código da classe
+private:
+	std::string Banco;
+	int Agencia;
+	int NumConta;
+	std::string Titular;
+	double Saldo{ 0.0 };
+
+//indica que os membros abaixo podem ser acessados pelo objeto da classe Conta fora do código da classe Conta.
+public:
+	bool Sacar(double Valor);
+	void Depositar(double Valor);
+	//Neste caso o parêmetro Destino recebe apenas uma cópia
+	//do valor do objeto. Ele não tem como alterar o objeto
+	//pois só recebeu uma cópia dele
+	//Logo podemos usar o conceito de referência para passar a referência do objeto e com isso Destino vai poder 
+  alterar este objeto pois será realizada uma passagem de argumentos por Referência e não mais por valor
+	void Transferir(Conta &Destino, double Valor);
+	double ConsultarSaldo();
+	std::string GetBanco();
+	int GetAgencia();
+	int GetNumConta();
+	std::string GetTitular();
+	void SetBanco(std::string Banco);
+	void SetAgencia(int Agencia);
+	void SetTitular(std::string Titular);
+	void SetNumConta(int NumConta);
+
+};
+
+
+******* Parte 2	
+	
+	
+	
+//precisamos incluir o arquivo .h relativo a classe Conta
+//Para que este arquivo Conta.cpp possa "Enxergar" as declarações da classe Conta.
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+//Aqui o operador escopo:: está indicando que a função/Método sacar pertence a classe Conta e que este código a seguir vai implementar a função Sacar.
+bool Conta::Sacar(double Valor)
+{
+	//Se o valor do Saldo no Objeto for menor que o valor a ser sacado, ele não poderá sacar
+	if (Saldo < Valor)
+	{
+		std::cout << "\Saldo Insuficiente!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return false;
+	}
+	else
+	{
+	//Senão ele poderá sacar
+	//Temos que diminuir o saldo
+		Saldo = Saldo - Valor;
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return true;
+	}
+	
+}
+
+void Conta::Depositar(double Valor)
+{
+	Saldo += Valor; //o mesmo que Saldo = Saldo + Valor;
+	std::cout << "\nDeposito de R$ " << Valor << " Efetuado com Sucesso!\n";
+}
+
+//A função recebe como argumentos para seus seus parêmtros um Objeto do tipo Casa e um valor double.
+
+//Aqui o parâmetro Destino irá receber este objeto
+void Conta::Transferir(Conta &Destino, double Valor)
+{
+	if (Saldo < Valor)
+	{
+		std::cout << "\nSaldo Insuficiente\n";
+
+	}
+	else
+	{
+		//Aqui Destino está com o objeto passado para a função
+		//Logo vai chamar o método Depositar desta função
+		Destino.Depositar(Valor);
+		//Depois de depositar você deve retirar este valor depositado do saldo
+		Saldo -= Valor;
+		std::cout << "\n*****Dados*****\n";
+		std::cout << "Titular: " << Destino.GetTitular() << "\n";
+		std::cout << "Banco: " << Destino.GetBanco() << "\n";
+		std::cout << "Agencia: " << Destino.GetAgencia() << "\n";
+		std::cout << "Conta: " << Destino.GetNumConta() << "\n";
+		std::cout << "Transferência Realizada com Sucesso!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		
+	}
+}
+
+double Conta::ConsultarSaldo()
+{
+	return Saldo;
+}
+
+std::string Conta::GetBanco()
+{
+	return Banco;
+}
+
+int Conta::GetAgencia()
+{
+	return Agencia;
+}
+
+int Conta::GetNumConta()
+{
+	return NumConta;
+}
+
+std::string Conta::GetTitular()
+{
+	return Titular;
+}
+
+void Conta::SetBanco(std::string Banco)
+{
+	//Como o compilador vai saber se Bancó é variável local ou o atributo da classe Conta?
+	//se this é um ponteiro para chegar no apontado pelo ponteiro temos
+	//*this , mas como this é um ponteiro para um objeto ele precisa usar a notação ponto. para acessar atributos e executar funções do objeto
+
+	//Agora o compilador sabe que Banco é a variável local que recebeu o argumento string
+	//e que deve ser colocada no atributo Banco do objeto apontado por this
+	//(*this).Banco = Banco;
+	//Contudo no geral usa-se a notação flecha
+	this->Banco = Banco;
+}
+
+void Conta::SetAgencia(int Agencia)
+{
+	this->Agencia = Agencia;
+}
+
+void Conta::SetNumConta(int NumConta)
+{
+	this->NumConta = NumConta;
+}
+
+void Conta::SetTitular(std::string Titular)
+{
+	this->Titular = Titular;
+}
+
+
+
+******** parte 3
+
+
+//Na função main() iremos instanciar objetos
+//desta forma ela precisa incluir as declarações da classe Conta
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+int main()
+{
+	//Criamos um  objeto ContaCliente01 do tipo Conta
+	//Está alocado na Stack
+	Conta ContaCliente01;
+	//Criamos um  objeto ContaCliente02 do tipo Conta
+	//Está alocado na Stack
+	Conta ContaCliente02;
+
+	ContaCliente01.SetBanco("Bradesco");
+	ContaCliente01.SetAgencia(1234);
+	ContaCliente01.SetNumConta(9999);
+	ContaCliente01.SetTitular("Fulano");
+	ContaCliente01.Depositar(14690);
+	ContaCliente01.Sacar(1500);
+
+	ContaCliente02.SetBanco("Banco Do Brasil");
+	ContaCliente02.SetAgencia(5678);
+	ContaCliente02.SetNumConta(1111);
+	ContaCliente02.SetTitular("Beltrano");
+
+	//o objeto ContaCliente02 sérá enviado como argumento para a função transferir
+	ContaCliente01.Transferir(ContaCliente02, 2000);
+	ContaCliente02.Sacar(500);
+	ContaCliente02.Sacar(5000);
+
+
+	system("PAUSE");
+	return 0;
+}
+
+***************************
+
+
+
+***************************************** mesmo que o anterior, mas tiveram algumas modificações 
+
+
+#pragma once
+#include <iostream>
+#include <string>
+
+//este é o arquivo .h é onde existem apenas as declarações dos atributos e métodos da classe. Aqui não existem as definições, implementações das funções, pois isso será feito no arquivo .cpp. É a separação do O QUÊ (.h) do COMO (.cpp)
+
+class Conta
+{
+//indica que o acesso a estes membros abaixo de private:
+//só será permitido de dentro do código da classe
+private:
+	std::string Banco;
+	int Agencia;
+	int NumConta;
+	std::string Titular;
+	double Saldo{0.0};
+
+//indica que os membros abaixo podem ser acessados pelo objeto da classe Conta fora do código da classe Conta.
+public:
+	bool Sacar(double Valor);
+	void Depositar(double Valor);
+	//Neste caso o parêmetro Destino recebe apenas uma cópia
+	//do valor do objeto. Ele não tem como alterar o objeto
+	//pois só recebeu uma cópia dele
+	//Logo podemos usar o conceito de referência para passar a referência do objeto e com isso Destino vai poder alterar este objeto pois será realizada uma passagem de argumentos por Referência e não mais por valor
+	void Transferir(Conta &Destino, double Valor);
+	double ConsultarSaldo();
+	std::string GetBanco();
+	int GetAgencia();
+	int GetNumConta();
+	std::string GetTitular();
+	void GetEnderecoThis();   //<---- modificado do anterior
+	void SetBanco(std::string Banco);
+	void SetAgencia(int Agencia);
+	void SetTitular(std::string Titular);
+	void SetNumConta(int NumConta);
+
+};
+
+
+*********** parte 2 - B
+
+
+******* Parte 2	
+	
+	
+	
+//precisamos incluir o arquivo .h relativo a classe Conta
+//Para que este arquivo Conta.cpp possa "Enxergar" as declarações da classe Conta.
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+//Aqui o operador escopo:: está indicando que a função/Método sacar pertence a classe Conta e que este código a seguir vai implementar a função Sacar.
+bool Conta::Sacar(double Valor)
+{
+	//Se o valor do Saldo no Objeto for menor que o valor a ser sacado, ele não poderá sacar
+	if (Saldo < Valor)
+	{
+		std::cout << "\Saldo Insuficiente!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return false;
+	}
+	else
+	{
+	//Senão ele poderá sacar
+	//Temos que diminuir o saldo
+		Saldo = Saldo - Valor;
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return true;
+	}
+	
+}
+
+void Conta::Depositar(double Valor)
+{
+	Saldo += Valor; //o mesmo que Saldo = Saldo + Valor;
+	std::cout << "\nDeposito de R$ " << Valor << " Efetuado com Sucesso!\n";
+}
+
+//A função recebe como argumentos para seus seus parêmtros um Objeto do tipo Casa e um valor double.
+
+//Aqui o parâmetro Destino irá receber este objeto
+void Conta::Transferir(Conta &Destino, double Valor)
+{
+	if (Saldo < Valor)
+	{
+		std::cout << "\nSaldo Insuficiente\n";
+
+	}
+	else
+	{
+		//Aqui Destino está com o objeto passado para a função
+		//Logo vai chamar o método Depositar desta função
+		Destino.Depositar(Valor);
+		//Depois de depositar você deve retirar este valor depositado do saldo
+		Saldo -= Valor;
+		std::cout << "\n*****Dados*****\n";
+		std::cout << "Titular: " << Destino.GetTitular() << "\n";
+		std::cout << "Banco: " << Destino.GetBanco() << "\n";
+		std::cout << "Agencia: " << Destino.GetAgencia() << "\n";
+		std::cout << "Conta: " << Destino.GetNumConta() << "\n";
+		std::cout << "Transferência Realizada com Sucesso!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		
+	}
+}
+
+double Conta::ConsultarSaldo()
+{
+	return Saldo;
+}
+
+std::string Conta::GetBanco()
+{
+	return Banco;
+}
+
+int Conta::GetAgencia()
+{
+	return Agencia;
+}
+
+int Conta::GetNumConta()
+{
+	return NumConta;
+}
+
+std::string Conta::GetTitular()
+{
+	return this->Titular;
+}
+
+void Conta::GetEnderecoThis()
+{
+	std::cout << "\nthis contem dentro dele o endereco: " << this << "\n";
+
+}
+
+void Conta::SetBanco(std::string Banco)
+{
+	//Como o compilador vai saber se Bancó é variável local ou o atributo da classe Conta?
+	//se this é um ponteiro para chegar no apontado pelo ponteiro temos
+	//*this , mas como this é um ponteiro para um objeto ele precisa usar a notação ponto. para acessar atributos e executar funções do objeto
+
+	//Agora o compilador sabe que Banco é a variável local que recebeu o argumento string
+	//e que deve ser colocada no atributo Banco do objeto apontado por this
+	//(*this).Banco = Banco;
+	//Contudo no geral usa-se a notação flecha
+	this->Banco = Banco;
+}
+
+void Conta::SetAgencia(int Agencia)
+{
+	this->Agencia = Agencia;
+}
+
+void Conta::SetNumConta(int NumConta)
+{
+	this->NumConta = NumConta;
+}
+
+void Conta::SetTitular(std::string Titular)
+{
+	this->Titular = Titular;
+}
+
+**************** parte 3 - B
+
+
+//Na função main() iremos instanciar objetos
+//desta forma ela precisa incluir as declarações da classe Conta
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+int main()
+{
+	Conta ContaCliente01;
+	//Criamos um  objeto ContaCliente02 do tipo Conta
+	//Está alocado na Stack
+
+	Conta ContaCliente02;
+
+	std::cout << "\nEndereço de memoria do Objeto ContaCliente01: " << &ContaCliente01 << "\n";
+	ContaCliente01.GetEnderecoThis();
+	std::cout << "\nEndereço de memoria do Objeto ContaCliente02: " << &ContaCliente02 << "\n";
+	ContaCliente02.GetEnderecoThis();
+
+	ContaCliente01.SetBanco("Bradesco");
+	ContaCliente01.SetAgencia(1234);
+	ContaCliente01.SetNumConta(9999);
+	ContaCliente01.SetTitular("Fulano");
+	ContaCliente01.Depositar(14690);
+	ContaCliente01.Sacar(1500);
+
+	ContaCliente02.SetBanco("Banco Do Brasil");
+	ContaCliente02.SetAgencia(5678);
+	ContaCliente02.SetNumConta(1111);
+	ContaCliente02.SetTitular("Beltrano");
+
+	//o objeto ContaCliente02 sérá enviado como argumento para a função transferir
+	ContaCliente01.Transferir(ContaCliente02, 2000);
+	ContaCliente02.Sacar(500);
+	ContaCliente02.Sacar(5000);
+
+
+	system("PAUSE");
+	return 0;
+}
+
+
+******************************************  parte 1 - C
+
+#pragma once
+#include <iostream>
+#include <string>
+
+//este é o arquivo .h é onde existem apenas as declarações dos atributos e métodos da classe. Aqui não existem as definições, implementações das funções, pois isso será feito no arquivo .cpp. É a separação do O QUÊ (.h) do COMO (.cpp)
+
+class Conta
+{
+//indica que o acesso a estes membros abaixo de private:
+//só será permitido de dentro do código da classe
+private:
+	std::string Banco;
+	int Agencia;
+	int NumConta;
+	std::string Titular;
+	double Saldo{0.0};
+
+//indica que os membros abaixo podem ser acessados pelo objeto da classe Conta fora do código da classe Conta.
+public:
+	bool Sacar(double Valor);
+	void Depositar(double Valor);
+	//Neste caso o parêmetro Destino recebe apenas uma cópia
+	//do valor do objeto. Ele não tem como alterar o objeto
+	//pois só recebeu uma cópia dele
+	//Logo podemos usar o conceito de referência para passar a referência do objeto e com isso Destino vai poder alterar este objeto pois será realizada uma passagem de argumentos por Referência e não mais por valor
+	void Transferir(Conta &Destino, double Valor);
+	double ConsultarSaldo();
+	std::string GetBanco();
+	int GetAgencia();
+	int GetNumConta();
+	std::string GetTitular();
+	void GetEnderecoThis();
+	void SetBanco(std::string Banco);
+	void SetAgencia(int Agencia);
+	void SetTitular(std::string Titular);
+	void SetNumConta(int NumConta);
+
+};
+
+
+********************* parte 2 - C
+
+//precisamos incluir o arquivo .h relativo a classe Conta
+//Para que este arquivo Conta.cpp possa "Enxergar" as declarações da classe Conta.
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+//Aqui o operador escopo:: está indicando que a função/Método sacar pertence a classe Conta e que este código a seguir vai implementar a função Sacar.
+bool Conta::Sacar(double Valor)
+{
+	//Se o valor do Saldo no Objeto for menor que o valor a ser sacado, ele não poderá sacar
+	if (Saldo < Valor)
+	{
+		std::cout << "\Saldo Insuficiente!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return false;
+	}
+	else
+	{
+	//Senão ele poderá sacar
+	//Temos que diminuir o saldo
+		Saldo = Saldo - Valor;
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return true;
+	}
+	
+}
+
+void Conta::Depositar(double Valor)
+{
+	Saldo += Valor; //o mesmo que Saldo = Saldo + Valor;
+	std::cout << "\nDeposito de R$ " << Valor << " Efetuado com Sucesso!\n";
+}
+
+//A função recebe como argumentos para seus seus parêmtros um Objeto do tipo Casa e um valor double.
+
+//Aqui o parâmetro Destino irá receber este objeto
+void Conta::Transferir(Conta &Destino, double Valor)
+{
+	if (Saldo < Valor)
+	{
+		std::cout << "\nSaldo Insuficiente\n";
+
+	}
+	else
+	{
+		//Aqui Destino está com o objeto passado para a função
+		//Logo vai chamar o método Depositar desta função
+		Destino.Depositar(Valor);
+		//Depois de depositar você deve retirar este valor depositado do saldo
+		Saldo -= Valor;
+		std::cout << "\n*****Dados*****\n";
+		std::cout << "Titular: " << Destino.GetTitular() << "\n";
+		std::cout << "Banco: " << Destino.GetBanco() << "\n";
+		std::cout << "Agencia: " << Destino.GetAgencia() << "\n";
+		std::cout << "Conta: " << Destino.GetNumConta() << "\n";
+		std::cout << "Transferência Realizada com Sucesso!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		
+	}
+}
+
+double Conta::ConsultarSaldo()
+{
+	return Saldo;
+}
+
+std::string Conta::GetBanco()
+{
+	return Banco;
+}
+
+int Conta::GetAgencia()
+{
+	return Agencia;
+}
+
+int Conta::GetNumConta()
+{
+	return NumConta;
+}
+
+std::string Conta::GetTitular()
+{
+	return this->Titular;
+}
+
+void Conta::GetEnderecoThis()
+{
+	std::cout << "\nthis contem dentro dele o endereco: " << this << "\n";
+
+}
+
+void Conta::SetBanco(std::string Banco)
+{
+	//Como o compilador vai saber se Bancó é variável local ou o atributo da classe Conta?
+	//se this é um ponteiro para chegar no apontado pelo ponteiro temos
+	//*this , mas como this é um ponteiro para um objeto ele precisa usar a notação ponto. para acessar atributos e executar funções do objeto
+
+	//Agora o compilador sabe que Banco é a variável local que recebeu o argumento string
+	//e que deve ser colocada no atributo Banco do objeto apontado por this
+	//(*this).Banco = Banco;
+	//Contudo no geral usa-se a notação flecha
+	this->Banco = Banco;
+}
+
+void Conta::SetAgencia(int Agencia)
+{
+	this->Agencia = Agencia;
+}
+
+void Conta::SetNumConta(int NumConta)
+{
+	this->NumConta = NumConta;
+}
+
+void Conta::SetTitular(std::string Titular)
+{
+	this->Titular = Titular;
+}
+
+
+***************************** parte 3 - C
+
+
+//Na função main() iremos instanciar objetos
+//desta forma ela precisa incluir as declarações da classe Conta
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+int main()
+{
+	Conta ContaCliente01;
+	//Criamos um  objeto ContaCliente02 do tipo Conta
+	//Está alocado na Stack
+
+	Conta ContaCliente02;
+
+	std::cout << "\nEndereço de memoria do Objeto ContaCliente01: " << &ContaCliente01 << "\n";
+	ContaCliente01.GetEnderecoThis();
+	std::cout << "\nEndereço de memoria do Objeto ContaCliente02: " << &ContaCliente02 << "\n";
+	ContaCliente02.GetEnderecoThis();
+
+	ContaCliente01.SetBanco("Bradesco");
+	ContaCliente01.SetAgencia(1234);
+	ContaCliente01.SetNumConta(9999);
+	ContaCliente01.SetTitular("Fulano");
+	ContaCliente01.Depositar(14690);
+	ContaCliente01.Sacar(1500);
+
+	ContaCliente02.SetBanco("Banco Do Brasil");
+	ContaCliente02.SetAgencia(5678);
+	ContaCliente02.SetNumConta(1111);
+	ContaCliente02.SetTitular("Beltrano");
+
+	//o objeto ContaCliente02 sérá enviado como argumento para a função transferir
+	ContaCliente01.Transferir(ContaCliente02, 2000);
+	ContaCliente02.Sacar(500);
+	ContaCliente02.Sacar(5000);
+
+
+	system("PAUSE");
+	return 0;
+}
+
+
+******************************************
+
+Funções (metodos) CONSTRUTORES
+
+
+******************************************
+
+
+
+#pragma once
+#include <iostream>
+#include <string>
+
+//este é o arquivo .h é onde existem apenas as declarações dos atributos e métodos da classe. Aqui não existem as definições, implementações das funções, pois isso será feito no arquivo .cpp. É a separação do O QUÊ (.h) do COMO (.cpp)
+
+class Conta
+{
+//indica que o acesso a estes membros abaixo de private:
+//só será permitido de dentro do código da classe
+private:
+	std::string Banco;
+	int Agencia;
+	int NumConta;
+	std::string Titular;
+	double Saldo;
+
+//indica que os membros abaixo podem ser acessados pelo objeto da classe Conta fora do código da classe Conta.
+public:
+	//Construtor com parâmetros. Desta forma podemos criar objetos e já enviar argumentos para serem incializados nos atributos(variáveis) do objeto
+	
+	//O construtor padrão ou default é simplesmente um contrutor vazio
+	Conta();
+	//Este construtor é criado automáticamente pelo compilador se Você NÃO CRIAR UM CONSTRUTOR para sua classe.
+	//Contudo como criamos abaixo um construtor o compilador deixou de criar
+	//o construtor e por isso não mais como criar objetos sem ser através deste construtor abaixo:
+	//e ai precisaria enviar argumentos inciais
+	
+	Conta(std::string Banco, int Agencia, int NumConta, std::string Titular, double Saldo);
+	~Conta();
+
+	bool Sacar(double Valor);
+	void Depositar(double Valor);
+	//Neste caso o parêmetro Destino recebe apenas uma cópia
+	//do valor do objeto. Ele não tem como alterar o objeto
+	//pois só recebeu uma cópia dele
+	//Logo podemos usar o conceito de referência para passar a referência do objeto e com isso Destino vai poder alterar este objeto pois será realizada uma passagem de argumentos por Referência e não mais por valor
+	void Transferir(Conta &Destino, double Valor);
+	double ConsultarSaldo();
+	std::string GetBanco();
+	int GetAgencia();
+	int GetNumConta();
+	std::string GetTitular();
+	void GetEnderecoThis();
+	void SetBanco(std::string Banco);
+	void SetAgencia(int Agencia);
+	void SetTitular(std::string Titular);
+	void SetNumConta(int NumConta);
+
+};
+
+
+******************
+
+
+//precisamos incluir o arquivo .h relativo a classe Conta
+//Para que este arquivo Conta.cpp possa "Enxergar" as declarações da classe Conta.
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+//Você pode usar o construtor padrão para já iniciar os atributos do objeto
+//com algum valor padrão e evitar lixo de memória
+Conta::Conta()
+{
+	//aqui mais uma vez o this está implítico
+	//seria o mesmo que:
+	this->Banco = "";
+	this->Agencia = 0;
+	this->NumConta = 0;
+	this->Titular = "";
+	this->Saldo = 0.0;
+	std::cout << "\nConstrutor Objeto Endereco: " << this << " executado!\n";
+
+}
+
+Conta::Conta(std::string Banco, int Agencia, int NumConta, std::string Titular, double Saldo)
+{
+	this->Banco = Banco;
+	this->Agencia = Agencia;
+	this->NumConta = NumConta;
+	this->Titular = Titular;
+	this->Saldo = Saldo;
+	std::cout << "\nConstrutor Objeto Endereco: " << this << " executado!\n";
+
+}
+
+Conta::~Conta()
+{
+	std::cout << "\nDestrutor Objeto Endereco: " << this << " executado!\n";
+}
+
+//Aqui o operador escopo:: está indicando que a função/Método sacar pertence a classe Conta e que este código a seguir vai implementar a função Sacar.
+bool Conta::Sacar(double Valor)
+{
+	//Se o valor do Saldo no Objeto for menor que o valor a ser sacado, ele não poderá sacar
+	if (Saldo < Valor)
+	{
+		std::cout << "\Saldo Insuficiente!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return false;
+	}
+	else
+	{
+	//Senão ele poderá sacar
+	//Temos que diminuir o saldo
+		Saldo = Saldo - Valor;
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return true;
+	}
+	
+}
+
+void Conta::Depositar(double Valor)
+{
+	Saldo += Valor; //o mesmo que Saldo = Saldo + Valor;
+	std::cout << "\nDeposito de R$ " << Valor << " Efetuado com Sucesso!\n";
+}
+
+//A função recebe como argumentos para seus seus parêmtros um Objeto do tipo Casa e um valor double.
+
+//Aqui o parâmetro Destino irá receber este objeto
+void Conta::Transferir(Conta &Destino, double Valor)
+//isso é o mesmo que colocar
+//Conta &Destino = ContaCliente02;
+//ou seja será um referencia para um objeto do tipo conta que neste caso é ContaCliente02
+{
+	if (Saldo < Valor)
+	{
+		std::cout << "\nSaldo Insuficiente\n";
+
+	}
+	else
+	{
+		//Aqui Destino está com o objeto passado para a função
+		//Logo vai chamar o método Depositar desta função
+		Destino.Depositar(Valor);
+		//Depois de depositar você deve retirar este valor depositado do saldo
+		Saldo -= Valor;
+		std::cout << "\n*****Dados*****\n";
+		std::cout << "Titular: " << Destino.GetTitular() << "\n";
+		std::cout << "Banco: " << Destino.GetBanco() << "\n";
+		std::cout << "Agencia: " << Destino.GetAgencia() << "\n";
+		std::cout << "Conta: " << Destino.GetNumConta() << "\n";
+		std::cout << "Transferência Realizada com Sucesso!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		
+	}
+}
+
+double Conta::ConsultarSaldo()
+{
+	return Saldo;
+}
+
+std::string Conta::GetBanco()
+{
+	return Banco;
+}
+
+int Conta::GetAgencia()
+{
+	return Agencia;
+}
+
+int Conta::GetNumConta()
+{
+	return NumConta;
+}
+
+std::string Conta::GetTitular()
+{
+	//assim como aqui também está implicíto
+	return this->Titular;
+	//No geral não colocarmos this
+	//Somente quando for necessário!
+}
+
+void Conta::GetEnderecoThis()
+{
+	std::cout << "\nthis contem dentro o endereco:" << this << "\n";
+}
+
+//e foi recebida no parâmetro Banco
+void Conta::SetBanco(std::string Banco)
+{
+	//Como o compilador vai saber se Bancó é variável local ou o atributo da classe Conta?
+	//se this é um ponteiro para chegar no apontado pelo ponteiro temos
+	//*this , mas como this é um ponteiro para um objeto ele precisa usar a notação ponto. para acessar atributos e executar funções do objeto
+
+	//Agora o compilador sabe que Banco é a variável local que recebeu o argumento string
+	//e que deve ser colocada no atributo Banco do objeto apontado por this
+	//(*this).Banco = Banco;
+	//Contudo no geral usa-se a notação flecha
+	this->Banco = Banco;
+	//Aqui o atributos do objeto cujo endereço é está em this irá receber o valor que está em Banco
+	//que é "Bradesco"
+}
+
+void Conta::SetAgencia(int Agencia)
+{
+	this->Agencia = Agencia;
+}
+
+void Conta::SetNumConta(int NumConta)
+{
+	this->NumConta = NumConta;
+}
+
+//Neste caso precisamos do this pois o nome dos parâmetros são iguais
+void Conta::SetTitular(std::string Titular)
+{
+	//aqui não precisaria pois os nomes são diferentes
+	//MAs como o compilador sabe que Titular Pertence a objeto que está executando a função?
+	//Está implícito neste caso o this
+	this->Titular = Titular;
+}
+
+
+
+**********************
+
+
+//Na função main() iremos instanciar objetos
+//desta forma ela precisa incluir as declarações da classe Conta
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+int main()
+{
+	//Criamos um  objeto ContaCliente01 do tipo Conta
+	//Está alocado na Stack
+	Conta Cliente00;
+	//como está desta forma o objeto seria criado com o construtor automático
+	//conhecido por construtor Padrão ou Default
+	Conta ContaCliente01("Itau",2222,5555,"Marcos",100000);
+	//Agora vai funcionar... Pois temos os argumentos para o construtor
+	 //Criamos um  objeto ContaCliente02 do tipo Conta
+	//Está alocado na Stack
+	Conta ContaCliente02;
+	//Erro desaparece pois agora tem o contrutor vazio, padrão, default
+
+	//Os objetos foram criados(instanciados) e colocados na memória RAM
+	//Abaixo o debug mostra estes objetos e os valores atuais dos atributos(das variáveis) deles
+
+	std::cout << "Endereco Memoria Objeto ContaCliente01: " << &ContaCliente01 << "\n";
+	ContaCliente01.GetEnderecoThis();
+	std::cout << "Endereco Memoria Objeto ContaCliente02: " << &ContaCliente02 << "\n";
+	ContaCliente02.GetEnderecoThis();
+
+
+	ContaCliente01.SetBanco("Bradesco");
+	//A string "Bradesco" foi enviada como parâmetro para função SetBanco
+	ContaCliente01.SetAgencia(1234);
+	ContaCliente01.SetNumConta(9999);
+	ContaCliente01.SetTitular("Fulano");
+	ContaCliente01.Depositar(14690);
+	ContaCliente01.Sacar(1500);
+
+	ContaCliente02.SetBanco("Banco Do Brasil");
+	ContaCliente02.SetAgencia(5678);
+	ContaCliente02.SetNumConta(1111);
+	ContaCliente02.SetTitular("Beltrano");
+
+	//o objeto ContaCliente02 sérá enviado como argumento para a função transferir
+	ContaCliente01.Transferir(ContaCliente02, 2000);
+	ContaCliente02.Sacar(500);
+	ContaCliente02.Sacar(5000);
+
+
+	system("PAUSE");
+	return 0;
+}
+
+
+
+
+
+******************************************
+
+Funções (metodos) DESTRUTORES
+
+Serão chamados e destruidos depois da chave
+******************************************
+
+
+Acertar isso:
+	
+	o underline faz parte do nome da função em C++ existe a função _tsetlocale mas você pode usar também setlocale que vem da linguagem C
+
+Os parâmetros são os seguintes:
+
+char * setlocale (categoria int, const char * locale);
+ex: _tsetlocale(LC_ALL,_T("portuguese"));
+
+Categoria é este LC_ALL que indica onde a acentuação ou configurações de idioma serão configuradas em seu código
+
+
+
+
 
 
 
