@@ -1,6 +1,6 @@
 // PRATICANDO C e C++ com as aulas distribuidas no https://github.com/professormarcosp/AprendaCParaGamesUE4
 								
-					PROGRAMAÇÃO ESTRUTURADA (segunda parte será orientada a objetos) TOP DOWN (DE CIMA PARA BAIXO)
+					PROGRAMAÇÃO ESTRUTURADA TOP DOWN (DE CIMA PARA BAIXO)    (segunda parte será orientada a objetos)
 								
 			                          ********** OBSERVAÇÃO***********
 
@@ -4533,6 +4533,9 @@ BOTTOM-UP(De Baixo para Cima).
 ***************************
 
 
+Em class deve-se seguir a ordem de public, protected e private quando forem ser utilizadas no mesmo escopo.
+
+
 #include <iostream>
 
 class Casa
@@ -6104,22 +6107,2076 @@ int main()
 
 ******************************************
 
-Funções (metodos) DESTRUTORES
+Funções (metodos)      {}   ~DESTRUTOR
 
 Serão chamados e destruidos depois da chave
-******************************************
+******************************************          
+
+Destrutor usa o   {} e ~          ,pois tudo que vier depois de chaves será destruido
 
 
-Acertar isso:
+
+*******************
+#include <iostream>
+int main()
+{
+	{ // criar novo escopo
+		std::cout << "\nConstrutor Data(" << id <<  ") executado" << "\n";
+	}
+	~Data(){std::cout << "\nDestrutor ~Data(" << id << ") executado" << "\n";}
+
+system("PAUSE");
+return 0;
+}
+
+*******************
+
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+int main()
+{
 	
-	o underline faz parte do nome da função em C++ existe a função _tsetlocale mas você pode usar também setlocale que vem da linguagem C
+{ // chave para usar destrutor
 
-Os parâmetros são os seguintes:
+	Conta Cliente00;
+	Conta ContaCliente01("Itau",2222,5555,"Marcos",100000);
+	Conta ContaCliente02;
 
-char * setlocale (categoria int, const char * locale);
-ex: _tsetlocale(LC_ALL,_T("portuguese"));
+	std::cout << "Endereco Memoria Objeto ContaCliente01: " << &ContaCliente01 << "\n";
+	ContaCliente01.GetEnderecoThis();
+	std::cout << "Endereco Memoria Objeto ContaCliente02: " << &ContaCliente02 << "\n";
+	ContaCliente02.GetEnderecoThis();
 
-Categoria é este LC_ALL que indica onde a acentuação ou configurações de idioma serão configuradas em seu código
+	ContaCliente01.SetBanco("Bradesco");
+	ContaCliente01.SetAgencia(1234);
+	ContaCliente01.SetNumConta(9999);
+	
+	ContaCliente01.SetTitular("Fulano");
+	ContaCliente01.Depositar(14690);
+	ContaCliente01.Sacar(1500);
+
+	ContaCliente02.SetBanco("Banco Do Brasil");
+	ContaCliente02.SetAgencia(5678);
+	ContaCliente02.SetNumConta(1111);
+	
+	ContaCliente02.SetTitular("Beltrano");
+	ContaCliente01.Transferir(ContaCliente02, 2000);
+	ContaCliente02.Sacar(500);
+	ContaCliente02.Sacar(5000);
+} // chave que fecha o destrutor
+
+	system("PAUSE");
+	return 0;
+} // chave do int main()
+
+
+
+*******
+
+#pragma once
+#include <iostream>
+#include <string>
+
+//este é o arquivo .h é onde existem apenas as declarações dos atributos e métodos da classe. Aqui não existem as definições, implementações das funções, pois isso será feito no arquivo .cpp. É a separação do O QUÊ (.h) do COMO (.cpp)
+
+class Conta
+{
+//indica que o acesso a estes membros abaixo de private:
+//só será permitido de dentro do código da classe
+private:
+	std::string Banco;
+	int Agencia;
+	int NumConta;
+	std::string Titular;
+	double Saldo;
+
+//indica que os membros abaixo podem ser acessados pelo objeto da classe Conta fora do código da classe Conta.
+public:
+	//Construtor com parâmetros. Desta forma podemos criar objetos e já enviar argumentos para serem incializados nos atributos(variáveis) do objeto
+	
+	//O construtor padrão ou default é simplesmente um contrutor vazio
+	Conta();
+	//Este construtor é criado automáticamente pelo compilador se Você NÃO CRIAR UM CONSTRUTOR para sua classe.
+	//Contudo como criamos abaixo um construtor o compilador deixou de criar
+	//o construtor e por isso não mais como criar objetos sem ser através deste construtor abaixo:
+	//e ai precisaria enviar argumentos inciais
+	
+	Conta(std::string Banco, int Agencia, int NumConta, std::string Titular, double Saldo);
+	~Conta();  //      <----------- DESTRUTOR
+
+	bool Sacar(double Valor);
+	void Depositar(double Valor);
+	//Neste caso o parêmetro Destino recebe apenas uma cópia
+	//do valor do objeto. Ele não tem como alterar o objeto
+	//pois só recebeu uma cópia dele
+	//Logo podemos usar o conceito de referência para passar a referência do objeto e com isso Destino vai poder alterar este objeto pois será realizada uma passagem de argumentos por Referência e não mais por valor
+	void Transferir(Conta &Destino, double Valor);
+	double ConsultarSaldo();
+	std::string GetBanco();
+	int GetAgencia();
+	int GetNumConta();
+	std::string GetTitular();
+	void GetEnderecoThis();
+	void SetBanco(std::string Banco);
+	void SetAgencia(int Agencia);
+	void SetTitular(std::string Titular);
+	void SetNumConta(int NumConta);
+
+};
+
+************
+
+
+//precisamos incluir o arquivo .h relativo a classe Conta
+//Para que este arquivo Conta.cpp possa "Enxergar" as declarações da classe Conta.
+#include "Conta.h"
+#include <iostream>
+#include <string>
+
+//Você pode usar o construtor padrão para já iniciar os atributos do objeto
+//com algum valor padrão e evitar lixo de memória
+Conta::Conta()
+{
+	//aqui mais uma vez o this está implítico
+	//seria o mesmo que:
+	this->Banco = "";
+	this->Agencia = 0;
+	this->NumConta = 0;
+	this->Titular = "";
+	this->Saldo = 0.0;
+	std::cout << "\nConstrutor Objeto Endereco: " << this << " executado!\n";
+
+}
+
+Conta::Conta(std::string Banco, int Agencia, int NumConta, std::string Titular, double Saldo)
+{
+	this->Banco = Banco;
+	this->Agencia = Agencia;
+	this->NumConta = NumConta;
+	this->Titular = Titular;
+	this->Saldo = Saldo;
+	std::cout << "\nConstrutor Objeto Endereco: " << this << " executado!\n";
+
+}
+
+Conta::~Conta()  // <----------	DESTRUTOR
+{
+	std::cout << "\nDestrutor Objeto Endereco: " << this << " executado!\n"; //      <----------	DESTRUTOR
+}
+
+//Aqui o operador escopo:: está indicando que a função/Método sacar pertence a classe Conta e que este código a seguir vai implementar a função Sacar.
+bool Conta::Sacar(double Valor)
+{
+	//Se o valor do Saldo no Objeto for menor que o valor a ser sacado, ele não poderá sacar
+	if (Saldo < Valor)
+	{
+		std::cout << "\Saldo Insuficiente!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return false;
+	}
+	else
+	{
+	//Senão ele poderá sacar
+	//Temos que diminuir o saldo
+		Saldo = Saldo - Valor;
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		return true;
+	}
+	
+}
+
+void Conta::Depositar(double Valor)
+{
+	Saldo += Valor; //o mesmo que Saldo = Saldo + Valor;
+	std::cout << "\nDeposito de R$ " << Valor << " Efetuado com Sucesso!\n";
+}
+
+//A função recebe como argumentos para seus seus parêmtros um Objeto do tipo Casa e um valor double.
+
+//Aqui o parâmetro Destino irá receber este objeto
+void Conta::Transferir(Conta &Destino, double Valor)
+//isso é o mesmo que colocar
+//Conta &Destino = ContaCliente02;
+//ou seja será um referencia para um objeto do tipo conta que neste caso é ContaCliente02
+{
+	if (Saldo < Valor)
+	{
+		std::cout << "\nSaldo Insuficiente\n";
+
+	}
+	else
+	{
+		//Aqui Destino está com o objeto passado para a função
+		//Logo vai chamar o método Depositar desta função
+		Destino.Depositar(Valor);
+		//Depois de depositar você deve retirar este valor depositado do saldo
+		Saldo -= Valor;
+		std::cout << "\n*****Dados*****\n";
+		std::cout << "Titular: " << Destino.GetTitular() << "\n";
+		std::cout << "Banco: " << Destino.GetBanco() << "\n";
+		std::cout << "Agencia: " << Destino.GetAgencia() << "\n";
+		std::cout << "Conta: " << Destino.GetNumConta() << "\n";
+		std::cout << "Transferência Realizada com Sucesso!\n";
+		std::cout << "Seu Saldo Atual: R$" << ConsultarSaldo() << "\n";
+		
+	}
+}
+
+double Conta::ConsultarSaldo()
+{
+	return Saldo;
+}
+
+std::string Conta::GetBanco()
+{
+	return Banco;
+}
+
+int Conta::GetAgencia()
+{
+	return Agencia;
+}
+
+int Conta::GetNumConta()
+{
+	return NumConta;
+}
+
+std::string Conta::GetTitular()
+{
+	//assim como aqui também está implicíto
+	return this->Titular;
+	//No geral não colocarmos this
+	//Somente quando for necessário!
+}
+
+void Conta::GetEnderecoThis()
+{
+	std::cout << "\nthis contem dentro o endereco:" << this << "\n";
+}
+
+//e foi recebida no parâmetro Banco
+void Conta::SetBanco(std::string Banco)
+{
+	//Como o compilador vai saber se Bancó é variável local ou o atributo da classe Conta?
+	//se this é um ponteiro para chegar no apontado pelo ponteiro temos
+	//*this , mas como this é um ponteiro para um objeto ele precisa usar a notação ponto. para acessar atributos e executar funções do objeto
+
+	//Agora o compilador sabe que Banco é a variável local que recebeu o argumento string
+	//e que deve ser colocada no atributo Banco do objeto apontado por this
+	//(*this).Banco = Banco;
+	//Contudo no geral usa-se a notação flecha
+	this->Banco = Banco;
+	//Aqui o atributos do objeto cujo endereço é está em this irá receber o valor que está em Banco
+	//que é "Bradesco"
+}
+
+void Conta::SetAgencia(int Agencia)
+{
+	this->Agencia = Agencia;
+}
+
+void Conta::SetNumConta(int NumConta)
+{
+	this->NumConta = NumConta;
+}
+
+//Neste caso precisamos do this pois o nome dos parâmetros são iguais
+void Conta::SetTitular(std::string Titular)
+{
+	//aqui não precisaria pois os nomes são diferentes
+	//MAs como o compilador sabe que Titular Pertence a objeto que está executando a função?
+	//Está implícito neste caso o this
+	this->Titular = Titular;
+}
+
+
+
+
+****************************************************************
+
+
+
+                            STRUCT
+
+
+
+****************************************************************
+Struct por padrão é "public"
+Class por padrão é "private" por isso tem que declarar quando deseja por class como public
+*********************************
+
+#include <iostream>
+struct Data
+{
+	//Como não espefiquei o modificador de acesso
+	// na struct ele será por padrão public:      <----------------
+	// public:
+	int Dia;
+	int Mes;
+	int Ano;
+	//public:    <-------- SE ACIMA FOSSE CLASS teria que por esse modificador "public"
+	Data(): Dia(22), Mes(07), Ano(2013) {}
+};
+
+//desta forma acima você pode iniciar os valores ao instanciar e usar chaves
+
+int main()
+{
+	Data Agenda; /* Você pode também inicializar uma struct desta forma:  Data Agenda = {22, 07, 2013};*/
+	//desta forma você tem acesso aos atributos, as variáveis da struct diretamente
+	//no código da função main.. Ou seja fora do código da struct
+	std::cout << "Dia: " << Agenda.Dia << " Mes: " << Agenda.Mes << " Ano: " << Agenda.Ano << "\n";
+	system("PAUSE");
+	return 0;
+}
+
+************   outra forma:
+	
+#include <iostream>
+class Data
+{
+	public:  //   <----------- 
+	int Dia;
+	int Mes;
+	int Ano;
+	
+	public:  //   <----------- 
+	Data(): Dia(22), Mes(07), Ano(2013) {}
+};
+
+
+int main()
+{
+	Data Agenda; 
+	std::cout << "Dia: " << Agenda.Dia << " Mes: " << Agenda.Mes << " Ano: " << Agenda.Ano << "\n";
+	system("PAUSE");
+	return 0;
+}	
+	
+	
+	
+************   mais uma forma
+
+#include <iostream>
+struct Data
+{
+	int Dia;
+	int Mes;
+	int Ano;
+};
+
+//desta forma acima você pode iniciar os valores ao instanciar e usar chaves
+
+int main()
+{
+	Data Agenda;
+	Agenda.Dia = 06;
+	Agenda.Mes = 01;
+	Agenda.Ano = 2022;
+	
+	
+	std::cout << "Dia: " << Agenda.Dia << " Mes: " << Agenda.Mes << " Ano: " << Agenda.Ano << "\n";
+	system("PAUSE");
+	return 0;
+}
+
+
+******************************************* STRUCT,  DESTRUTOR e a função DELETE 
+
+
+
+#include <iostream>
+struct Data
+{
+	//Como não espefiquei o modificador de acesso
+	// na struct ele será por padrão public:
+	static int contador;
+	int id;
+	int Dia;
+	int Mes;
+	int Ano;
+	Data()
+	{ 
+		//como contador é estático ele não vai perder o valor e potanto irá incrementar
+		// de um a cada chamada do destrutor.
+		id = contador++;
+		std::cout << "\nConstrutor Data(" << id <<  ") executado" << "\n";
+	}
+	~Data(){std::cout << "\nDestrutor ~Data(" << id << ") executado" << "\n";}  //     <-----------DESTRUTOR
+};
+
+//desta forma acima você pode iniciar os valores ao instanciar e usar chaves
+
+int Data::contador = 1;
+
+int main()
+{
+	
+ {
+	//Como contador é uma váriável estática podemos acessar ela com nome da classe ou struct
+	Data Agenda1;
+	//aqui criei um novo ESCOPO pois lembre que entre chaves é um escopo
+	//e vai determinar o ciclo de vida das variáveis
+	//quando código ultrapassar a chave final as variáveis declaradas dentro
+	// do escopo serão destruídas
+	{
+		Data Agenda2;// ESTÁ NA MEMÓRIA STACK
+		//Agora este objeto Agenda3 está na Heap e não será destruído ao 
+		//final do escopo
+		//ele será destruído se for utilizada a função delete
+		Data *Agenda3 = new Data;
+		delete(Agenda3); //           <---------------------------------DELETE
+		
+	}// Nessa saida de chave serão destruidos tudo que estiver aqui dentro
+
+	Data Agenda4;	
+	
+ } // Nessa saida de chave será destruida a Data Agenda4 e Data Agenda1;		
+ 
+ system("PAUSE");
+ return 0;
+}
+
+
+*************************
+
+
+
+#include <iostream>
+struct Ponto3D
+{
+	int X;
+	int Y;
+	int Z;
+	void DesenharPonto3D(Ponto3D Pontos)
+	{
+		std::cout << "X:" << Pontos.X << "Y:" << Pontos.Y << "Z:" << Pontos.Z;
+	}
+};
+
+int main()
+{
+	Ponto3D PontoC;
+	PontoC.X = 3;
+	PontoC.Y = 4;
+	PontoC.Z = 5;
+	PontoC.DesenharPonto3D(PontoC);
+	system("PAUSE");
+	return 0;
+}
+
+****
+
+#include <iostream>
+
+void DesenharPonto3D(int X, int Y, int Z)
+{
+	std::cout << "X:" << X << " " << "Y:" << Y << " " "Z:" << Z << "\n";
+}
+
+int main()
+{
+	DesenharPonto3D(3, 4, 5);
+	system("PAUSE");
+	return 0;
+}
+
+
+
+************************
+
+#include <iostream>
+#include <string>
+
+/*Criada um struct, um modelo para criação de objetos deste tipo
+Importante destacar que até aqui no final */
+struct Livro
+{
+	int ID;
+	std::string Titulo;
+	std::string Autor;
+	std::string Editora;
+};//aqui não existirá criação de nada na memória RAM, isso ou esta struct é apenas um modelo para criação de outras variáveis
+/*quando fora criada uma variavel do tipo desta struct, o compilador irá usar este molde, este modelo para arrumar e armazenar dados na memória RAM*/
+
+int main()
+{
+	//Aqui foi criada uma variavel de nome livro(poderia ser outro nome)
+	//como livro é diferente de Livro pode ser feito, mas confunde...
+	/*logo aqui temos a criação na memória RAM de uma variável de nome livro
+	e que será criada a partir do modelo da struct Livro*/
+	//Em c++ podemos retirar a palavra struct ao criar uma variável do tipo struct
+	Livro livro;
+
+	//A partir de agora podemos acessar os campos desta variavel livro atraves da notação ponto(.)
+	std::cout << "***Cadastro de Livro***" << "\n";
+	std::cout << "Digite ID do Livro: ";
+	std::cin >> livro.ID;
+
+	std::cout << "\nDigite o Titulo do livro: ";
+	std::cin.ignore();
+	std::getline(std::cin, livro.Titulo);
+
+	std::cout << "\nDigite o Autor do Livro: ";
+	std::getline(std::cin, livro.Autor);
+
+	std::cout << "\nDigite a Editor do Livro: ";
+	std::getline(std::cin, livro.Editora);
+
+	std::cout << "ID: " << livro.ID << "\n";
+	std::cout << "Titulo: " << livro.Titulo << "\n";
+	std::cout << "Autor: " << livro.Autor << "\n";
+	std::cout << "Editora: " << livro.Editora << "\n";
+
+	system("PAUSE");
+	return 0;
+}
+
+******************************
+
+
+/*Evitando que leitura de uma string seja pulada com std::cin.ignore()
+A função cin.ignore () é usada para ignorar ou limpar um ou mais 
+caracteres do buffer de entrada(no nosso caso o buffer do teclado).
+
+Às vezes, precisamos limpar este  buffer do teclado para evitar 
+que o programa PULE a leitura da próxima entrada
+
+Veja no código da aula os comentários adicionais que fiz sobre isso
+*/
+std::cout << "***Cadastro de Livro***" << "\n";
+	std::cout << "Digite ID do Livro: ";
+	std::cin >> livro.ID;
+	/*Aqui temos uma entrada cin e desta forma o conteúdo digitado 
+	no teclado ficará armazenado em uma região de memória chamado 
+	buffer do teclado. Ocorre que se formos ler uma string em seguida 
+	estes valores que estão no buffer de entrada ou buffer do teclado 
+	serão armazenados na variável livro.Titulo e com isso o fluxo de 
+	execução do código "PULA" a leitura da entrada para a esta variável
+	 livro.Titulo.
+	Logo toda vez que usarmos std::cin e formos ler um string em 
+	seguida será necessário limpar este buffer de teclado para evitar este problema*/
+	std::cout << "\nDigite o Titulo do livro: ";
+	std::cin.ignore(); // Por isso aqui temos o cin.ignore pois ele vai
+	 //limpar o buffer e evitar portanto, que este conteúdo do buffer seja
+	 // colocado na variável livro.Titulo e esta entrada seja PULADA
+	std::getline(std::cin, livro.Titulo);
+
+
+//Observe o seguinte código:
+
+#include <iostream>
+#include <locale.h>
+#include <string>
+ 
+struct Livro
+{
+	std::string Titulo;
+	std::string Autor;
+	std::string Editora;
+	std::string Codigo;
+	int Ano;
+	Livro()
+	{
+		Titulo = "Sem Título";
+		Autor = "Sem Autor";
+		Editora = "Sem Editora";
+		Codigo = "Sem Código";
+		Ano = 0;
+ 
+	}
+};
+ 
+ 
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	Livro Exemplar;
+ 
+	std::cout << "***** Cadastrar de Livro *****\n\n";
+ 
+	std::cout << "Digite o Título do Livro: ";
+	std::getline(std::cin, Exemplar.Titulo);
+ 
+	std::cout << "\nDigite o Autor: ";
+ 
+	std::getline(std::cin, Exemplar.Autor);
+ 
+	std::cout << "\nDigite a Editor: ";
+	std::getline(std::cin, Exemplar.Editora);
+ 
+	std::cout << "\nDigite o Código: ";
+ 
+	std::getline(std::cin, Exemplar.Codigo);
+ 
+	std::cout << "\nDigite o Ano: ";
+	std::cin >> Exemplar.Ano;
+	//aqui vai pular pois std::cin anterior leu Exemplar.ano e deixou armazenado 
+	//entradas no Buffer, geralmente fica lá apenas um ENTER ou "\n"
+	std::string Algo;
+	std::cout << "\nDigite algo: ";
+	std::getline(std::cin, Algo);
+	std::cout<< "\nAlgo Digitado foi: " << Algo << "\n\n";
+ 
+	std::cout << "\n\n***** Dados Cadastrados *****\n\n";
+ 
+	std::cout << "Título: " << Exemplar.Titulo << "\n";
+	std::cout << "Auto: " << Exemplar.Autor << "\n";
+	std::cout << "Editora: " << Exemplar.Editora << "\n";
+	std::cout << "Código: " << Exemplar.Codigo << "\n";
+	std::cout << "Ano: " << Exemplar.Ano << "\n";
+ 
+	system("PAUSE");
+	return 0;
+}
+
+
+/*Veja que ao executar o código o programa pula a leitura da entrada pois um
+ ENTER ficou preso no buffer do teclado e este enter "\n"será colocado como entrada da variável algo
+
+
+Para resolver isso precisamos colocar um std::cin.ignore(); após a 
+entrada std::cin para que ele limpe este ENTER ou seja limpe o buffer
+*/
+std::cout << "\nDigite o Ano: ";
+std::cin >> Exemplar.Ano;
+std::cin.ignore();// <-------------------------COLOQUE AQUI PARA LIMPAR BUFFER E CONSEGUIR LER VARIÁVEL Algo
+Veja que agora não pulou
+
+
+************************************ VETOR
+
+#include <iostream>
+#include <string>
+
+
+struct Livro
+{
+	int ID;
+	std::string Titulo;
+	std::string Autor;
+	std::string Editora;
+};
+
+int main()
+{
+	struct Livro livro;
+	
+	std::cout << "***Cadastro de Livro***" << "\n";
+	std::cout << "Digite ID do Livro: ";
+	std::cin >> livro.ID;
+
+	std::cout << "\nDigite o Título do Livro: ";
+	
+	std::cin.ignore();
+	std::getline(std::cin, livro.Titulo);
+
+	std::cout << "\nDigite o Autor do Livro: ";
+	std::getline(std::cin, livro.Autor);
+
+	std::cout << "\nDigite A Editora do Livro: ";
+	std::getline(std::cin, livro.Editora);
+
+	std::cout << "ID: " << livro.ID << "\n";
+	std::cout << "Titulo: " << livro.Titulo << "\n";
+	std::cout << "Autor: " << livro.Autor << "\n";
+	std::cout << "Editora: " << livro.Editora << "\n";
+
+	system("PAUSE");
+	return 0;
+}
+
+*****
+
+#include <iostream>
+#include <string>
+#include <tchar.h>
+
+struct Livro
+{
+	int ID;
+	std::string Titulo;
+	std::string Autor;
+	std::string Editora;
+};
+
+int main()
+{
+	/*Colocaboração Do Aluno Marcos Ranes de Oliveira no tópico 
+	https://www.udemy.com/course/cmaismaisbasico/learn/#questions/9368459
+	*/
+	system("chcp 1252 > nul");
+	_tsetlocale(LC_ALL,_T("Portuguese"));
+	//veja explicação de system("chcp 1252 > nul");  em https://www.udemy.com/course/cmaismaisbasico/learn/#questions/9360733
+	
+	
+	struct Livro livro[5];
+
+	std::cout << "***Cadastro de Livros***" << "\n";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Digite ID do Livro[" << i << "]: ";
+		std::cin >> livro[i].ID;
+
+		std::cout << "Digite o Titulo do Livro[" << i << "]: ";
+		std::cin.ignore();
+		std::getline(std::cin, livro[i].Titulo);
+
+		std::cout << "Digite o Autor do Livro[" << i << "]: ";
+		std::getline(std::cin, livro[i].Autor);
+
+		std::cout << "Digite A Editora do Livro[" << i << "]: ";
+		std::getline(std::cin, livro[i].Editora);
+		system("CLS");
+
+	}
+	
+	std::cout << "*******DADOS DOS LIVROS*******\n";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "ID: " << livro[i].ID << "\n";
+		std::cout << "Titulo: " << livro[i].Titulo << "\n";
+		std::cout << "Autor: " << livro[i].Autor << "\n";
+		std::cout << "Editora: " << livro[i].Editora << "\n";
+		std::cout << "---------------------------------------\n";
+	}
+
+	std::cout << "\n***************************************************\n";
+	system("PAUSE");
+	return 0;
+}
+
+
+************************************************ array
+
+#include <iostream>
+#include <string>
+
+
+struct Livro
+{
+	int ID;
+	std::string Titulo;
+	std::string Autor;
+	std::string Editora;
+};
+
+int main()
+{
+	struct Livro livro;
+	
+	std::cout << "***Cadastro de Livro***" << "\n";
+	std::cout << "Digite ID do Livro: ";
+	std::cin >> livro.ID;
+
+	std::cout << "\nDigite o Título do Livro: ";
+	
+	std::cin.ignore();
+	std::getline(std::cin, livro.Titulo);
+
+	std::cout << "\nDigite o Autor do Livro: ";
+	std::getline(std::cin, livro.Autor);
+
+	std::cout << "\nDigite A Editora do Livro: ";
+	std::getline(std::cin, livro.Editora);
+
+	std::cout << "ID: " << livro.ID << "\n";
+	std::cout << "Titulo: " << livro.Titulo << "\n";
+	std::cout << "Autor: " << livro.Autor << "\n";
+	std::cout << "Editora: " << livro.Editora << "\n";
+
+	system("PAUSE");
+	return 0;
+}
+
+
+********
+
+#include <iostream>
+#include <string>
+#include <tchar.h>
+
+struct Livro
+{
+	int ID;
+	std::string Titulo;
+	std::string Autor;
+	std::string Editora;
+};
+
+int main()
+{
+	/*Colocaboração Do Aluno Marcos Ranes de Oliveira no tópico 
+	https://www.udemy.com/course/cmaismaisbasico/learn/#questions/9368459
+	*/
+	system("chcp 1252 > nul");
+	_tsetlocale(LC_ALL,_T("Portuguese"));
+	//veja explicação de system("chcp 1252 > nul");  em https://www.udemy.com/course/cmaismaisbasico/learn/#questions/9360733
+	
+	
+	struct Livro livro[5];
+
+	std::cout << "***Cadastro de Livros***" << "\n";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Digite ID do Livro[" << i << "]: ";
+		std::cin >> livro[i].ID;
+
+		std::cout << "Digite o Titulo do Livro[" << i << "]: ";
+		std::cin.ignore();
+		std::getline(std::cin, livro[i].Titulo);
+
+		std::cout << "Digite o Autor do Livro[" << i << "]: ";
+		std::getline(std::cin, livro[i].Autor);
+
+		std::cout << "Digite A Editora do Livro[" << i << "]: ";
+		std::getline(std::cin, livro[i].Editora);
+		system("CLS");
+
+	}
+	
+	std::cout << "*******DADOS DOS LIVROS*******\n";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "ID: " << livro[i].ID << "\n";
+		std::cout << "Titulo: " << livro[i].Titulo << "\n";
+		std::cout << "Autor: " << livro[i].Autor << "\n";
+		std::cout << "Editora: " << livro[i].Editora << "\n";
+		std::cout << "---------------------------------------\n";
+	}
+
+	std::cout << "**********************************\n";
+	system("PAUSE");
+	return 0;
+}
+
+
+****************************************** referenia &
+
+
+#include <iostream>
+#include <iomanip>
+
+struct Aluno
+{
+	long int Matricula;
+	std::string Nome;
+	std::string Curso;
+	int Semestre;
+	double Mensalidade;
+
+};
+
+void MostrarDados(Aluno Dado);
+void MostrarDados(Aluno* Dado);
+void AlterarDados(Aluno& Dado);
+void AlterarDados(Aluno* Dado);
+
+int main()
+{
+	Aluno Aluno01 = { 111111, "Fulano", "TI", 4, 990.50 };
+	Aluno* Aluno02 = new Aluno;
+	Aluno Aluno03;
+	AlterarDados(&Aluno03);
+	system("CLS");
+	MostrarDados(&Aluno03);
+	std::cout << "\nANTES DE MODIFICAR\n";
+	MostrarDados(Aluno01);
+	AlterarDados(Aluno01);
+	std::cout << "\nDEPOIS DE MODIFICAR \n";
+	MostrarDados(Aluno01);
+	std::cout << "\nANTES DE MODIFICAR COM PONTEIROS\n";
+	AlterarDados(Aluno02);
+	std::cout << "\nDEPOIS DE MODIFICAR COM PONTEIROS \n";
+	MostrarDados(Aluno02);
+	system("PAUSE");
+	return 0;
+}
+
+void MostrarDados(Aluno Dado)
+{
+	std::cout << "**************DADOS DO ALUNO****************\n";
+	std::cout << "\t Nome: " << Dado.Nome << std::endl;
+	std::cout << "\t Curso: " << Dado.Curso << std::endl;
+	std::cout << "\t Semestre: " << Dado.Semestre << std::endl;
+	std::cout << "\t Matricula: " << Dado.Matricula << std::endl;
+	std::cout << "\t Mensalidade " << "R$" << std::fixed << std::setprecision(2) << Dado.Mensalidade << std::endl;
+	std::cout << "********************************************\n\n";
+}
+
+void MostrarDados(Aluno* Dado)
+{
+	std::cout << "**************DADOS DO ALUNO****************\n";
+	std::cout << "\t Nome: " << Dado->Nome << std::endl;
+	std::cout << "\t Curso: " << Dado->Curso << std::endl;
+	std::cout << "\t Semestre: " << Dado->Semestre << std::endl;
+	std::cout << "\t Matricula: " << Dado->Matricula << std::endl;
+	std::cout << "\t Mensalidade " << "R$" << std::fixed << std::setprecision(2) << Dado->Mensalidade << std::endl;
+	std::cout << "********************************************\n\n";
+
+}
+
+void AlterarDados(Aluno& Dado)
+{
+	Dado.Nome = "Beltrano";
+	Dado.Curso = "Engenharia";
+	Dado.Semestre = 1;
+	Dado.Matricula = 22222;
+	Dado.Mensalidade = 870.99;
+}
+
+void AlterarDados(Aluno* Dado)
+{
+	Dado->Nome = "Cicrano";
+	Dado->Curso = "Biologia";
+	Dado->Semestre = 2;
+	Dado->Matricula = 33333;
+	Dado->Mensalidade = 899.90;
+}
+
+************************************************* ponteiro
+
+#include <iostream>
+#include <iomanip>
+struct Aluno
+{
+long int Matricula;
+std::string Nome;
+std::string Curso;
+int Semestre;
+double Mensalidade;
+};
+void MostrarDados(Aluno Dado);
+void MostrarDados(Aluno* Dado);
+void AlterarDados(Aluno& Dado);
+void AlterarDados(Aluno* Dado);
+int main()
+{
+Aluno Aluno01 = { 111111, "Fulano", "TI", 4, 990.50 };
+Aluno* Aluno02 = new Aluno;
+Aluno Aluno03;
+AlterarDados(&Aluno03);
+system("CLS");
+MostrarDados(&Aluno03);
+std::cout << "\nANTES DE MODIFICAR\n";
+MostrarDados(Aluno01);
+AlterarDados(Aluno01);
+std::cout << "\nDEPOIS DE MODIFICAR \n";
+MostrarDados(Aluno01);
+std::cout << "\nANTES DE MODIFICAR COM PONTEIROS\n";
+AlterarDados(Aluno02);
+std::cout << "\nDEPOIS DE MODIFICAR COM PONTEIROS \n";
+MostrarDados(Aluno02);
+system("PAUSE");
+return 0;
+}
+void MostrarDados(Aluno Dado)
+{
+std::cout << "**************DADOS DO ALUNO****************\n";
+std::cout << "\t Nome: " << Dado.Nome << std::endl;
+std::cout << "\t Curso: " << Dado.Curso << std::endl;
+std::cout << "\t Semestre: " << Dado.Semestre << std::endl;
+std::cout << "\t Matricula: " << Dado.Matricula << std::endl;
+std::cout << "\t Mensalidade " << "R$" << std::fixed <<
+std::setprecision(2) << Dado.Mensalidade << std::endl;
+std::cout << "********************************************\n\n";
+}
+void MostrarDados(Aluno* Dado)
+{
+std::cout << "**************DADOS DO ALUNO****************\n";
+std::cout << "\t Nome: " << Dado->Nome << std::endl;
+std::cout << "\t Curso: " << Dado->Curso << std::endl;
+std::cout << "\t Semestre: " << Dado->Semestre << std::endl;
+std::cout << "\t Matricula: " << Dado->Matricula << std::endl;
+std::cout << "\t Mensalidade " << "R$" << std::fixed <<
+std::setprecision(2) << Dado->Mensalidade << std::endl;
+std::cout << "********************************************\n\n";
+}
+void AlterarDados(Aluno& Dado)
+{
+Dado.Nome = "Beltrano";
+Dado.Curso = "Engenharia";
+Dado.Semestre = 1;
+Dado.Matricula = 22222;
+Dado.Mensalidade = 870.99;
+}
+void AlterarDados(Aluno* Dado)
+{
+Dado->Nome = "Cicrano";
+Dado->Curso = "Biologia";
+Dado->Semestre = 2;
+Dado->Matricula = 33333;
+Dado->Mensalidade = 899.90;
+}
+
+******************************************* struct aninhado 
+primeira parte:
+
+
+#include <iostream>
+#include <cstring>
+
+struct Data
+{
+	int Dia;
+	int Mes;
+	int Ano;
+};
+
+struct Endereco
+{
+	std::string Rua;
+	std::string Cidade;
+	std::string Estado;
+	std::string Pais;
+};
+
+struct Pessoa
+{
+	std::string Nome;
+	//Aqui foi declarada uma variável do tipo Data
+	Data DtNascimento;
+	//Aqui foi declarada uma variável do tipo Endereco
+	Endereco Endereco;
+};
+
+
+
+int main()
+{
+	Pessoa Pessoa01;
+	Pessoa01.Nome = "Udemy";
+	Pessoa01.DtNascimento.Dia = 01;
+	Pessoa01.DtNascimento.Mes = 02;
+	Pessoa01.DtNascimento.Ano = 2009;
+	Pessoa01.Endereco.Rua = " Rua A ";
+	Pessoa01.Endereco.Cidade = " Sao Francisco ";
+	Pessoa01.Endereco.Estado = " California ";
+	Pessoa01.Endereco.Pais =  "EUA ";
+
+	std::cout << "Nome: " << Pessoa01.Nome << "\n";
+	//Para colocar uma barra invertida lembre de duplicar \\ pois se você colocar apenas uma barra o compilador vai entender que você deseja colocar um caractere de escape tipo \t e \n e vai indicar erro...
+	std::cout << "Data Nascimento: " << Pessoa01.DtNascimento.Dia << "\\" << Pessoa01.DtNascimento.Mes << "\\" << Pessoa01.DtNascimento.Ano << "\n";
+	std::cout << "Endereco: "<< Pessoa01.Endereco.Rua << Pessoa01.Endereco.Cidade << Pessoa01.Endereco.Estado << Pessoa01.Endereco.Pais << "\n";
+	  
+	system("PAUSE");
+	return 0;
+}
+
+************ struct aninhado 
+segunda parte, aninhando:
+	
+	
+#include <iostream>
+#include <cstring>
+
+struct Data
+{
+	int Dia;
+	int Mes;
+	int Ano;
+};
+
+struct Endereco
+{
+	std::string Rua;
+	std::string Cidade;
+	std::string Estado;
+	std::string Pais;
+};
+
+struct Pessoa
+{
+	std::string Nome;
+	//Aqui foi declarada uma variável do tipo Data
+	Data DtNascimento;
+	//Aqui foi declarada uma variável do tipo Endereco
+	Endereco Endereco;
+};
+
+
+
+int main()
+{
+	struct Pessoa Pessoa01[2]; //     <---------------
+	
+	for (int i=0; i<2; i++){
+	
+	Pessoa01[i].Nome = "Udemy"; // agora ao invés de ser todos eles [1], [2] etc, será [i]
+	Pessoa01[i].DtNascimento.Dia = 01+i;
+	Pessoa01[i].DtNascimento.Mes = 02+i;// <------------ SE POR O     +i     vai acrescentar mais um
+	Pessoa01[i].DtNascimento.Ano = 2009;
+	Pessoa01[i].Endereco.Rua = " Rua A ";
+	Pessoa01[i].Endereco.Cidade = " Sao Francisco ";
+	Pessoa01[i].Endereco.Estado = " California ";
+	Pessoa01[i].Endereco.Pais =  "EUA ";
+}
+
+for (int i=0; i<2; i++){  //   <--------------------
+	std::cout << "Nome: " << Pessoa01[i].Nome << "\n"; //    <----------- [i]
+	//Para colocar uma barra invertida lembre de duplicar \\ pois se você colocar apenas uma barra o compilador vai entender que você deseja colocar um caractere de escape tipo \t e \n e vai indicar erro...
+	std::cout << "Data Nascimento: " << Pessoa01[i].DtNascimento.Dia << "\\" << Pessoa01[i].DtNascimento.Mes << "\\" << Pessoa01[i].DtNascimento.Ano << "\n";
+	std::cout << "Endereco: "<< Pessoa01[i].Endereco.Rua << Pessoa01[i].Endereco.Cidade << Pessoa01[i].Endereco.Estado << Pessoa01[i].Endereco.Pais << "\n";
+}
+	system("PAUSE");
+	return 0;
+}
+
+
+*************************************************
+http://www.cplusplus.com/reference/ctime/tm/
+
+Exibir hora atual
+
+#define _CRT_SECURE_NO_WARNINGS //   <----------- NÃO USAR ISSO PROFICIOANELMENTE, ele vai tirar os avisos de segurança
+#include <iostream>
+#include <ctime>
+
+int main()
+{
+	time_t Tempo = time(NULL);
+	std::cout << ctime(&Tempo);
+
+	system("PAUSE");
+	return 0;
+}
+
+********
+
+#define _CRT_SECURE_NO_WARNINGS //   <----------- NÃO USAR ISSO PROFICIOANELMENTE, ele vai tirar os avisos de segurança
+#include <iostream>
+#include <ctime>
+
+int main()
+{
+	//O tipo de dados time_t é usado para representar o tempo de calendário.
+	time_t HoraAtual = time(0);
+
+	/*Função localtime
+	 recebe tempo em segundos de uma variável do tipo time_t, converte para o tempo local, armazena os dados na struct e retorna um ponteiro para uma struct do tipo tm com os dados locais.*/
+	tm* MinhaHora = localtime(&HoraAtual);
+	/*ERRATA: não é necessário colocar 1 + para hora, minuto e segundo*/
+	std::cout << "\nHora: " << MinhaHora->tm_hour << ":" << MinhaHora->tm_min << ":" << MinhaHora->tm_sec;
+	std::cout << "\nDia: " << MinhaHora->tm_mday;
+	/*O horário de verão acabou logo não coloque mais 1 +*/
+	std::cout << "\nMes: " << 1 + MinhaHora->tm_mon;
+	std::cout << "\nAno " << 1900 + MinhaHora->tm_year << "\n";
+	//pressione enter duas vezes bem rápido para ver os resultados sincronizados
+	system("DATE");
+	system("TIME");
+	system("PAUSE");
+
+	return 0;
+}
+
+
+********
+
+ERRARTA:
+	
+	
+	
+	Obs: atente-se a ERRATA do Código pois não temos mais horário de verão e não precisamos colocar 1 + em hora, minuto e segundo
+
+A struct tm presente na referência http://www.cplusplus.com/reference/ctime/tm/ possui algumas características importantes. Estas características definem como serão retornados os valores da Data e Da Hora
+
+struct tm {
+int tm_sec; //representa os segundos de 0 a 59
+int tm_min; //representa os minutos de 0 a 59
+int tm_hour; //representa as horas de 0 a 24
+int tm_mday: //dia do mês de 1 a 31
+int tm_mon; //representa os meses do ano de 0 a 11
+int tm_year; //representa o ano a partir de 1900 logo retorna (Ano – 1900)
+int tm_wday; //dia da semana de 0 (domingo) até 6 (sábado)
+int tm_yday; // dia do ano de 1 a 365
+int tm_isdst; //indica horário de verão se for diferente de zero
+};
+Os dados da struct tm dão auto explicativos em relação ao seus dados
+
+Este dados abaixo representam bem e de forma precisa seus respectivos valores
+
+int tm_sec; //representa os segundos de 0 a 59
+int tm_min; //representa os minutos de 0 a 59
+int tm_hour; //representa as horas de 0 a 24
+int tm_mday: //dia do mês de 1 a 31
+Logo para estes dados NÃO PRECISAMOS ADICIONAR 1 +
+
+std::cout << "\nHora: " << MinhaHora->tm_hour << ":" << MinhaHora->tm_min << ":" << MinhaHora->tm_sec;
+std::cout << "\nDia: " << MinhaHora->tm_mday;
+Contudo existem dados que precisam ser explicados
+
+int tm_mon; //representa os meses do ano de 0 a 11
+
+int tm_year; //representa o ano a partir de 1900 logo retorna (Ano – 1900)
+
+int tm_wday; //dia da semana de 0 (domingo) até 6 (sábado)
+
+Observe que a variável que representa o mês int tm_mon faz a representação a partir de zero por convenção e questões de implementação da linguagem C
+
+Então a representação será a seguinte para os meses e seus respectivos números representados na struct tm na variável tm_mon que vai de [0 a 11]
+
+0 - Janeiro 1 – Fevereiro 2 – Março 3 - Abril
+4 – Maio 5 – Junho 6 – Julho 7 - Agosto
+8 – Setembro 9 – Outubro 10 – Novembro 11 – Dezembro
+
+Então se você colocar na tela o mês atual irá colocar o mês anterior pois o índice dos meses da struct tm começa em zero
+
+Veja
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <ctime>
+ 
+int main()
+{
+time_t HoraAtual = time(0);
+tm* MinhaHora = localtime(&HoraAtual);
+std::cout << "\nMes: " << MinhaHora->tm_mon << "\n";
+system("PAUSE");
+return 0;
+}
+Estamos em fevereiro quando da edição deste documento, mas o que aparece para o usuário é:
+
+
+Como você é programador e sabe que 1 representa fevereiro, sabe que o resultado esta correto. Mas o usuário não sabe disso e então PRECISAMOS ADICIONAR UM AO RESULTADO DO MÊS PARA QUE NA TELA APAREÇA O MÊS CORRENTE
+
+1 + MinhaHora->tm_mon
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <ctime>
+ 
+int main()
+{
+time_t HoraAtual = time(0);
+tm* MinhaHora = localtime(&HoraAtual);
+std::cout << "\nMes: " << 1 + MinhaHora->tm_mon << "\n";
+system("PAUSE");
+return 0;
+}
+Agora aparece corretamente
+
+
+EM RELAÇÃO AO ANO
+
+A variável int tm_year retornará a quantidade de anos desde 1900. Isso é uma convenção criada deste 1970 na época em que da linguagem C do Unix POSIX. Mas esta convenção é seguida por outras arquiteturas(Windows, MacOS, etc)
+
+Então se colocarmos apenas std::cout << "\nAno " << MinhaHora->tm_year << "\n"; o retorno será o número de anos decorridos deste 1900 assim será o mesmo que 2020 – 1900 e então dará 120 anos
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <ctime>
+ 
+int main()
+{
+//O tipo de dados time_t é usado para representar o tempo de calendário.
+time_t HoraAtual = time(0);
+tm* MinhaHora = localtime(&HoraAtual);
+std::cout << "\nAno " << MinhaHora->tm_year << "\n";
+system("PAUSE");
+ 
+return 0;
+}
+
+Mas não queremos este resultado! Queremos o ano atual! Logo para achar o ano atual basta somar 1900 a este resultado já que 1900 + 120 dará 2020 o ano atual que escrevi este texto. Observe o código abaixo:
+
+
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <ctime>
+ 
+int main()
+{
+time_t HoraAtual = time(0);
+tm* MinhaHora = localtime(&HoraAtual);
+std::cout << "\nAno " << 1900 + MinhaHora->tm_year << "\n";
+system("PAUSE");
+return 0;
+}
+
+
+
+Logo coloque também antes de system(“PAUSE”) um outros systems com nome system(“Date”) e system(“TIME”). E pressionar ENTER duas vezes bem rápido Isso vai mostrar a data e hora atual no mesmo momento da execução do código.
+
+
+Ai está o código final
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <ctime>
+ 
+int main()
+{
+//O tipo de dados time_t é usado para representar o tempo de calendário.
+time_t HoraAtual = time(0);
+ 
+/*Função localtime
+recebe tempo em segundos de uma variável do tipo time_t, converte para o tempo local, armazena os dados na struct e retorna um ponteiro para uma struct do tipo tm com os dados locais.*/
+tm* MinhaHora = localtime(&HoraAtual);
+/*ERRATA: não é necessário colocar 1 + para hora, minuto e segundo*/
+std::cout << "\nHora: " << MinhaHora->tm_hour << ":" << MinhaHora->tm_min << ":" << MinhaHora->tm_sec;
+std::cout << "\nDia: " << MinhaHora->tm_mday;
+/*O horário de verão acabou logo não coloque mais 1 +*/
+std::cout << "\nMes: " << 1 + MinhaHora->tm_mon;
+std::cout << "\nAno " << 1900 + MinhaHora->tm_year << "\n";
+//pressione enter duas vezes bem rápido para ver os resultados sincronizados
+system("DATE");
+system("TIME");
+system("PAUSE");
+ 
+return 0;
+}
+A título de mais explicação no inicio do código temos uma declaração de variável
+
+time_t HoraAtual
+
+O tipo de dados time_t é usado para representar o tempo de calendário ou seja é o Tipo de horadata
+
+Este tipo é capaz de representar tempos, como aqueles retornados pela função time()
+
+Em relação a função time() por razões históricas ela retorna um valor integral que representa o número de segundos decorridos desde as 00:00 horas, 1 de janeiro de 1970 UTC (ou seja, um registro de data e hora unix ).
+
+
+
+Então se você executar o seguinte código
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <ctime>
+ 
+int main()
+{
+time_t segundos;
+ 
+segundos = time(NULL);
+std::cout << "Segundos desde 1 de janeiro de 1970: " << segundos << "\n";
+return 0;
+}
+Veja o resultado
+
+
+Se quiser saber em horas basta dividir por 3600 pois uma hora tem 3600 segundos
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <ctime>
+ 
+int main()
+{
+time_t segundos;
+ 
+segundos = time(NULL);
+std::cout << "Segundos desde 1 de janeiro de 1970: " << segundos << "\n";
+std::cout << "Horas desde 1 de janeiro de 1970: " << segundos/3600 << "\n";
+return 0;
+}
+
+Logo podemos obter estes segundos da seguinte forma time(0) ou time(NULL)
+
+Por isso usamos time_t HoraAtual = time(0);
+
+A função localtime () pega um endereço de uma variável do tipo time_t como argumento e retorna um ponteiro de uma estrutura do tipo tm. O valor retornado pela função localtime () é então a data e hora local.
+
+Veja que local time retorna um ponteiro para do tipo struct tm já com os dados da hora e datas atuais
+
+tm* localtime(const time_t* time_pretr);
+Veja que enviamos para a função o endereço de HoraAtual para que ela monte a nossa variável MinhaHora com os dados da data e hora atuais seguindo o modelo da struct tm
+
+tm* MinhaHora = localtime(&HoraAtual);
+
+EM RESEUMO
+
+PRIMEIRO OBTEMOS O NÚMERO DE SEGUNDOS DECORRIDOS DESTE 1970
+
+time_t HoraAtual = time(0);
+
+HoraAtual passa a ter este numero de segundo e esta variável é do tipo time_t
+
+Depois declaramos uma outra variável ponteiro do tipo struct tm de nome Minha hora e iremos atribuir o resultado da chamada da função localtime(&HoraAtual) para esta variável
+
+Já que localtime recebe o endereço de uma variável do tipo time_t ela irá receber &HoraAtual como parâmetro e irá devolver o endereço de uma struct tm criada de acordo com os dados dos segundos passados em HoraAtual... Ou seja localtime é capaz de criar uma struct com todos estes dados de hora, minuto, segundo, ano, mês, etc a partir desta informação.
+
+tm* MinhaHora = localtime(&HoraAtual);
+
+e assim podemos no código usar MinhaHora para saber sobre a data e hora atuais
+
+std::cout << "\nHora: " << MinhaHora->tm_hour << ":" << MinhaHora->tm_min << ":" << MinhaHora->tm_sec;
+
+std::cout << "\nDia: " << MinhaHora->tm_mday;
+
+/*O horário de verão acabou logo não coloque mais 1 +*/
+
+std::cout << "\nMes: " << MinhaHora->tm_mon;
+
+std::cout << "\nAno " << 1900 + MinhaHora->tm_year << "\n";
+
+
+********************************* TYPEDEF   //criado um alias(apelido)
+
+#include <iostream>
+
+//criado um alias(apelido) para int chamado inteiro
+//desta forma quando o código for compilado o pré-processador vai substituir todas as ocorrências de inteiro por int e depois de finalizar tudo isso o pré-processador entrega o código ao compilador
+typedef int inteiro;
+//Idem criar um alias para char de nome caractere, assim você poderá declarar uma variável do tipo char utilizando o nome caractere
+typedef char caractere;
+//O mesmo para float que agora tem um alias real. Importante destacar que você ainda poderá utilizar os tipos clássicos. Isso não é uma substituição...
+typedef float real;
+
+int main()
+{
+	//Aqui é o mesmo que int Numero{12}
+	inteiro Numero{ 12 };
+	caractere Letra{ 'A' };
+	float Nota{ 2.3 };
+	real Media{ 7.0 };
+	std::cout << Numero << "\n";
+	std::cout << Letra << "\n";
+	std::cout << Nota << "\n";
+	std::cout << Media << "\n";
+
+	system("PAUSE");
+	return 0;
+}
+
+******* STRUCT e TYPEDEF
+
+
+#include <iostream>
+
+/*Aqui você criou um alias, um apelido para struct Livro. Este apelido se chama RegistroLivro*/
+//Porém o mais usual é assim
+typedef struct Livro
+{
+	int ID;
+	float Preco;
+	std::string Titulo;
+	std::string Editora;
+} RegistroLivro;   // <--- apelido de struct Livro
+
+//Acima é apenas um atalho um forma de fazer o seguinte
+/*Aqui você criou um alias, um apelido para struct Livro. Este apelido se chama RegistroLivro*/
+//typedef struct Livro RegistroLivro;
+
+//CUIDADO!!!!! isso abaixo criar uma variável!!!     SE TIRAR O TYPEDEF
+//agora RegistroLivro é uma variável!!! criada via forma compactada de criação de variáveis do tipo struct
+
+int main()
+{
+	
+	//Aqui é criada uma variável do tipo struct Livro mas sem usar o alias o apelido criado via typedef
+	//Agora um vetor de Structs
+	struct Livro Aluno01[5];
+
+	//Aqui criamos uma variável do tipo RegistroLivro
+	//Porém RegistroLivro é apenas um apelido uma alias para struct Livro
+	//O pré-processador vai trocar este nome por struct Livro antes da compilação, simples assim...
+	//Porém muitos usam para simplicar o código e digitar menos
+	RegistroLivro Aluno02;
+	//Criamos um ponteiro capaz de apontar para uma variável do tipo RegistroLivro que nada mais é que um alias de struct livro
+	RegistroLivro* Ponteiro;
+	//Agora Ponteiro recebe o endereço do objeto Aluno02;
+	Ponteiro = &Aluno02;
+	
+	//Podemos fazer assim com Ponteiros
+	Ponteiro->ID = 0002;
+	Ponteiro->Preco = 99.99;
+	//Agora acima é com a flecha ->
+	
+	//Aqui é ponto pois o objeto Aluno02 está na stack
+	Aluno02.ID = 0001;
+	Aluno02.Preco = 33.99;
+	Aluno02.Titulo = "Martrix";
+	Aluno02.Editora = "Abril";
+
+	system("PAUSE");
+	return 0;
+}
+
+
+***************************
+
+Usando std::ws para retirar espaços em branco da String
+Para retirar espaços em branco da String use std::ws
+
+Em relação a getline e ws use assim: std::getline(std::cin >> std::ws, SuaString);
+
+O uso de std::cin >> std::wspula os espaços em branco, em particular a nova linha, e continua a leitura onde o conteúdo real é inserido.
+
+Veja exemplo:
+
+#include <iostream>
+#include <string>
+ 
+std::string str1;
+std::string str2;
+ 
+int main() {
+ 
+	std::cout << "Por favor, insira alguns espaços em branco seguidos de uma frase: \n";
+	std::getline(std::cin >> std::ws, str1);
+ 
+	std::cout << "Por favor, insira alguns espaços em branco seguidos de uma frase: \n";
+	std::getline(std::cin >> std::ws, str2);
+ 
+	std::cout << "VC escreveu:" << std::endl << str1 << std::endl << str2 << std::endl;
+ 
+	return 0;
+}
+
+**************************************************
+
+                           HERANÇA
+                           
+**************************************************
+
+Classe Base (Superclasse) , também chamada de classe mãe ou pai. Será herdada.
+Classe Derivada (Subclasse), também chamada de filha. Herdeira.
+
+*****************************************
+Em class deve-se seguir a ordem de public, protected e private quando forem ser utilizadas no mesmo escopo.
+
+*****************************************
+
+#include <iostream>
+
+//Classe Base também chamada de Superclasse, Classe Mãe/Pai
+class Base
+{
+//As seções public, protegida e privada de uma classe devem ser declaradas nesta ordem: A seção public(pública) depois a seção protected(protegida) e depois a seção private(privada)
+//Indica que os membros do objeto criado a partir desta classe terão acesso direto a todos os atributos e funções presentes na seção public
+public:
+	void SolicitarNumeros()
+	{
+		std::cout << "Num1: ";
+		std::cin >> Num1;
+		std::cout << "Num2: ";
+		std::cin >> Num2;
+		//Chamada do método privado da classe dentro da própria classe o que é permitido
+		/*Ou seja não é necessário ter todos os metodos públicos. Neste caso apenas SolicitarNumeros é público e isso basta, pois este método irá chamar os demais métodos privados da classe*/
+		MostrarResultado(Num1, Num2);
+	}
+//Aqui indica que os membros da seção privada só serão acessíveis dentro do código da classe. O objeto não poderá acessar diretamente estes itens atributos e funções
+private:
+	float Num1, Num2;
+	float Soma(int Num1, int Num2)
+	{
+		return (Num1 + Num2);
+	}
+
+	//Veja que este método só poderá ser chamado(invocado) dentro do c´pdigo da classe
+	void MostrarResultado(int Num1, int Num2)
+	{
+		std::cout << "Soma de: " << Num1 << " + " << Num2 << " = " << Soma(Num1, Num2) << "\n";
+	}
+
+};
+
+//Agora declaramos uma classe que herda da classe Base, porém ela não tem nada está vazia
+//A classe derivada também é chamada de subclasse, classe filha/filho
+class Derivada :public Base{};
+
+int main()
+{
+	
+	//Criamos um objeto a partir da classe Derivada
+	Derivada Obj;
+	Obj.SolicitarNumeros();
+	/*Isso indica que uma classe herda tudo de sua classe Base(Superclasse) mas NÃO HERDA
+	OS ITENS PRIVADOS(PRIVATE) DA SUPERCLASSE(CLASSE BASE)*/
+	system("PAUSE");
+
+	return 0;
+}
+
+
+******************************************
+Aqui será uma sequência de várias abas na IDE, então se atentar a poucos ****, indicará outro arquivo.
+https://github.com/professormarcosp/AprendaCParaGamesUE4/tree/master/Heranca/ImportanciaDaHerancaParte1
+
+
+Fazem parte do mesmo pacote, criando um conjunto de funções.
+
+****
+
+Aluno.cpp
+
+#include "Aluno.h"
+
+void Aluno::RealizarProva()
+{
+	std::cout << "Prova Realizada\n";
+}
+
+****
+
+Aluno.h
+
+#pragma once
+#include "Pessoa.h"
+class Aluno:public Pessoa
+{
+public:
+
+	std::string Curso;
+	Aluno(){}
+	Aluno(std::string NovoNome, int NovoCPF, int NovaMatricula, std::string NovoCurso) : Pessoa(NovoNome, NovoCPF, NovaMatricula), Curso(NovoCurso) {}
+	void RealizarProva();
+};
+
+****
+
+Bibliotecario.cpp
+
+#include "Bibliotecario.h"
+
+void Bibliotecario::CadastrarLivros()
+{
+	std::cout << "Livros Cadastrados!\n";
+}
+
+****
+
+Bibliotecario.h
+
+#pragma once
+#include "Pessoa.h"
+class Bibliotecario :public Pessoa
+{
+public:
+	Bibliotecario() {}
+	Bibliotecario(std::string NovoNome, int NovoCPF, int NovaMatricula) : Pessoa(NovoNome, NovoCPF, NovaMatricula){}
+	void CadastrarLivros();
+};
+
+****
+
+CriaPessoa.cpp
+
+#include <iostream>
+#include "Professor.h"
+#include "Aluno.h"
+#include "Bibliotecario.h"
+
+int main()
+{
+	Professor Marcos("Pacheco", 123456,987654, "Udemy");
+	Aluno Luke("Skywalker", 888888, 999999, "Jedi");
+	Bibliotecario ObiWan("Kenobi", 11111, 22222);
+
+	//Agora funciona pois Nome está Public
+	/*Marcos.Nome = "Pacheco";
+	Luke.Nome = "Skywalker";
+	ObiWan.Nome = "Kenobi";*/ 
+	
+	system("PAUSE");
+	return 0;
+}
+
+****
+
+Pessoa.cpp
+
+#include "Pessoa.h"
+
+void Pessoa::AcessarSistema()
+{
+	std::cout << "****Acesso ao sistema concedido****";
+}
+
+****
+
+Pessoa.h
+
+#pragma once
+
+#include <iostream>
+
+//Quando você não indica a visibilidade o encapsulamento
+//por padrão em uma classe ele será private
+class Pessoa
+{
+public: 
+	std::string Nome;
+	int CPF;
+	int Matricula;
+
+	//Interessante Criar Construtores
+	//Aqui o construtor padrão já pode receber valores padrões desta forma
+	Pessoa() :Nome(""), CPF(0), Matricula(0) {}
+	//Agora um construtor com parâmetros
+
+	Pessoa(std::string NovoNome, int NovoCPF, int NovaMatricula):Nome(NovoNome), CPF(NovoCPF), Matricula(NovaMatricula){}
+
+	void AcessarSistema();
+};
+
+
+****
+
+Professor.cpp
+
+ lines (9 sloc)  179 Bytes
+   
+#include "Professor.h"
+
+void Professor::EfetuarChamada()
+{
+	std::cout << "Chamada Efetuada\n";
+}
+
+void Professor::EntregarPauta()
+{
+	std::cout << "Pauta Entregue\n";
+}
+
+****
+
+Professor.h
+
+#pragma once
+#include "Pessoa.h"
+class Professor : public Pessoa
+{
+public: 
+	std::string Departamento;
+	Professor(){} // Construtor Vazio
+	//Estes são os parâmetros que o construtor de professor poderá receber
+	Professor(std::string NovoNome, int NovoCPF, int NovaMatricula, std::string NovoDepartamento): Pessoa(NovoNome, NovoCPF, NovaMatricula), Departamento(NovoDepartamento){}
+	/*Acima estamos chamando o construtor da classe Base(superclasse para iniciar os parâmetros do objeto professor*/
+
+	void EfetuarChamada();
+	void EntregarPauta();
+};
+
+
+***********************************************
+https://github.com/professormarcosp/AprendaCParaGamesUE4/tree/master/Heranca
+
+https://github.com/professormarcosp/AprendaCParaGamesUE4/tree/master/Heranca/NovosCodigos
+
+***********************************************
+
+
+
+
+***********************                  THIS                 ****************
+Aluno.cpp
+
+
+#include "Aluno.h"
+
+void Aluno::RealizarProva()
+{
+	std::cout << "Prova Realizada" << "\n";
+}
+
+std::string Aluno::GetCurso()
+{
+	return Curso;
+}
+
+void Aluno::SetCurso(std::string Curso)
+{
+	this->Curso = Curso;
+}
+
+void Aluno::MostrarDados()
+{
+	Pessoa::MostrarDados();
+	std::cout << "Curso: " << GetCurso() << "\n";
+}
+
+
+****
+Pessoa.cpp
+
+
+#include "Pessoa.h"
+
+void Pessoa::AcessarSistema()
+{
+	std::cout << "****Acesso ao Sistema****" << "\n";
+}
+
+std::string Pessoa::GetNome()
+{
+	return Nome;
+}
+
+int Pessoa::GetCPF()
+{
+	return CPF;
+}
+
+int Pessoa::GetMatricula()
+{
+	return Matricula;
+}
+
+void Pessoa::SetNome(std::string Nome)
+{
+	this->Nome = Nome;
+}
+
+void Pessoa::SetCPF(int CPF)
+{
+	this->CPF = CPF;
+}
+
+void Pessoa::SetMatricula(int Matricula)
+{
+	this->Matricula = Matricula;
+}
+
+void Pessoa::MostrarDados()
+{
+	std::cout << "\n****DADOS****" << "\n";
+	std::cout << "Nome: " << GetNome() << "\n";
+	std::cout << "CPF: " << GetCPF() << "\n";
+	std::cout << "Matricula: " << GetMatricula() << "\n";
+	   	 
+}
+
+****
+Aluno.h
+
+
+#pragma once
+#include "Pessoa.h"
+class Aluno : public Pessoa
+{
+private:
+	std::string Curso;
+
+public:
+	Aluno() {}
+	Aluno(std::string Nome, int CPF, int Matricula,std::string Curso):Pessoa(Nome, CPF, Matricula), Curso(Curso) {}
+	void RealizarProva();
+	std::string GetCurso();
+	void SetCurso(std::string Curso);
+	void MostrarDados();
+
+};
+
+
+****
+Bibliotecario.cpp
+
+#include "Bibliotecario.h"
+
+void Bibliotecario::CadastrarLivros()
+{
+	std::cout << "Livros Cadastrados" << "\n";
+}
+
+void Bibliotecario::MostrarDados()
+{
+	Pessoa::MostrarDados();
+}
+
+****
+Bibliotecario.h
+
+#pragma once
+#include "Pessoa.h"
+class Bibliotecario : public Pessoa
+{
+public:
+	Bibliotecario() {}
+	Bibliotecario(std::string Nome, int CPF, int Matricula) :Pessoa(Nome, CPF, Matricula){}
+	void CadastrarLivros();
+	void MostrarDados();
+};
+
+****
+CriarPessoas.cpp
+
+#include <iostream>
+#include "Pessoa.h"
+#include "Professor.h"
+#include "Aluno.h"
+#include "Bibliotecario.h"
+
+int main()
+{
+	Professor Marcos("Pacheco",123456,987654,"Udemy");
+	Aluno Luke("Skywalker", 888888, 999999, "Jedi");
+	Bibliotecario ObiWan("Kenobi", 11111, 22222);
+
+	Marcos.MostrarDados();
+	Luke.MostrarDados();
+	ObiWan.MostrarDados();
+	
+	system("PAUSE");
+	return 0;
+}
+
+****
+Pessoa.h
+
+#pragma once
+#include <iostream>
+
+class Pessoa
+{
+private: 
+	std::string Nome;
+	int CPF;
+	int Matricula;
+
+public:
+	Pessoa ():Nome(""), CPF(0), Matricula(0){}
+	Pessoa(std::string Nome, int CPF, int Matricula):Nome(Nome), CPF(CPF), Matricula(Matricula){}
+
+	void AcessarSistema();
+	std::string GetNome();
+	int GetCPF();
+	int GetMatricula();
+	void SetNome(std::string Nome);
+	void SetCPF(int CPF);
+	void SetMatricula(int Matricula);
+	void MostrarDados();
+
+};
+
+
+****
+Professor.cpp
+
+#include "Professor.h"
+
+void Professor::EfetuarChamada()
+{
+	std::cout << "Chamada Efetuada" << "\n";
+}
+
+void Professor::EntregarPauta()
+{
+	std::cout << "Pauta Entregue" << "\n";
+}
+
+std::string Professor::GetDepartamento()
+{
+	return Departamento;
+}
+
+void Professor::SetDepartamento(std::string Deparamento)
+{
+	this->Departamento = Deparamento;
+}
+
+void Professor::MostrarDados()
+{
+	Pessoa::MostrarDados();
+	std::cout << "Departamento: " << GetDepartamento() << "\n";
+}
+
+
+****
+Professor.h
+
+#pragma once
+#include "Pessoa.h"
+class Professor : public Pessoa
+{
+private:
+	std::string Departamento;
+
+public:
+	Professor(){}
+	Professor(std::string Nome, int CPF, int Matricula, std::string Departamento) : Pessoa(Nome, CPF, Matricula), Departamento(Departamento) {}
+	void EfetuarChamada();
+	void EntregarPauta();
+	std::string GetDepartamento();
+	void SetDepartamento(std::string Departamento);
+	void MostrarDados();
+};
+
+
+*******************************************************8
+
+
+CONCEITO DE HERANÇA
+
+
+
+#include <iostream>
+
+//Classe Base também chamada de Superclasse, Classe Mãe/Pai
+class Base
+{
+//As seções public, protegida e privada de uma classe devem ser declaradas nesta ordem: A seção public(pública) depois a seção protected(protegida) e depois a seção private(privada)
+//Indica que os membros do objeto criado a partir desta classe terão acesso direto a todos os atributos e funções presentes na seção public
+public:
+	void SolicitarNumeros()
+	{
+		std::cout << "Num1: ";
+		std::cin >> Num1;
+		std::cout << "Num2: ";
+		std::cin >> Num2;
+		//Chamada do método privado da classe dentro da própria classe o que é permitido
+		/*Ou seja não é necessário ter todos os metodos públicos. Neste caso apenas SolicitarNumeros é público e isso basta, pois este método irá chamar os demais métodos privados da classe*/
+		MostrarResultado(Num1, Num2);
+	}
+//Aqui indica que os membros da seção privada só serão acessíveis dentro do código da classe. O objeto não poderá acessar diretamente estes itens atributos e funções
+private:
+	float Num1, Num2;
+	float Soma(int Num1, int Num2)
+	{
+		return (Num1 + Num2);
+	}
+
+	//Veja que este método só poderá ser chamado(invocado) dentro do c´pdigo da classe
+	void MostrarResultado(int Num1, int Num2)
+	{
+		std::cout << "Soma de: " << Num1 << " + " << Num2 << " = " << Soma(Num1, Num2) << "\n";
+	}
+
+};
+
+//Agora declaramos uma classe que herda da classe Base, porém ela não tem nada está vazia
+//A classe derivada também é chamada de subclasse, classe filha/filho
+class Derivada :public Base{};
+
+int main()
+{
+	
+	//Criamos um objeto a partir da classe Derivada
+	Derivada Obj;
+	Obj.SolicitarNumeros();
+	/*Isso indica que uma classe herda tudo de sua classe Base(Superclasse) mas NÃO HERDA
+	OS ITENS PRIVADOS(PRIVATE) DA SUPERCLASSE(CLASSE BASE)*/
+	system("PAUSE");
+
+	return 0;
+}
+
+**************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
