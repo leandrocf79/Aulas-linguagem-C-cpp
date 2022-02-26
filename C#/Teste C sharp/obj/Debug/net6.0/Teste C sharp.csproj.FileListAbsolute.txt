@@ -1,0 +1,15 @@
+D:\Projeto C#\Nova pasta\Teste C sharp\bin\Debug\net6.0\Teste C sharp.exe
+D:\Projeto C#\Nova pasta\Teste C sharp\bin\Debug\net6.0\Teste C sharp.deps.json
+D:\Projeto C#\Nova pasta\Teste C sharp\bin\Debug\net6.0\Teste C sharp.runtimeconfig.json
+D:\Projeto C#\Nova pasta\Teste C sharp\bin\Debug\net6.0\Teste C sharp.dll
+D:\Projeto C#\Nova pasta\Teste C sharp\bin\Debug\net6.0\ref\Teste C sharp.dll
+D:\Projeto C#\Nova pasta\Teste C sharp\bin\Debug\net6.0\Teste C sharp.pdb
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\Teste C sharp.csproj.AssemblyReference.cache
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\Teste C sharp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\Teste C sharp.AssemblyInfoInputs.cache
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\Teste C sharp.AssemblyInfo.cs
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\Teste C sharp.csproj.CoreCompileInputs.cache
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\Teste C sharp.dll
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\ref\Teste C sharp.dll
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\Teste C sharp.pdb
+D:\Projeto C#\Nova pasta\Teste C sharp\obj\Debug\net6.0\Teste C sharp.genruntimeconfig.cache
