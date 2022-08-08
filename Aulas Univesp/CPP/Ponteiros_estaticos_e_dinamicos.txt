@@ -1,0 +1,13 @@
+Vale a pena ver ponteiros estáticos e dinâmicos
+pasta 1 e 2
+
+Sempre que usar new também usar delete para desalocar
+
+Alocar e desalocar vetores.
+
+int* c = new int[num_elementos];
+delete [] c;
+
+
+
+vetores alocados dinamicamente são vistos como ponteiros, enquanto que vetores alocados estaticamente são uma variável de tipo convencional. Por isso, vetores dinâmicos são passados para funções por referência e vetores estáticos são passados para as funções por valor
