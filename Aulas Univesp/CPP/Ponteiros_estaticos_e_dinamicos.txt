@@ -10,4 +10,18 @@ delete [] c;
 
 
 
-vetores alocados dinamicamente são vistos como ponteiros, enquanto que vetores alocados estaticamente são uma variável de tipo convencional. Por isso, vetores dinâmicos são passados para funções por referência e vetores estáticos são passados para as funções por valor
+Vetores alocados dinamicamente são vistos como ponteiros, enquanto que vetores alocados estaticamente são uma variável de
+ tipo convencional. Por isso, vetores dinâmicos são passados para funções por referência e vetores estáticos são 
+passados para as funções por valor.
+
+
+int c[10];  neste caso a variável "c" é um ponteiro de um vetor.
+
+
+
+
+
+
+
+
+
