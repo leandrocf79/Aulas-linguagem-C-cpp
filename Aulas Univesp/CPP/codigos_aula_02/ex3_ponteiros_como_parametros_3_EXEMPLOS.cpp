@@ -4,20 +4,20 @@ using namespace std;
 
 void valor_alocando_memoria(int* p)  //Ponteiro por valor
 {
-  p = new int; // Aqui vai chamar para outra regi„o de memÛria. NADA MUDA FORA DA FUN«√O. Esse efeito È somente aqui dentro.
+  p = new int; // Aqui vai chamar para outra regi√£o de mem√≥ria. NADA MUDA FORA DA FUN√á√ÉO. Esse efeito √© somente aqui dentro.
   *p = 7; 
 }
 
 
 void valor_modificando_memoria(int* p)  //Ponteiro por valor 
 {
-  *p = 8;  // Trocando valor do ponteiro na mesma regi„o de memÛria.
+  *p = 8;  // Trocando valor do ponteiro na mesma regi√£o de mem√≥ria.
 }
 
 
-void referencia(int*& p)  // Ponteiro por referÍncia.
+void referencia(int*& p)  // Ponteiro por refer√™ncia.
 {
-  p = new int; // Aqui vai chamar para outra regi„o de memÛria. POR REFER NCIA, FORA DA FUN«√O, O PONTEIRO QUE CHAMOU TAMB…M VAI APONTAR PARA O NOVO VALOR.
+  p = new int; // Aqui vai chamar para outra regi√£o de mem√≥ria. POR REFER√äNCIA, FORA DA FUN√á√ÉO, O PONTEIRO QUE CHAMOU TAMB√âM VAI APONTAR PARA O NOVO VALOR.
   *p = 9;
 }
 
@@ -30,18 +30,19 @@ int main()
   int* p2 = &b;
   int* p3 = &c;
 
-  cout <<"Antes: "<<  p1 <<" "<<  p2 <<" "<<  p3 << endl;
-  cout <<"Antes: "<< *p1 <<" "<< *p2 <<" "<< *p3 << endl;
+  cout <<"Antes : "<<  p1 <<" "<<  p2 <<" "<<  p3 << endl;
+  cout <<"Antes *: "<< *p1 <<" "<< *p2 <<" "<< *p3 << endl;
   cout << endl;
   
+  // INSTANCIANDO
   valor_alocando_memoria(p1); 
   valor_modificando_memoria(p2);
   referencia(p3);  
 
-  std::cout <<"Observe os valores modificados e se houve mudanÁa na regi„o, endereÁo de memÛria. 
+  std::cout <<"Observe os valores modificados e se houve mudan√ßa na regi√£o, endere√ßo de mem√≥ria.\n"<<endl;  
   cout << "Depois: "<<  p1 <<" "<<  p2 <<" "<<  p3 << endl;
-  cout << "Depois: "<< *p1 <<" "<< *p2 <<" "<< *p3 << endl;
-  cout << "Depois: "<< a <<" "<< b <<" "<< c << endl;
+  cout << "Depois : "<< a <<" "<< b <<" "<< c << endl;
+  cout << "Depois *:"<< *p1 <<" "<< *p2 <<" "<< *p3 << endl;
 
   return 0;
 }
