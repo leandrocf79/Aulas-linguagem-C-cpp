@@ -994,6 +994,83 @@ Obs: Apesar de parecer uma simples simplificação estes comandos são important
 
 
 
+	
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int total = 0;
+int array[8] = {2, 4, 1, 7, 8, 3, 5, 10};
+
+for (int i = 0; i < 8; i++) {
+  if (array[i] <= 5) {
+    total = total + array[i];
+  }
+}
+cout<<total;
+   
+return 0;
+}
+	
+	
+	
+-----------------
+#include <iostream>
+using namespace std;
+
+int main() {
+
+
+int array [10]= {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int i=0;
+
+for ( i = 0; i < 10; i++) {
+  if (array[i] % 2 == 1) {
+    array[i] = array[i] + 1;
+    
+    
+  }cout<<array[i]<<","; 
+  
+}
+
+  return 0;
+}
+
+------------------------------
+	
+#include <iostream>
+using namespace std;
+int main() {
+
+int matriz[3][3] = {{1, 4, 7},  {2, 5, 8},{3, 6, 9}};
+	
+int i=0;
+int j=0;
+  for ( i = 0; i < 3; i++) {
+    for ( j = 0; j < 3; j++) {
+      if (i > j) {
+        matriz[i][j] = 1;
+      } else {
+        matriz[i][j] = 0;
+      }
+      cout<<matriz[i][j];
+    }cout<<"\n";
+
+}
+
+
+  return 0;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 ************************
 
