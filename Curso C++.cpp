@@ -405,6 +405,34 @@ int main()
 
 
 
+
+// definir limite de dígitos
+
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char const *argv[])
+{
+	char nome[40];
+	char endereco[50];
+	char telefone[15];
+	
+	printf("Digite seu nome: \n");
+	fgets(nome, 40, stdin);
+	
+	printf("Digite seu endereço: \n");
+	fgets(endereco, 50, stdin);
+	
+	printf("Digite seu telefone: \n");
+	fgets(telefone, 15, stdin);
+	
+	printf("Nome: %s\nEndereço: %s\nTelefone: %s", nome, endereco, telefone);
+	return 0;
+}
+
+
+
+
 Para receber múltiplas entradas com std::cin basta colocar as entradas separadas com >>
 
 Veja exemplo a seguir que consegue receber quatro números em uma única linha de std::cin
