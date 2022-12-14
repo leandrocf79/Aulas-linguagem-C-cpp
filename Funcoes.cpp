@@ -1,3 +1,5 @@
+Linguagem C
+
 #include <stdio.h>
 
 int fibonacci(int n) {
@@ -14,7 +16,55 @@ int main() {
 
 
 __________________________________
+Linguagem C++
+	
+#include <iostream>
 
+int fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n-1) + fibonacci(n-2);
+}
+
+int main() {
+    int n = 10;
+    std::cout << "Fibonacci number at position " << n << " is " << fibonacci(n) << std::endl;
+    return 0;
+}
+
+
+_________________________________
+	
+Liguagem C#
+
+using System;
+
+class Program
+{
+    static int fibonacci(int n)
+    {
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    static void Main(string[] args)
+    {
+        int n = 10;
+        Console.WriteLine("Fibonacci number at position {0} is {1}", n, fibonacci(n));
+    }
+}
+
+
+	
+	
+_______________________________________
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 #include <iostream>
