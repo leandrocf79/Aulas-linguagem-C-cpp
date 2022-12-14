@@ -1,34 +1,53 @@
+#include <stdio.h>
+
+int fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n-1) + fibonacci(n-2);
+}
+
+int main() {
+    int n = 10;
+    printf("Fibonacci number at position %d is %d\n", n, fibonacci(n));
+    return 0;
+}
+
+
+
+__________________________________
+
+
+
 #include <iostream>
 #include <locale.h>
 #include <cmath> // para usar Raiz quadrada, sqrt(), e potencia, pow(2, 3) --> 2**3 
 
-//FUNÇÕES: Iniciar com letra maiuscula por padrão.
+//FUNÃ‡Ã•ES: Iniciar com letra maiuscula por padrÃ£o.
 float Soma(float num1, float num2);
 float Subtracao(float num1, float num2);
 double Divisao(double num1, double num2);
 float Multiplicacao(float num1, float num2);
 float Media(float num1, float num2);
 double Potencia(double num1, double num2);
-float RaizQuadrada(float num1); // <--- unico número
+float RaizQuadrada(float num1); // <--- unico nÃºmero
 float RaizQuadrada2(float num2);
 
 int main(){
 	setlocale(LC_ALL, "portuguese");
 	float Num01, Num02;
-	std::cout<<"Digite o primero número: ";
+	std::cout<<"Digite o primero nÃºmero: ";
 	std::cin>>Num01;
 	
-	std::cout<<"\n\nDigite o segundo número: ";
+	std::cout<<"\n\nDigite o segundo nÃºmero: ";
 	std::cin>>Num02;
 
 	std::cout<< "\n\nSoma: "<<Soma(Num01, Num02);
-	std::cout<< "\nSubtração: "<<Subtracao(Num01, Num02);
-	std::cout<< "\nDivisão: " <<Divisao(Num01, Num02);
-	std::cout<< "\nMultiplicação: "<<Multiplicacao(Num01, Num02);
-	std::cout<< "\nMédia: "<<Media(Num01, Num02);
-	std::cout<< "\nPotenciação: "<<Potencia(Num01, Num02);
-	std::cout<< "\nRaiz Quadrada do primeiro número: "<<RaizQuadrada(Num01);
-	std::cout<< "\nRaiz Quadrada do segundo número: " <<RaizQuadrada2(Num02)<<"\n";
+	std::cout<< "\nSubtraÃ§Ã£o: "<<Subtracao(Num01, Num02);
+	std::cout<< "\nDivisÃ£o: " <<Divisao(Num01, Num02);
+	std::cout<< "\nMultiplicaÃ§Ã£o: "<<Multiplicacao(Num01, Num02);
+	std::cout<< "\nMÃ©dia: "<<Media(Num01, Num02);
+	std::cout<< "\nPotenciaÃ§Ã£o: "<<Potencia(Num01, Num02);
+	std::cout<< "\nRaiz Quadrada do primeiro nÃºmero: "<<RaizQuadrada(Num01);
+	std::cout<< "\nRaiz Quadrada do segundo nÃºmero: " <<RaizQuadrada2(Num02)<<"\n";
 	std::cout<<std::endl;
 system("PAUSE");
 return 0;
