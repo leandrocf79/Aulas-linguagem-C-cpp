@@ -23,3 +23,41 @@ int main(int argc, char** argv) {
 	
 return 0;
 }
+
+
+//Melhorar, fica assim:
+
+#include <iostream>
+
+float calcularMassa(float a, float b) {
+  // Valor constante
+  const float mA = 321.43;
+  const float mB = 150.72;
+
+  return (a * mA) + (b * mB);
+}
+
+int main(int argc, char** argv) {
+  // Declare as variáveis
+  float a = 0, b = 0, resultado = 0;
+
+  // Imprima o título do programa
+  std::cout << "\tCALCULAR MASSA\n\n";
+
+  // Pergunte ao usuário pelos dois valores
+  std::cout << "Entre com os 2 valores: ";
+  std::cin >> a >> b;
+
+  // Calcula a massa e imprime o resultado para cada par de valores
+  for (int i = 1; i <= 2; i++) {
+    resultado = calcularMassa(a, b);
+    std::cout << "\nValores " << a << ", " << b << "\t: " << resultado;
+
+    // Atualiza os valores para a próxima iteração do loop
+    a += 0.2;
+    b -= 0.2;
+  }
+
+  return 0;
+}
+
